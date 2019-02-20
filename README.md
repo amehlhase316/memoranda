@@ -19,3 +19,17 @@ After that go back to the initial version and start your SCRUM process and docum
 Good luck and have fun!
 
 Dr. Mehlhase
+
+My personal todo list for the project
+
+<MyName>
+- [x] Download and install Git
+- [ ] You have a GitHub account with a username that we can map to your real name
+- [ ] Filled out the individual survey for group forming
+- [ ] Received a Taiga invite
+- [ ] Accepted the Taiga invite
+- [ ] Did you check on Slack and/or Canvas for your group
+- [ ] Contacted your team members
+- [ ] Read the kickoff document
+- [ ] Understood the kickoff document
+- [ ] Understand how to get started and what the next steps in your project are
