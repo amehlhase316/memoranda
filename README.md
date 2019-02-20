@@ -43,3 +43,6 @@ My personal todo list for the project
 - [ ] Understood the kickoff document
 
 - [ ] Understand how to get started and what the next steps in your project are
+
+- [ ] Made an initial commit on your teams README
+
