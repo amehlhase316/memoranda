@@ -8,41 +8,15 @@ Memoranda is a project that has largely been dormant since 2007, so why are we u
 
 In the docs directory is an initial set of analysis models - class diagrams and sequence diagrams in UML, that a previous team did as part of their solution process. These were included only in the event that you may want to use these as a head start on your design and implementation work. You are absolutely not required to use or implement anything in the analysis document!
 
-Your first step should be to clone the github repository (easiest way is to clone directly into your Eclipse Workspace folder). You can watch the short video on how to clone and run Memoranda: <tbd>.
+Your first step should be to clone the github repository (easiest way is to clone directly into your Eclipse Workspace folder). You can watch the short video on how to clone and run Memoranda: https://youtu.be/mNPek5NABpI.
 
 You should then be able to run the project. The included Gradle script and Wrapper should work. You should be able to use "gradle run" in the command line to run Memorande through Gradle. In due course you will need to add things to the Gradle file (eg. add Unit Test).
 
-Start of with changing little things to get to know Memoranda (before the project starts). 
+Start of with changing little things to get to know Memoranda (before the project starts) and just play around. 
 
 After that go back to the initial version and start your SCRUM process and document all changes through GitHub and Taiga (like I said, if it isn’t in GitHub/taiga it does not count).
 
 Good luck and have fun!
 
 Dr. Mehlhase
-
-My personal todo list for the project
-
-<MyName>
-  
-- [x] Download and install Git
-  
-- [ ] You have a GitHub account with a username that we can map to your real name
-
-- [ ] Filled out the individual survey for group forming
-
-- [ ] Received a Taiga invite
-
-- [ ] Accepted the Taiga invite
-
-- [ ] Did you check on Slack and/or Canvas for your group
-
-- [ ] Contacted your team members
-
-- [ ] Read the kickoff document
-
-- [ ] Understood the kickoff document
-
-- [ ] Understand how to get started and what the next steps in your project are
-
-- [ ] Made an initial commit on your teams README
 
