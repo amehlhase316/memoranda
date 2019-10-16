@@ -20,6 +20,8 @@ For each of you individually copy the checklist and check them of if it is done.
 
 - [ ] Did you understand the kickoff document
 
+- [ ] Did you make your three changes to the Memoranda software
+
 - [ ] Did you read the DeliverableX.md document and understand it (if you do not understand ask your team or me)
 
 - [ ] Did you read the QualityPolicy.md doument and understand it (if you do not understand ask your team or me)
