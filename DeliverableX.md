@@ -10,6 +10,7 @@
 **Git Master**: Name
 
 ### Sprint Planning
+Document your Sprint Planning here. Also check the kickoff document for more details on what needs to be done. This is just the documentation. 
 
 **Sprint Goal:** Your Sprint goal
 
