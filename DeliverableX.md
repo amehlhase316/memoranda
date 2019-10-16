@@ -3,6 +3,8 @@
 
 ## 1: Basic Information (needed before you start with your Sprint -- Sprint Planning)
 
+**Topic you chose:**
+
 **Sprint Number:** Nr
 
 **Scrum Master**: Name
