@@ -146,7 +146,7 @@ I would also advise you to already fill out the Contributions section (End of sp
 - [ ] Filled out the complete form from above, all fields are filled and written in full sentences
 - [ ] Read the kickoff again to make sure you have all the details
 - [ ] User Stories that were not completed, were left in the Sprint and a copy created
-
+- [ ] Your Quality Policies are accurate and up to date
 - [ ] **Individual** Survey was submitted **individually** (create checkboxes below -- see Canvas to get link)
   - [ ] Team member 1
   - [ ] Team member 2
