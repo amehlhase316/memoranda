@@ -26,4 +26,4 @@ For each of you individually copy the checklist and check them of if it is done.
 
 - [ ] Did you read the QualityPolicy.md doument and understand it (if you do not understand ask your team or me)
 
-- [ ] Understand how to get started and what the next steps in your project are based on the kickoff document and what you learned about Scrum and GitHuB
+- [ ] You understand how to get started and what the next steps in my project are based on the kickoff document and what you learned about Scrum and GitHub (if you do not, ask on Slack until you do and can check this)
