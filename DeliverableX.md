@@ -21,10 +21,6 @@ Document your Sprint Planning here. Also check the kickoff document for more det
 **How many User Stories did you add to this Sprint:** 
 > Answer the questions below about your Sprint Planning?
 
-**How many User Stories did you add?**
-
-> Your Answer
-
 **Why did you add exactly these US?**
 
 > Your Answer
