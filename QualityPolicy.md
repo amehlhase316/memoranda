@@ -1,16 +1,16 @@
 ### Quality Policy
 > Describe your Quality Policy in detail for this Sprint (remember what I ask you to do when I talk about the "In your Project" part in the lectures and what is mentioned after each assignment (in due course you will need to fill out all of them, check which ones are needed for each Deliverable). You should keep adding things to this file and adjusting your policy as you go.
 
-**GitHub Workflow** (due Feb 2nd)
+**GitHub Workflow** (due Mar 27th)
   > Your Workflow
 
 **Unit Tests Blackbox** (due start Sprint 2)
   > Your Blackbox testing policy 
 
- **Unit Tests Whitebox** (due Feb 25th)
+ **Unit Tests Whitebox** (due start Sprint 2)
   > Your Whitebox testing policy 
 
-**Code Review** (due Feb 25th)
+**Code Review** (due start Sprint 2)
   > Your Code Review policy   
 
   > Include a checklist/questions list which every developer will need to fill out/answe when creating a Pull Request to the Dev branch. 
