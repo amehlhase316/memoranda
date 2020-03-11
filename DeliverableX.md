@@ -1,5 +1,5 @@
 # Deliverable Information
-   > Please include your answers below in a good format so it is easy for me to see. For answers to questions please use these Blockquotes. Make sure you also check the kickoff document for more details.
+   > Please include your answers below in a good format so it is easy for me to see. For answers to questions please use these Blockquotes. Make sure you also check the kickoff document for more details. Also make sure this thing is well formatted and the links are links in here. 
 
 ## 1: Basic Information (needed before you start with your Sprint -- Sprint Planning)
 
@@ -11,7 +11,7 @@
 
 **Git Master**: Name
 
-### Sprint Planning (For Sprint 1-4)
+### Sprint Planning (For Sprint 1-3)
 Document your Sprint Planning here. Also check the kickoff document for more details on what needs to be done. This is just the documentation. 
 
 **Sprint Goal:** Your Sprint goal
@@ -40,9 +40,9 @@ Document your Sprint Planning here. Also check the kickoff document for more det
 I would also advise you to already fill out the Contributions section (End of sprint) as you go, to create less work at the end.
 
 ### Meeting minutes of your Daily Scrums (3 per week, should not take longer than 10 minutes):
-> Add as many rows as needed and fill out the table. (Burndown starts with Sprint 2 and Travis CI starts with Sprint 3, not needed before that)
+> Add as many rows as needed and fill out the table. (Burndown starts with Sprint 2 and Travis CI starts with Sprint 3, not needed before that). 
 
-| Date  | Attendees  |Minutes   | Burndown Info | TravisCI info | Additional Info  |
+| Date  | Attendees  |Meeting notes (short overview)   | Burndown Info (on track, ahead, behind is enough) | TravisCI info | Additional Info  |
 |---|---|---|---|--|--|
 |   |   |   |   |  |  |
 |   |   |   |   |  |  |
@@ -113,7 +113,7 @@ I would also advise you to already fill out the Contributions section (End of sp
 
 > In this section I want you to point me to your main contributions (each of you individually). Some of the topcs are not needed for the first deliverables (you should know which things you should have done in this Sprint, if you don't then you have probably missed something):
 
-#### Team member A:
+#### Team member A -- replace this with your name:
   **Links to GitHub commits with main code contribution (up to 5 links):
 
     - link1
