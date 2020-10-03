@@ -42,7 +42,7 @@ I would also advise you to already fill out the Contributions section (End of sp
 ### Meeting minutes of your Daily Scrums (3 per week, should not take longer than 10 minutes):
 > Add as many rows as needed and fill out the table. (Burndown starts with Sprint 2 and Travis CI starts with Sprint 3, not needed before that). 
 
-| Date  | Attendees  |Meeting notes (short overview)   | Burndown Info (on track, ahead, behind is enough) | TravisCI info | Additional Info  |
+| Date  | Attendees  |Meeting notes (very brief)   | Burndown Info (on track, ahead behind is enough) | TravisCI info (does the master pass) | Additional Info  |
 |---|---|---|---|--|--|
 |   |   |   |   |  |  |
 |   |   |   |   |  |  |
@@ -60,6 +60,7 @@ I would also advise you to already fill out the Contributions section (End of sp
 ## 3: After the Sprint
 
 ### Sprint Review
+Answer as a team!
 
 **Screen Cast link**: Your link
 
