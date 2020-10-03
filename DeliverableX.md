@@ -25,7 +25,7 @@ Document your Sprint Planning here. Also check the kickoff document for more det
 
 > Your Answer
 
-**Why do you think you will get them done? (details)**
+**Why do you think these fit well with your Sprint goal? (details)**
 
 > Your Answer
 
