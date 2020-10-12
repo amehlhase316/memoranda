@@ -3,7 +3,7 @@
 
 ## 1: Basic Information (needed before you start with your Sprint -- Sprint Planning)
 
-**Topic you chose:**
+**Topic you chose:** topic name
 
 **Sprint Number:** Nr
 
@@ -21,7 +21,7 @@ Document your Sprint Planning here. Also check the kickoff document for more det
 **How many User Stories did you add to this Sprint:** 
 > Answer the questions below about your Sprint Planning?
 
-**Why did you add exactly these US?**
+**Why did you add these US, why do you think you can get them done in the next Sprint?**
 
 > Your Answer
 
@@ -50,7 +50,7 @@ I would also advise you to already fill out the Contributions section (End of sp
 
 ### Meeting Summary:
 
-> Add rows as needed and add the number how many meetings they attended:
+> Add rows as needed and add the number how many meetings for each team member:
 
    Name1 : Num Meetings
 
@@ -77,6 +77,7 @@ Answer as a team!
 **Would you say you met the customers’ expectations? Why, why not?**
 
 > Your Answer
+
 
 ### Sprint Retrospective
 
@@ -115,22 +116,22 @@ Answer as a team!
 > In this section I want you to point me to your main contributions (each of you individually). Some of the topcs are not needed for the first deliverables (you should know which things you should have done in this Sprint, if you don't then you have probably missed something):
 
 #### Team member A -- replace this with your name:
-  **Links to GitHub commits with main code contribution (up to 5 links):
+  **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
 
     - link1
     - link2
 
-   **GitHub links to your Unit Tests (up to 3 links):
+   **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
 
     - link1
     - link2
 
-  **GitHub links to your Code Reviews (up to 3 links):
+  **GitHub links to your Code Reviews (up to 3 links) -- Sprint 2 and 3:
 
     - link1
     - link2
 
-  **How did you contribute to Static Analysis:
+  **How did you contribute to Static Analysis -- Sprint 3:
 
     - link1
     - link2
