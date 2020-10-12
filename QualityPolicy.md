@@ -1,7 +1,7 @@
 ### Quality Policy
 > Describe your Quality Policy in detail for this Sprint (remember what I ask you to do when I talk about the "In your Project" part in the lectures and what is mentioned after each assignment (in due course you will need to fill out all of them, check which ones are needed for each Deliverable). You should keep adding things to this file and adjusting your policy as you go.
 
-**GitHub Workflow** (due Mar 27th)
+**GitHub Workflow** (due start Sprint 1)
   > Your Workflow
 
 **Unit Tests Blackbox** (due start Sprint 2)
