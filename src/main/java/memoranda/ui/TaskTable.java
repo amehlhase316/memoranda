@@ -11,7 +11,7 @@
  * Last modified on  $Date: 2007/01/05 10:33:26 $
  *               by  $Author: alexeya $
  * 
- * @VERSION@ 
+ * Version 1337 
  *
  * @COPYRIGHT@
  * 

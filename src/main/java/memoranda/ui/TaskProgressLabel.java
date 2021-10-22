@@ -9,7 +9,7 @@
  *                   $Author: alexeya $
  * Tag               $Name:  $
  *
- * @VERSION@ 
+ * Version 1337 
  *
  * @COPYRIGHT@
  * 

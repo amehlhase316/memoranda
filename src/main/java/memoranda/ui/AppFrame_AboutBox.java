@@ -65,7 +65,7 @@ public class AppFrame_AboutBox extends JDialog implements ActionListener {
     catch(Exception e) {
       e.printStackTrace();
     }
-    setSize(400, 500);
+    setSize(600, 400);
   }
   //Component initialization
   private void jbInit() throws Exception  {    
@@ -85,16 +85,16 @@ public class AppFrame_AboutBox extends JDialog implements ActionListener {
     this.setTitle(Local.getString("About Memoranda"));
     setResizable(false);
     // Initialize Objects
-    lblText.setFont(new java.awt.Font("Dialog", 0, 11));
+    lblText.setFont(new java.awt.Font("Dialog", 0, 20));
     lblText.setText(text);
     lblText.setBounds(10, 55, 300, 400);
 
     
-    button1.setText(Local.getString("Ok"));
+    button1.setText(Local.getString("FOUND IT"));
     button1.setBounds(150, 415, 95, 30);
     button1.addActionListener(this);
     button1.setPreferredSize(new Dimension(95, 30));
-    button1.setBackground(new Color(69, 125, 186));
+    button1.setBackground(new Color(12, 175, 111));
     button1.setForeground(Color.white);
     layeredPane = getLayeredPane();
     //layeredPane.setPreferredSize(new Dimension(300, 300));
@@ -103,7 +103,7 @@ public class AppFrame_AboutBox extends JDialog implements ActionListener {
     layeredPane.add(imgLabel, new Integer(1));
     layeredPane.add(lblText, new Integer(2));    
     layeredPane.add(button1, new Integer(2));
-    this.getContentPane().setBackground(new Color(251, 197, 63));
+    this.getContentPane().setBackground(new Color(200, 103, 100));
   }
   //Overridden so we can exit when window is closed
   protected void processWindowEvent(WindowEvent e) {
