@@ -1,22 +1,22 @@
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.1'
-    }
+apply plugin: 'application'
+
+mainClassName = 'main/java/memoranda/Start'
+
+compileJava.options.encoding = 'UTF-8'
+
+// Repositories and dependencies for code go here
+repositories {
+  mavenCentral()
 }
 
-apply plugin: 'java'
-apply plugin: 'com.github.johnrengelman.shadow'
-
-repositories {
-    mavenCentral()
+dependencies {
+  compile 'com.io7m.xom:xom:1.2.+'
+  compile 'net.sourceforge.nekohtml:nekohtml:1.9.+'
 }
 
 jar {
     manifest {
-        attributes "Main-Class": "com.baeldung.fatjar.Application"
+        attributes "Main-Class": "main/java/memoranda/Start"
     }
 
     from {
@@ -24,18 +24,11 @@ jar {
     }
 }
 
-
 task fatJar(type: Jar) {
     manifest {
-        attributes 'Main-Class': 'com.baeldung.fatjar.Application'
+        attributes 'Main-Class': 'main/java/memoranda/Start'
     }
-    baseName = 'ciboyd_memoranda.jar'
+    baseName = 'ciboyd_memoranda'
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
-}
-
-
-dependencies{
-    implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
-    implementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.25'
 }
