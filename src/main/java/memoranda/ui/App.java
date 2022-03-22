@@ -22,7 +22,7 @@ import main.java.memoranda.util.Configuration;
 public class App {
 	// boolean packFrame = false;
 
-	static AppFrame frame = null;
+	static main.java.memoranda.ui.AppFrame frame = null;
 	
 	public static final String GUIDE_URL = "http://memoranda.sourceforge.net/guide.html";
 	public static final String BUGS_TRACKER_URL = "http://sourceforge.net/tracker/?group_id=90997&atid=595566";
@@ -40,7 +40,7 @@ public class App {
 	
 	/*========================================================================*/
 
-	public static AppFrame getFrame() {
+	public static main.java.memoranda.ui.AppFrame getFrame() {
 		return frame;
 	}
 
@@ -76,7 +76,7 @@ public class App {
 					Configuration.get("LOOK_AND_FEEL").toString());
 
 		} catch (Exception e) {		    
-			new ExceptionDialog(e, "Error when initializing a pluggable look-and-feel. Default LF will be used.", "Make sure that specified look-and-feel library classes are on the CLASSPATH.");
+			new main.java.memoranda.ui.ExceptionDialog(e, "Error when initializing a pluggable look-and-feel. Default LF will be used.", "Make sure that specified look-and-feel library classes are on the CLASSPATH.");
 		}
 		if (Configuration.get("FIRST_DAY_OF_WEEK").equals("")) {
 			String fdow;
@@ -91,7 +91,7 @@ public class App {
 		}
 
 		EventsScheduler.init();
-		frame = new AppFrame();
+		frame = new main.java.memoranda.ui.AppFrame();
 		if (fullmode) {
 			init();
 		}
@@ -152,14 +152,14 @@ public class App {
 		ImageIcon spl =
 			new ImageIcon(App.class.getResource("/ui/splash.png"));
 		JLabel l = new JLabel();
-		l.setSize(400, 300);
+		l.setSize(10, 10);
 		l.setIcon(spl);
 		splash.getContentPane().add(l);
-		splash.setSize(400, 300);
+		splash.setSize(10, 10);
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		splash.setLocation(
-			(screenSize.width - 400) / 2,
-			(screenSize.height - 300) / 2);
+			(screenSize.width - 10) / 2,
+			(screenSize.height - 10) / 2);
 		splash.setUndecorated(true);
 		splash.setVisible(true);
 	}
