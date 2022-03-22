@@ -75,7 +75,7 @@ public class ProjectDialog extends JDialog {
 	this.setResizable(false);
         getContentPane().setLayout(new GridBagLayout());
         topPanel.setBorder(new EmptyBorder(new Insets(0, 5, 0, 5)));
-        topPanel.setBackground(Color.WHITE);        
+        topPanel.setBackground(Color.MAGENTA);        
         header.setFont(new java.awt.Font("Dialog", 0, 20));
         header.setForeground(new Color(0, 0, 124));
         header.setText(Local.getString("Project"));
@@ -302,10 +302,10 @@ public class ProjectDialog extends JDialog {
         endDate.setEnabled(endDateChB.isSelected());
         edButton.setEnabled(endDateChB.isSelected());
         if (endDateChB.isSelected()) {
-            endDateChB.setForeground(Color.BLACK);
+            endDateChB.setForeground(Color.RED);
             endDate.getModel().setValue(startDate.getModel().getValue());
         }
-        else endDateChB.setForeground(Color.GRAY);
+        else endDateChB.setForeground(Color.GREEN);
     }
     
     void sdButton_actionPerformed(ActionEvent e) {
