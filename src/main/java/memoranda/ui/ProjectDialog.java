@@ -46,8 +46,10 @@ public class ProjectDialog extends JDialog {
     JLabel header = new JLabel();
     JPanel centerPanel = new JPanel(new GridBagLayout());
     JLabel titleLabel = new JLabel();
+    public JTextField prTitleField2 = new JTextField();
     public JTextField prTitleField = new JTextField();
     JLabel sdLabel = new JLabel();
+    public JLabel sdLabel2 = new JLabel();
     public JSpinner startDate = new JSpinner(new SpinnerDateModel());
     JButton sdButton = new JButton();
     public JCheckBox endDateChB = new JCheckBox();
@@ -101,15 +103,34 @@ public class ProjectDialog extends JDialog {
         //gbc.anchor = GridBagConstraints.EAST;
         gbc.anchor = GridBagConstraints.CENTER;
         centerPanel.add(prTitleField, gbc);
+        gbc.gridy = 4;
+        centerPanel.add(prTitleField2, gbc);
         
         sdLabel.setText(Local.getString("Start date"));
         sdLabel.setPreferredSize(new Dimension(70, 20));
         sdLabel.setMinimumSize(new Dimension(70, 20));
         sdLabel.setMaximumSize(new Dimension(70, 20));
+        
         gbc = new GridBagConstraints();
         gbc.gridx = 0; gbc.gridy = 2;
         gbc.insets = new Insets(5, 10, 10, 10);
         centerPanel.add(sdLabel, gbc);
+        
+        
+        sdLabel2.setText(Local.getString("Project Manager"));
+        sdLabel2.setPreferredSize(new Dimension(100, 20));
+        sdLabel2.setMinimumSize(new Dimension(100, 20));
+        sdLabel2.setMaximumSize(new Dimension(100, 20));
+        
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0; gbc.gridy = 3;
+        centerPanel.add(sdLabel2, gbc);
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0; gbc.gridy = 4;
+        gbc.insets = new Insets(5, 10, 10, 10);
+        
+        
+        
 
         startDate.setPreferredSize(new Dimension(80, 20));
         startDate.setLocale(Local.getCurrentLocale());
