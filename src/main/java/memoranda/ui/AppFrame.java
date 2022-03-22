@@ -79,14 +79,14 @@ public class AppFrame extends JFrame {
     JLabel statusBar = new JLabel();
     BorderLayout borderLayout1 = new BorderLayout();
     JSplitPane splitPane = new JSplitPane();
-    ProjectsPanel projectsPanel = new ProjectsPanel();
+    main.java.memoranda.ui.ProjectsPanel projectsPanel = new main.java.memoranda.ui.ProjectsPanel();
     boolean prPanelExpanded = false;
 
     JMenu jMenuEdit = new JMenu();
     JMenu jMenuFormat = new JMenu();
     JMenu jMenuInsert = new JMenu();
 
-    public WorkPanel workPanel = new WorkPanel();
+    public main.java.memoranda.ui.WorkPanel workPanel = new main.java.memoranda.ui.WorkPanel();
     HTMLEditor editor = workPanel.dailyItemsPanel.editorPanel.editor;
 
     static Vector exitListeners = new Vector();
@@ -251,7 +251,7 @@ public class AppFrame extends JFrame {
             jbInit();
         }
         catch (Exception e) {
-            new ExceptionDialog(e);
+            new main.java.memoranda.ui.ExceptionDialog(e);
         }
     }
     //Component initialization
@@ -262,10 +262,10 @@ public class AppFrame extends JFrame {
         contentPane = (JPanel) this.getContentPane();
         contentPane.setLayout(borderLayout1);
         //this.setSize(new Dimension(800, 500));
-        this.setTitle("Memoranda - " + CurrentProject.get().getTitle());
+        this.setTitle("Memo, just Memo! - " + CurrentProject.get().getTitle());
         //Added a space to App.VERSION_INFO to make it look some nicer
-        statusBar.setText(" Version:" + App.VERSION_INFO + " (Build "
-                + App.BUILD_INFO + " )");
+        statusBar.setText(" Version:" + main.java.memoranda.ui.App.VERSION_INFO + " (Build "
+                + main.java.memoranda.ui.App.BUILD_INFO + " )");
 
         jMenuFile.setText(Local.getString("File"));
         jMenuFileExit.setText(Local.getString("Exit"));
@@ -633,15 +633,15 @@ public class AppFrame extends JFrame {
     }
    
     protected void jMenuHelpBug_actionPerformed(ActionEvent e) {
-        Util.runBrowser(App.BUGS_TRACKER_URL);
+        Util.runBrowser(main.java.memoranda.ui.App.BUGS_TRACKER_URL);
     }
    
     protected void jMenuHelpWeb_actionPerformed(ActionEvent e) {
-        Util.runBrowser(App.WEBSITE_URL);
+        Util.runBrowser(main.java.memoranda.ui.App.WEBSITE_URL);
     }
    
     protected void jMenuHelpGuide_actionPerformed(ActionEvent e) {
-        Util.runBrowser(App.GUIDE_URL);
+        Util.runBrowser(main.java.memoranda.ui.App.GUIDE_URL);
     }
     
     //File | Exit action performed
@@ -650,7 +650,7 @@ public class AppFrame extends JFrame {
                         Dimension frmSize = this.getSize();
                         Point loc = this.getLocation();
                         
-                        ExitConfirmationDialog dlg = new ExitConfirmationDialog(this,Local.getString("Exit"));
+                        main.java.memoranda.ui.ExitConfirmationDialog dlg = new main.java.memoranda.ui.ExitConfirmationDialog(this,Local.getString("Exit"));
                         dlg.setLocation((frmSize.width - dlg.getSize().width) / 2 + loc.x, (frmSize.height - dlg.getSize().height) / 2 + loc.y);
                         dlg.setVisible(true);
                         if(dlg.CANCELLED) return;
@@ -666,12 +666,12 @@ public class AppFrame extends JFrame {
 
     public void doMinimize() {
         exitNotify();
-        App.closeWindow();
+        main.java.memoranda.ui.App.closeWindow();
     }
 
     //Help | About action performed
     public void jMenuHelpAbout_actionPerformed(ActionEvent e) {
-         AppFrame_AboutBox dlg = new AppFrame_AboutBox(this);        
+         main.java.memoranda.ui.AppFrame_AboutBox dlg = new main.java.memoranda.ui.AppFrame_AboutBox(this);
          Dimension dlgSize = dlg.getSize();
          Dimension frmSize = getSize();
          Point loc = getLocation();
@@ -747,7 +747,7 @@ public class AppFrame extends JFrame {
         chooser.setAcceptAllFileFilterUsed(false);
         chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
         //chooser.addChoosableFileFilter(new AllFilesFilter(AllFilesFilter.RTF));
-        chooser.addChoosableFileFilter(new AllFilesFilter(AllFilesFilter.ZIP));
+        chooser.addChoosableFileFilter(new main.java.memoranda.ui.AllFilesFilter(main.java.memoranda.ui.AllFilesFilter.ZIP));
         // fixes XP style look cosmetical problems JVM 1.4.2 and 1.4.2_01
         chooser.setPreferredSize(new Dimension(550, 375));
 
@@ -802,7 +802,7 @@ public class AppFrame extends JFrame {
         chooser.setDialogTitle(Local.getString("Unpack project"));
         chooser.setAcceptAllFileFilterUsed(false);
         chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        chooser.addChoosableFileFilter(new AllFilesFilter(AllFilesFilter.ZIP));
+        chooser.addChoosableFileFilter(new main.java.memoranda.ui.AllFilesFilter(main.java.memoranda.ui.AllFilesFilter.ZIP));
         //chooser.addChoosableFileFilter(new AllFilesFilter(AllFilesFilter.RTF));
         // fixes XP style look cosmetical problems JVM 1.4.2 and 1.4.2_01
         chooser.setPreferredSize(new Dimension(550, 375));
@@ -831,7 +831,7 @@ public class AppFrame extends JFrame {
     }
 
     public void showPreferences() {
-        PreferencesDialog dlg = new PreferencesDialog(this);
+        main.java.memoranda.ui.PreferencesDialog dlg = new main.java.memoranda.ui.PreferencesDialog(this);
         dlg.pack();
         dlg.setLocationRelativeTo(this);
         dlg.setVisible(true);
@@ -877,16 +877,16 @@ public class AppFrame extends JFrame {
                 chooser.setAcceptAllFileFilterUsed(false);
                 chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
                 chooser.addChoosableFileFilter(
-                        new AllFilesFilter(AllFilesFilter.XHTML));
-                chooser.addChoosableFileFilter(new AllFilesFilter(AllFilesFilter.HTML));
+                        new main.java.memoranda.ui.AllFilesFilter(main.java.memoranda.ui.AllFilesFilter.XHTML));
+                chooser.addChoosableFileFilter(new main.java.memoranda.ui.AllFilesFilter(main.java.memoranda.ui.AllFilesFilter.HTML));
 
                 String lastSel = (String) Context.get("LAST_SELECTED_EXPORT_FILE");
                 if (lastSel != null)
                         chooser.setCurrentDirectory(new File(lastSel));
 
-                ProjectExportDialog dlg =
-                        new ProjectExportDialog(
-                                App.getFrame(),
+                main.java.memoranda.ui.ProjectExportDialog dlg =
+                        new main.java.memoranda.ui.ProjectExportDialog(
+                                main.java.memoranda.ui.App.getFrame(),
                                 Local.getString("Export notes"),
                                 chooser);
                 String enc = (String) Context.get("EXPORT_FILE_ENCODING");
@@ -900,8 +900,8 @@ public class AppFrame extends JFrame {
                         dlg.titlesAsHeadersChB.setSelected(ti.equalsIgnoreCase("true"));
                 Dimension dlgSize = new Dimension(550, 500);
                 dlg.setSize(dlgSize);
-                Dimension frmSize = App.getFrame().getSize();
-                Point loc = App.getFrame().getLocation();
+                Dimension frmSize = main.java.memoranda.ui.App.getFrame().getSize();
+                Point loc = main.java.memoranda.ui.App.getFrame().getLocation();
                 dlg.setLocation(
                         (frmSize.width - dlgSize.width) / 2 + loc.x,
                         (frmSize.height - dlgSize.height) / 2 + loc.y);
@@ -956,7 +956,7 @@ public class AppFrame extends JFrame {
             chooser.setDialogTitle(Local.getString("Import notes"));
             chooser.setAcceptAllFileFilterUsed(false);
             chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-                chooser.addChoosableFileFilter(new AllFilesFilter(AllFilesFilter.HTML));
+                chooser.addChoosableFileFilter(new main.java.memoranda.ui.AllFilesFilter(main.java.memoranda.ui.AllFilesFilter.HTML));
             chooser.setPreferredSize(new Dimension(550, 375));
 
             File lastSel = null;
@@ -1050,7 +1050,7 @@ public class AppFrame extends JFrame {
             chooser.setDialogTitle(Local.getString("Import notes"));
             chooser.setAcceptAllFileFilterUsed(false);
             chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-                chooser.addChoosableFileFilter(new AllFilesFilter(AllFilesFilter.HTML));
+                chooser.addChoosableFileFilter(new main.java.memoranda.ui.AllFilesFilter(main.java.memoranda.ui.AllFilesFilter.HTML));
             chooser.setPreferredSize(new Dimension(550, 375));
 
             File lastSel = null;
