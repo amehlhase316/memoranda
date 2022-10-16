@@ -14,3 +14,21 @@ dependencies {
   implementation 'net.sourceforge.nekohtml:nekohtml:1.9.+'
 }
 
+jar {
+    manifest {
+        attributes "Main-Class": "main/java/memoranda/Start"
+    }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'main/java/memoranda/Start'
+    }
+    baseName = 'ciboyd_memoranda'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}

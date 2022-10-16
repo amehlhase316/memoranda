@@ -15,11 +15,8 @@ String name;
         public boolean import_file(){
                 /*
                  We are working on this =)
-                  
-                  
                   */
-                
-                JOptionPane.showMessageDialog(null,Local.getString("Aun no podemos importar su documento"));
+                JOptionPane.showMessageDialog(null,Local.getString("We can't import your document yet"));
                 return true;
         }
         
