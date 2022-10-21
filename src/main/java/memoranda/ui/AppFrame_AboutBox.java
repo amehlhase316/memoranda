@@ -65,7 +65,7 @@ public class AppFrame_AboutBox extends JDialog implements ActionListener {
     catch(Exception e) {
       e.printStackTrace();
     }
-    setSize(400, 500);
+    setSize(600, 200);
   }
   //Component initialization
   private void jbInit() throws Exception  {    
