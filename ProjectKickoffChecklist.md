@@ -1,6 +1,6 @@
 For each of you individually copy the checklist and check them of if it is done. This will be graded.
 
-<Geena Rustia>
+Geena Rustia
   
 - [x] Download and install Git
   
