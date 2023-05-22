@@ -3,14 +3,14 @@
 > Check in Project: Module Concepts document on Canvas in the Project module for more details 
 
 **GitHub Workflow** (start Sprint 1)
-*Create a new branch for each user story or task based on the main branch.
-*Develop and implement the changes for each user story or task in their respective branches.
-*Regularly commit changes and push them to the remote repository.
-*Once the development is complete, create a Pull Request to merge the branch into the main branch.
-*Assign a team member for code review.
-*Upon successful code review, merge the branch into the main branch.
-*Monitor and resolve any merge conflicts, if they occur.
-*Repeat the process for each user story or task in the Sprint backlog.
+1. Create a new branch for each user story or task based on the main branch.
+2. Develop and implement the changes for each user story or task in their respective branches.
+3. Regularly commit changes and push them to the remote repository.
+4. Once the development is complete, create a Pull Request to merge the branch into the main branch.
+5. Assign a team member for code review.
+6. Upon successful code review, merge the branch into the main branch.
+7. Monitor and resolve any merge conflicts, if they occur.
+8. Repeat the process for each user story or task in the Sprint backlog.
 
 
 **Unit Tests Blackbox** (start Sprint 2)
