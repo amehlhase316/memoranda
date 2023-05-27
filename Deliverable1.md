@@ -3,13 +3,13 @@
 
 ## 1: Basic Information (needed before you start with your Sprint -- Sprint Planning)
 
-**Topic you chose:** topic name
+**Topic you chose:** Bus Scheduling
 
-**Sprint Number:** Nr
+**Sprint Number:** NO.1
 
-**Scrum Master**: Name
+**Scrum Master**: Josh Benn 
 
-**Git Master**: Name
+**Git Master**: Elias Garcia
 
 ### Sprint Planning (For Sprint 1-3)
 Document your Sprint Planning here. Also check the kickoff document for more details on what needs to be done. This is just the documentation. 
