@@ -205,7 +205,7 @@ public class AgendaPanel extends JPanel {
 						 //JOptionPane.showMessageDialog(null,name);
 					}else if (d.startsWith("memoranda:importstickers")) {
 						final JFrame parent = new JFrame();
-						String name = JOptionPane.showInputDialog(parent,Local.getString("Ingrese nombre de archivo a importar"),null);
+						String name = JOptionPane.showInputDialog(parent,Local.getString("Enter the name of the file to import"),null);
 						new ImportSticker(name).import_file();
 					}
 				}
