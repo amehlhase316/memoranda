@@ -1,6 +1,6 @@
 apply plugin: 'application'
 
-mainClassName = 'main/java/memoranda/Start'
+mainClassName = 'main.java.memoranda.Start'
 
 compileJava.options.encoding = 'UTF-8'
 
@@ -14,3 +14,11 @@ dependencies {
   implementation 'net.sourceforge.nekohtml:nekohtml:1.9.+'
 }
 
+task fatJar(type: Jar) {
+    archiveBaseName = 'bmeddeb_memoranda'
+    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+    manifest {
+        attributes 'Main-Class': 'main.java.memoranda.Start'
+    }
+}
