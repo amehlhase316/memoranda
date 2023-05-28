@@ -2,6 +2,13 @@
 > Describe your Quality Policy in detail for this Sprint (remember what I ask you to do when I talk about the "In your Project" part in the lectures and what is mentioned after each assignment (in due course you will need to fill out all of them, check which ones are needed for each Deliverable). You should keep adding things to this file and adjusting your policy as you go.
 > Check in Project: Module Concepts document on Canvas in the Project module for more details 
 
+TheNerdyBunch Quality Policy:
+- main will remain protected at all times
+- Each developer will use their own respective development branch under the guise FirstNameDev
+- Each developer will use a US# branch when working on that specific User Story
+- The developer is responsible for testing their changes against the current working system
+- After a task is complete, a pull request will be created and the current Git Master will be responsible for reviewing and approving/denying the request
+
 **GitHub Workflow** (start Sprint 1)
   > Your Workflow
 
