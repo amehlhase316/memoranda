@@ -7,31 +7,31 @@
 
 **Sprint Number:** 1
 
-**Scrum Master**: Johnathan Ellis
+**Scrum Master**: Joseph Okonoboh
 
 **Git Master**: Aman Sharma
 
 ### Sprint Planning (For Sprint 1-3)
 Document your Sprint Planning here. Also check the kickoff document for more details on what needs to be done. This is just the documentation. 
 
-**Sprint Goal:** For this Sprint we are focusing on fixing small bugs and errors so that memoranda run according to our selected topic.
+**Sprint Goal:** For this Sprint we are focusing on fixing small bugs and errors so that memoranda run according to our selected topic. We are also working over designing memoranda so that it looks like Gym scheduling.
 
-**How many User Stories did you add to the Product Backlog:**  Number
+**How many User Stories did you add to the Product Backlog:**  12
 
 **How many User Stories did you add to this Sprint:** 
-> Answer the questions below about your Sprint Planning?
+> We have added total 9 user stories to sprint 1.
 
 **Why did you add these US, why do you think you can get them done in the next Sprint?**
 
-> Your Answer
+> The user stories we decided to add focus on structural and design enhancements to the program, they are weighted 28 points in total. Each person will work on approximately 5 to 6 points worth of work to complete for this sprint.
 
 **Why do you think these fit well with your Sprint goal? (details)**
 
-> Your Answer
+> These user stories will lay the foundation to transition to our topic of choice as well as fix many known issues within the program structure and execution.
 
 **Do you have a rough idea what you need to do? (if the answer is no then please let me know on Slack)**
 
-> Your Answer
+> Yes, this sprint we are planning to focus on the design and structural side of software.
 
 
 
