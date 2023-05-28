@@ -7,6 +7,9 @@ bin/
 # Log file
 *.log
 
+## Intellij ##
+.idea
+
 ### Eclipse ###
 
 ### Eclipse Patch ###
