@@ -3,7 +3,7 @@
 > Check in Project: Module Concepts document on Canvas in the Project module for more details 
 
 **GitHub Workflow** (start Sprint 1)
-  > Your Workflow
+  > We have a main development branch, called "development", which is a sub-branch of master. For each User-story on our Taiga board, a branch will be created off of the development branch. When an individual assigns themselves a task from the Taiga board, they should create a branch for that specific task off of its corresponding User story. When a task is complete the Git master can be notified to merge the task into the User story branch. When all tasks of a User story are completed and merged, the User story branch can be merged into development by the Git master. At the end of sprint, development will be merged into master.
 
 **Unit Tests Blackbox** (start Sprint 2)
   > Your Blackbox testing policy 
