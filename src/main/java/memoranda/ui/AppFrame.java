@@ -453,6 +453,7 @@ public class AppFrame extends JFrame {
         jMenuFile.add(jMenuFileImportPrj);
         jMenuFile.addSeparator();
         jMenuFile.add(jMenuEditPref);
+        jMenuFile.add(jMenuEditPref);
         jMenuFile.addSeparator();
         jMenuFile.add(jMenuFileMin);
         jMenuFile.addSeparator();
@@ -661,8 +662,8 @@ public class AppFrame extends JFrame {
     }
 
     public void doMinimize() {
-        //exitNotify();
-        //App.closeWindow();
+        exitNotify();
+        App.closeWindow();
     }
 
     //Help | About action performed
