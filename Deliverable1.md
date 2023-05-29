@@ -3,18 +3,18 @@
 
 ## 1: Basic Information (needed before you start with your Sprint -- Sprint Planning)
 
-**Topic you chose:** topic name
+**Topic you chose:** Gym Scheduling
 
-**Sprint Number:** Nr
+**Sprint Number:** 1
 
-**Scrum Master**: Name
+**Scrum Master**: Henry Buck
 
-**Git Master**: Name
+**Git Master**: Sam Garcia
 
 ### Sprint Planning (For Sprint 1-3)
 Document your Sprint Planning here. Also check the kickoff document for more details on what needs to be done. This is just the documentation. 
 
-**Sprint Goal:** Your Sprint goal
+**Sprint Goal:** Sprint goal
 
 **How many User Stories did you add to the Product Backlog:**  Number
 
