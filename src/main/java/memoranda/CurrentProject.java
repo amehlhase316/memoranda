@@ -57,7 +57,6 @@ public class CurrentProject {
                 save();
                 System.exit(0);
         });
-
     }
         
 

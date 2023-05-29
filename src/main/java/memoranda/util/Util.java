@@ -137,7 +137,7 @@ public class Util {
     }
     
     public static long getMillisFromHours(String hours) {
-    	try {
+        try {
         	double numHours = Double.parseDouble(hours);
         	double millisDouble = (numHours * 3600 * 1000);
         	return (long) millisDouble;
@@ -148,7 +148,7 @@ public class Util {
     }
     
     static Set tempFiles = new HashSet();
-    
+
     static {
     	AppFrame.addExitListener(new ActionListener() {
 
