@@ -62,6 +62,9 @@ import java.awt.TrayIcon;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Frame;
+import java.util.Properties;
+import java.io.InputStream;
+import java.io.IOException;
 
 /**
  * 
@@ -270,8 +273,25 @@ public class AppFrame extends JFrame {
         //this.setSize(new Dimension(800, 500));
         this.setTitle("Memoranda - " + CurrentProject.get().getTitle());
         //Added a space to App.VERSION_INFO to make it look some nicer
-        statusBar.setText(" Version:" + App.VERSION_INFO + " (Build "
-                + App.BUILD_INFO + " )");
+        //statusBar.setText(" Version:" + App.VERSION_INFO + " (Build "
+                //+ App.BUILD_INFO + " )");
+        // Load properties from version.properties
+        Properties props = new Properties();
+        try (InputStream is = getClass().getResourceAsStream("/version.properties")) {
+            if (is != null) {
+                props.load(is);
+            } else {
+                System.err.println("Could not find version.properties");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        String version = props.getProperty("version", "Unknown version");
+        String buildNumber = props.getProperty("buildNumber", "Unknown build number");
+
+       // Set the text in the statusBar
+        statusBar.setText(" Version: " + version + " (Build " + buildNumber + " )");
 
         jMenuFile.setText(Local.getString("File"));
         jMenuFileExit.setText(Local.getString("Exit"));

@@ -1,8 +1,28 @@
 apply plugin: 'application'
 
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+            exclude 'main/resources/**'
+        }
+        resources {
+            srcDirs = ['src/main/resources']
+        }
+    }
+}
 mainClassName = 'main.java.memoranda.Start'
 
 compileJava.options.encoding = 'UTF-8'
+// Set version and Build number
+
+version = '1.0.0'
+ext {
+    buildNumber = '001'
+}
+
+
+
 
 // Repositories and dependencies for code go here
 repositories {
@@ -15,10 +35,27 @@ dependencies {
 }
 
 task fatJar(type: Jar) {
-    archiveBaseName = 'bmeddeb_memoranda'
+    archiveBaseName = 'memoranda'
     from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
     manifest {
         attributes 'Main-Class': 'main.java.memoranda.Start'
     }
+}
+task createVersionFile {
+    doLast {
+        def propsFile = new File('src/main/resources/version.properties')
+        def props = new Properties()
+
+        props['version'] = version
+        props['buildNumber'] = buildNumber
+
+        propsFile.withWriter('UTF-8') { writer ->
+            props.store(writer, null)
+        }
+    }
+}
+
+tasks.named('build').configure {
+    dependsOn createVersionFile
 }
