@@ -55,7 +55,8 @@ public class CurrentProject {
         _resources = CurrentStorage.get().openResourcesList(_project);
         AppFrame.addExitListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                save();                                               
+                save();
+                System.exit(0);
             }
         });
     }
