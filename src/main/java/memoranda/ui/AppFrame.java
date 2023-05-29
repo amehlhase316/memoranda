@@ -55,7 +55,13 @@ import nu.xom.Builder;
 import nu.xom.Document;
 import nu.xom.Element;
 import nu.xom.Elements;
-
+import java.awt.SystemTray;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.TrayIcon;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.Frame;
 
 /**
  * 
@@ -666,8 +672,40 @@ public class AppFrame extends JFrame {
 
     public void doMinimize() {
         exitNotify();
-        App.closeWindow();
+        try {
+            if (SystemTray.isSupported()) {
+                SystemTray systemTray = SystemTray.getSystemTray();
+                Image image = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/ui/icons/notes.png"));
+                TrayIcon trayIcon = new TrayIcon(image, "Memoranda");
+
+                // Add MouseListener to TrayIcon
+                trayIcon.addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        // Make the application window visible
+                        setVisible(true);
+                        // De-iconify the application window
+                        setState(Frame.NORMAL);
+                        // Bring the application window to the front
+                        toFront();
+                        // Remove the TrayIcon from the SystemTray
+                        systemTray.remove(trayIcon);
+                    }
+                });
+
+
+                trayIcon.setImageAutoSize(true);
+                systemTray.add(trayIcon);
+                this.setVisible(false);
+            } else {
+                System.err.println("System tray not supported!");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
+
+
 
     //Help | About action performed
     public void jMenuHelpAbout_actionPerformed(ActionEvent e) {
