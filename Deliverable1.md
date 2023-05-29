@@ -14,24 +14,24 @@
 ### Sprint Planning (For Sprint 1-3)
 Document your Sprint Planning here. Also check the kickoff document for more details on what needs to be done. This is just the documentation. 
 
-**Sprint Goal:** Your Sprint goal
+**Sprint Goal:** Our current sprint goal is to set up the fundamental classes and begin work on the algorithm for the routes and further visualization windows for route assignment
 
-**How many User Stories did you add to the Product Backlog:**  Number
+**How many User Stories did you add to the Product Backlog:**  8
 
 **How many User Stories did you add to this Sprint:** 
-> Answer the questions below about your Sprint Planning?
+> 4
 
 **Why did you add these US, why do you think you can get them done in the next Sprint?**
 
-> Your Answer
+> These user stores are required for the basic structure and objects for the entire project.  Most of the user stories are relatively simple tasks to accomplish
 
 **Why do you think these fit well with your Sprint goal? (details)**
 
-> Your Answer
+> As stated above, they are required for the basic structure of the project
 
 **Do you have a rough idea what you need to do? (if the answer is no then please let me know on Slack)**
 
-> Your Answer
+> Yes
 
 
 
