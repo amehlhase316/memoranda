@@ -666,7 +666,7 @@ public class AppFrame extends JFrame {
 
     public void doMinimize() {
         exitNotify();
-        App.closeWindow();
+        App.minimize();
     }
 
     //Help | About action performed

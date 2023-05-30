@@ -144,6 +144,13 @@ public class App {
 			return;
 		frame.dispose();
 	}
+	
+	public static void minimize() {
+	    if (frame == null) {
+	        return;
+	    }
+	    frame.setState(JFrame.ICONIFIED);
+	}
 
 	/**
 	 * Method showSplash.
