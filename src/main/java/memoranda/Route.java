@@ -1,6 +1,9 @@
-package main.java.memoranda.util;
+package main.java.memoranda;
 
 // Route(nodes, length, duration)
+
+import main.java.memoranda.Node;
+import main.java.memoranda.util.Util;
 
 import java.util.ArrayList;
 
@@ -68,15 +71,14 @@ public class Route {
     double calculateLength()
     {
         for(int i = 0; i < nodes.size() - 1; ++i){
-            length += Util.distanceOfNodes(nodes.get(i), nodes.get(i + 1));
+            length += Node.distanceOfNodes(nodes.get(i), nodes.get(i + 1));
         }
-        
+
         return 0;
     }
 
     private double calculateDuration()
     {
-
         return 0;
     }
 }
