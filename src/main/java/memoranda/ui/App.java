@@ -139,11 +139,6 @@ public class App {
 
 	}
 
-	public static void closeWindow() {
-		if (frame == null)
-			return;
-		frame.dispose();
-	}
 	
 	public static void minimize() {
 	    if (frame == null) {
