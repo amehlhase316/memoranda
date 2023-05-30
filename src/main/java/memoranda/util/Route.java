@@ -7,8 +7,8 @@ import java.util.ArrayList;
 
 public class Route {
     private ArrayList<Node> nodes;
-    private double length;
-    private double duration;
+    private double length; // in km
+    private double duration; // in minutes
 
     Route(ArrayList<Node> n)
     {
@@ -42,6 +42,7 @@ public class Route {
         else{
             return false;
         }
+        return false;
     }
 
     public boolean removeNode(Node n){
@@ -63,12 +64,13 @@ public class Route {
             return false;
         }
     }
-    private double calculateLength()
+
+    double calculateLength()
     {
-
-
-
-
+        for(int i = 0; i < nodes.size() - 1; ++i){
+            length += Util.distanceOfNodes(nodes.get(i), nodes.get(i + 1));
+        }
+        
         return 0;
     }
 
