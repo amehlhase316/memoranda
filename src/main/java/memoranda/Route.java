@@ -2,28 +2,41 @@ package main.java.memoranda;
 
 // Route(nodes, length, duration)
 
-import main.java.memoranda.Node;
-import main.java.memoranda.util.Util;
-
 import java.util.ArrayList;
-
 
 public class Route {
     private ArrayList<Node> nodes;
     private double length; // in km
     private double duration; // in minutes
 
-    Route(ArrayList<Node> n)
+    double stopDuration; // in minutes
+
+    Route(ArrayList<Node> n, double sd)
     {
         nodes = n;
         length = calculateLength();
         duration = calculateDuration();
+        stopDuration = sd;
     }
 
-    Route(Node initialNode){
+    Route(Node initialNode, double sd){
         nodes.add(initialNode);
         length = calculateLength();
         duration = calculateDuration();
+        stopDuration = sd;
+
+    }
+
+    public double getLength(){
+        return length;
+    }
+
+    public double getDuration(){
+        return duration;
+    }
+
+    public void setStopDuration(double sd){
+        stopDuration = sd;
     }
 
     public ArrayList<Node> getNodes(){
@@ -68,17 +81,37 @@ public class Route {
         }
     }
 
-    double calculateLength()
+    public double calculateLength()
     {
         for(int i = 0; i < nodes.size() - 1; ++i){
             length += Node.distanceOfNodes(nodes.get(i), nodes.get(i + 1));
         }
 
-        return 0;
+        return length;
     }
 
-    private double calculateDuration()
+    /**
+     * Based on cityobservatory.org, the average bus speed is 12.7 mph in cities (20.44 kph). This speed will be used to
+     * calculate the duration of the route using the calculated length. t = d/s.
+     *
+     * Duration also includes the duration of each stop.
+     *
+     * @return double: the approximate duration of the Route in minutes.
+     */
+    public double calculateDuration()
     {
-        return 0;
+        double distance = length;
+        double speed = 20.44;
+        double minutes = (distance/speed) * 60; // convert to minutes
+        minutes += (stopDuration * nodes.size());
+        return minutes;
+    }
+
+    public String toString(){
+        String out = "";
+        for(int i = 0; i < nodes.size(); ++i){
+            out += nodes.get(i).toString() + "\n";
+        }
+        return out;
     }
 }

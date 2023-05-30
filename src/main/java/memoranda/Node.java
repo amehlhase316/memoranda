@@ -1,10 +1,14 @@
 package main.java.memoranda;
 
+import java.util.UUID;
+
 public class Node {
+    UUID nodeID;
     double latitude;
     double longitude;
 
     Node(double lat, double lon){
+        nodeID = UUID.randomUUID();
         latitude = lat;
         longitude = lon;
     }
@@ -29,4 +33,13 @@ public class Node {
         return d;
     }
 
+    public String toString(){
+        return "Node: " + nodeID.toString() + "\nlatitude: " + longitude + "\nlongitude: " + longitude;
+    }
+
+    public boolean equals(Node n){
+        if(latitude == n.getLatitude() && longitude == n.getLongitude())
+            return true;
+        return false;
+    }
 }
