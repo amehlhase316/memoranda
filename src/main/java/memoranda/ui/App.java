@@ -38,8 +38,8 @@ public class App {
        The actual values are substituted by the Ant build script using 
        'version' property and datestamp.*/
 
-	public static String VERSION_INFO = "@VERSION@";
-	public static String BUILD_INFO = "@BUILD@";
+	public static String VERSION_INFO;
+	public static String BUILD_INFO;
 	
 	/*========================================================================*/
 
@@ -57,6 +57,14 @@ public class App {
 
 	public App(boolean fullmode) {
 		super();
+		Properties props = new Properties();
+		InputStream is = getClass().getClassLoader().getResourceAsStream("version.properties");
+		try {
+			props.load(is);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+		VERSION_INFO = props.getProperty("version");
 
 
 		if (fullmode)
@@ -66,7 +74,6 @@ public class App {
 			System.out.println("Minimized mode");
 		if (!Configuration.get("SHOW_SPLASH").equals("no"))
 			showSplash();
-		System.out.println(VERSION_INFO);
 		System.out.println(Configuration.get("LOOK_AND_FEEL"));
 		try {
 			if (Configuration.get("LOOK_AND_FEEL").equals("system"))
