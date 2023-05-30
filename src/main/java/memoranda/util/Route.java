@@ -31,6 +31,19 @@ public class Route {
         nodes.add(n);
     }
 
+    public boolean addNodesAtIndex(int i, Node n){
+        if (i > 0 && i < nodes.size()) {
+            nodes.add(i, n);
+            return true;
+        }
+        else if(i == nodes.size()){
+            nodes.add(n);
+        }
+        else{
+            return false;
+        }
+    }
+
     public boolean removeNode(Node n){
         for(int i = 0; i < nodes.size(); ++i){
             if(n.equals(nodes.get(i))){
@@ -42,7 +55,13 @@ public class Route {
     }
 
     public boolean removeNodeAtIndex(int i){
-        
+        if(i > 0 && i < nodes.size()) {
+            nodes.remove(i);
+            return true;
+        }
+        else{
+            return false;
+        }
     }
     private double calculateLength()
     {
