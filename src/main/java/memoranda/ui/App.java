@@ -65,7 +65,7 @@ public class App {
 			throw new RuntimeException(e);
 		}
 		VERSION_INFO = props.getProperty("version");
-
+		BUILD_INFO = props.getProperty("build");
 
 		if (fullmode)
 			fullmode = !Configuration.get("START_MINIMIZED").equals("yes");

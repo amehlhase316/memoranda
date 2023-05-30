@@ -16,12 +16,12 @@ dependencies {
 }
 
 ext {
-  version = '1.0.0'
-  build = '123'
+  version = '1.0.2'
+  build = '100'
 }
 
 processResources {
   filesMatching('version.properties') {
-    filter ReplaceTokens, tokens: ['VERSION': project.ext.version]
+    filter ReplaceTokens, tokens: ['VERSION': project.ext.version, 'BUILD': project.ext.build]
   }
 }
