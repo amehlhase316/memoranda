@@ -7,6 +7,9 @@ bin/
 # Log file
 *.log
 
+## VS Code ##
+.vscode
+
 ## Intellij ##
 .idea
 
