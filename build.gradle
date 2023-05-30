@@ -1,6 +1,9 @@
 import org.apache.tools.ant.filters.ReplaceTokens
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 apply plugin: 'application'
+apply plugin: 'java'
 
 mainClassName = 'main/java/memoranda/Start'
 
@@ -15,9 +18,14 @@ dependencies {
   implementation 'net.sourceforge.nekohtml:nekohtml:1.9.+'
 }
 
+// Get the current date and time as a string
+def now = LocalDateTime.now()
+def formatter = DateTimeFormatter.ofPattern("MM/dd/yy-HH:mm:ss")
+def timestamp = now.format(formatter)
+
 ext {
   version = '1.0.2'
-  build = '100'
+  build = timestamp
 }
 
 processResources {
