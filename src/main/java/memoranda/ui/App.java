@@ -61,7 +61,8 @@ public class App {
 			System.out.println("Minimized mode");
 		if (!Configuration.get("SHOW_SPLASH").equals("no"))
 			showSplash();
-		System.out.println(VERSION_INFO);
+		System.out.println("Version: " + VERSION_INFO);
+		System.out.println("Build: " + BUILD_INFO);
 		System.out.println(Configuration.get("LOOK_AND_FEEL"));
 		try {
 			if (Configuration.get("LOOK_AND_FEEL").equals("system"))
