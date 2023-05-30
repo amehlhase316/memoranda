@@ -7,19 +7,39 @@ public class Node {
     double latitude;
     double longitude;
 
+    /**
+     * The default constructor for Node, generates a UUID for the Node
+     * @param lat the latitude coordinates of the Node
+     * @param lon the longitude coordinates of the Node
+     */
     Node(double lat, double lon){
         nodeID = UUID.randomUUID();
         latitude = lat;
         longitude = lon;
     }
 
+    /**
+     * Getter function for the latitude value
+     * @return the latitude value of the Node
+     */
     public double getLatitude(){
         return latitude;
     }
+
+    /**
+     * Getter function for the longitude value
+     * @return the longitude value of the Node
+     */
     public double getLongitude(){
         return longitude;
     }
 
+    /**
+     * Calculates the distance between the Nodes in km
+     * @param n the first Node
+     * @param nn the second Node
+     * @return the distance of the Nodes in km
+     */
     public static double distanceOfNodes(Node n, Node nn){
         double R = 6371; // radius of the earth in km;
         double dLat = Math.toRadians(n.getLatitude() - nn.getLatitude());
@@ -33,10 +53,23 @@ public class Node {
         return d;
     }
 
+    /**
+     * toString implementation:
+     * (unique ID number of Node)
+     * latitude: (latitude of Node)
+     * longitude: (longitude of Node)
+     *
+     * @return the string
+     */
     public String toString(){
         return "Node: " + nodeID.toString() + "\nlatitude: " + longitude + "\nlongitude: " + longitude;
     }
 
+    /**
+     * equals implementation
+     * @param n the comparison Node
+     * @return returns true if the latitude and longitude values are equal, else returns false
+     */
     public boolean equals(Node n){
         if(latitude == n.getLatitude() && longitude == n.getLongitude())
             return true;
