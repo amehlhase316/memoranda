@@ -16,12 +16,10 @@ mainClassName = 'main.java.memoranda.Start'
 compileJava.options.encoding = 'UTF-8'
 // Set version and Build number
 
-version = '1.0.0'
+version = '1.1.0'
 ext {
     buildNumber = '001'
 }
-
-
 
 
 // Repositories and dependencies for code go here
