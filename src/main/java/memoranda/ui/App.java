@@ -3,7 +3,10 @@ package main.java.memoranda.ui;
 import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.Toolkit;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Calendar;
+import java.util.Properties;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -35,8 +38,8 @@ public class App {
        The actual values are substituted by the Ant build script using 
        'version' property and datestamp.*/
 
-	public static final String VERSION_INFO = "@VERSION@";
-	public static final String BUILD_INFO = "@BUILD@";
+	public static String VERSION_INFO = "@VERSION@";
+	public static String BUILD_INFO = "@BUILD@";
 	
 	/*========================================================================*/
 
@@ -54,6 +57,8 @@ public class App {
 
 	public App(boolean fullmode) {
 		super();
+
+
 		if (fullmode)
 			fullmode = !Configuration.get("START_MINIMIZED").equals("yes");
 		/* DEBUG */

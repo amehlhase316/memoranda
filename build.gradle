@@ -1,10 +1,11 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
 apply plugin: 'application'
 
 mainClassName = 'main/java/memoranda/Start'
 
 compileJava.options.encoding = 'UTF-8'
 
-// Repositories and dependencies for code go here
 repositories {
   mavenCentral()
 }
@@ -14,3 +15,13 @@ dependencies {
   implementation 'net.sourceforge.nekohtml:nekohtml:1.9.+'
 }
 
+ext {
+  version = '1.0.0'
+  build = '123'
+}
+
+processResources {
+  filesMatching('version.properties') {
+    filter ReplaceTokens, tokens: ['VERSION': project.ext.version]
+  }
+}

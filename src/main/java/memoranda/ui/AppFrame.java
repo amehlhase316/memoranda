@@ -11,10 +11,9 @@ import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import java.io.File;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Vector;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.*;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -263,6 +262,15 @@ public class AppFrame extends JFrame {
         contentPane.setLayout(borderLayout1);
         //this.setSize(new Dimension(800, 500));
         this.setTitle("Memoranda - " + CurrentProject.get().getTitle());
+        Properties props = new Properties();
+        InputStream is = getClass().getClassLoader().getResourceAsStream("version.properties");
+        try {
+            props.load(is);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        App.VERSION_INFO = props.getProperty("version");
+        System.out.println(App.VERSION_INFO);
         //Added a space to App.VERSION_INFO to make it look some nicer
         statusBar.setText(" Version:" + App.VERSION_INFO + " (Build "
                 + App.BUILD_INFO + " )");
