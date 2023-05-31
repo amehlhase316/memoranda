@@ -70,7 +70,7 @@ public class EventsPanel extends JPanel {
         historyBackB.setToolTipText(Local.getString("History back"));
         historyBackB.setRequestFocusEnabled(false);
         historyBackB.setPreferredSize(new Dimension(24, 24));
-        historyBackB.setMinimumSize(new Dimension(24, 24));
+        historyBackB.setMinimumSize(new Dimension(12, 15));   // original values are 24/24
         historyBackB.setMaximumSize(new Dimension(24, 24));
         historyBackB.setText("");
 
