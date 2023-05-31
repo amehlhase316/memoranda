@@ -99,11 +99,11 @@ public class ProjectsPanel extends JPanel implements ExpandablePanel {
 	void jbInit() throws Exception {
 		component1 = Box.createHorizontalStrut(20);
 		this.setLayout(borderLayout1);
-		topBar.setBackground(new Color(215, 225, 250));
+		topBar.setBackground(new Color(215, 225, 251));   // old color is 215,225,250
 		topBar.setAlignmentX((float) 0.0);
 		topBar.setFloatable(false);
 		toolbarPanel.setLayout(borderLayout2);
-		toggleButton.setMaximumSize(new Dimension(20, 20));
+		toggleButton.setMaximumSize(new Dimension(25, 30));  //original values are 20/20
 		toggleButton.setMinimumSize(new Dimension(20, 20));
 		toggleButton.setOpaque(false);
 		toggleButton.setPreferredSize(new Dimension(20, 20));
