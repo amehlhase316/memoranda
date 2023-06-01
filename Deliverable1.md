@@ -44,8 +44,8 @@ I would also advise you to already fill out the Contributions section (End of sp
 
 | Date  | Who did not attend  |Meeting notes (very brief)   | Burndown Info (on track, ahead behind is enough) | TravisCI info (does the master pass) | Additional Info  |
 |---|---|---|---|--|--|
-|5/29|David B.|Got Memoranda working|N/A, Taiga not set yet|N/A|Attendence not strictly necessary, helping each other get set up|
-|5/31|Everyone Here|Taiga setup, User Stories set|On Track|N/A|  |
+|5/29|David B.|Got Memoranda working|N/A|N/A|Attendence not strictly necessary, helping each other get set up|
+|5/31|Everyone Here|Taiga setup, User Stories set|N/A|N/A|  |
 |   |   |   |   |  |  |
 
 ### Meeting Summary:
