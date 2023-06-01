@@ -686,8 +686,7 @@ public class AppFrame extends JFrame {
         }
         else if ((e.getID() == WindowEvent.WINDOW_ICONIFIED)) {
             super.processWindowEvent(new WindowEvent(this,
-                    WindowEvent.WINDOW_CLOSING));
-            doMinimize();
+                    WindowEvent.WINDOW_ICONIFIED));
         }
         else
             super.processWindowEvent(e);
