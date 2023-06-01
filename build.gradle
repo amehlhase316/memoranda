@@ -14,3 +14,35 @@ dependencies {
   implementation 'net.sourceforge.nekohtml:nekohtml:1.9.+'
 }
 
+jar {
+  manifest {
+    attributes "Main-Class": "main/java/memoranda/Start"
+  }
+
+  from {
+    configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+  }
+}
+
+task fatJar(type: Jar) {
+  manifest {
+    attributes 'Main-Class': 'main/java/memoranda/Start'
+  }
+  baseName = 'pccarmic_memoranda'
+  duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+  from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+  with jar
+}
+
+buildscript {
+  repositories {
+    mavenCentral()
+    gradlePluginPortal()
+  }
+  dependencies {
+    classpath "gradle.plugin.com.github.johnrengelman:shadow:7.1.2"
+  }
+}
+
+apply plugin: 'java'
+apply plugin: 'com.github.johnrengelman.shadow'
