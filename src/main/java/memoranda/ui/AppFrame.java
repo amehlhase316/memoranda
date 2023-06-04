@@ -318,13 +318,12 @@ public class AppFrame extends JFrame {
         splitPane.setDividerSize(3);
         //splitPane.setOneTouchExpandable(true);
         splitPane.setDividerLocation(28);
-        //projectsPanel.setMaximumSize(new Dimension(2147483647, 200));
-        projectsPanel.setMinimumSize(new Dimension(10, 28));
+        //projectsPanel.setMaximumSize(new Dimension(2147483647, 200));        projectsPanel.setMinimumSize(new Dimension(10, 28));
         projectsPanel.setPreferredSize(new Dimension(10, 28));
         projectsPanel.setBackground(Color.CYAN);
         workPanel.setMinimumSize(new Dimension(734, 300));
         workPanel.setPreferredSize(new Dimension(1073, 300));
-        workPanel.setBackground(Color.ORANGE);
+        workPanel.setBackground(Color.CYAN);
         splitPane.setDividerLocation(28);
 
         jMenuFileNewPrj.setText(Local.getString("New project") + "...");
