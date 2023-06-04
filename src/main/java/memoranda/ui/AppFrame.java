@@ -2,6 +2,7 @@ package main.java.memoranda.ui;
 
 import java.awt.AWTEvent;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.Point;
@@ -261,6 +262,7 @@ public class AppFrame extends JFrame {
                 .getImage());
         contentPane = (JPanel) this.getContentPane();
         contentPane.setLayout(borderLayout1);
+        contentPane.setBackground(Color.GREEN);
         //this.setSize(new Dimension(800, 500));
         this.setTitle("Memoranda - " + CurrentProject.get().getTitle());
         //Added a space to App.VERSION_INFO to make it look some nicer
@@ -268,6 +270,7 @@ public class AppFrame extends JFrame {
                 + App.BUILD_INFO + " )");
 
         jMenuFile.setText(Local.getString("File"));
+        jMenuEditUndo.setBackground(Color.green);
         jMenuFileExit.setText(Local.getString("Exit"));
         jMenuFileExit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -318,17 +321,19 @@ public class AppFrame extends JFrame {
         //projectsPanel.setMaximumSize(new Dimension(2147483647, 200));
         projectsPanel.setMinimumSize(new Dimension(10, 28));
         projectsPanel.setPreferredSize(new Dimension(10, 28));
-        /*workPanel.setMinimumSize(new Dimension(734, 300));
-         workPanel.setPreferredSize(new Dimension(1073, 300));*/
+        projectsPanel.setBackground(Color.CYAN);
+        workPanel.setMinimumSize(new Dimension(734, 300));
+        workPanel.setPreferredSize(new Dimension(1073, 300));
+        workPanel.setBackground(Color.ORANGE);
         splitPane.setDividerLocation(28);
 
-        /* jMenuFileNewPrj.setText(Local.getString("New project") + "...");
+        jMenuFileNewPrj.setText(Local.getString("New project") + "...");
          jMenuFileNewPrj.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
          ProjectDialog.newProject();
          }
          });
-         */
+         
         jMenuFileNewPrj.setAction(projectsPanel.newProjectAction);
 
         jMenuFileUnpackPrj.setText(Local.getString("Unpack project") + "...");
