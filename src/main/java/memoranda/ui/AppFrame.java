@@ -322,7 +322,7 @@ public class AppFrame extends JFrame {
         projectsPanel.setPreferredSize(new Dimension(10, 28));
         projectsPanel.setBackground(Color.CYAN);
         workPanel.setMinimumSize(new Dimension(734, 300));
-        workPanel.setPreferredSize(new Dimension(1073, 300));
+        workPanel.setPreferredSize(new Dimension(1080, 300));
         workPanel.setBackground(Color.CYAN);
         splitPane.setDividerLocation(28);
 
