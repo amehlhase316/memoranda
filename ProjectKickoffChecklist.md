@@ -20,11 +20,11 @@ For each of you individually copy the checklist and check them of if it is done.
 
 - [x ] Did you understand the kickoff document
 
-- [ ] Did you make your three changes to the Memoranda software
+- [ x] Did you make your three changes to the Memoranda software
 
 - [ x] Did you read the DeliverableX.md document and understand it (if you do not understand ask your team or me)
 
 - [x ] Did you read the QualityPolicy.md doument and understand it (if you do not understand ask your team or me)
 
-- [ x] You understand how to get started and what the next steps in my project are based on the kickoff document and what you learned about Scrum and GitHub (if you do not, ask on Slack until you do and can check this)
+- [ x] You understand how to get started and what the next steps in my project are based on the kickoff document and what you learned about Scrum and GitHub (if  you do not, ask on Slack until you do and can check this)
 gradle 
