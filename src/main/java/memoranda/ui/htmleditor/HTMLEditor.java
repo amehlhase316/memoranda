@@ -1206,7 +1206,7 @@ public class HTMLEditor extends JPanel {
 					.getAttributes();
 
 		if (charattrs
-			.containsAttribute(StyleConstants.Bold, new Boolean(true))) {
+			.containsAttribute(StyleConstants.Bold, true)) {
 			boldActionB.setBorder(border2);
 			bold = true;
 		} else if (bold) {
@@ -1215,7 +1215,7 @@ public class HTMLEditor extends JPanel {
 		}
 		boldActionB.setBorderPainted(bold);
 		if (charattrs
-			.containsAttribute(StyleConstants.Italic, new Boolean(true))) {
+			.containsAttribute(StyleConstants.Italic, true)) {
 			italicActionB.setBorder(border2);
 			italic = true;
 		} else if (italic) {
@@ -1224,7 +1224,7 @@ public class HTMLEditor extends JPanel {
 		}
 		italicActionB.setBorderPainted(italic);
 		if (charattrs
-			.containsAttribute(StyleConstants.Underline, new Boolean(true))) {
+			.containsAttribute(StyleConstants.Underline, true)) {
 			underActionB.setBorder(border2);
 			under = true;
 		} else if (under) {
@@ -2113,7 +2113,7 @@ public class HTMLEditor extends JPanel {
 		if (tda.isDefined(HTML.Attribute.COLSPAN))
 			try {
 				Integer i =
-					new Integer(
+					Integer.valueOf(
 						tda.getAttribute(HTML.Attribute.COLSPAN).toString());
 				dlg.tdColspan.setValue(i);
 			} catch (Exception ex) {
@@ -2122,7 +2122,7 @@ public class HTMLEditor extends JPanel {
 		if (tda.isDefined(HTML.Attribute.ROWSPAN))
 			try {
 				Integer i =
-					new Integer(
+					Integer.valueOf(
 						tda.getAttribute(HTML.Attribute.ROWSPAN).toString());
 				dlg.tdRowspan.setValue(i);
 			} catch (Exception ex) {
@@ -2187,7 +2187,7 @@ public class HTMLEditor extends JPanel {
 		if (ta.isDefined(HTML.Attribute.CELLPADDING))
 			try {
 				Integer i =
-					new Integer(
+					Integer.valueOf(
 						ta.getAttribute(HTML.Attribute.CELLPADDING).toString());
 				dlg.cellpadding.setValue(i);
 			} catch (Exception ex) {
@@ -2196,7 +2196,7 @@ public class HTMLEditor extends JPanel {
 		if (ta.isDefined(HTML.Attribute.CELLSPACING))
 			try {
 				Integer i =
-					new Integer(
+					Integer.valueOf(
 						ta.getAttribute(HTML.Attribute.CELLSPACING).toString());
 				dlg.cellspacing.setValue(i);
 			} catch (Exception ex) {
@@ -2205,7 +2205,7 @@ public class HTMLEditor extends JPanel {
 		if (ta.isDefined(HTML.Attribute.BORDER))
 			try {
 				Integer i =
-					new Integer(
+					Integer.valueOf(
 						ta.getAttribute(HTML.Attribute.BORDER).toString());
 				dlg.border.setValue(i);
 			} catch (Exception ex) {
