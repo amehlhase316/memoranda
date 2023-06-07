@@ -32,7 +32,8 @@ public class WorkPanel extends JPanel {
 	CardLayout cardLayout1 = new CardLayout();
 
 	public DailyItemsPanel dailyItemsPanel = new DailyItemsPanel(this);
-	public ResourcesPanel filesPanel = new ResourcesPanel();
+//	public ResourcesPanel filesPanel = new ResourcesPanel();
+	public MapPanel mapPanel = new MapPanel();
 	public JButton agendaB = new JButton();
 	public JButton tasksB = new JButton();
 	public JButton eventsB = new JButton();
@@ -232,7 +233,8 @@ public class WorkPanel extends JPanel {
 		this.add(toolBar, BorderLayout.WEST);
 		this.add(panel, BorderLayout.CENTER);
 		panel.add(dailyItemsPanel, "DAILYITEMS");
-		panel.add(filesPanel, "FILES");
+		panel.add(mapPanel, "MAP");
+//		panel.add(filesPanel, "FILES");
 		toolBar.add(agendaB, null);
 		toolBar.add(eventsB, null);
 		toolBar.add(tasksB, null);
@@ -247,7 +249,8 @@ public class WorkPanel extends JPanel {
 		toolBar.setBorder(null);
 		panel.setBorder(null);
 		dailyItemsPanel.setBorder(null);
-		filesPanel.setBorder(null);
+//		filesPanel.setBorder(null);
+		mapPanel.setBorder(null);
 
 	}
 

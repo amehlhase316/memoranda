@@ -1,11 +1,9 @@
 package main.java.memoranda;
 
-import java.util.UUID;
-
 public class Node {
     String id;
-    double lat;
-    double lon;
+    double latitude;
+    double longitude;
 
     /**
      * The default constructor for Node
@@ -13,13 +11,13 @@ public class Node {
      * @param lat the latitude coordinates of the Node
      * @param lon the longitude coordinates of the Node
      */
-    Node(String id, double lat, double lon) {
+    Node(String id, double latitude, double longitude) {
         this.id = id;
-        this.lat = lat;
-        this.lon = lon;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
-    
-    /**
+
+	/**
      * Getter function for the String ID
      * @return the ID associated with the node
      */
@@ -32,7 +30,7 @@ public class Node {
      * @return the latitude value of the Node
      */
     public double getLatitude() {
-        return lat;
+        return latitude;
     }
 
     /**
@@ -40,7 +38,7 @@ public class Node {
      * @return the longitude value of the Node
      */
     public double getLongitude() {
-        return lon;
+        return longitude;
     }
 
     /**
@@ -71,7 +69,7 @@ public class Node {
      * @return the string
      */
     public String toString() {
-        return "Node: " + id.toString() + "\nlatitude: " + lat + "\nlongitude: " + lon;
+        return "Node: " + id.toString() + "\nlatitude: " + latitude + "\nlongitude: " + longitude;
     }
 
     /**
@@ -80,7 +78,7 @@ public class Node {
      * @return returns true if the latitude and longitude values are equal, else returns false
      */
     public boolean equals(Node n) {
-        if(lat == n.getLatitude() && lon == n.getLongitude())
+        if(latitude == n.getLatitude() && longitude == n.getLongitude())
             return true;
         return false;
     }
