@@ -460,7 +460,7 @@ public class TaskPanel extends JPanel {
 		dlg.chkEndDate.setSelected(false);
 	else
 		dlg.chkEndDate.setSelected(true);
-		dlg.progress.setValue(new Integer(t.getProgress()));
+		dlg.progress.setValue(t.getProgress());
  	dlg.chkEndDate_actionPerformed(null);	
         dlg.setVisible(true);
         if (dlg.CANCELLED)
@@ -701,8 +701,7 @@ public class TaskPanel extends JPanel {
 	// toggle "show active only"
 	void toggleShowActiveOnly_actionPerformed(ActionEvent e) {
 		Context.put(
-			"SHOW_ACTIVE_TASKS_ONLY",
-			new Boolean(ppShowActiveOnlyChB.isSelected()));
+			"SHOW_ACTIVE_TASKS_ONLY", ppShowActiveOnlyChB.isSelected());
 		taskTable.tableChanged();
 	}
 
