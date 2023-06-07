@@ -460,7 +460,7 @@ public class TaskPanel extends JPanel {
 		dlg.chkEndDate.setSelected(false);
 	else
 		dlg.chkEndDate.setSelected(true);
-		dlg.progress.setValue(new Integer(t.getProgress()));
+		dlg.progress.setValue(Integer.valueOf(t.getProgress()));
  	dlg.chkEndDate_actionPerformed(null);	
         dlg.setVisible(true);
         if (dlg.CANCELLED)
