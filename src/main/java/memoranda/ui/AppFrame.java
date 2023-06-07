@@ -11,10 +11,9 @@ import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import java.io.File;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Vector;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.*;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
