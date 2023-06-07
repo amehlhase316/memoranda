@@ -242,7 +242,7 @@ public class AppFrame extends JFrame {
     JMenuItem jMenuGoToday = new JMenuItem(
             workPanel.dailyItemsPanel.calendar.todayAction);
 
-    JMenuItem jMenuEditPref = new JMenuItem(preferencesAction);
+    //JMenuItem jMenuEditPref = new JMenuItem(preferencesAction);
 
     JMenu jMenuInsertSpecial = new JMenu();
     
@@ -385,7 +385,7 @@ public class AppFrame extends JFrame {
 
         jMenuEditFind.setText(Local.getString("Find & replace") + "...");
 
-        jMenuEditPref.setText(Local.getString("Preferences") + "...");
+        //jMenuEditPref.setText(Local.getString("Preferences") + "...");
 
         jMenuInsert.setText(Local.getString("Insert"));
 
@@ -482,7 +482,7 @@ public class AppFrame extends JFrame {
         jMenuFile.add(jMenuFileImportNote);
         jMenuFile.add(jMenuFileImportPrj);
         jMenuFile.addSeparator();
-        jMenuFile.add(jMenuEditPref);
+        //jMenuFile.add(jMenuEditPref);
         jMenuFile.addSeparator();
         jMenuFile.add(jMenuFileMin);
         jMenuFile.addSeparator();
@@ -887,7 +887,7 @@ public class AppFrame extends JFrame {
     public void showPreferences() {
         PreferencesDialog dlg = new PreferencesDialog(this);
         dlg.pack();
-        dlg.setLocationRelativeTo(this);
+        dlg.setLocationRelativeTo(null);
         dlg.setVisible(true);
     }
     
