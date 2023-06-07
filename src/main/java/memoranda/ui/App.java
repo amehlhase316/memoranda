@@ -138,6 +138,18 @@ public class App {
 
 	}
 
+	/**
+	 * for exiting out of program entirely
+	 */
+	public static void exitProgram() {
+		if (frame == null)
+			return;
+		System.exit(0);
+	}
+
+	/**
+	 * for closing the current frame but not the entire program
+	 */
 	public static void closeWindow() {
 		if (frame == null)
 			return;

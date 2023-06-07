@@ -661,7 +661,7 @@ public class AppFrame extends JFrame {
         Context.put("FRAME_XPOS", new Integer(this.getLocation().x));
         Context.put("FRAME_YPOS", new Integer(this.getLocation().y));
         exitNotify();
-        System.exit(0);
+        App.exitProgram();
     }
 
     public void doMinimize() {
