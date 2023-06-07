@@ -44,23 +44,11 @@ import main.java.memoranda.util.CurrentStorage;
 import main.java.memoranda.util.Local;
 import main.java.memoranda.util.Util;
 
-/*$Id: EventsPanel.java,v 1.25 2005/02/19 10:06:25 rawsushi Exp $*/
 public class MapPanel extends JPanel {
 	
 	BorderLayout borderLayout1 = new BorderLayout();
-//    JButton historyBackB = new JButton();
-//    JToolBar eventsToolBar = new JToolBar();
-//    JButton historyForwardB = new JButton();
-//    JButton newEventB = new JButton();
-//    JButton editEventB = new JButton();
-//    JButton removeEventB = new JButton();
     JScrollPane scrollPane = new JScrollPane();
     MapGraph mapGraph;
-//    EventsTable eventsTable = new EventsTable();
-//    JPopupMenu eventPPMenu = new JPopupMenu();
-//    JMenuItem ppEditEvent = new JMenuItem();
-//    JMenuItem ppRemoveEvent = new JMenuItem();
-//    JMenuItem ppNewEvent = new JMenuItem();
     DailyItemsPanel parentPanel = null;
 
     public MapPanel() {
@@ -72,82 +60,7 @@ public class MapPanel extends JPanel {
         }
     }
     void jbInit() throws Exception {
-//        eventsToolBar.setFloatable(false);
-
-//        historyBackB.setAction(History.historyBackAction);
-//        historyBackB.setFocusable(false);
-//        historyBackB.setBorderPainted(false);
-//        historyBackB.setToolTipText(Local.getString("History back"));
-//        historyBackB.setRequestFocusEnabled(false);
-//        historyBackB.setPreferredSize(new Dimension(24, 24));
-//        historyBackB.setMinimumSize(new Dimension(24, 24));
-//        historyBackB.setMaximumSize(new Dimension(24, 24));
-//        historyBackB.setText("");
-
-//        historyForwardB.setAction(History.historyForwardAction);
-//        historyForwardB.setBorderPainted(false);
-//        historyForwardB.setFocusable(false);
-//        historyForwardB.setPreferredSize(new Dimension(24, 24));
-//        historyForwardB.setRequestFocusEnabled(false);
-//        historyForwardB.setToolTipText(Local.getString("History forward"));
-//        historyForwardB.setMinimumSize(new Dimension(24, 24));
-//        historyForwardB.setMaximumSize(new Dimension(24, 24));
-//        historyForwardB.setText("");
-
-//        newEventB.setIcon(
-//            new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/event_new.png")));
-//        newEventB.setEnabled(true);
-//        newEventB.setMaximumSize(new Dimension(24, 24));
-//        newEventB.setMinimumSize(new Dimension(24, 24));
-//        newEventB.setToolTipText(Local.getString("New event"));
-//        newEventB.setRequestFocusEnabled(false);
-//        newEventB.setPreferredSize(new Dimension(24, 24));
-//        newEventB.setFocusable(false);
-//        newEventB.addActionListener(new java.awt.event.ActionListener() {
-//            public void actionPerformed(ActionEvent e) {
-//                newEventB_actionPerformed(e);
-//            }
-//        });
-//        newEventB.setBorderPainted(false);
-//
-//        editEventB.setBorderPainted(false);
-//        editEventB.setFocusable(false);
-//        editEventB.addActionListener(new java.awt.event.ActionListener() {
-//            public void actionPerformed(ActionEvent e) {
-//                editEventB_actionPerformed(e);
-//            }
-//        });
-//        editEventB.setPreferredSize(new Dimension(24, 24));
-//        editEventB.setRequestFocusEnabled(false);
-//        editEventB.setToolTipText(Local.getString("Edit event"));
-//        editEventB.setMinimumSize(new Dimension(24, 24));
-//        editEventB.setMaximumSize(new Dimension(24, 24));
-//        editEventB.setEnabled(true);
-//        editEventB.setIcon(
-//            new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/event_edit.png")));
-//
-//        removeEventB.setBorderPainted(false);
-//        removeEventB.setFocusable(false);
-//        removeEventB.addActionListener(new java.awt.event.ActionListener() {
-//            public void actionPerformed(ActionEvent e) {
-//                removeEventB_actionPerformed(e);
-//            }
-//        });
-//        removeEventB.setPreferredSize(new Dimension(24, 24));
-//        removeEventB.setRequestFocusEnabled(false);
-//        removeEventB.setToolTipText(Local.getString("Remove event"));
-//        removeEventB.setMinimumSize(new Dimension(24, 24));
-//        removeEventB.setMaximumSize(new Dimension(24, 24));
-//        removeEventB.setIcon(
-//            new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/event_remove.png")));
-
-//*********************************************************************************************************************************************************************************************
-//*********************************************************************************************************************************************************************************************
-    	// temporary removing JSON file requirement because it is giving me issues. Going to test functionality first then come back to it
-//*********************************************************************************************************************************************************************************************
-//*********************************************************************************************************************************************************************************************
-//        readBoundsFromJSON(mapGraph, "/mapbounds1.json");
-
+        
     	mapGraph = new MapGraph();
         mapGraph.readNodesFromJSON("nodes1.json");
 //    	mapGraph.addNode("Reference", 33.431553798164614, -111.94337810187346); // reference
@@ -164,68 +77,17 @@ public class MapPanel extends JPanel {
         scrollPane.getViewport().setBackground(Color.white);
         scrollPane.getViewport().add(mapGraph);
         mapGraph.repaint();
-//        eventsTable.setMaximumSize(new Dimension(32767, 32767));
-////        eventsTable.setRowHeight(24);
-//        eventPPMenu.setFont(new java.awt.Font("Dialog", 1, 10));
-//        ppEditEvent.setFont(new java.awt.Font("Dialog", 1, 11));
-//        ppEditEvent.setText(Local.getString("Edit event") + "...");
-//        ppEditEvent.addActionListener(new java.awt.event.ActionListener() {
-//            public void actionPerformed(ActionEvent e) {
-//                ppEditEvent_actionPerformed(e);
-//            }
-//        });
-//        ppEditEvent.setEnabled(false);
-//        ppEditEvent.setIcon(
-//            new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/event_edit.png")));
-//        ppRemoveEvent.setFont(new java.awt.Font("Dialog", 1, 11));
-//        ppRemoveEvent.setText(Local.getString("Remove event"));
-//        ppRemoveEvent.addActionListener(new java.awt.event.ActionListener() {
-//            public void actionPerformed(ActionEvent e) {
-//                ppRemoveEvent_actionPerformed(e);
-//            }
-//        });
-//        ppRemoveEvent.setIcon(
-//            new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/event_remove.png")));
-//        ppRemoveEvent.setEnabled(false);
-//        ppNewEvent.setFont(new java.awt.Font("Dialog", 1, 11));
-//        ppNewEvent.setText(Local.getString("New event") + "...");
-//        ppNewEvent.addActionListener(new java.awt.event.ActionListener() {
-//            public void actionPerformed(ActionEvent e) {
-//                ppNewEvent_actionPerformed(e);
-//            }
-//        });
-//        ppNewEvent.setIcon(
-//            new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/event_new.png")));
-//        scrollPane.getViewport().add(eventsTable, null);
         JScrollBar vertScrollBar = scrollPane.getVerticalScrollBar();
         vertScrollBar.setUnitIncrement(25);
         vertScrollBar.setBlockIncrement(50);
         this.add(scrollPane, BorderLayout.CENTER);
-//        eventsToolBar.add(historyBackB, null);
-//        eventsToolBar.add(historyForwardB, null);
-//        eventsToolBar.addSeparator(new Dimension(8, 24));
-//
-//        eventsToolBar.add(newEventB, null);
-//        eventsToolBar.add(removeEventB, null);
-//        eventsToolBar.addSeparator(new Dimension(8, 24));
-//        eventsToolBar.add(editEventB, null);
-
-//        this.add(eventsToolBar, BorderLayout.NORTH);
 
         PopupListener ppListener = new PopupListener();
         scrollPane.addMouseListener(ppListener);
-//        eventsTable.addMouseListener(ppListener);
 
         CurrentDate.addDateListener(new DateListener() {
             public void dateChange(CalendarDate d) {
-//                eventsTable.initTable(d);     
                 boolean enbl = d.after(CalendarDate.today()) || d.equals(CalendarDate.today());
-//                newEventB.setEnabled(enbl);           
-//                ppNewEvent.setEnabled(enbl);
-//                editEventB.setEnabled(false);
-//                ppEditEvent.setEnabled(false);
-//                removeEventB.setEnabled(false);
-//                ppRemoveEvent.setEnabled(false);
             }
         });
 
@@ -255,25 +117,6 @@ public class MapPanel extends JPanel {
 //			public void	keyReleased(KeyEvent e){}
 //			public void keyTyped(KeyEvent e){} 
 //		});
-    }
-    
-    public void readBoundsFromJSON(MapGraph mapGraph, String filename) {
-        try {
-            JSONParser parser = new JSONParser();
-            JSONArray boundsArray = (JSONArray) parser.parse(new FileReader(filename));
-
-            for (Object obj : boundsArray) {
-                JSONObject nodeObj = (JSONObject) obj;
-                double longitudeMin = (double) nodeObj.get("longitudeMin");
-                double longitudeMax = (double) nodeObj.get("longitudeMax");
-                double latitudeMin = (double) nodeObj.get("latitudeMin");
-                double latitudeMax = (double) nodeObj.get("latitudeMax");
-                
-                mapGraph = new MapGraph();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
 //    void editEventB_actionPerformed(ActionEvent e) {
