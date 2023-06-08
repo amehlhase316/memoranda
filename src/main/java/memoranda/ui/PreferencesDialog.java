@@ -42,7 +42,6 @@ public class PreferencesDialog extends JDialog {
 
 	JRadioButton closeHideRB = new JRadioButton();
 
-	JLabel jLabel3 = new JLabel();
 
 	ButtonGroup lfGroup = new ButtonGroup();
 
@@ -278,14 +277,12 @@ public class PreferencesDialog extends JDialog {
 		gbc.insets = new Insets(2, 0, 0, 10);
 		gbc.anchor = GridBagConstraints.WEST;
 		GeneralPanel.add(closeHideRB, gbc);
-		jLabel3.setHorizontalAlignment(SwingConstants.RIGHT);
-		jLabel3.setText(Local.getString("Look and feel:"));
 		gbc = new GridBagConstraints();
 		gbc.gridx = 0;
 		gbc.gridy = 4;
 		gbc.insets = new Insets(2, 10, 0, 15);
 		gbc.anchor = GridBagConstraints.EAST;
-		GeneralPanel.add(jLabel3, gbc);
+		
 
 		gbc = new GridBagConstraints();
 		gbc.gridx = 1;
