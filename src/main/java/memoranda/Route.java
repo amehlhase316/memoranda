@@ -15,7 +15,7 @@ public class Route {
      * @param n ArrayList of Nodes
      * @param sd stopDuration of Bus at each Node
      */
-    Route(ArrayList<Node> n, double sd)
+    public Route(ArrayList<Node> n, double sd)
     {
         nodes = n;
         length = calculateLength();
@@ -28,7 +28,7 @@ public class Route {
      * @param initialNode The first Node on the Route
      * @param sd stopDuration of Bus at each Node
      */
-    Route(Node initialNode, double sd){
+    public Route(Node initialNode, double sd){
         nodes.add(initialNode);
         length = calculateLength();
         duration = calculateDuration();
@@ -39,7 +39,7 @@ public class Route {
      * Default constructor for route, only specifying the stopDuration of each stop
      * @param sd stopDuration of Bus at each Node
      */
-    Route(double sd){
+    public Route(double sd){
         nodes = new ArrayList<Node>();
         length = 0;
         duration = 0;

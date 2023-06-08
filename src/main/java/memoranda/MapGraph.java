@@ -24,7 +24,7 @@ import org.json.simple.parser.*;
 public class MapGraph extends JPanel {
     private List<Node> nodes;
     private List<WeightedEdge> edges;
-    private List<Point2D.Double> route;
+    private List<Node> route;
     
     private double longitudeMin;	// left
     private double longitudeMax;	// right
@@ -62,8 +62,8 @@ public class MapGraph extends JPanel {
         edges.add(edge);
     }
     
-    public void addRoutePoint(double longitude, double latitude) {
-        route.add(new Point2D.Double(longitude, latitude));
+    public void addRoutePoint(Node n) {
+        route.add(n);
     }
     
     public List<Node> getShortestRoute(String sourceId, String destinationId) {
@@ -121,12 +121,14 @@ public class MapGraph extends JPanel {
         		continue;
         	} 
             // Scale the longitude and latitude to fit within the panel dimensions
-            int x = (int) (((refLongitude - node.getLongitude()) * -1) / 0.0000206);
-            int y = (int) ((refLatitude - node.getLatitude()) / 0.00001706);
+            int x = (int) ((((refLongitude - node.getLongitude()) * -1) / 0.0000206) + 222);
+            int y = (int) (((refLatitude - node.getLatitude()) / 0.00001706) + 135);
+            node.setX(x);
+            node.setY(y);
 
             // Draw a dot for each node
             g.setColor(Color.DARK_GRAY);
-            g.fillOval(222 + x, 135 + y, 15, 15);
+            g.fillOval(x, y, 15, 15);
 //            g.fillOval(222, 140, 10, 10); // reference point
 //            g.fillOval(385, 250, 10, 10);
 //            g.fillOval(1053, 300, 10, 10);
@@ -135,7 +137,7 @@ public class MapGraph extends JPanel {
 
             // Draw the node's ID
             g.setColor(Color.BLACK);
-            g.drawString(node.getId(), 222 + x, 135 + y);
+            g.drawString(node.getId(), x, y);
         }
 
         // Draw route

@@ -31,6 +31,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.*;
 
+import main.java.memoranda.*;
 import main.java.memoranda.EventsManager;
 import main.java.memoranda.EventsScheduler;
 import main.java.memoranda.History;
@@ -49,6 +50,7 @@ public class MapPanel extends JPanel {
 	BorderLayout borderLayout1 = new BorderLayout();
     JScrollPane scrollPane = new JScrollPane();
     MapGraph mapGraph;
+    Route route;
     DailyItemsPanel parentPanel = null;
 
     public MapPanel() {
@@ -63,15 +65,7 @@ public class MapPanel extends JPanel {
         
     	mapGraph = new MapGraph();
         mapGraph.readNodesFromJSON("nodes1.json");
-//    	mapGraph.addNode("Reference", 33.431553798164614, -111.94337810187346); // reference
-//    	mapGraph.addNode("1", 33.42963052995682, -111.94001299549043); 			// mill & rio salado
-//    	mapGraph.addNode("2", 33.421941756397246, -111.94001299549043);
-//    	mapGraph.addNode("3", 33.42201216749531, -111.92629148223463);
-//    	mapGraph.addNode("4", 33.428834665748695, -111.92628633366814);
-//    	mapGraph.addNode("5", 33.304628, -111.675663);
-//    	mapGraph.addNode("6", 33.303175, -111.678185);
-//    	mapGraph.addNode("7", 33.305103, -111.677734);
-//    	mapGraph.addNode("8", 33.306529, -111.680695);
+        route = new Route(5.0);
 
         this.setLayout(borderLayout1);
         scrollPane.getViewport().setBackground(Color.white);

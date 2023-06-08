@@ -4,6 +4,8 @@ public class Node {
     String id;
     double latitude;
     double longitude;
+    private int x;
+    private int y;
 
     /**
      * The default constructor for Node
@@ -15,6 +17,8 @@ public class Node {
         this.id = id;
         this.latitude = latitude;
         this.longitude = longitude;
+        x = -1;
+        y = -1;
     }
 
 	/**
@@ -40,6 +44,22 @@ public class Node {
     public double getLongitude() {
         return longitude;
     }
+    
+	public int getX() {
+		return x;
+	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
 
     /**
      * Calculates the distance between the Nodes in km
@@ -48,16 +68,21 @@ public class Node {
      * @return the distance of the Nodes in km
      */
     public static double distanceOfNodes(Node n, Node nn) {
-        double R = 6371; // radius of the earth in km;
-        double dLat = Math.toRadians(n.getLatitude() - nn.getLatitude());
-        double dLon = Math.toRadians(n.getLongitude() - nn.getLongitude());
-
-        double a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-                Math.cos(Math.toRadians(nn.getLatitude())) * Math.cos(Math.toRadians(n.getLatitude())) *
-                        Math.sin(dLon/2) * Math.sin(dLon/2);
-        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        double d = R * c; //distance in kilometers
-        return d;
+//        double R = 6371; // radius of the earth in km;
+//        double dLat = Math.toRadians(n.getLatitude() - nn.getLatitude());
+//        double dLon = Math.toRadians(n.getLongitude() - nn.getLongitude());
+//
+//        double a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+//                Math.cos(Math.toRadians(nn.getLatitude())) * Math.cos(Math.toRadians(n.getLatitude())) *
+//                        Math.sin(dLon/2) * Math.sin(dLon/2);
+//        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+//        double d = R * c; //distance in kilometers
+//        return d;
+    	double xDiff = nn.getX() - n.getX();
+        double yDiff = nn.getY() - n.getY();
+        
+        double distance = Math.sqrt(xDiff * xDiff + yDiff * yDiff);
+        return distance;
     }
 
     /**
