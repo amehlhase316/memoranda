@@ -17,19 +17,20 @@ Our team is going with the bus schedule topic.
 Document your Sprint Planning here. Also check the kickoff document for more details on what needs to be done. This is just the documentation.
 
 **Sprint Goal:** Your Sprint goal
+We want to complete tasks that help us get familiar with the software and its functionality. Our user stories for this sprint focus on fixing small errors and modify the splash screen design to fit our topic.
 
-**How many User Stories did you add to the Product Backlog:**  Number
+**How many User Stories did you add to the Product Backlog:**  3
 
-**How many User Stories did you add to this Sprint:**
-> Answer the questions below about your Sprint Planning?
+**How many User Stories did you add to this Sprint:** 2
+> We added two new User Stories to the first sprint.
 
 **Why did you add these US, why do you think you can get them done in the next Sprint?**
 
-> Your Answer
+> We chose to add 
 
 **Why do you think these fit well with your Sprint goal? (details)**
 
-> Your Answer
+> These fit well with our Sprint goal
 
 **Do you have a rough idea what you need to do? (if the answer is no then please let me know on Slack)**
 
