@@ -6,8 +6,8 @@ import main.java.memoranda.util.Local;
 
 public class ImportSticker {
 
-String name;        
-        
+String name;
+
         public ImportSticker(String x) {
                 name = x;
         }
@@ -15,13 +15,13 @@ String name;
         public boolean import_file(){
                 /*
                  We are working on this =)
-                  
-                  
+
+
                   */
-                
-                JOptionPane.showMessageDialog(null,Local.getString("Aun no podemos importar su documento"));
+
+                JOptionPane.showMessageDialog(null,Local.getString("We still can't import your document"));
                 return true;
         }
-        
-        
+
+
 }
