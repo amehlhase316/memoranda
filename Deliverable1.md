@@ -233,7 +233,7 @@ Answer as a team!
 - [X] Your Quality Policies are accurate and up to date
 - [ ] **Individual** Survey was submitted **individually** (create checkboxes below -- see Canvas to get link)
   - [ ] Ben
-  - [ ] Geena
+  - [X] Geena
   - [ ] Brinson
   - [ ] Gustavo
 - [X] The original of this file was copied for the next Sprint (needed for all but last Sprint where you do not need to copy it anymore)
