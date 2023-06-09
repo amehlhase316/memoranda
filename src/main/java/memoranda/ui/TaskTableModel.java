@@ -98,7 +98,7 @@ public class TaskTableModel extends AbstractTreeTableModel implements TreeTableM
         case 5:
             return getStatusString(t.getStatus(CurrentDate.get()));
         case 6:            
-            //return new Integer(t.getProgress());
+            //return Integer.valueOf(t.getProgress());
 			return t;
         case TaskTable.TASK_ID:
             return t.getID();
