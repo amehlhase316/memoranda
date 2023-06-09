@@ -44,18 +44,26 @@ I would also advise you to already fill out the Contributions section (End of sp
 
 | Date  | Who did not attend  |Meeting notes (very brief)   | Burndown Info (on track, ahead behind is enough) | TravisCI info (does the master pass) | Additional Info  |
 |---|---|---|---|--|--|
-|   |   |   |   |  |  |
-|   |   |   |   |  |  |
-|   |   |   |   |  |  |
+| 5/27/2023 | Andres  | initial Sprint 1 meeting  | on track  | n/a | |
+| 5/28/2023 | Andres  | Adding user stories  | on track  | n/a | |
+| 5/31/2023 |   | Checkin meeting, inform team on new new objects | on track  | n/a | |
+| 6/4/2023  |   | General progress discussion/algorithm design for Nodes | behind  | n/a | | 
+| 6/8/2023  | Andres, Josh  | Wrapup meeting with most of group | behind | n/a | | 
+| 6/9/2023  | Frankie  | Sprint 1 finalization meeting | n/a | |
 
 ### Meeting Summary:
 
 > Add rows as needed and add the number how many meetings for each team member:
 
-   Name1 : Num Meetings
+   Will : 6
 
-   Name2 : Num Meetings
-
+   Eli : 6
+   
+   Andres : 3
+   
+   Josh : 5
+   
+   Frankie : 5
 
 ## 3: After the Sprint
 
@@ -68,15 +76,16 @@ Answer as a team!
 
 **What do you think is the value you created this Sprint?**
 
-> Your Answer
+> Established foundation and garnered how we will proceed with the project.
+
 
 **Do you think you worked enough and that you did what was expected of you?**
 
-> Your Answer
+> As a whole, more could have gotten done, but individually some went above and beyond (Eli)
 
 **Would you say you met the customers’ expectations? Why, why not?**
 
-> Your Answer
+> Yes, the team is well on the way to delivering the product.
 
 
 ### Sprint Retrospective
@@ -85,37 +94,135 @@ Answer as a team!
 
 **Did you meet your sprint goal?**
 
-> Your Answer
+> Yes, everyone on the team has a working knowledge of the Memoranda Framework
 
 **Did you complete all stories on your Spring Backlog?**
 
-> Your Answer
+> No, planned to complete too many User Stories
 
 **If not, what went wrong?**
 
-> Your Answer
+> Planned to complete too many User Stories, needed more team communication.
 
 **Did you work at a consistent rate of speed, or velocity? (Meaning did you work during the whole Sprint or did you start working when the deadline approached.)**
 
-> Your Answer
+> No, time allocation and team communication could have improved.
 
 **Did you deliver business value?**
 
-> Your Answer
+> No, we do not have a finished product.
 
 **Are there things the team thinks it can do better in the next Sprint?**
 
-> Your Answer
+> Coordination, communication and awareness as a team.
 
 **How do you feel at this point? Get a pulse on the optimism of the team.**
 
-> Your Answer
+> Collectively, we feel optimistic, but we all recognize that our collective collaboration must improve.
 
 ### Contributions:
 
 > In this section I want you to point me to your main contributions (each of you individually). Some of the topcs are not needed for the first deliverables (you should know which things you should have done in this Sprint, if you don't then you have probably missed something):
 
-#### Team member A -- replace this with your name:
+#### Will
+  **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
+
+    - link1
+    - link2
+
+   **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
+
+    - link1
+    - link2
+
+  **GitHub links to your Code Reviews (up to 3 links) -- Sprint 2 and 3:
+
+    - link1
+    - link2
+
+  **How did you contribute to Static Analysis -- Sprint 3:
+
+    - link1
+    - link2
+ 
+ **What was your main contribution to the Quality Policy documentation?:
+
+    - info
+    
+#### Eli
+  **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
+
+    - link1
+    - link2
+
+   **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
+
+    - link1
+    - link2
+
+  **GitHub links to your Code Reviews (up to 3 links) -- Sprint 2 and 3:
+
+    - link1
+    - link2
+
+  **How did you contribute to Static Analysis -- Sprint 3:
+
+    - link1
+    - link2
+ 
+ **What was your main contribution to the Quality Policy documentation?:
+
+    - info
+#### Andres
+  **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
+
+    - link1
+    - link2
+
+   **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
+
+    - link1
+    - link2
+
+  **GitHub links to your Code Reviews (up to 3 links) -- Sprint 2 and 3:
+
+    - link1
+    - link2
+
+  **How did you contribute to Static Analysis -- Sprint 3:
+
+    - link1
+    - link2
+ 
+ **What was your main contribution to the Quality Policy documentation?:
+
+    - info
+#### Josh
+  **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
+
+    - link1
+    - link2
+
+   **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
+
+    - link1
+    - link2
+
+  **GitHub links to your Code Reviews (up to 3 links) -- Sprint 2 and 3:
+
+    - link1
+    - link2
+
+  **How did you contribute to Static Analysis -- Sprint 3:
+
+    - link1
+    - link2
+ 
+ **What was your main contribution to the Quality Policy documentation?:
+
+    - info
+ 
+ #### Frankie
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
 
     - link1
@@ -141,15 +248,18 @@ Answer as a team!
     - info
   
 ## 4: Checklist for you to see if you are done
-- [ ] Filled out the complete form from above, all fields are filled and written in full sentences
-- [ ] Read the kickoff again to make sure you have all the details
-- [ ] User Stories that were not completed, were left in the Sprint and a copy created
-- [ ] Your Quality Policies are accurate and up to date
+- [ X ] Filled out the complete form from above, all fields are filled and written in full sentences
+- [ X ] Read the kickoff again to make sure you have all the details
+- [ X ] User Stories that were not completed, were left in the Sprint and a copy created
+- [ X ] Your Quality Policies are accurate and up to date
 - [ ] **Individual** Survey was submitted **individually** (create checkboxes below -- see Canvas to get link)
-  - [ ] Team member 1
-  - [ ] Team member 2
-- [ ] The original of this file was copied for the next Sprint (needed for all but last Sprint where you do not need to copy it anymore)
-  - [ ] Basic information (part 1) for next Sprint was included (meaning Spring Planning is complete)
-  - [ ] All User Stories have acceptance tests
-  - [ ] User Stories in your new Sprint Backlog have initial tasks which are in New
-  - [ ] You know how to proceed
+  - [ ] Will
+  - [ ] Eli
+  - [ ] Andres
+  - [ ] Frankie
+  - [ ] Josh
+- [ X ] The original of this file was copied for the next Sprint (needed for all but last Sprint where you do not need to copy it anymore)
+  - [ X ] Basic information (part 1) for next Sprint was included (meaning Spring Planning is complete)
+  - [ X ] All User Stories have acceptance tests
+  - [ X ] User Stories in your new Sprint Backlog have initial tasks which are in New
+  - [ X ] You know how to proceed
