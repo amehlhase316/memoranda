@@ -245,18 +245,18 @@ Answer as a team!
     - info
   
 ## 4: Checklist for you to see if you are done
-- [ ] Filled out the complete form from above, all fields are filled and written in full sentences
-- [ ] Read the kickoff again to make sure you have all the details
-- [ ] User Stories that were not completed, were left in the Sprint and a copy created
-- [ ] Your Quality Policies are accurate and up to date
-- [ ] **Individual** Survey was submitted **individually** (create checkboxes below -- see Canvas to get link)
-  - [ ] Team member 1
-  - [ ] Team member 2
-  - [ ] Team member 3
-  - [ ] Ryan Dinaro
-  - [ ] Team member 5
-- [ ] The original of this file was copied for the next Sprint (needed for all but last Sprint where you do not need to copy it anymore)
-  - [ ] Basic information (part 1) for next Sprint was included (meaning Spring Planning is complete)
-  - [ ] All User Stories have acceptance tests
-  - [ ] User Stories in your new Sprint Backlog have initial tasks which are in New
-  - [ ] You know how to proceed
+- [x] Filled out the complete form from above, all fields are filled and written in full sentences
+- [x] Read the kickoff again to make sure you have all the details
+- [x] User Stories that were not completed, were left in the Sprint and a copy created
+- [x] Your Quality Policies are accurate and up to date
+- [x] **Individual** Survey was submitted **individually** (create checkboxes below -- see Canvas to get link)
+  - [x] Johnathan Ellis
+  - [x] Aman Sharma
+  - [x] Paul Carmichael
+  - [x] Ryan Dinaro
+  - [ ] Joseph Okonoboh
+- [x] The original of this file was copied for the next Sprint (needed for all but last Sprint where you do not need to copy it anymore)
+  - [x] Basic information (part 1) for next Sprint was included (meaning Spring Planning is complete)
+  - [x] All User Stories have acceptance tests
+  - [x] User Stories in your new Sprint Backlog have initial tasks which are in New
+  - [x] You know how to proceed
