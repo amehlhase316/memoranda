@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-types>  
+  <mime-type id="application/pdf" label="Adobe PDF Document">
+    <ext>pdf</ext>
+    <app platform="windows" appId="ACROREAD"/>
+  </mime-type>
+  <mime-type id="application/postscript" label="Postscript File" >
+    <ext>ps</ext>
+    <ext>eps</ext>
+    <ext>ai</ext>
+  </mime-type>
+  <mime-type id="application/msword" label="Word Document">
+    <ext>doc</ext>
+    <app platform="windows" appId="MSWORD"/>
+  </mime-type>
+  <mime-type id="application/msexcel" label="Excel Document" >
+    <ext>xls</ext>
+    <app platform="windows" appId="MSEXCEL"/>
+  </mime-type>
+  <mime-type id="application/mspowerpoint" label="PowerPoint Document" >
+    <ext>ppt</ext>
+    <app platform="windows" appId="MSPPT"/>
+  </mime-type>
+  <mime-type id="application/zip" label="ZIP archive" >
+    <ext>zip</ext>
+  </mime-type>
+  <mime-type id="application/x-tar" label="Tar archive" >
+    <ext>tar</ext>
+  </mime-type>
+  <mime-type id="application/x-gtar" label="GNU Tar archive" >
+    <ext>gtar</ext>
+  </mime-type>
+  <mime-type id="application/x-gz" label="GZIP archive" >
+    <ext>gz</ext>
+  </mime-type>
+  <mime-type id="application/x-sh" label="Shell script" >
+    <ext>sh</ext>
+    <app platform="linux" appId="EXE"/>
+  </mime-type>
+  <mime-type id="audio/basic" label="Audio file" >
+    <ext>au</ext>
+    <ext>snd</ext>
+  </mime-type>
+  <mime-type id="audio/midi" label="Audio MIDI file" >
+    <ext>mid</ext>
+    <ext>midi</ext>
+  </mime-type>
+  <mime-type id="audio/mpeg" label="Audio MPEG file">
+    <ext>mp2</ext>
+    <ext>mp3</ext>
+  </mime-type>
+  <mime-type id="audio/x-wav" label="Audio WAV file">
+    <ext>wav</ext>
+  </mime-type>
+  <mime-type id="image/gif" label="GIF image">
+    <ext>gif</ext>
+    <app platform="windows" appId="IEXPLORE"/>
+    <app platform="linux" appId="NETSCAPE_LINUX"/>
+  </mime-type>
+  <mime-type id="image/jpeg" label="JPEG image">
+    <ext>jpg</ext>
+    <ext>jpeg</ext>
+    <ext>jpe</ext>
+    <ext>jfif</ext>
+    <app platform="windows" appId="IEXPLORE"/>
+    <app platform="linux" appId="NETSCAPE_LINUX"/>
+  </mime-type>
+  <mime-type id="image/png" label="PNG image">
+    <ext>png</ext>
+    <app platform="windows" appId="IEXPLORE"/>
+    <app platform="linux" appId="NETSCAPE_LINUX"/>
+  </mime-type>
+  <mime-type id="image/bmp" label="BMP image" >
+    <ext>bmp</ext>
+  </mime-type>
+  <mime-type id="image/tiff" label="TIFF image" >
+    <ext>tiff</ext>
+    <ext>tif</ext>
+  </mime-type>
+  <mime-type id="text/html" label="HTML document" >
+    <ext>html</ext>
+    <ext>htm</ext>
+    <app platform="windows" appId="IEXPLORE"/>
+    <app platform="linux" appId="NETSCAPE_LINUX"/>
+  </mime-type>
+  <mime-type id="text/plain" label="Plain text" >
+    <ext>txt</ext>
+    <ext/>
+    <app platform="windows" appId="NOTEPAD"/>
+  </mime-type>
+  <mime-type id="text/rtf" label="RTF Document" >
+    <ext>rtf</ext>
+    <app platform="windows" appId="MSWORD"/>
+  </mime-type>
+  <mime-type id="text/xml" label="XML Document" >
+    <ext>xml</ext>
+    <ext>xsl</ext>
+    <app platform="windows" appId="IEXPLORE"/>
+  </mime-type>
+  <applications>
+    <app id="IEXPLORE" findPath="C:/Program Files/Internet Explorer" exec="iexplore.exe" command="$1"/>
+    <app id="NETSCAPE_LINUX" findPath="" exec="netscape" command="$1"/>
+    <app id="ACROREAD" findPath="C:/Program Files/Adobe/Acrobat 5.0/Reader" exec="AcroRd32.exe" command="$1"/>
+    <app id="MSWORD" findPath="C:/Program Files/Microsoft Office/Office10" exec="WINWORD.EXE" command="$1"/>
+    <app id="MSEXCEL" findPath="C:/Program Files/Microsoft Office/Office10" exec="EXCEL.EXE" command="$1"/>
+    <app id="MSPPT" findPath="C:/Program Files/Microsoft Office/Office10" exec="POWERPNT.EXE" command="$1"/>
+    <app id="MSPPT" findPath="C:/Program Files/Microsoft Office/Office10" exec="POWERPNT.EXE" command="$1"/>
+    <app id="NOTEPAD" findPath="C:/WINDOWS" exec="notepad.exe" command="$1"/>
+  </applications>
+</mime-types>
