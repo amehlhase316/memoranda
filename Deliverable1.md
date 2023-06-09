@@ -44,9 +44,13 @@ I would also advise you to already fill out the Contributions section (End of sp
 
 | Date  | Who did not attend  |Meeting notes (very brief)   | Burndown Info (on track, ahead behind is enough) | TravisCI info (does the master pass) | Additional Info  |
 |---|---|---|---|--|--|
-|05/28/2023   | Everyone attended  | Everyone put their work in setting up Taiga board and github before sprint starts  | on track  |  |  |
 |05/29/2023   | Everyone attended  | Team member selected their task to work on  |  on track |  |  |
-|   |   |   |   |  |  |
+|05/31/2023   | Everyone attended  | Team members worked on task and communicated well  |  on track |  |  |
+|06/02/2023   | Everyone attended  | Most team members finished a few stories. No blockers  |  on track |  |  |
+|06/05/2023   | Everyone attended  | Team member briefly communicated technical details  |  on track |  |  |
+|06/07/2023   | Everyone attended  | Almost done with all US  |  on track |  |  |
+|06/09/2023   | Everyone attended  | Final communication prior to submission  |  on track |  |  |
+|06/10/2023   | Everyone attended  | Sprint 1 complete  |  on track |  |  |
 
 ### Meeting Summary:
 
