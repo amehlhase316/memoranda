@@ -193,10 +193,10 @@ Answer as a team!
 #### Team member D -- Ryan Dinaro:
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
   
-[link1](https://github.com/amansharma96/Professional_Cowboys-Summer23C/pull/4/commits)
-[link2](https://github.com/amansharma96/Professional_Cowboys-Summer23C/pull/5/commits)
-[link3](https://github.com/amansharma96/Professional_Cowboys-Summer23C/pull/6/commits)
-[link4](https://github.com/amansharma96/Professional_Cowboys-Summer23C/pull/7/commits)
+[User Story #6](https://github.com/amansharma96/Professional_Cowboys-Summer23C/pull/4/commits)
+[User Story #12](https://github.com/amansharma96/Professional_Cowboys-Summer23C/pull/5/commits)
+[User Story #3](https://github.com/amansharma96/Professional_Cowboys-Summer23C/pull/6/commits)
+[User Story #1](https://github.com/amansharma96/Professional_Cowboys-Summer23C/pull/7/commits)
 
    **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
 
