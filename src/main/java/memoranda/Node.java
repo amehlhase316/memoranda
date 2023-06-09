@@ -86,6 +86,16 @@ public class Node {
     }
 
     /**
+     * Calculates the distance between Nodes in miles
+     * @param n first node
+     * @param nn second node
+     * @return The distance of nodes in miles
+     */
+    public static double distanceOfNodesMiles(Node n, Node nn) {
+        return distanceOfNodes(n, nn) * 0.621371;
+    }
+
+    /**
      * toString implementation:
      * (unique ID number of Node)
      * latitude: (latitude of Node)
