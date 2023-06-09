@@ -68,15 +68,15 @@ Answer as a team!
 
 **What do you think is the value you created this Sprint?**
 
-> Your Answer
+> For this sprint our goal was to fix any existing errors to the program, identify mistakes/errors in the legacy code, and prepare the software to be transformed in the next sprint.
 
 **Do you think you worked enough and that you did what was expected of you?**
 
-> Your Answer
+> We all tried our best to complete the user stories. The number of user stories that we created for this sprint was not enough, and we overestimated/underestimated some of the tasks and their points. However, each of us who worked on the project, contributed as much as possible.
 
 **Would you say you met the customers’ expectations? Why, why not?**
 
-> Your Answer
+>  We believe that the customer's expectations were somewhat met during this sprint. As mentioned above, our goal for this sprint was to identify and fix any existing errors.
 
 
 ### Sprint Retrospective
@@ -85,23 +85,23 @@ Answer as a team!
 
 **Did you meet your sprint goal?**
 
-> Your Answer
+> Yes, we have met our sprint goal of understanding the inner-workings of memoranda and fixing any existing errors. For example, many of the tasks in our user stories required a deep dive into the source code to identify bugs and fix them. We  also worked over designing memoranda so that it looks like Gym scheduling.
 
 **Did you complete all stories on your Spring Backlog?**
 
-> Your Answer
+> No, we have not completed all stories in our backlog. In this sprint we overed 75% of our expected task. 
 
 **If not, what went wrong?**
 
-> Your Answer
+> We overestimated/underestimated some of the tasks and their points. However, each of us who worked on the project, contributed as much as possible.
 
 **Did you work at a consistent rate of speed, or velocity? (Meaning did you work during the whole Sprint or did you start working when the deadline approached.)**
 
-> Your Answer
+> Our Taiga chart does show consistent rate of work; however, the first week of the sprint was focused on getting familiar with the project, github, and the team. The main work started in week 2 in which we made many changes so that memoranda looks like Gym Scheduling.
 
 **Did you deliver business value?**
 
-> Your Answer
+> Yes, we fixed existing errors in the software, came up with a new logo for the software and made it display when running.
 
 **Are there things the team thinks it can do better in the next Sprint?**
 
@@ -140,7 +140,7 @@ Answer as a team!
 
     - info
     
-#### Team member B -- replace this with your name:
+#### Team member B -- Aman Sharma:
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
 
     - link1
