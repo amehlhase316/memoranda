@@ -190,11 +190,12 @@ Answer as a team!
 
     - info
     
-#### Team member D -- replace this with your name:
+#### Team member D -- Ryan Dinaro:
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
-
-    - link1
-    - link2
+  https://github.com/amansharma96/Professional_Cowboys-Summer23C/tree/US1Close
+  https://github.com/amansharma96/Professional_Cowboys-Summer23C/tree/US3Minimize
+  https://github.com/amansharma96/Professional_Cowboys-Summer23C/tree/US6BuildVersion
+  https://github.com/amansharma96/Professional_Cowboys-Summer23C/tree/US12UML
 
    **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
 
@@ -212,8 +213,7 @@ Answer as a team!
     - link2
  
  **What was your main contribution to the Quality Policy documentation?:
-
-    - info
+   Unfortunately, I worked through that meeting
     
 #### Team member E -- replace this with your name:
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
