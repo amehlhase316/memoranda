@@ -24,6 +24,7 @@ sourceSets {
 dependencies {
   implementation 'com.io7m.xom:xom:1.2.+'
   implementation 'net.sourceforge.nekohtml:nekohtml:1.9.+'
+  implementation 'com.googlecode.json-simple:json-simple:1.1.1'
 }
 
 task printSourceSetInformation(){
