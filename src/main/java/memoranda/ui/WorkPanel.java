@@ -34,9 +34,9 @@ public class WorkPanel extends JPanel {
 	public JButton notesB = new JButton();
 	public DailyItemsPanel dailyItemsPanel = new DailyItemsPanel(this);
 	public ResourcesPanel filesPanel = new ResourcesPanel();
-	public JButton agendaB = new JButton();
-	public JButton tasksB = new JButton();
-	public JButton eventsB = new JButton();
+	public JButton overviewB = new JButton(); //Used to be Agenda
+	public JButton enrollB = new JButton(); //Used to be Tasks
+	public JButton classesB = new JButton(); //Used to be Events
 	public JButton filesB = new JButton();
 	JButton currentB = null;
 	Border border1;
@@ -68,82 +68,82 @@ public class WorkPanel extends JPanel {
 		toolBar.setFloatable(false);
 		panel.setLayout(cardLayout1);
 
-		agendaB.setBackground(Color.white);
-		agendaB.setMaximumSize(new Dimension(60, 80));
-		agendaB.setMinimumSize(new Dimension(30, 30));
+		overviewB.setBackground(Color.white);
+		overviewB.setMaximumSize(new Dimension(60, 80));
+		overviewB.setMinimumSize(new Dimension(30, 30));
 
-		agendaB.setFont(new java.awt.Font("Dialog", 1, 10));
-		agendaB.setPreferredSize(new Dimension(50, 50));
-		agendaB.setBorderPainted(false);
-		agendaB.setContentAreaFilled(false);
-		agendaB.setFocusPainted(false);
-		agendaB.setHorizontalTextPosition(SwingConstants.CENTER);
-		agendaB.setText(Local.getString("Agenda"));
-		agendaB.setVerticalAlignment(SwingConstants.TOP);
-		agendaB.setVerticalTextPosition(SwingConstants.BOTTOM);
-		agendaB.addActionListener(new java.awt.event.ActionListener() {
+		overviewB.setFont(new java.awt.Font("Dialog", 1, 10));
+		overviewB.setPreferredSize(new Dimension(50, 50));
+		overviewB.setBorderPainted(false);
+		overviewB.setContentAreaFilled(false);
+		overviewB.setFocusPainted(false);
+		overviewB.setHorizontalTextPosition(SwingConstants.CENTER);
+		overviewB.setText(Local.getString("Overview"));
+		overviewB.setVerticalAlignment(SwingConstants.TOP);
+		overviewB.setVerticalTextPosition(SwingConstants.BOTTOM);
+		overviewB.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				agendaB_actionPerformed(e);
+				overviewB_actionPerformed(e);
 			}
 		});
-		agendaB.setIcon(
+		overviewB.setIcon(
 			new ImageIcon(
 				main.java.memoranda.ui.AppFrame.class.getResource(
 					"/ui/icons/agenda.png")));
-		agendaB.setOpaque(false);
-		agendaB.setMargin(new Insets(0, 0, 0, 0));
-		agendaB.setSelected(true);
+		overviewB.setOpaque(false);
+		overviewB.setMargin(new Insets(0, 0, 0, 0));
+		overviewB.setSelected(true);
 
-		eventsB.setBackground(Color.white);
-		eventsB.setMaximumSize(new Dimension(60, 80));
-		eventsB.setMinimumSize(new Dimension(30, 30));
+		classesB.setBackground(Color.white);
+		classesB.setMaximumSize(new Dimension(60, 80));
+		classesB.setMinimumSize(new Dimension(30, 30));
 
-		eventsB.setFont(new java.awt.Font("Dialog", 1, 10));
-		eventsB.setPreferredSize(new Dimension(50, 50));
-		eventsB.setBorderPainted(false);
-		eventsB.setContentAreaFilled(false);
-		eventsB.setFocusPainted(false);
-		eventsB.setHorizontalTextPosition(SwingConstants.CENTER);
-		eventsB.setText(Local.getString("Events"));
-		eventsB.setVerticalAlignment(SwingConstants.TOP);
-		eventsB.setVerticalTextPosition(SwingConstants.BOTTOM);
-		eventsB.addActionListener(new java.awt.event.ActionListener() {
+		classesB.setFont(new java.awt.Font("Dialog", 1, 10));
+		classesB.setPreferredSize(new Dimension(50, 50));
+		classesB.setBorderPainted(false);
+		classesB.setContentAreaFilled(false);
+		classesB.setFocusPainted(false);
+		classesB.setHorizontalTextPosition(SwingConstants.CENTER);
+		classesB.setText(Local.getString("Classes"));
+		classesB.setVerticalAlignment(SwingConstants.TOP);
+		classesB.setVerticalTextPosition(SwingConstants.BOTTOM);
+		classesB.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				eventsB_actionPerformed(e);
+				classesB_actionPerformed(e);
 			}
 		});
-		eventsB.setIcon(
+		classesB.setIcon(
 			new ImageIcon(
 				main.java.memoranda.ui.AppFrame.class.getResource(
 					"/ui/icons/events.png")));
-		eventsB.setOpaque(false);
-		eventsB.setMargin(new Insets(0, 0, 0, 0));
-		//eventsB.setSelected(true);
+		classesB.setOpaque(false);
+		classesB.setMargin(new Insets(0, 0, 0, 0));
+		//classesB.setSelected(true);
 
-		tasksB.setSelected(true);
-		tasksB.setFont(new java.awt.Font("Dialog", 1, 10));
-		tasksB.setMargin(new Insets(0, 0, 0, 0));
-		tasksB.setIcon(
+		enrollB.setSelected(true);
+		enrollB.setFont(new java.awt.Font("Dialog", 1, 10));
+		enrollB.setMargin(new Insets(0, 0, 0, 0));
+		enrollB.setIcon(
 			new ImageIcon(
 				main.java.memoranda.ui.AppFrame.class.getResource(
 					"/ui/icons/tasks.png")));
-		tasksB.setVerticalTextPosition(SwingConstants.BOTTOM);
-		tasksB.addActionListener(new java.awt.event.ActionListener() {
+		enrollB.setVerticalTextPosition(SwingConstants.BOTTOM);
+		enrollB.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				tasksB_actionPerformed(e);
+				enrollB_actionPerformed(e);
 			}
 		});
-		tasksB.setVerticalAlignment(SwingConstants.TOP);
-		tasksB.setText(Local.getString("Tasks"));
-		tasksB.setHorizontalTextPosition(SwingConstants.CENTER);
-		tasksB.setFocusPainted(false);
-		tasksB.setBorderPainted(false);
-		tasksB.setContentAreaFilled(false);
-		tasksB.setPreferredSize(new Dimension(50, 50));
-		tasksB.setMinimumSize(new Dimension(30, 30));
-		tasksB.setOpaque(false);
-		tasksB.setMaximumSize(new Dimension(60, 80));
-		tasksB.setBackground(Color.white);
+		enrollB.setVerticalAlignment(SwingConstants.TOP);
+		enrollB.setText(Local.getString("Enroll"));
+		enrollB.setHorizontalTextPosition(SwingConstants.CENTER);
+		enrollB.setFocusPainted(false);
+		enrollB.setBorderPainted(false);
+		enrollB.setContentAreaFilled(false);
+		enrollB.setPreferredSize(new Dimension(50, 50));
+		enrollB.setMinimumSize(new Dimension(30, 30));
+		enrollB.setOpaque(false);
+		enrollB.setMaximumSize(new Dimension(60, 80));
+		enrollB.setBackground(Color.white);
 
 		notesB.setFont(new java.awt.Font("Dialog", 1, 10));
 		notesB.setBackground(Color.white);
@@ -200,12 +200,12 @@ public class WorkPanel extends JPanel {
 		this.add(panel, BorderLayout.CENTER);
 		panel.add(dailyItemsPanel, "DAILYITEMS");
 		panel.add(filesPanel, "FILES");
-		toolBar.add(agendaB, null);
-		toolBar.add(eventsB, null);
-		toolBar.add(tasksB, null);
+		toolBar.add(overviewB, null); 
+		toolBar.add(classesB, null); 
+		toolBar.add(enrollB, null); 
 		toolBar.add(notesB, null);
 		toolBar.add(filesB, null);
-		currentB = agendaB;
+		currentB = overviewB;
 		// Default blue color
 		currentB.setBackground(new Color(215, 225, 250));
 		currentB.setOpaque(true);
@@ -222,18 +222,18 @@ public class WorkPanel extends JPanel {
 			if (pan.equals("NOTES"))
 				notesB_actionPerformed(null);
 			else if (pan.equals("TASKS"))
-				tasksB_actionPerformed(null);
+				enrollB_actionPerformed(null);
 			else if (pan.equals("EVENTS"))
-				eventsB_actionPerformed(null);
+				classesB_actionPerformed(null);
 			else if (pan.equals("FILES"))
 				filesB_actionPerformed(null);
 		}
 	}
 
-	public void agendaB_actionPerformed(ActionEvent e) {
+	public void overviewB_actionPerformed(ActionEvent e) {
 		cardLayout1.show(panel, "DAILYITEMS");
 		dailyItemsPanel.selectPanel("AGENDA");
-		setCurrentButton(agendaB);
+		setCurrentButton(overviewB);
 		Context.put("CURRENT_PANEL", "AGENDA");
 	}
 
@@ -244,17 +244,17 @@ public class WorkPanel extends JPanel {
 		Context.put("CURRENT_PANEL", "NOTES");
 	}
 
-	public void tasksB_actionPerformed(ActionEvent e) {
+	public void enrollB_actionPerformed(ActionEvent e) {
 		cardLayout1.show(panel, "DAILYITEMS");
 		dailyItemsPanel.selectPanel("TASKS");
-		setCurrentButton(tasksB);
+		setCurrentButton(enrollB);
 		Context.put("CURRENT_PANEL", "TASKS");
 	}
 
-	public void eventsB_actionPerformed(ActionEvent e) {
+	public void classesB_actionPerformed(ActionEvent e) {
 		cardLayout1.show(panel, "DAILYITEMS");
 		dailyItemsPanel.selectPanel("EVENTS");
-		setCurrentButton(eventsB);
+		setCurrentButton(classesB);
 		Context.put("CURRENT_PANEL", "EVENTS");
 	}
 
