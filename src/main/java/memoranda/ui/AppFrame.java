@@ -585,15 +585,16 @@ public class AppFrame extends JFrame {
 
         this.workPanel.tasksB.addActionListener(setMenusDisabled);
         this.workPanel.eventsB.addActionListener(setMenusDisabled);
-        this.workPanel.filesB.addActionListener(setMenusDisabled);
+//        this.workPanel.filesB.addActionListener(setMenusDisabled);
         this.workPanel.agendaB.addActionListener(setMenusDisabled);
+        this.workPanel.mapB.addActionListener(setMenusDisabled);
 
-        this.workPanel.notesB.addActionListener(
-                new java.awt.event.ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-                        setEnabledEditorMenus(true);
-                    }
-                });
+//        this.workPanel.notesB.addActionListener(
+//                new java.awt.event.ActionListener() {
+//                    public void actionPerformed(ActionEvent e) {
+//                        setEnabledEditorMenus(true);
+//                    }
+//                });
 
         Object fwo = Context.get("FRAME_WIDTH");
         Object fho = Context.get("FRAME_HEIGHT");
