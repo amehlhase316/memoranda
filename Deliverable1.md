@@ -44,7 +44,7 @@ I would also advise you to already fill out the Contributions section (End of sp
 
 | Date  | Who did not attend  |Meeting notes (very brief)   | Burndown Info (on track, ahead behind is enough) | TravisCI info (does the master pass) | Additional Info  |
 |---|---|---|---|--|--|
-|   |   |   |   |  |  |
+|05/28/2023   | Everyone attended  | Everyone put their work in setting up Taiga board and github before sprint starts  |   |  |  |
 |   |   |   |   |  |  |
 |   |   |   |   |  |  |
 
