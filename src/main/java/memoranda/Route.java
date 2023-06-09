@@ -4,7 +4,8 @@ package main.java.memoranda;
 
 import java.util.ArrayList;
 
-public class Route {
+public class
+Route {
     private ArrayList<Node> nodes;
     private double length; // in km
     private double duration; // in minutes
@@ -17,6 +18,7 @@ public class Route {
      */
     public Route(ArrayList<Node> n, double sd)
     {
+        nodes = new ArrayList<Node>();
         nodes = n;
         length = calculateLength();
         duration = calculateDuration();
@@ -29,6 +31,7 @@ public class Route {
      * @param sd stopDuration of Bus at each Node
      */
     public Route(Node initialNode, double sd){
+        nodes = new ArrayList<Node>();
         nodes.add(initialNode);
         length = calculateLength();
         duration = calculateDuration();

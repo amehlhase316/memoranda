@@ -13,7 +13,7 @@ public class Node {
      * @param lat the latitude coordinates of the Node
      * @param lon the longitude coordinates of the Node
      */
-    Node(String id, double latitude, double longitude) {
+    public Node(String id, double latitude, double longitude) {
         this.id = id;
         this.latitude = latitude;
         this.longitude = longitude;
