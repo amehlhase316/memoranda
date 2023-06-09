@@ -153,7 +153,7 @@ public class App {
 	private void showSplash() {
 		splash = new JFrame();
 		ImageIcon spl =
-			new ImageIcon(App.class.getResource("/ui/realbus.png"));
+			new ImageIcon(App.class.getResource("/ui/splash.png"));
 		JLabel l = new JLabel();
 		l.setSize(512, 512);
 		l.setIcon(spl);
