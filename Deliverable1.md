@@ -172,7 +172,7 @@ Answer as a team!
 #### Team member C -- Paul Carmichael:
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
 
-    - [link1](https://github.com/amansharma96/Professional_Cowboys-Summer23C/pull/11/commits)
+   - [link1] (https://github.com/amansharma96/Professional_Cowboys-Summer23C/pull/11/commits)
 
    **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
 
