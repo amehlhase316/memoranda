@@ -200,8 +200,7 @@ Answer as a team!
 #### Josh
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
 
-    - link1
-    - link2
+    - https://github.com/amehlhase316/memoranda/commit/ec1d4cb9eb2416ec9f592962f49228c8e011fcee
 
    **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
 
@@ -257,7 +256,7 @@ Answer as a team!
   - [ ] Eli
   - [ ] Andres
   - [ ] Frankie
-  - [ ] Josh
+  - [ X ] Josh
 - [ X ] The original of this file was copied for the next Sprint (needed for all but last Sprint where you do not need to copy it anymore)
   - [ X ] Basic information (part 1) for next Sprint was included (meaning Spring Planning is complete)
   - [ X ] All User Stories have acceptance tests
