@@ -4,6 +4,8 @@ import javax.swing.JOptionPane;
 
 import main.java.memoranda.util.Local;
 
+import java.util.Locale;
+
 public class ImportSticker {
 
 String name;        
@@ -19,7 +21,7 @@ String name;
                   
                   */
                 
-                JOptionPane.showMessageDialog(null,Local.getString("Aun no podemos importar su documento"));
+                JOptionPane.showMessageDialog(null, Local.getString("We still can't import your document"));
                 return true;
         }
         
