@@ -61,6 +61,7 @@ public class Finder extends Thread {
         this(theEditor, find, wholeWord, matchCase, regexp, null);
     }
 
+    //@SuppressWarnings("unchecked")
     public void findAll() {
         if (pattern == null)
             return;
@@ -123,8 +124,20 @@ public class Finder extends Thread {
                     editor.showToolsPanel();
                     editor.toolsPanel.addTab(Local.getString("Find"), cdlg);
                     showCdlg = true;
-                }                
-                this.suspend();
+                }
+                                
+                //this.suspend();
+                synchronized(this) {
+	                try {
+	                	while(!cdlg.cont) {
+	                		this.wait();
+	                	}
+	                }
+	                catch (InterruptedException e) {
+	                	JOptionPane.showMessageDialog(null, Local.getString("Error during search")+".");
+	                }
+                }
+                ////////////////////////////////////////////////////////////////////////////
 
                 if (cdlg.cancel) {
                     editor.toolsPanel.remove(cdlg);

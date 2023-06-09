@@ -77,15 +77,20 @@ public class ContinueSearchDialog extends JPanel {
     buttonsPanel.add(cancelB, null);
     this.add(buttonsPanel,  BorderLayout.EAST);
   }
-
+  
   void cancelB_actionPerformed(ActionEvent e) {
     cont = true;
     cancel = true;    
-    thread.resume();
+     
+    synchronized(thread) {
+    	thread.notify();
+    }
   }
 
-  void continueB_actionPerformed(ActionEvent e) {
-     cont = true;     
-     thread.resume();
+  synchronized void continueB_actionPerformed(ActionEvent e) {
+     cont = true; 
+     synchronized(thread) {
+    	 thread.notify();
+     }
   }
 }
