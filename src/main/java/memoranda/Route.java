@@ -11,6 +11,9 @@ Route {
     private double duration; // in minutes
     double stopDuration; // in minutes
 
+    private Driver driver;
+    private Bus bus;
+
     /**
      * Constructor for Route, uses an existing ArrayList of Node objects
      * @param n ArrayList of Nodes
@@ -47,6 +50,32 @@ Route {
         length = 0;
         duration = 0;
         stopDuration = sd;
+    }
+
+    /**
+     * Getter and Setter functions for driver
+     * assigned to this route
+     */
+
+    public Driver getDriver() {
+        return driver;
+    }
+
+    public void setDriver(Driver driver) {
+        this.driver = driver;
+    }
+
+    /**
+     * Getter and Setter for Bus assigned to
+     * this route
+     */
+
+    public Bus getBus() {
+        return bus;
+    }
+
+    public void setBus(Bus bus) {
+        this.bus = bus;
     }
 
     /**
@@ -184,6 +213,7 @@ Route {
      */
     public String toString(){
         String out = "";
+        out += getDriver().toString() + " \n" + getBus().toString();
         for(int i = 0; i < nodes.size(); ++i){
             out += nodes.get(i).toString() + "\n";
         }
