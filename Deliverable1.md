@@ -17,24 +17,48 @@ Our team is going with the bus schedule topic.
 Document your Sprint Planning here. Also check the kickoff document for more details on what needs to be done. This is just the documentation.
 
 **Sprint Goal:** Your Sprint goal
+<<<<<<< Updated upstream
+We want to complete tasks that help us get familiar with the software and its functionality. Our user stories for this sprint focus on fixing small errors and modify the splash screen design to fit our topic.
+=======
+<<<<<<< Updated upstream
+=======
+We want to complete tasks that help us get familiar with the software and its functionality. Our user stories for this sprint focus on fixing small errors and modify the splash screen design to fit our topic. There are minor but impactful changes that would improve the user experience while someone is interacting with our software.
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
-**How many User Stories did you add to the Product Backlog:**  Number
+**How many User Stories did you add to the Product Backlog:**  3
 
-**How many User Stories did you add to this Sprint:**
-> Answer the questions below about your Sprint Planning?
+**How many User Stories did you add to this Sprint:** 2
+> We added two new User Stories to the first sprint.
 
 **Why did you add these US, why do you think you can get them done in the next Sprint?**
 
+<<<<<<< Updated upstream
+> We chose to add 
+
+**Why do you think these fit well with your Sprint goal? (details)**
+
+> These fit well with our Sprint goal
+=======
+<<<<<<< Updated upstream
 > Your Answer
 
 **Why do you think these fit well with your Sprint goal? (details)**
 
 > Your Answer
+=======
+> We chose to add these US because the team deemed them to be an important focus of improvement. When discussing the future functionality and look of the software, we decided these user stories would become blocks if we did not make them a higher priority. We have chunked the US into manageable tasks with practical scopes for our first Sprint.
+
+**Why do you think these fit well with your Sprint goal? (details)**
+
+> These fit well with our Sprint goal because we want to start building out the software for our project topic. These US allow us to explore the software in the state we have received it
+ while also improving the user's experience.
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
 **Do you have a rough idea what you need to do? (if the answer is no then please let me know on Slack)**
 
-> Your Answer
-
+> Yes
 
 
 ## 2: During the Sprint
@@ -46,7 +70,7 @@ I would also advise you to already fill out the Contributions section (End of sp
 
 | Date  | Who did not attend  |Meeting notes (very brief)   | Burndown Info (on track, ahead behind is enough) | TravisCI info (does the master pass) | Additional Info  |
 |---|---|---|---|--|--|
-|   |   |   |   |  |  |
+|  5/29 |  n/a |  Sprint 1 planning, created user stories and ensured each team member had a clear understanding of their tasks | beginning of sprint, but on track | x | x |
 |   |   |   |   |  |  |
 |   |   |   |   |  |  |
 
@@ -54,9 +78,11 @@ I would also advise you to already fill out the Contributions section (End of sp
 
 > Add rows as needed and add the number how many meetings for each team member:
 
-   Name1 : Num Meetings
+   Robert Bruice : 1/1
 
-   Name2 : Num Meetings
+   Chase Whitehouse : 1/1
+
+   Andrea Schoonover : 1/1
 
 
 ## 3: After the Sprint
