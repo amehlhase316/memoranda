@@ -119,10 +119,10 @@ Answer as a team!
 
 > In this section I want you to point me to your main contributions (each of you individually). Some of the topcs are not needed for the first deliverables (you should know which things you should have done in this Sprint, if you don't then you have probably missed something):
 
-#### Team member A -- replace this with your name:
+#### Team member A -- Johnathan Ellis:
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
 
-    - link1
+    - [link1] (https://github.com/amansharma96/Professional_Cowboys-Summer23C/commit/5d900839cff2ce1d4b90c80e7a15047f6262340f)
     - link2
 
    **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
