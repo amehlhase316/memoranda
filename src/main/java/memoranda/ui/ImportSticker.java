@@ -18,8 +18,7 @@ String name;
                   
                   
                   */
-                
-                JOptionPane.showMessageDialog(null,Local.getString("\n" + "We still can't import your document"));
+                JOptionPane.showMessageDialog(null,Local.getString("We still can't import your document"));
                 return true;
         }
         
