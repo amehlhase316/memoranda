@@ -234,7 +234,7 @@ Answer as a team!
 - [ ] **Individual** Survey was submitted **individually** (create checkboxes below -- see Canvas to get link)
   - [X] Ben
   - [X] Geena
-  - [ ] Brinson
+  - [x] Brinson
   - [X] Gustavo
 - [X] The original of this file was copied for the next Sprint (needed for all but last Sprint where you do not need to copy it anymore)
   - [X] Basic information (part 1) for next Sprint was included (meaning Spring Planning is complete)
