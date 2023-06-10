@@ -263,14 +263,14 @@ public class TaskImpl implements Task, Comparable {
      * @see main.java.memoranda.Task#getProgress()
      */
     public int getProgress() {
-        return new Integer(_element.getAttribute("progress").getValue()).intValue();
+        return Integer.parseInt(_element.getAttribute("progress").getValue());
     }
     /**
      * @see main.java.memoranda.Task#setProgress(int)
      */
     public void setProgress(int p) {
         if ((p >= 0) && (p <= 100))
-            setAttr("progress", new Integer(p).toString());
+            setAttr("progress", Integer.valueOf(p).toString());
     }
     /**
      * @see main.java.memoranda.Task#getPriority()
@@ -279,7 +279,7 @@ public class TaskImpl implements Task, Comparable {
         Attribute pa = _element.getAttribute("priority");
         if (pa == null)
             return Task.PRIORITY_NORMAL;
-        return new Integer(pa.getValue()).intValue();
+        return Integer.parseInt(pa.getValue());
     }
     /**
      * @see main.java.memoranda.Task#setPriority(int)
@@ -312,7 +312,7 @@ public class TaskImpl implements Task, Comparable {
 		int numOfDays = (endDateCal.get(Calendar.YEAR)*365 + endDateCal.get(Calendar.DAY_OF_YEAR)) - 
 						(dateCal.get(Calendar.YEAR)*365 + dateCal.get(Calendar.DAY_OF_YEAR));
 		if (numOfDays < 0) return -1; //Something wrong ?
-		return (100-getProgress()) / (numOfDays+1) * (getPriority()+1);
+		return (long) (100 - getProgress()) / (numOfDays + 1) * (getPriority()+1);
 	}
 
     /**
