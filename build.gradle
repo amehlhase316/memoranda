@@ -14,3 +14,12 @@ dependencies {
   implementation 'net.sourceforge.nekohtml:nekohtml:1.9.+'
 }
 
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Start': 'com.baeldung.fatjar.Application'
+    }
+    baseName = 'cwhiteh9_memoranda.jar'
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
