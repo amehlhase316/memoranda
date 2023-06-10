@@ -177,8 +177,8 @@ Answer as a team!
 #### Andres
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
 
-    - link1
-    - link2
+    - https://github.com/TheNerdyBunch23/memoranda/commit/a66b5fbc0f39a77e071b76982844ef0e571a9855
+    - https://github.com/TheNerdyBunch23/memoranda/commit/e44bdb45107a63fdeb1c14b04761de711ee1ffb8
 
    **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
 
