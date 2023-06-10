@@ -58,13 +58,13 @@ I would also advise you to already fill out the Contributions section (End of sp
 
 > Add rows as needed and add the number how many meetings for each team member:
 
-   Ben Meddeb : Num Meetings
+   Ben Meddeb : 9 Meetings
 
-   Gustavo Lezama : Num Meetings
+   Gustavo Lezama : 9 Meetings
    
-   Geena Rustia : Num Meetings
+   Geena Rustia : 9 Meetings
    
-   Brinson Doederlein : Num Meetings
+   Brinson Doederlein : 9 Meetings
 
 
 ## 3: After the Sprint
@@ -78,15 +78,15 @@ Answer as a team!
 
 **What do you think is the value you created this Sprint?**
 
-> Your Answer
+> The team learned how the codebase we were given works through the changes that we made.
 
 **Do you think you worked enough and that you did what was expected of you?**
 
-> Your Answer
+> I believe that the team worked hard enough for this sprint.
 
 **Would you say you met the customers’ expectations? Why, why not?**
 
-> Your Answer
+> As long as the Customer expected for us to learn the codebase through this first Sprint.
 
 
 ### Sprint Retrospective
@@ -95,27 +95,27 @@ Answer as a team!
 
 **Did you meet your sprint goal?**
 
-> Yes
+> Yes, all of the User Stories that we moved into the sprint were completed.
 
 **Did you complete all stories on your Spring Backlog?**
 
-> Your Answer
+> We completed all the Stories on the 1st Sprint board.
 
 **If not, what went wrong?**
 
-> Your Answer
+> N/A
 
 **Did you work at a consistent rate of speed, or velocity? (Meaning did you work during the whole Sprint or did you start working when the deadline approached.)**
 
-> Your Answer
+> The rate of work was overall consistent over the span of the sprint.
 
 **Did you deliver business value?**
 
-> Yes
+> Yes, by understanding the codebase the team is better prepared to begin the conversion of Memoranda into the Gym Scheduling app.
 
 **Are there things the team thinks it can do better in the next Sprint?**
 
-> Your Answer
+> We are not sure if there are.
 
 **How do you feel at this point? Get a pulse on the optimism of the team.**
 
@@ -235,7 +235,7 @@ Answer as a team!
   - [ ] Ben
   - [X] Geena
   - [ ] Brinson
-  - [ ] Gustavo
+  - [X] Gustavo
 - [X] The original of this file was copied for the next Sprint (needed for all but last Sprint where you do not need to copy it anymore)
   - [X] Basic information (part 1) for next Sprint was included (meaning Spring Planning is complete)
   - [X] All User Stories have acceptance tests
