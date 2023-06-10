@@ -3,7 +3,21 @@
 > Check in Project: Module Concepts document on Canvas in the Project module for more details 
 
 **GitHub Workflow** (start Sprint 1)
-  > Your Workflow
+  > Only complete tasts/user stories should be merged into master. No partially complete features.
+  > Every merge to master needs to be reviewed by at least one team member before being approved. 
+  > Every team member must test their own code before merging into master.
+  > Each user story intended to be merged to master branch must have its own branch. Each branch (beside master branch) only contains changes pertaining to a single user story.
+  > All pull requests into master should be approved at least 1 day before the duedate of the sprint 
+  
+  > Naming conventions:
+    > Every branch name will be name "us#" where # is the number of the user story
+      > If the branch is for a subtask of a user story, it will be named "us#task#" where the first # is the number of the user story and the second # is the number of       the subtask
+  
+  > Taiga board:
+    > Only two user stories assigned to one team member at a time max
+    
+  > Communication:
+    > The team will keep a daily journal for each sprint that documents what tasks they worked on each day
 
 **Unit Tests Blackbox** (start Sprint 2)
   > Your Blackbox testing policy 

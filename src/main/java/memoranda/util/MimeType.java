@@ -132,7 +132,7 @@ public class MimeType {
             icon = new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource(ip));
           }
           catch (Exception ex2) {
-            icon = new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/util/icons/mimetypes/default.png"));
+            icon = new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/mimetypes/default.png"));
           }
         }
       }

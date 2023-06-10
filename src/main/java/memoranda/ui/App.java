@@ -144,13 +144,20 @@ public class App {
 		frame.dispose();
 	}
 
+	public static void minimizeWindow() {
+		if (frame == null)
+			return;
+		frame.setState(AppFrame.ICONIFIED);
+	}
+
 	/**
 	 * Method showSplash.
 	 */
 	private void showSplash() {
 		splash = new JFrame();
 		ImageIcon spl =
-			new ImageIcon(App.class.getResource("/ui/splash.png"));
+			new ImageIcon(App.class.getResource("/ui/RHRsplash.png"));
+		 // new ImageIcon(App.class.getResource("/ui/splash.png"));
 		JLabel l = new JLabel();
 		l.setSize(400, 300);
 		l.setIcon(spl);
