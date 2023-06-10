@@ -138,13 +138,28 @@ public class App {
 		frame.requestFocus();
 
 	}
-
-	
+  
+  
+  
+  
+  
+  
+  
 	public static void minimize() {
 	    if (frame == null) {
 	        return;
 	    }
 	    frame.setState(JFrame.ICONIFIED);
+  }
+  
+  
+  
+  
+  
+  
+  
+	public static void closeWindow() {
+		System.exit(0);
 	}
 
 	/**
