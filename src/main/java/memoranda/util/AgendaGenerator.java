@@ -367,14 +367,14 @@ public class AgendaGenerator {
 				.class
 				.getResource("/ui/agenda/removesticker.gif")
 				.toExternalForm();
-		 String s = "<hr><hr><table border=\"0\" cellpadding=\"0\" width=\"100%\"><tr><td><a href=\"memoranda:importstickers\"><b>"+Local.getString("Importar anotaci�n")+"</b></a></td><td><a href=\"memoranda:exportstickerst\"><b>"+Local.getString("Exportar anotaci�n como .txt")+"</b></a><td><a href=\"memoranda:exportstickersh\"><b>"+Local.getString("Exportar anotaci�n como .html")+"</b></a></td></tr></table>"
+		 String s = "<hr><hr><table border=\"0\" cellpadding=\"0\" width=\"100%\"><tr><td><a href=\"memoranda:importstickers\"><b>"+Local.getString("Import stickers")+"</b></a></td><td><a href=\"memoranda:exportstickerst\"><b>"+Local.getString("Export stickers as .txt")+"</b></a><td><a href=\"memoranda:exportstickersh\"><b>"+Local.getString("Export stickers as .html")+"</b></a></td></tr></table>"
 				 +   "<table border=\"0\" cellpadding=\"0\" width=\"100%\"><tr><td><a href=\"memoranda:addsticker\"><img align=\"left\" width=\"22\" height=\"22\" src=\""				
 				 + iurl
 				+ "\" border=\"0\"  hspace=\"0\" vspace=\"0\" alt=\"New sticker\"></a></td><td width=\"100%\"><a href=\"memoranda:addsticker\"><b>&nbsp;"
 				+Local.getString("Add sticker")+"</b></a></td></tr></table>";
 		PriorityQueue pQ = sortStickers();
-		while(!pQ.Vacia()){
-		Element el = pQ.extraer();
+		while(!pQ.Empty()){
+		Element el = pQ.extract();
 		String id = el.getAttributeValue("id");
 		String txt = el.getValue();
             s += "\n<table border=\"0\" cellpadding=\"0\" width=\"100%\"><table width=\"100%\"><tr bgcolor=\"#E0E0E0\"><td><a href=\"memoranda:editsticker#"+id+"\">"+Local.getString("EDIT")+"</a></td><td width=\"70%\"><a href=\"memoranda:expandsticker#"+id+"\">"+Local.getString("OPEN IN A NEW WINDOW")+"</></td><td align=\"right\">" +
@@ -395,7 +395,7 @@ public class AgendaGenerator {
         	Element el = (Element)stickers.get(id);
         	int j=2;
         	j=Integer.parseInt(el.getAttributeValue("priority"));
-        	pQ.insertar(new Pair(el,j));
+        	pQ.insert(new Pair(el,j));
     	}
     	return pQ;
     }
