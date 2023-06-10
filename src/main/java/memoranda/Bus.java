@@ -43,7 +43,7 @@ public class Bus {
     public String toString() {
         StringBuffer info = new StringBuffer();
         info.append("Bus ID: "+ getID() + "\n");
-        info.append("Bus seats: " + Integer.toString(getSeats())+ "\n");
+        info.append("Bus seats: " + Integer.toString(getSeats())+ "\n\n");
 
         return info.toString();
     }

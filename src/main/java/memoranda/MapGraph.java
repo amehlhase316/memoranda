@@ -54,6 +54,15 @@ public class MapGraph extends JPanel {
         }
     }
 
+    /**
+     * Getter and Setters for List of nodes
+     * @return nodes
+     */
+    public List<Node> getNodes() {
+        return nodes;
+    }
+
+
     public void addNode(String id, double latitude, double longitude) {
         nodes.add(new Node(id, latitude, longitude));
     }

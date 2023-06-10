@@ -34,9 +34,12 @@ public class WorkPanel extends JPanel {
 	public DailyItemsPanel dailyItemsPanel = new DailyItemsPanel(this);
 //	public ResourcesPanel filesPanel = new ResourcesPanel();
 	public MapPanel mapPanel = new MapPanel();
+
+	public RoutePanel routePanel = new RoutePanel();
 	public JButton agendaB = new JButton();
 	public JButton tasksB = new JButton();
-	public JButton eventsB = new JButton();
+//
+	public JButton routeB = new JButton();
 	
 	//removing "Notes" button
 //	public JButton notesB = new JButton();
@@ -102,30 +105,54 @@ public class WorkPanel extends JPanel {
 		agendaB.setMargin(new Insets(0, 0, 0, 0));
 		agendaB.setSelected(true);
 
-		eventsB.setBackground(Color.white);
-		eventsB.setMaximumSize(new Dimension(60, 80));
-		eventsB.setMinimumSize(new Dimension(30, 30));
+//		eventsB.setBackground(Color.white);
+//		eventsB.setMaximumSize(new Dimension(60, 80));
+//		eventsB.setMinimumSize(new Dimension(30, 30));
+//
+//		eventsB.setFont(new java.awt.Font("Dialog", 1, 10));
+//		eventsB.setPreferredSize(new Dimension(50, 50));
+//		eventsB.setBorderPainted(false);
+//		eventsB.setContentAreaFilled(false);
+//		eventsB.setFocusPainted(false);
+//		eventsB.setHorizontalTextPosition(SwingConstants.CENTER);
+//		eventsB.setText(Local.getString("Events"));
+//		eventsB.setVerticalAlignment(SwingConstants.TOP);
+//		eventsB.setVerticalTextPosition(SwingConstants.BOTTOM);
+//		eventsB.addActionListener(new java.awt.event.ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				eventsB_actionPerformed(e);
+//			}
+//		});
+//		eventsB.setIcon(
+//			new ImageIcon(
+//				main.java.memoranda.ui.AppFrame.class.getResource(
+//					"/ui/icons/events.png")));
+//		eventsB.setOpaque(false);
+//		eventsB.setMargin(new Insets(0, 0, 0, 0));
+		routeB.setBackground(Color.white);
+		routeB.setMaximumSize(new Dimension(60, 80));
+		routeB.setMinimumSize(new Dimension(30, 30));
 
-		eventsB.setFont(new java.awt.Font("Dialog", 1, 10));
-		eventsB.setPreferredSize(new Dimension(50, 50));
-		eventsB.setBorderPainted(false);
-		eventsB.setContentAreaFilled(false);
-		eventsB.setFocusPainted(false);
-		eventsB.setHorizontalTextPosition(SwingConstants.CENTER);
-		eventsB.setText(Local.getString("Events"));
-		eventsB.setVerticalAlignment(SwingConstants.TOP);
-		eventsB.setVerticalTextPosition(SwingConstants.BOTTOM);
-		eventsB.addActionListener(new java.awt.event.ActionListener() {
+		routeB.setFont(new java.awt.Font("Dialog", 1, 10));
+		routeB.setPreferredSize(new Dimension(50, 50));
+		routeB.setBorderPainted(false);
+		routeB.setContentAreaFilled(false);
+		routeB.setFocusPainted(false);
+		routeB.setHorizontalTextPosition(SwingConstants.CENTER);
+		routeB.setText(Local.getString("Routes"));
+		routeB.setVerticalAlignment(SwingConstants.TOP);
+		routeB.setVerticalTextPosition(SwingConstants.BOTTOM);
+		routeB.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				eventsB_actionPerformed(e);
+				routeB_actionPerformed(e);
 			}
 		});
-		eventsB.setIcon(
-			new ImageIcon(
-				main.java.memoranda.ui.AppFrame.class.getResource(
-					"/ui/icons/events.png")));
-		eventsB.setOpaque(false);
-		eventsB.setMargin(new Insets(0, 0, 0, 0));
+		routeB.setIcon(
+				new ImageIcon(
+						main.java.memoranda.ui.AppFrame.class.getResource(
+								"/ui/icons/events.png")));
+		routeB.setOpaque(false);
+		routeB.setMargin(new Insets(0, 0, 0, 0));
 		//eventsB.setSelected(true);
 
 		tasksB.setSelected(true);
@@ -234,9 +261,10 @@ public class WorkPanel extends JPanel {
 		this.add(panel, BorderLayout.CENTER);
 		panel.add(dailyItemsPanel, "DAILYITEMS");
 		panel.add(mapPanel, "MAP");
+		panel.add(routePanel,"Routes");
 //		panel.add(filesPanel, "FILES");
 		toolBar.add(agendaB, null);
-		toolBar.add(eventsB, null);
+		toolBar.add(routeB, null);
 		toolBar.add(tasksB, null);
 		toolBar.add(mapB, null);
 //		toolBar.add(notesB, null);
@@ -261,7 +289,7 @@ public class WorkPanel extends JPanel {
 			if (pan.equals("TASKS"))
 				tasksB_actionPerformed(null);
 			else if (pan.equals("EVENTS"))
-				eventsB_actionPerformed(null);
+				routeB_actionPerformed(null);
 //			else if (pan.equals("FILES"))
 //				filesB_actionPerformed(null);
 			else if (pan.equals("MAP"))
@@ -290,11 +318,17 @@ public class WorkPanel extends JPanel {
 		Context.put("CURRENT_PANEL", "TASKS");
 	}
 
-	public void eventsB_actionPerformed(ActionEvent e) {
-		cardLayout1.show(panel, "DAILYITEMS");
-		dailyItemsPanel.selectPanel("EVENTS");
-		setCurrentButton(eventsB);
-		Context.put("CURRENT_PANEL", "EVENTS");
+//	public void eventsB_actionPerformed(ActionEvent e) {
+//		cardLayout1.show(panel, "Routes");
+//     	dailyItemsPanel.selectPanel("EVENTS");
+//		setCurrentButton(eventsB);
+//		Context.put("CURRENT_PANEL", "Routes");
+//	}
+
+	public void routeB_actionPerformed(ActionEvent e) {
+		cardLayout1.show(panel, "Routes");
+		setCurrentButton(routeB);
+		Context.put("CURRENT_PANEL", "Routes");
 	}
 
 //	public void filesB_actionPerformed(ActionEvent e) {

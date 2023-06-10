@@ -45,6 +45,7 @@ Route {
      * Default constructor for route, only specifying the stopDuration of each stop
      * @param sd stopDuration of Bus at each Node
      */
+
     public Route(double sd){
         nodes = new ArrayList<Node>();
         length = 0;
@@ -69,7 +70,6 @@ Route {
      * Getter and Setter for Bus assigned to
      * this route
      */
-
     public Bus getBus() {
         return bus;
     }
@@ -83,6 +83,7 @@ Route {
      * @return the length of the Route in km
      */
     public double getLength(){
+
         return length;
     }
 
@@ -163,6 +164,7 @@ Route {
         return false;
     }
 
+
     /**
      * Removes the Node at the specified index of the ArrayList
      * @param i the index of the Node to be removed
@@ -177,6 +179,7 @@ Route {
             return false;
         }
     }
+
 
     /**
      * Calculates the length of the Route in km using the distanceOfNodes() function
@@ -198,6 +201,7 @@ Route {
      *
      * @return double: the approximate duration of the Route in minutes.
      */
+
     public double calculateDuration()
     {
         double distance = length;
@@ -206,6 +210,7 @@ Route {
         minutes += (stopDuration * nodes.size());
         return minutes;
     }
+
 
     /**
      * toString implementation:
@@ -219,6 +224,7 @@ Route {
         }
         return out;
     }
+
 
     /**
      * equals implementation
