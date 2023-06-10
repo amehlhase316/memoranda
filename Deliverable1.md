@@ -46,23 +46,25 @@ I would also advise you to already fill out the Contributions section (End of sp
 |---|---|---|---|--|--|
 |5/29|David B.|Got Memoranda working|N/A|N/A|Attendence not strictly necessary, helping each other get set up|
 |5/31|Everyone Here|Taiga setup, User Stories set|N/A|N/A|  |
+|6/9|Everyone Here|Final Meeting for sprint|N/A|N/A| |
 |   |   |   |   |  |  |
 
 ### Meeting Summary:
 
 > Add rows as needed and add the number how many meetings for each team member:
 
-   Name1 : Num Meetings
-
-   Name2 : Num Meetings
-
+   Jonathan Blicharz:   III
+   David Berry:         II
+   Henry Buck:          III
+   Sam Garcia:          III
+   Abdullah Younes:     III
 
 ## 3: After the Sprint
 
 ### Sprint Review
 Answer as a team!
 
-**Screen Cast link**: Your link
+**Screen Cast link**: Your link``
 
 > Answer the following questions as a team. 
 
