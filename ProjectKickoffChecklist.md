@@ -1,10 +1,12 @@
 For each of you individually copy the checklist and check them of if it is done. This will be graded.
 
+
 Chase Whitehouse
   
 - [x] Download and install Git
   
 - [x] I have a GitHub account with a username that we can map to your real name
+
 
 - [x] Filled out the individual survey for group forming
 
