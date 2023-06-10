@@ -35,8 +35,8 @@ public class App {
        The actual values are substituted by the Ant build script using 
        'version' property and datestamp.*/
 
-	public static final String VERSION_INFO = "@VERSION@";
-	public static final String BUILD_INFO = "@BUILD@";
+	public static final String VERSION_INFO = "1.0.0";
+	public static final String BUILD_INFO = "1";
 	
 	/*========================================================================*/
 
@@ -61,7 +61,8 @@ public class App {
 			System.out.println("Minimized mode");
 		if (!Configuration.get("SHOW_SPLASH").equals("no"))
 			showSplash();
-		System.out.println(VERSION_INFO);
+		System.out.println("Version: " + VERSION_INFO);
+		System.out.println("Build: " + BUILD_INFO);
 		System.out.println(Configuration.get("LOOK_AND_FEEL"));
 		try {
 			if (Configuration.get("LOOK_AND_FEEL").equals("system"))
@@ -137,7 +138,26 @@ public class App {
 		frame.requestFocus();
 
 	}
-
+  
+  
+  
+  
+  
+  
+  
+	public static void minimize() {
+	    if (frame == null) {
+	        return;
+	    }
+	    frame.setState(JFrame.ICONIFIED);
+  }
+  
+  
+  
+  
+  
+  
+  
 	public static void closeWindow() {
 		System.exit(0);
 	}
@@ -150,14 +170,14 @@ public class App {
 		ImageIcon spl =
 			new ImageIcon(App.class.getResource("/ui/splash.png"));
 		JLabel l = new JLabel();
-		l.setSize(400, 300);
+		l.setSize(512, 512);
 		l.setIcon(spl);
 		splash.getContentPane().add(l);
-		splash.setSize(400, 300);
+		splash.setSize(512, 512);
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		splash.setLocation(
-			(screenSize.width - 400) / 2,
-			(screenSize.height - 300) / 2);
+			(screenSize.width - 512) / 2,
+			(screenSize.height - 512) / 2);
 		splash.setUndecorated(true);
 		splash.setVisible(true);
 	}
