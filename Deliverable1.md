@@ -109,11 +109,11 @@ Answer as a team!
 
 **Are there things the team thinks it can do better in the next Sprint?**
 
-> Your Answer
+> The only thing I believe we can do is getting better on communication but rest team is really productive and do thingd beyond expected.
 
 **How do you feel at this point? Get a pulse on the optimism of the team.**
 
-> Your Answer
+> Team is really productive and I think in future we don't get into any problem.
 
 ### Contributions:
 
