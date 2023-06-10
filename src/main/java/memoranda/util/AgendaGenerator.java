@@ -26,7 +26,7 @@ import java.util.Collections;
 
 import nu.xom.Element;
 /**
- *  
+ *
  */
 
 /*$Id: AgendaGenerator.java,v 1.12 2005/06/13 21:25:27 velhonoja Exp $*/
@@ -40,33 +40,33 @@ public class AgendaGenerator {
 					+ "    h1 {font:20pt sans-serif; background-color:#E0E0E0; margin-top:0}\n"
 					+ "    h2 {font:16pt sans-serif; margin-bottom:0}\n"
 					+ "    li {margin-bottom:5px}\n"
-					+ " a {color:black; text-decoration:none}\n"             
+					+ " a {color:black; text-decoration:none}\n"
 					+ "</style></head>\n"
 					+ "<body><table width=\"100%\" height=\"100%\" border=\"0\" cellpadding=\"4\" cellspacing=\"4\">\n"
 					+ "<tr>\n";
 	static String FOOTER = "</td></tr></table></body></html>";
 
-	static String generateTasksInfo(Project p, CalendarDate date, Collection expandedTasks) {    	    	
+	static String generateTasksInfo(Project p, CalendarDate date, Collection expandedTasks) {
 		TaskList tl;
 		if (p.getID().equals(CurrentProject.get().getID())) {
-			tl = CurrentProject.getTaskList();        	
+			tl = CurrentProject.getTaskList();
 		}
 		else {
-			tl = CurrentStorage.get().openTaskList(p);        	
+			tl = CurrentStorage.get().openTaskList(p);
 		}
 		String s = "";
 		int k = getProgress(tl);
 		if (k > -1) {
-			s += "<br>" + Local.getString("Total progress") + ": " + k + "%";        	
+			s += "<br>" + Local.getString("Total progress") + ": " + k + "%";
 		}
 		s += "</td></tr></table>\n";
 
-		Vector tasks = (Vector) tl.getActiveSubTasks(null,date);        
+		Vector tasks = (Vector) tl.getActiveSubTasks(null,date);
 		if (tasks.size() == 0) {
-			s += "<p>" + Local.getString("No actual tasks") + ".</p>\n";        	
+			s += "<p>" + Local.getString("No actual tasks") + ".</p>\n";
 		}
 		else {
-			s += Local.getString("Actual tasks") + ":<br>\n<ul>\n";            
+			s += Local.getString("Actual tasks") + ":<br>\n<ul>\n";
 
 			//            TaskSorter.sort(tasks, date, TaskSorter.BY_IMP_RATE); // TODO: configurable method
 			Collections.sort(tasks);
@@ -77,7 +77,7 @@ public class AgendaGenerator {
 				//        		if(Context.get("SHOW_ACTIVE_TASKS_ONLY").equals(new Boolean(true))) {
 				//                    if (!((t.getStatus() == Task.ACTIVE) || (t.getStatus() == Task.DEADLINE) || (t.getStatus() == Task.FAILED))) {
 				//                    	continue;
-				//                	}	
+				//                	}
 				//        		}
 				// ignore if it's a sub-task, iterate over ROOT tasks here only
 				if (tl.hasParentTask(t.getID())) {
@@ -87,12 +87,12 @@ public class AgendaGenerator {
 				s = s + renderTask(p, date, tl, t, 0,expandedTasks);
 				if(expandedTasks.contains(t.getID())) {
 					s = s + expandRecursively(p,date,tl,t,expandedTasks,1);
-				}        		
+				}
 			}
 			s += "\n</ul>\n";
 		}
 
-		//        Util.debug("html for project " + p.getTitle() + " is\n" + s); 
+		//        Util.debug("html for project " + p.getTitle() + " is\n" + s);
 		return s;
 	}
 
@@ -114,7 +114,7 @@ public class AgendaGenerator {
 			//			if(Context.get("SHOW_ACTIVE_TASKS_ONLY").equals(new Boolean(true))) {
 			//                if (!((subTask.getStatus() == Task.ACTIVE) || (subTask.getStatus() == Task.DEADLINE) || (subTask.getStatus() == Task.FAILED))) {
 			//                	continue;
-			//            	}	
+			//            	}
 			//			}
 			s = s + renderTask(p,date,tl,subTask,level,expandedTasks);
 			if (expandedTasks.contains(subTask.getID())) {
@@ -155,7 +155,7 @@ public class AgendaGenerator {
 			//			Util.debug("Task " + t.getID() + " has subtasks");
 			if (expandedTasks.contains(t.getID())) {
 				//				Util.debug("Task " + t.getID() + " is in list of expanded tasks");
-				subTaskOperation = "<a href=\"memoranda:closesubtasks#" + t.getID()+ "\">(-)</a>";				
+				subTaskOperation = "<a href=\"memoranda:closesubtasks#" + t.getID()+ "\">(-)</a>";
 			}
 			else {
 				//				Util.debug("Task " + t.getID() + " is not in list of expanded tasks");
@@ -167,8 +167,8 @@ public class AgendaGenerator {
 				+ p.getID()
 				+ "\"><b>"
 				+ t.getText()
-				+ "</b></a> : " 
-				+ progress                 
+				+ "</b></a> : "
+				+ progress
 				+ "</p>"
 				+ "<p>"
 				+ Local.getString("Priority")
@@ -184,7 +184,7 @@ public class AgendaGenerator {
 		    else {
 		        Calendar endDateCal = t.getEndDate().getCalendar();
 		        Calendar dateCal = date.getCalendar();
-		        int numOfDays = (endDateCal.get(Calendar.YEAR)*365 + endDateCal.get(Calendar.DAY_OF_YEAR)) - 
+		        int numOfDays = (endDateCal.get(Calendar.YEAR)*365 + endDateCal.get(Calendar.DAY_OF_YEAR)) -
 		                (dateCal.get(Calendar.YEAR)*365 + dateCal.get(Calendar.DAY_OF_YEAR));
 		        String days = "";
 		        if (numOfDays > 1)
@@ -196,7 +196,7 @@ public class AgendaGenerator {
 		            + ": <i>"
 		            + t.getEndDate().getMediumDateString()
 		            + "</i> ("+days+")</p>";
-		    }                    
+		    }
 		}
 =======*/
 		if (t.getEndDate().equals(date))
@@ -206,21 +206,21 @@ public class AgendaGenerator {
 		else {
 			Calendar endDateCal = t.getEndDate().getCalendar();
 			Calendar dateCal = date.getCalendar();
-			int numOfDays = (endDateCal.get(Calendar.YEAR)*365 + endDateCal.get(Calendar.DAY_OF_YEAR)) - 
+			int numOfDays = (endDateCal.get(Calendar.YEAR)*365 + endDateCal.get(Calendar.DAY_OF_YEAR)) -
 					(dateCal.get(Calendar.YEAR)*365 + dateCal.get(Calendar.DAY_OF_YEAR));
 			String days = "";
 			if(numOfDays > 0) {
 				if (numOfDays > 1) {
-					days = Local.getString("in")+" "+numOfDays+" "+Local.getString("day(s)");		        
+					days = Local.getString("in")+" "+numOfDays+" "+Local.getString("day(s)");
 				}
 				else {
-					days = Local.getString("tomorrow");		        
+					days = Local.getString("tomorrow");
 				}
 				s += "<p>"
 						+ Local.getString("Deadline")
 						+ ": <i>"
 						+ t.getEndDate().getMediumDateString()
-						+ "</i> ("+days+")</p>";		        
+						+ "</i> ("+days+")</p>";
 			}
 			else if ((numOfDays < 0) && (numOfDays > -10000)) {
 				String overdueDays = String.valueOf(-1 * numOfDays);
@@ -233,9 +233,9 @@ public class AgendaGenerator {
 				// tasks that have no deadline
 				s += "<p>"
 						+ Local.getString("No Deadline")
-						+ "</p>";		        
+						+ "</p>";
 			}
-		}                     
+		}
 		//>>>>>>> 1.4
 		s += "</li>\n";
 		return s;
@@ -275,12 +275,12 @@ public class AgendaGenerator {
 				+ "\">"
 				+ p.getTitle()
 				+ "</a></h2>\n"
-				+ "<table border=\"0\" width=\"100%\" cellpadding=\"2\" bgcolor=\"#EFEFEF\"><tr><td>" 
+				+ "<table border=\"0\" width=\"100%\" cellpadding=\"2\" bgcolor=\"#EFEFEF\"><tr><td>"
 				+ Local.getString("Start date")+": <i>"+p.getStartDate().getMediumDateString()+"</i>\n";
 		if (p.getEndDate() != null)
 			s += "<br>" + Local.getString("End date")+": <i>"+p.getEndDate().getMediumDateString()
-			+"</i>\n";        
-		return s + generateTasksInfo(p, date,expandedTasks);        
+			+"</i>\n";
+		return s + generateTasksInfo(p, date,expandedTasks);
 	}
 
 	static String generateAllProjectsInfo(CalendarDate date, Collection expandedTasks) {
@@ -289,7 +289,7 @@ public class AgendaGenerator {
 						+ "<h1>"
 						+ Local.getString("Projects and tasks")
 						+ "</h1>\n";
-		s += generateProjectInfo(CurrentProject.get(), date, expandedTasks);        
+		s += generateProjectInfo(CurrentProject.get(), date, expandedTasks);
 		for (Iterator i = ProjectManager.getActiveProjects().iterator();
 				i.hasNext();
 				) {
@@ -367,8 +367,8 @@ public class AgendaGenerator {
 				.class
 				.getResource("/ui/agenda/removesticker.gif")
 				.toExternalForm();
-		 String s = "<hr><hr><table border=\"0\" cellpadding=\"0\" width=\"100%\"><tr><td><a href=\"memoranda:importstickers\"><b>"+Local.getString("Importar anotaci�n")+"</b></a></td><td><a href=\"memoranda:exportstickerst\"><b>"+Local.getString("Exportar anotaci�n como .txt")+"</b></a><td><a href=\"memoranda:exportstickersh\"><b>"+Local.getString("Exportar anotaci�n como .html")+"</b></a></td></tr></table>"
-				 +   "<table border=\"0\" cellpadding=\"0\" width=\"100%\"><tr><td><a href=\"memoranda:addsticker\"><img align=\"left\" width=\"22\" height=\"22\" src=\""				
+		 String s = "<hr><hr><table border=\"0\" cellpadding=\"0\" width=\"100%\"><tr><td><a href=\"memoranda:importstickers\"><b>"+Local.getString("Import Annotation")+"</b></a></td><td><a href=\"memoranda:exportstickerst\"><b>"+Local.getString("Export Annotation as .txt")+"</b></a><td><a href=\"memoranda:exportstickersh\"><b>"+Local.getString("Export annotation as .html")+"</b></a></td></tr></table>"
+				 +   "<table border=\"0\" cellpadding=\"0\" width=\"100%\"><tr><td><a href=\"memoranda:addsticker\"><img align=\"left\" width=\"22\" height=\"22\" src=\""
 				 + iurl
 				+ "\" border=\"0\"  hspace=\"0\" vspace=\"0\" alt=\"New sticker\"></a></td><td width=\"100%\"><a href=\"memoranda:addsticker\"><b>&nbsp;"
 				+Local.getString("Add sticker")+"</b></a></td></tr></table>";
@@ -399,7 +399,7 @@ public class AgendaGenerator {
     	}
     	return pQ;
     }
-    
+
 	private static String addExpandHyperLink(String txt, String id) {
 		String ret="";
 		int first=txt.indexOf(">");
@@ -415,7 +415,7 @@ public class AgendaGenerator {
 		ret=txt.substring(0, first+1)+"<a href=\"memoranda:editsticker#"+id+"\">"+txt.substring(first+1, last)+"</a>"+txt.substring(last);
 		 return ret;
 		 }
-	
+
 	public static String getAgenda(CalendarDate date, Collection expandedTasks) {
 		String s = HEADER;
 		s += generateAllProjectsInfo(date, expandedTasks);
@@ -424,7 +424,7 @@ public class AgendaGenerator {
 		//        /*DEBUG*/System.out.println(s+FOOTER);
 		return s + FOOTER;
 	}
-	/*    
+	/*
     we do not need this. Tasks are sorted using the Comparable interface
     public static class TaskSorter {
 
@@ -434,7 +434,7 @@ public class AgendaGenerator {
         static final int BY_COMPLETION = 3;
 
         private static Vector tasks = null;
-        private static CalendarDate date = null;  
+        private static CalendarDate date = null;
         private static int mode = 0;
 
         public static long calcTaskRate(Task t, CalendarDate d) {
@@ -442,12 +442,12 @@ public class AgendaGenerator {
 	 * A "Task rate" is an informal index of importance of the task
 	 * considering priority, number of days to deadline and current
 	 * progress.
-	 * 
+	 *
 	 * rate = (100-progress) / (numOfDays+1) * (priority+1)
 	 * /
             Calendar endDateCal = t.getEndDate().getCalendar();
             Calendar dateCal = d.getCalendar();
-            int numOfDays = (endDateCal.get(Calendar.YEAR)*365 + endDateCal.get(Calendar.DAY_OF_YEAR)) - 
+            int numOfDays = (endDateCal.get(Calendar.YEAR)*365 + endDateCal.get(Calendar.DAY_OF_YEAR)) -
                             (dateCal.get(Calendar.YEAR)*365 + dateCal.get(Calendar.DAY_OF_YEAR));
             if (numOfDays < 0) return -1; //Something wrong ?
             return (100-t.getProgress()) / (numOfDays+1) * (t.getPriority()+1);
@@ -461,7 +461,7 @@ public class AgendaGenerator {
                 case BY_PRIORITY: return 5-t.getPriority();
                 case BY_COMPLETION: return 100-t.getProgress();
             }
-            return -1;         
+            return -1;
         }
 
         private static void doSort(int L, int R) { // Hoar's QuickSort
@@ -470,10 +470,10 @@ public class AgendaGenerator {
             long x = getRate(tasks.get((L + R) / 2));
             Object w = null;
             do {
-                while (getRate(tasks.get(i)) < x) 
+                while (getRate(tasks.get(i)) < x)
                     i++;
-                while (x < getRate(tasks.get(j)) && j > 0) 
-                    if (j > 0) j--;              
+                while (x < getRate(tasks.get(j)) && j > 0)
+                    if (j > 0) j--;
                 if (i <= j) {
                     w = tasks.get(i);
                     tasks.set(i, tasks.get(j));
@@ -483,16 +483,16 @@ public class AgendaGenerator {
                 }
             }
             while (i <= j);
-            if (L < j) 
-                doSort(L, j);       
-            if (i < R) 
-                doSort(i, R);         
+            if (L < j)
+                doSort(L, j);
+            if (i < R)
+                doSort(i, R);
         }
 
         public static void sort(Vector theTasks, CalendarDate theDate, int theMode) {
             if (theTasks == null) return;
             if (theTasks.size() <= 1) return;
-            tasks = theTasks; 
+            tasks = theTasks;
             date = theDate;
             mode = theMode;
             doSort(0, tasks.size() - 1);
