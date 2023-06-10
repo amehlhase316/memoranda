@@ -7,9 +7,9 @@
 
 **Sprint Number:** 1
 
-**Scrum Master**: Joseph Okonoboh
+**Scrum Master**: Aman Sharma
 
-**Git Master**: Aman Sharma
+**Git Master**: Joseph Okonoboh
 
 ### Sprint Planning (For Sprint 1-3)
 Document your Sprint Planning here. Also check the kickoff document for more details on what needs to be done. This is just the documentation. 
