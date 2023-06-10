@@ -232,7 +232,7 @@ Answer as a team!
 - [X] User Stories that were not completed, were left in the Sprint and a copy created
 - [X] Your Quality Policies are accurate and up to date
 - [ ] **Individual** Survey was submitted **individually** (create checkboxes below -- see Canvas to get link)
-  - [ ] Ben
+  - [X] Ben
   - [X] Geena
   - [ ] Brinson
   - [X] Gustavo
