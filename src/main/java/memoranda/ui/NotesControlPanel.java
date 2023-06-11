@@ -240,7 +240,7 @@ public class NotesControlPanel extends JPanel {
     }
 
     void setActiveNote() {
-        Note note = (Note) notesList.getNote(notesList.getSelectedIndex());
+        Note note = notesList.getNote(notesList.getSelectedIndex());
         CurrentDate.set(note.getDate());
 		CurrentNote.set(note,true);
     }
@@ -255,7 +255,7 @@ public class NotesControlPanel extends JPanel {
 
     void ppAddBkmrk_actionPerformed(ActionEvent e) {
         for (int i = 0; i < notesList.getSelectedIndices().length; i++) {
-            Note note = (Note) notesList.getNote(notesList.getSelectedIndices()[i]);
+            Note note = notesList.getNote(notesList.getSelectedIndices()[i]);
             note.setMark(true);
         }
         notesList.updateUI();
@@ -278,7 +278,7 @@ public class NotesControlPanel extends JPanel {
             msg =
                 Local.getString("Clear note")
                     + "\n'"
-                    + ((Note) notesList.getNote(notesList.getSelectedIndex())).getDate().getFullDateString()
+                    + notesList.getNote(notesList.getSelectedIndex()).getDate().getFullDateString()
                     + "'\n"
                     + Local.getString("Are you sure?");
 
@@ -292,7 +292,7 @@ public class NotesControlPanel extends JPanel {
             return;
 
         for (int i = 0; i < notesList.getSelectedIndices().length; i++) {
-            Note note = (Note) notesList.getNote(notesList.getSelectedIndices()[i]);
+            Note note = notesList.getNote(notesList.getSelectedIndices()[i]);
 			if(CurrentProject.getNoteList().getActiveNote() != null && note.getDate().equals(CurrentProject.getNoteList().getActiveNote().getDate())){ 
 				/*Debug*/ System.out.println("[DEBUG] Current note removed");
 				CurrentNote.set(null,true);
@@ -316,7 +316,7 @@ public class NotesControlPanel extends JPanel {
     void ppInvertSort_actionPerformed(ActionEvent e) {
 		Configuration.put(
 			"NOTES_SORT_ORDER",
-			new Boolean(ppInvertSort.isSelected()));
+                Boolean.valueOf(ppInvertSort.isSelected()));
 		Configuration.saveConfig();
         notesList.invertSortOrder();
         notesList.update();
@@ -324,22 +324,22 @@ public class NotesControlPanel extends JPanel {
 
     void ppRemoveBkmrk_actionPerformed(ActionEvent e) {
         for (int i = 0; i < notesList.getSelectedIndices().length; i++) {
-            Note note = (Note) notesList.getNote(notesList.getSelectedIndices()[i]);
+            Note note = notesList.getNote(notesList.getSelectedIndices()[i]);
             note.setMark(false);
         }
         bookmarksListPanel.notesList.update();
 	ppSetEnabled();
         notesList.updateUI();
 	notesList.clearSelection();
-	((AppFrame)App.getFrame()).workPanel.dailyItemsPanel.editorPanel.editor.requestFocus();	
+	App.getFrame().workPanel.dailyItemsPanel.editorPanel.editor.requestFocus();
     }
 
     void ppSetEnabled() {
     boolean enbl = (notesList.getModel().getSize() > 0) && (notesList.getSelectedIndex() > -1);
 
-    ppRemoveBkmrk.setEnabled(enbl && (((Note) notesList.getNote(notesList.getSelectedIndex())).isMarked())
+    ppRemoveBkmrk.setEnabled(enbl && (notesList.getNote(notesList.getSelectedIndex()).isMarked())
     				|| notesList.getSelectedIndices().length > 1);
-    ppAddBkmrk.setEnabled(enbl && !(((Note) notesList.getNote(notesList.getSelectedIndex())).isMarked())
+    ppAddBkmrk.setEnabled(enbl && !(notesList.getNote(notesList.getSelectedIndex()).isMarked())
     				|| notesList.getSelectedIndices().length > 1);
     ppOpenNote.setEnabled(enbl);
     ppClearNote.setEnabled(enbl);

@@ -365,7 +365,7 @@ public class TaskTable extends JTable {
                     if (getColumnClass(counter) == TreeTableModel.class) {
                         MouseEvent me = (MouseEvent) e;
                         MouseEvent newME = new MouseEvent(tree, me.getID(), me
-                                .getWhen(), me.getModifiers(), me.getX()
+                                .getWhen(), me.getModifiersEx(), me.getX()
                                 - getCellRect(0, counter, true).x, me.getY(),
                                 me.getClickCount(), me.isPopupTrigger());
                         tree.dispatchEvent(newME);
@@ -482,7 +482,7 @@ public class TaskTable extends JTable {
 	 */
 	 class ExpansionHandler implements TreeExpansionListener { // {{{
 	
-		private java.util.Set expanded = new java.util.HashSet();
+		private final java.util.Set expanded = new java.util.HashSet();
 		
 		public void treeExpanded(TreeExpansionEvent e) {
 			expanded.add(e.getPath());
@@ -527,5 +527,4 @@ public class TaskTable extends JTable {
 		}
 		
 	} // }}}	
-	
 }

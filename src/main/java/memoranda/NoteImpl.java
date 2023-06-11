@@ -19,7 +19,7 @@ import nu.xom.Element;
 public class NoteImpl implements Note, Comparable {
     
     private Element _el = null; 
-    private Project _project;
+    private final Project _project;
     
     /**
      * Constructor for NoteImpl.
@@ -39,9 +39,9 @@ public class NoteImpl implements Note, Comparable {
 
      //   return new CalendarDate(day.getAttribute("date").getValue());
 		
-		return new CalendarDate(new Integer(day.getAttribute("day").getValue()).intValue(), 
-								new Integer(month.getAttribute("month").getValue()).intValue(),
-								new Integer(year.getAttribute("year").getValue()).intValue());
+		return new CalendarDate(Integer.parseInt(day.getAttribute("day").getValue()),
+                Integer.parseInt(month.getAttribute("month").getValue()),
+                Integer.parseInt(year.getAttribute("year").getValue()));
 
     }
     
@@ -98,7 +98,6 @@ public class NoteImpl implements Note, Comparable {
         if (ma == null) {
             if (mark)
                 _el.addAttribute(new Attribute("bookmark", "yes"));
-            return;
         }
         else if (!mark)
             _el.removeAttribute(ma);
