@@ -131,12 +131,12 @@ Answer as a team!
 #### Jonathan Blicharz:
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
 
-    - link1
-    - link2
+    - link1 https://github.com/sjgarc20/TheFloorIsJava-Memoranda/tree/us4task24
+    - link2 https://github.com/sjgarc20/TheFloorIsJava-Memoranda/tree/us5task27
  
  **What was your main contribution to the Quality Policy documentation?:
 
-    - info
+    - The quality policy was formed as a group with each person providing ideas. The use of a dev branch was my main contribution.
     
 #### Henry Buck:
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
