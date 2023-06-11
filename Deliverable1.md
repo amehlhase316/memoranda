@@ -148,7 +148,7 @@ Answer as a team!
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
 
  - [link1] (https://github.com/amansharma96/Professional_Cowboys-Summer23C/pull/8/commits)
- - [link2] (https://github.com/amansharma96/Professional_Cowboys-Summer23C/commit/73fa91a8befaf8d372f74b59fb2552f5cf47a426)
+ - [link2] (https://github.com/amansharma96/Professional_Cowboys-Summer23C/pull/10/commits)
 
    **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
 
@@ -222,9 +222,9 @@ Answer as a team!
     
 #### Team member E -- Joseph Okonoboh:
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
-    - [link1] (https://github.com/amansharma96/Professional_Cowboys-Summer23C/pull/9)
-    - [link2] (https://github.com/amansharma96/Professional_Cowboys-Summer23C/pull/9)
-    - link2
+  
+- [link1] (https://github.com/amansharma96/Professional_Cowboys-Summer23C/pull/9)
+- [link2] (https://github.com/amansharma96/Professional_Cowboys-Summer23C/commit/73fa91a8befaf8d372f74b59fb2552f5cf47a426)
 
    **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
 
@@ -255,7 +255,7 @@ Answer as a team!
   - [x] Aman Sharma
   - [x] Paul Carmichael
   - [x] Ryan Dinaro
-  - [x] Joseph Okonoboh
+  - [ ] Joseph Okonoboh
 - [x] The original of this file was copied for the next Sprint (needed for all but last Sprint where you do not need to copy it anymore)
   - [x] Basic information (part 1) for next Sprint was included (meaning Spring Planning is complete)
   - [x] All User Stories have acceptance tests
