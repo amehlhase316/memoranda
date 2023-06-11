@@ -16,8 +16,8 @@ import main.java.memoranda.date.CalendarDate;
 /*$Id: HistoryItem.java,v 1.4 2004/10/06 19:15:43 ivanrise Exp $*/
 public class HistoryItem {
     
-    private CalendarDate _date;
-    private Project _project;
+    private final CalendarDate _date;
+    private final Project _project;
     /**
      * Constructor for HistoryItem.
      */

@@ -60,7 +60,7 @@ public class AltHTMLWriter extends AbstractWriter {
      * Stores all elements for which end tags have to
      * be emitted.
      */
-    private Stack blockElementStack = new Stack();
+    private final Stack blockElementStack = new Stack();
     private boolean inContent = false;
     private boolean inPre = false;
     /** When inPre is true, this will indicate the end offset of the pre
@@ -68,7 +68,7 @@ public class AltHTMLWriter extends AbstractWriter {
     private int preEndOffset;
     private boolean inTextArea = false;
     private boolean newlineOutputed = false;
-    private boolean completeDoc;
+    private final boolean completeDoc;
 
     /*
      * Stores all embedded tags. Embedded tags are tags that are
@@ -76,12 +76,12 @@ public class AltHTMLWriter extends AbstractWriter {
      * character level attributes.  Examples include
      * &lt;b&gt;, &lt;i&gt;, &lt;font&gt;, and &lt;a&gt;.
      */
-    private Vector tags = new Vector(10);
+    private final Vector tags = new Vector(10);
 
     /**
      * Values for the tags.
      */
-    private Vector tagValues = new Vector(10);
+    private final Vector tagValues = new Vector(10);
 
     /**
      * Used when writing out content.
@@ -91,7 +91,7 @@ public class AltHTMLWriter extends AbstractWriter {
     /*
      * This is used in closeOutUnwantedEmbeddedTags.
      */
-    private Vector tagsToRemove = new Vector(10);
+    private final Vector tagsToRemove = new Vector(10);
 
     /**
      * Set to true after the head has been output.
@@ -326,13 +326,10 @@ public class AltHTMLWriter extends AbstractWriter {
             Object nameTag = (attr != null) ? attr.getAttribute(StyleConstants.NameAttribute) : null;
             Object endTag = (attr != null) ? attr.getAttribute(HTML.Attribute.ENDTAG) : null;
 
-            boolean outputEndTag = false;
+            boolean outputEndTag = nameTag != null && endTag != null && (endTag instanceof String) && endTag.equals("true");
             // If an instance of an UNKNOWN Tag, or an instance of a
             // tag that is only visible during editing
             //
-            if (nameTag != null && endTag != null && (endTag instanceof String) && ((String) endTag).equals("true")) {
-                outputEndTag = true;
-            }
 
             if (completeDoc && matchNameAttribute(attr, HTML.Tag.HEAD)) {
 
@@ -697,10 +694,7 @@ public class AltHTMLWriter extends AbstractWriter {
      * for the p-implied tag.
      */
     protected boolean synthesizedElement(Element elem) {
-        if (matchNameAttribute(elem.getAttributes(), HTML.Tag.IMPLIED)) {
-            return true;
-        }
-        return false;
+        return matchNameAttribute(elem.getAttributes(), HTML.Tag.IMPLIED);
     }
 
     /**
@@ -711,9 +705,7 @@ public class AltHTMLWriter extends AbstractWriter {
         Object o = attr.getAttribute(StyleConstants.NameAttribute);
         if (o instanceof HTML.Tag) {
             HTML.Tag name = (HTML.Tag) o;
-            if (name == tag) {
-                return true;
-            }
+            return name == tag;
         }
         return false;
     }
@@ -761,9 +753,7 @@ public class AltHTMLWriter extends AbstractWriter {
         if (attr != null && attr.isDefined(t)) {
             Object newValue = attr.getAttribute(t);
 
-            if ((tagValue == null) ? (newValue == null) : (newValue != null && tagValue.equals(newValue))) {
-                return false;
-            }
+            return (tagValue == null) ? (newValue != null) : (!tagValue.equals(newValue));
         }
         return true;
     }
@@ -832,10 +822,7 @@ public class AltHTMLWriter extends AbstractWriter {
      * false
      */
     private boolean isFormElementWithContent(AttributeSet attr) {
-        if (matchNameAttribute(attr, HTML.Tag.TEXTAREA) || matchNameAttribute(attr, HTML.Tag.SELECT)) {
-            return true;
-        }
-        return false;
+        return matchNameAttribute(attr, HTML.Tag.TEXTAREA) || matchNameAttribute(attr, HTML.Tag.SELECT);
     }
 
     /**
@@ -859,9 +846,7 @@ public class AltHTMLWriter extends AbstractWriter {
             else if (synthesizedElement(next)) {
                 indentNext = true;
             }
-            else if (!synthesizedElement(current)) {
-                return true;
-            }
+            else return !synthesizedElement(current);
         }
         return false;
     }
@@ -1030,18 +1015,18 @@ public class AltHTMLWriter extends AbstractWriter {
      * to HTML tags/attributes (i.e. It will emit an HTML 4.0
      * style).
      */
-    private boolean writeCSS = false;
+    private final boolean writeCSS = false;
 
     /**
      * Buffer for the purpose of attribute conversion
      */
-    private MutableAttributeSet convAttr = new SimpleAttributeSet();
+    private final MutableAttributeSet convAttr = new SimpleAttributeSet();
 
     /**
      * Buffer for the purpose of attribute conversion. This can be
      * used if convAttr is being used.
      */
-    private MutableAttributeSet oConvAttr = new SimpleAttributeSet();
+    private final MutableAttributeSet oConvAttr = new SimpleAttributeSet();
 
     /**
      * Create an older style of HTML attributes.  This will
@@ -1071,12 +1056,12 @@ public class AltHTMLWriter extends AbstractWriter {
                     if (weightValue != null) {
                         int fweight;
                         try {
-                            fweight = new Integer(weightValue).intValue();
+                            fweight = Integer.parseInt(weightValue);
                         }
                         catch (Exception ex) {
                             fweight = -1;
                         }
-                        if ((weightValue.toLowerCase().equals("bold")) || (fweight > 400))
+                        if ((weightValue.equalsIgnoreCase("bold")) || (fweight > 400))
                             to.addAttribute(HTML.Tag.B, SimpleAttributeSet.EMPTY);
                     }
                 }
@@ -1304,7 +1289,7 @@ public class AltHTMLWriter extends AbstractWriter {
         private int lastChangedIndex = MIN;
         private boolean isAdjusting = false;
         private BitSet value = new BitSet(32);
-        private BitSet initialValue = new BitSet(32);
+        private final BitSet initialValue = new BitSet(32);
         protected EventListenerList listenerList = new EventListenerList();
 
         protected boolean leadAnchorNotificationEnabled = true;
@@ -1338,7 +1323,7 @@ public class AltHTMLWriter extends AbstractWriter {
         }
 
         public boolean isSelectedIndex(int index) {
-            return ((index < minIndex) || (index > maxIndex)) ? false : value.get(index);
+            return (index >= minIndex) && (index <= maxIndex) && value.get(index);
         }
 
         public boolean isSelectionEmpty() {
@@ -1362,7 +1347,7 @@ public class AltHTMLWriter extends AbstractWriter {
          * @since 1.4
          */
         public ListSelectionListener[] getListSelectionListeners() {
-            return (ListSelectionListener[]) listenerList.getListeners(ListSelectionListener.class);
+            return listenerList.getListeners(ListSelectionListener.class);
         }
 
         /**
@@ -1699,7 +1684,7 @@ public class AltHTMLWriter extends AbstractWriter {
 
         public String toString() {
             String s = ((getValueIsAdjusting()) ? "~" : "=") + value.toString();
-            return getClass().getName() + " " + Integer.toString(hashCode()) + " " + s;
+            return getClass().getName() + " " + hashCode() + " " + s;
         }
 
         /**
@@ -1770,9 +1755,7 @@ public class AltHTMLWriter extends AbstractWriter {
             }
 
             int oldMin = Math.min(this.anchorIndex, this.leadIndex);
-            ;
             int oldMax = Math.max(this.anchorIndex, this.leadIndex);
-            ;
             int newMin = Math.min(anchorIndex, leadIndex);
             int newMax = Math.max(anchorIndex, leadIndex);
             if (value.get(this.anchorIndex)) {
@@ -2276,7 +2259,7 @@ public class AltHTMLWriter extends AbstractWriter {
          * <code>width</code>, <code>height</code> is the size of
          * the enclosing region.
          */
-        public boolean contains(int x, int y, int width, int height);
+        boolean contains(int x, int y, int width, int height);
     }
 
 }

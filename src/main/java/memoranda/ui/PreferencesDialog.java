@@ -1,6 +1,7 @@
 package main.java.memoranda.ui;
 
 import java.io.File;
+import java.util.Collections;
 import java.util.Vector;
 import java.awt.*;
 
@@ -542,7 +543,7 @@ public class PreferencesDialog extends JDialog {
 		if (Configuration.get("BASE_FONT_SIZE").toString().length() >0)
 			baseFontSize.setValue(Integer.decode(Configuration.get("BASE_FONT_SIZE").toString()));
 		else
-			baseFontSize.setValue(new Integer(16));
+			baseFontSize.setValue(Integer.valueOf(16));
 	}
 
 	void apply() {
@@ -818,13 +819,12 @@ public class PreferencesDialog extends JDialog {
 	Vector getFontNames() {
 		GraphicsEnvironment gEnv = 
         	GraphicsEnvironment.getLocalGraphicsEnvironment();
-        String envfonts[] = gEnv.getAvailableFontFamilyNames();
+        String[] envfonts = gEnv.getAvailableFontFamilyNames();
         Vector fonts = new Vector();
         fonts.add("serif");
         fonts.add("sans-serif");
         fonts.add("monospaced");
-        for (int i = 0; i < envfonts.length; i++)
-            fonts.add(envfonts[i]);
+		Collections.addAll(fonts, envfonts);
 		return fonts;
 	}
 }

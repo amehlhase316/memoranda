@@ -247,7 +247,7 @@ public class StickerDialog extends JDialog {
 		jPanel1.add(priorityList);
 		
 		if (Context.get("STICKER_COLOR") != null) {
-			Color c = new Color(new Integer(Context.get("STICKER_COLOR").toString()).intValue());
+			Color c = new Color(Integer.parseInt(Context.get("STICKER_COLOR").toString()));
 			stickerText.setBackground(c);
 			int i = findColorIndex(c);
 			if (i > -1)
@@ -273,7 +273,7 @@ public class StickerDialog extends JDialog {
 			}
 		});
 		if (Context.get("TEXT_COLOR") != null) {
-			Color d = new Color(new Integer(Context.get("TEXT_COLOR").toString()).intValue());
+			Color d = new Color(Integer.parseInt(Context.get("TEXT_COLOR").toString()));
 			stickerText.setForeground(d);
 			int i = findColorIndex(d);
 			if (i > -1){
@@ -301,10 +301,10 @@ public class StickerDialog extends JDialog {
 		if (Context.get("TEXT_SIZE") != null) {
 			int h= (fontSize.getSelectedIndex()*5)+10;
 			if (h!=10 && h!=15 && h!=20) h=15;
-			stickerText.setFont(new Font(f.getFontName(), f.PLAIN, h));
+			stickerText.setFont(new Font(f.getFontName(), Font.PLAIN, h));
 		}
 		else{
-			stickerText.setFont(new Font(f.getFontName(), f.PLAIN, 15));
+			stickerText.setFont(new Font(f.getFontName(), Font.PLAIN, 15));
 			fontSize.setSelectedIndex(1);
 		}
 		fontSize.addActionListener(new java.awt.event.ActionListener() {
@@ -325,7 +325,7 @@ public class StickerDialog extends JDialog {
 		return stickerText.getText();
 	}
 	public String getStickerTextSize() {
-		return ""+stickerText.getFont().getSize();
+		return String.valueOf(stickerText.getFont().getSize());
 	}
 	public String getStickerTextColor(){
 		return "#"
@@ -398,7 +398,7 @@ public class StickerDialog extends JDialog {
 			if (c != null)
 				stickerText.setBackground(c);
 		}
-		Context.put("STICKER_COLOR", new Integer(stickerText.getBackground().getRGB()));
+		Context.put("STICKER_COLOR", Integer.valueOf(stickerText.getBackground().getRGB()));
 	}
 	void textColor_actionPerformed(ActionEvent e) {
 		int i=textColor.getSelectedIndex();
@@ -423,16 +423,16 @@ public class StickerDialog extends JDialog {
 			if (c != null)
 				stickerText.setForeground(c);
 		}
-		Context.put("TEXT_COLOR", new Integer(stickerText.getForeground().getRGB()));		
+		Context.put("TEXT_COLOR", Integer.valueOf(stickerText.getForeground().getRGB()));
 	}
 	protected void fontSize_actionPerformed(ActionEvent e) {
 		int i=fontSize.getSelectedIndex();
 		if (i < fontLabels.length){
 			Font f= stickerText.getFont();
-			stickerText.setFont(new Font(f.getFontName(), f.PLAIN, (i*5)+10));
+			stickerText.setFont(new Font(f.getFontName(), Font.PLAIN, (i*5)+10));
 		}
 		fontSize.setSelectedIndex(i);
-		Context.put("TEXT_SIZE", new Integer(stickerText.getFont().getSize()));		
+		Context.put("TEXT_SIZE", Integer.valueOf(stickerText.getFont().getSize()));
 		}
 	class ComboBoxRenderer extends JLabel implements ListCellRenderer {
 		public ComboBoxRenderer() {

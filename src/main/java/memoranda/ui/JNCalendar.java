@@ -32,7 +32,7 @@ public class JNCalendar extends JTable {
 
 	private CalendarDate _date = null;
 	private boolean ignoreChange = false;
-	private Vector selectionListeners = new Vector();
+	private final Vector selectionListeners = new Vector();
 	CalendarDate startPeriod = null;
 	CalendarDate endPeriod = null;
 	public JNCalendarCellRenderer renderer = new JNCalendarCellRenderer();
@@ -68,11 +68,11 @@ public class JNCalendar extends JTable {
 				if (val != null) {
 					if (val
 						.toString()
-						.equals(new Integer(_date.getDay()).toString()))
+						.equals(Integer.valueOf(_date.getDay()).toString()))
 						return;
 					_date =
 						new CalendarDate(
-							new Integer(val.toString()).intValue(),
+								Integer.parseInt(val.toString()),
 							_date.getMonth(),
 							_date.getYear());
 					notifyListeners();
@@ -139,7 +139,7 @@ public class JNCalendar extends JTable {
 		if (d != null)
 			renderer.setDate(
 				new CalendarDate(
-					new Integer(d.toString()).intValue(),
+						Integer.parseInt(d.toString()),
 					_date.getMonth(),
 					_date.getYear()));
 		else
@@ -189,7 +189,7 @@ public class JNCalendar extends JTable {
 	/*$Id: JNCalendar.java,v 1.8 2004/11/05 07:38:10 pbielen Exp $*/
 public class JNCalendarModel extends AbstractTableModel {
 
-		private String[] dayNames = Local.getWeekdayNames();
+		private final String[] dayNames = Local.getWeekdayNames();
 
 		public JNCalendarModel() {
 			super();
@@ -203,7 +203,7 @@ public class JNCalendarModel extends AbstractTableModel {
 			//int pos = (row * 7 + col) - firstDay + 1;
 			int pos = (row * 7 + (col + 1)) - firstDay;
 			if ((pos > 0) && (pos <= daysInMonth))
-				return new Integer(pos);
+				return Integer.valueOf(pos);
 			else
 				return null;
 

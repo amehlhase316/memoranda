@@ -8,7 +8,7 @@ public class PriorityQueue {
          * to sort stickers by priority
          */
         
-        private Pair[] a;
+        private final Pair[] a;
         private int n;
         
         public PriorityQueue(int size){

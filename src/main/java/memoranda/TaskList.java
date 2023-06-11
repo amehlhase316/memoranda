@@ -23,21 +23,21 @@ public interface TaskList {
 
     void removeTask(Task task);
 
-    public boolean hasSubTasks(String id);
+    boolean hasSubTasks(String id);
     
-	public boolean hasParentTask(String id);
+	boolean hasParentTask(String id);
 
-	public Collection getTopLevelTasks();
+	Collection getTopLevelTasks();
 	
-    public Collection getAllSubTasks(String taskId);
-    public Collection getActiveSubTasks(String taskId,CalendarDate date);
+    Collection getAllSubTasks(String taskId);
+    Collection getActiveSubTasks(String taskId,CalendarDate date);
     
 //    public void adjustParentTasks(Task t);
     
-    public long calculateTotalEffortFromSubTasks(Task t);
-    public CalendarDate getLatestEndDateFromSubTasks(Task t);
-    public CalendarDate getEarliestStartDateFromSubTasks(Task t);
-    public long[] calculateCompletionFromSubTasks(Task t);
+    long calculateTotalEffortFromSubTasks(Task t);
+    CalendarDate getLatestEndDateFromSubTasks(Task t);
+    CalendarDate getEarliestStartDateFromSubTasks(Task t);
+    long[] calculateCompletionFromSubTasks(Task t);
 
     nu.xom.Document getXMLContent();
 

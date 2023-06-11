@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.*;
@@ -20,7 +21,7 @@ public class LoadableProperties extends Hashtable {
 
     public void load(InputStream inStream) throws IOException {
 
-        BufferedReader in = new BufferedReader(new InputStreamReader(inStream, "UTF-8"));
+        BufferedReader in = new BufferedReader(new InputStreamReader(inStream, StandardCharsets.UTF_8));
 
         String aKey;
         String aValue;
@@ -43,7 +44,7 @@ public class LoadableProperties extends Hashtable {
     		save(outStream);
     		return;
     	}
-        BufferedWriter out = new BufferedWriter(new OutputStreamWriter(outStream, "UTF-8"));
+        BufferedWriter out = new BufferedWriter(new OutputStreamWriter(outStream, StandardCharsets.UTF_8));
         String aKey;
         Object aValue;
         TreeMap tm = new TreeMap(this);
@@ -58,7 +59,7 @@ public class LoadableProperties extends Hashtable {
     }
     
     public void save(OutputStream outStream) throws IOException {
-        BufferedWriter out = new BufferedWriter(new OutputStreamWriter(outStream, "UTF-8"));
+        BufferedWriter out = new BufferedWriter(new OutputStreamWriter(outStream, StandardCharsets.UTF_8));
         String aKey;
         Object aValue;
         for (Enumeration e = keys(); e.hasMoreElements();) {
@@ -84,12 +85,7 @@ public class LoadableProperties extends Hashtable {
         }
 
         int index = str.indexOf("=");
-        if (index > 0 && str.length() > index) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return index > 0 && str.length() > index;
     }
 
     private String getNextLine(BufferedReader br) {
