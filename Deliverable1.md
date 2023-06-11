@@ -19,19 +19,20 @@ Document your Sprint Planning here. Also check the kickoff document for more det
 **How many User Stories did you add to the Product Backlog:**  Number
 
 **How many User Stories did you add to this Sprint:** 
-> Answer the questions below about your Sprint Planning?
+
+> Eight user stories were added.
 
 **Why did you add these US, why do you think you can get them done in the next Sprint?**
 
-> Your Answer
+> The user stories that were added were the ones from the example Taiga board.
 
 **Why do you think these fit well with your Sprint goal? (details)**
 
-> Your Answer
+> The first sprint was an intro to the software and utilizing git/github so a lot of the base user stories reflect that.
 
 **Do you have a rough idea what you need to do? (if the answer is no then please let me know on Slack)**
 
-> Your Answer
+> We do, and we also will ask in slack for any clarification we require as it arises.
 
 
 
@@ -53,11 +54,11 @@ I would also advise you to already fill out the Contributions section (End of sp
 
 > Add rows as needed and add the number how many meetings for each team member:
 
-   Jonathan Blicharz:   III
-   David Berry:         II
-   Henry Buck:          III
-   Sam Garcia:          III
-   Abdullah Younes:     III
+   -David Berry:         II
+   -Jonathan Blicharz:   III
+   -Henry Buck:          III
+   -Sam Garcia:          III
+   -Abdullah Younes:     III
 
 ## 3: After the Sprint
 
@@ -70,15 +71,15 @@ Answer as a team!
 
 **What do you think is the value you created this Sprint?**
 
-> Your Answer
+> We all got a good handle on how memoranda works as well as an idea of how to continue next sprint. In addition to this we worked together to make sure we understood how Git and GitHub work.
 
 **Do you think you worked enough and that you did what was expected of you?**
 
-> Your Answer
+> We believe that we did, yes.
 
 **Would you say you met the customers’ expectations? Why, why not?**
 
-> Your Answer
+> For this sprint since it was more of an intro to sprints for the class it is unlikely that we would have met customer expectations. However we did meet the class expectations.
 
 
 ### Sprint Retrospective
@@ -87,53 +88,77 @@ Answer as a team!
 
 **Did you meet your sprint goal?**
 
-> Your Answer
+> Yes, we met the sprint goal.
 
 **Did you complete all stories on your Spring Backlog?**
 
-> Your Answer
+> Not quite, but we did take a look at and complete most of the user stories sub tasks.
 
 **If not, what went wrong?**
 
-> Your Answer
+> We discovered that one of the subtasks for a user story, resizing the calendar, was more time intensive than we originally had planned and decided to add that to a later user story.
 
 **Did you work at a consistent rate of speed, or velocity? (Meaning did you work during the whole Sprint or did you start working when the deadline approached.)**
 
-> Your Answer
+> We mostly did a consistent speed, we didn't leave it all for the end. However towards the second half we definitely realized we had more left than we originally planned.
 
 **Did you deliver business value?**
 
-> Your Answer
+> We got a good handle of how the software works which is a good first step towards delivering business value.
 
 **Are there things the team thinks it can do better in the next Sprint?**
 
-> Your Answer
+> Communicate more frequently
 
 **How do you feel at this point? Get a pulse on the optimism of the team.**
 
-> Your Answer
+> We all feel good about where we're at and how the team is progressing
 
 ### Contributions:
 
 > In this section I want you to point me to your main contributions (each of you individually). Some of the topcs are not needed for the first deliverables (you should know which things you should have done in this Sprint, if you don't then you have probably missed something):
 
-#### Team member A -- replace this with your name:
+#### David Berry:
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
 
     - link1
     - link2
+ 
+ **What was your main contribution to the Quality Policy documentation?:
 
-   **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
+    - info
+    
+#### Jonathan Blicharz:
+  **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
 
     - link1
     - link2
+ 
+ **What was your main contribution to the Quality Policy documentation?:
 
-  **GitHub links to your Code Reviews (up to 3 links) -- Sprint 2 and 3:
+    - info
+    
+#### Henry Buck:
+  **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
+
+    -[ link1](https://github.com/sjgarc20/TheFloorIsJava-Memoranda/tree/us8task34)
+ 
+ **What was your main contribution to the Quality Policy documentation?:
+
+    - We generated the Quality Policy together, however as the scrum master for this round I was the one typing everything and getting the phrasing down. Honestly because we all were just talking together while I was typing it, it's hard to remember who came up with what. I do believe I was at least part of the group who said that one person reviewing any pull requests should be sufficient (so as to not make us locked up in waiting for multiple pull request approvals)
+    
+#### Sam Garcia:
+  **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
 
     - link1
     - link2
+ 
+ **What was your main contribution to the Quality Policy documentation?:
 
-  **How did you contribute to Static Analysis -- Sprint 3:
+    - info
+    
+#### Abdullah Younes:
+  **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
 
     - link1
     - link2
@@ -143,16 +168,19 @@ Answer as a team!
     - info
   
 ## 4: Checklist for you to see if you are done
-- [ ] Filled out the complete form from above, all fields are filled and written in full sentences
-- [ ] Read the kickoff again to make sure you have all the details
-- [ ] User Stories that were not completed, were left in the Sprint and a copy created
-- [ ] Your Quality Policies are accurate and up to date
+- [X] Filled out the complete form from above, all fields are filled and written in full sentences
+- [X] Read the kickoff again to make sure you have all the details
+- [X] User Stories that were not completed, were left in the Sprint and a copy created
+- [X] Your Quality Policies are accurate and up to date
 - [ ] **Individual** Survey was submitted **individually** (create checkboxes below -- see Canvas to get link)
-  - [ ] Team member 1
-  - [ ] Team member 2
+  - [ ] David Berry
+  - [ ] Jonathan Blicharz
+  - [ ] Henry Buck
+  - [ ] Sam Garcia
+  - [ ] Abdullah Younes
 - [ ] The original of this file was copied for the next Sprint (needed for all but last Sprint where you do not need to copy it anymore)
   - [ ] Basic information (part 1) for next Sprint was included (meaning Spring Planning is complete)
   - [ ] All User Stories have acceptance tests
   - [ ] User Stories in your new Sprint Backlog have initial tasks which are in New
-  - [ ] You know how to proceed
+  - [X] You know how to proceed
 
