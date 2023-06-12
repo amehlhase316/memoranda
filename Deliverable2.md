@@ -43,8 +43,8 @@ I would also advise you to already fill out the Contributions section (End of sp
 > Add as many rows as needed and fill out the table. (Burndown starts with Sprint 2 and Travis CI starts with Sprint 3, not needed before that). 
 
 | Date  | Who did not attend  |Meeting notes (very brief)   | Burndown Info (on track, ahead behind is enough) | TravisCI info (does the master pass) | Additional Info  |
-|---|---|---|---|--|--|
-|   |   |   |   |  |  |
+|-------|---|---|---|--|--|
+|23-06-11 |   | Sprint 2 Planning  |   |  |  |
 |   |   |   |   |  |  |
 |   |   |   |   |  |  |
 
