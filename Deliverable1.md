@@ -127,8 +127,9 @@ Answer as a team!
 #### Will
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
 
-    - link1
-    - link2
+    - https://github.com/TheNerdyBunch23/memoranda/commit/c849d5a2130ee32d1c52ace8c586a91ca1fd1407
+    - https://github.com/TheNerdyBunch23/memoranda/commit/57d4cfcd1f4bdbc9d5347c4cc416b9ba6d75a364
+    - https://github.com/TheNerdyBunch23/memoranda/commit/83c5f72aca92f5e602207ad4cb8b5228c74a2b9c
 
    **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
 
@@ -147,7 +148,7 @@ Answer as a team!
  
  **What was your main contribution to the Quality Policy documentation?:
 
-    - info
+    - Wrote the GitHub Workflow policy.
     
 #### Eli
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
@@ -178,8 +179,8 @@ Answer as a team!
 #### Andres
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
 
-    - link1
-    - link2
+    - https://github.com/TheNerdyBunch23/memoranda/commit/a66b5fbc0f39a77e071b76982844ef0e571a9855
+    - https://github.com/TheNerdyBunch23/memoranda/commit/e44bdb45107a63fdeb1c14b04761de711ee1ffb8
 
    **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
 
@@ -254,10 +255,10 @@ Answer as a team!
   - [ X ] User Stories that were not completed, were left in the Sprint and a copy created
   - [ X ] Your Quality Policies are accurate and up to date
   - [ ] **Individual** Survey was submitted **individually** (create checkboxes below -- see Canvas to get link)
-  - [ ] Will
+  - [ X ] Will
   - [ X ] Eli
   - [ ] Andres
-  - [ ] Frankie
+  - [ X ] Frankie
   - [ X ] Josh
   - [ X ] The original of this file was copied for the next Sprint (needed for all but last Sprint where you do not need to copy it anymore)
   - [ X ] Basic information (part 1) for next Sprint was included (meaning Spring Planning is complete)
