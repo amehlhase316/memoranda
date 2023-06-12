@@ -4,11 +4,15 @@ package main.java.memoranda;
 
 import java.util.ArrayList;
 
-public class Route {
+public class
+Route {
     private ArrayList<Node> nodes;
     private double length; // in km
     private double duration; // in minutes
     double stopDuration; // in minutes
+
+    private Driver driver;
+    private Bus bus;
 
     /**
      * Constructor for Route, uses an existing ArrayList of Node objects
@@ -17,6 +21,7 @@ public class Route {
      */
     public Route(ArrayList<Node> n, double sd)
     {
+        nodes = new ArrayList<Node>();
         nodes = n;
         length = calculateLength();
         duration = calculateDuration();
@@ -29,6 +34,7 @@ public class Route {
      * @param sd stopDuration of Bus at each Node
      */
     public Route(Node initialNode, double sd){
+        nodes = new ArrayList<Node>();
         nodes.add(initialNode);
         length = calculateLength();
         duration = calculateDuration();
@@ -39,6 +45,7 @@ public class Route {
      * Default constructor for route, only specifying the stopDuration of each stop
      * @param sd stopDuration of Bus at each Node
      */
+
     public Route(double sd){
         nodes = new ArrayList<Node>();
         length = 0;
@@ -47,10 +54,36 @@ public class Route {
     }
 
     /**
+     * Getter and Setter functions for driver
+     * assigned to this route
+     */
+
+    public Driver getDriver() {
+        return driver;
+    }
+
+    public void setDriver(Driver driver) {
+        this.driver = driver;
+    }
+
+    /**
+     * Getter and Setter for Bus assigned to
+     * this route
+     */
+    public Bus getBus() {
+        return bus;
+    }
+
+    public void setBus(Bus bus) {
+        this.bus = bus;
+    }
+
+    /**
      * Getter function for the length of the Route
      * @return the length of the Route in km
      */
     public double getLength(){
+
         return length;
     }
 
@@ -131,6 +164,7 @@ public class Route {
         return false;
     }
 
+
     /**
      * Removes the Node at the specified index of the ArrayList
      * @param i the index of the Node to be removed
@@ -145,6 +179,7 @@ public class Route {
             return false;
         }
     }
+
 
     /**
      * Calculates the length of the Route in km using the distanceOfNodes() function
@@ -166,6 +201,7 @@ public class Route {
      *
      * @return double: the approximate duration of the Route in minutes.
      */
+
     public double calculateDuration()
     {
         double distance = length;
@@ -175,17 +211,20 @@ public class Route {
         return minutes;
     }
 
+
     /**
      * toString implementation:
      * @return the String
      */
     public String toString(){
         String out = "";
+        out += getDriver().toString() + " \n" + getBus().toString();
         for(int i = 0; i < nodes.size(); ++i){
             out += nodes.get(i).toString() + "\n";
         }
         return out;
     }
+
 
     /**
      * equals implementation

@@ -584,7 +584,7 @@ public class AppFrame extends JFrame {
                 setMenusDisabled);
 
         this.workPanel.tasksB.addActionListener(setMenusDisabled);
-        this.workPanel.eventsB.addActionListener(setMenusDisabled);
+        this.workPanel.routeB.addActionListener(setMenusDisabled);
 //        this.workPanel.filesB.addActionListener(setMenusDisabled);
         this.workPanel.agendaB.addActionListener(setMenusDisabled);
         this.workPanel.mapB.addActionListener(setMenusDisabled);
@@ -666,8 +666,10 @@ public class AppFrame extends JFrame {
     }
 
     public void doMinimize() {
-        exitNotify();
-        App.closeWindow();
+//        exitNotify();
+//        App.closeWindow();
+
+        this.setState(JFrame.ICONIFIED);
     }
 
     //Help | About action performed
@@ -683,14 +685,15 @@ public class AppFrame extends JFrame {
 
     protected void processWindowEvent(WindowEvent e) {
         if (e.getID() == WindowEvent.WINDOW_CLOSING) {
-            if (Configuration.get("ON_CLOSE").equals("exit"))
-                doExit();
-            else
-                doMinimize();
+//            if (Configuration.get("ON_CLOSE").equals("exit"))
+//                doExit();
+//            else
+//                doMinimize();
+        doExit();
         }
         else if ((e.getID() == WindowEvent.WINDOW_ICONIFIED)) {
-            super.processWindowEvent(new WindowEvent(this,
-                    WindowEvent.WINDOW_CLOSING));
+//            super.processWindowEvent(new WindowEvent(this,
+//                    WindowEvent.WINDOW_CLOSING));
             doMinimize();
         }
         else

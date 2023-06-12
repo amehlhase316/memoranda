@@ -13,7 +13,7 @@ public class Node {
      * @param lat the latitude coordinates of the Node
      * @param lon the longitude coordinates of the Node
      */
-    Node(String id, double latitude, double longitude) {
+    public Node(String id, double latitude, double longitude) {
         this.id = id;
         this.latitude = latitude;
         this.longitude = longitude;
@@ -83,6 +83,16 @@ public class Node {
         
         double distance = Math.sqrt(xDiff * xDiff + yDiff * yDiff);
         return distance;
+    }
+
+    /**
+     * Calculates the distance between Nodes in miles
+     * @param n first node
+     * @param nn second node
+     * @return The distance of nodes in miles
+     */
+    public static double distanceOfNodesMiles(Node n, Node nn) {
+        return distanceOfNodes(n, nn) * 0.621371;
     }
 
     /**

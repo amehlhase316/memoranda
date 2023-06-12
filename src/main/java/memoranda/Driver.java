@@ -46,4 +46,19 @@ public class Driver {
      * @param newPhoneNumber
      */
     public void setPhoneNumber(String newPhoneNumber) { this.phoneNumber = phoneNumber; }
+
+    @Override
+    public String toString() {
+        StringBuffer info = new StringBuffer();
+
+        info.append("Driver: "+getName() + "\n");
+        info.append("ID: "+ getID() + "\n");
+        info.append("Phone Number: " + getPhoneNumber() + "\n");
+        return info.toString();
+    }
+
+    public static void main (String [] args) {
+        Driver dr = new Driver(1,"Andy","55555555");
+        System.out.println(dr.toString());
+    }
 }
