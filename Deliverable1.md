@@ -120,9 +120,9 @@ Answer as a team!
 
 ### Abdullah Younes:
   **Links to GitHub commits with main code contribution (up to 5 links) -- all Sprints:
-  https://github.com/amehlhase316/memoranda/commit/bf21baf71f1efe9001d4a8e9402658d236873f35
-  https://github.com/amehlhase316/memoranda/commit/dfea3c1a3835406b84a5154beab0f30c277e6a27
-  https://github.com/amehlhase316/memoranda/commit/d81611c0aa421ea5939a219bf2d66b730229a49c
+  - https://github.com/amehlhase316/memoranda/commit/bf21baf71f1efe9001d4a8e9402658d236873f35
+  - https://github.com/amehlhase316/memoranda/commit/dfea3c1a3835406b84a5154beab0f30c277e6a27
+  - https://github.com/amehlhase316/memoranda/commit/d81611c0aa421ea5939a219bf2d66b730229a49c
 
   ** What was your main contribution to the Quality Policy documentation?:
   We all worked on it collaboratively, but I contributed mostly to the GitHub Workflow ideas. 
