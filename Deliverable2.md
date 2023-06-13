@@ -5,11 +5,11 @@
 
 **Topic you chose:** Gym Scheduling
 
-**Sprint Number:** 1
+**Sprint Number:** 2
 
-**Scrum Master**: Henry Buck
+**Scrum Master**: David Berry
 
-**Git Master**: Sam Garcia
+**Git Master**: 
 
 ### Sprint Planning (For Sprint 1-3)
 Document your Sprint Planning here. Also check the kickoff document for more details on what needs to be done. This is just the documentation. 
@@ -19,20 +19,19 @@ Document your Sprint Planning here. Also check the kickoff document for more det
 **How many User Stories did you add to the Product Backlog:**  Number
 
 **How many User Stories did you add to this Sprint:** 
-
-> Eight user stories were added.
+> Answer the questions below about your Sprint Planning?
 
 **Why did you add these US, why do you think you can get them done in the next Sprint?**
 
-> The user stories that were added were the ones from the example Taiga board.
+> Your Answer
 
 **Why do you think these fit well with your Sprint goal? (details)**
 
-> The first sprint was an intro to the software and utilizing git/github so a lot of the base user stories reflect that.
+> Your Answer
 
 **Do you have a rough idea what you need to do? (if the answer is no then please let me know on Slack)**
 
-> We do, and we also will ask in slack for any clarification we require as it arises.
+> Your Answer
 
 
 
@@ -45,41 +44,41 @@ I would also advise you to already fill out the Contributions section (End of sp
 
 | Date  | Who did not attend  |Meeting notes (very brief)   | Burndown Info (on track, ahead behind is enough) | TravisCI info (does the master pass) | Additional Info  |
 |---|---|---|---|--|--|
-|5/29|David B.|Got Memoranda working|N/A|N/A|Attendence not strictly necessary, helping each other get set up|
-|5/31|Everyone Here|Taiga setup, User Stories set|N/A|N/A|  |
-|6/9|Everyone Here|Final Meeting for sprint|N/A|N/A| |
+|   |   |   |   |  |  |
+|   |   |   |   |  |  |
 |   |   |   |   |  |  |
 
 ### Meeting Summary:
 
 > Add rows as needed and add the number how many meetings for each team member:
 
-    -David Berry:         II
-    -Jonathan Blicharz:   III
-    -Henry Buck:          III
-    -Sam Garcia:          III
-    -Abdullah Younes:     III
+    -David Berry:         
+    -Jonathan Blicharz:   
+    -Henry Buck:          
+    -Sam Garcia:          
+    -Abdullah Younes:     
+
 
 ## 3: After the Sprint
 
 ### Sprint Review
 Answer as a team!
 
-**Screen Cast link**: Your link``
+**Screen Cast link**: Your link
 
 > Answer the following questions as a team. 
 
 **What do you think is the value you created this Sprint?**
 
-> We all got a good handle on how memoranda works as well as an idea of how to continue next sprint. In addition to this we worked together to make sure we understood how Git and GitHub work.
+> Your Answer
 
 **Do you think you worked enough and that you did what was expected of you?**
 
-> We believe that we did, yes.
+> Your Answer
 
 **Would you say you met the customers’ expectations? Why, why not?**
 
-> For this sprint since it was more of an intro to sprints for the class it is unlikely that we would have met customer expectations. However we did meet the class expectations.
+> Your Answer
 
 
 ### Sprint Retrospective
@@ -88,31 +87,31 @@ Answer as a team!
 
 **Did you meet your sprint goal?**
 
-> Yes, we met the sprint goal.
+> Your Answer
 
 **Did you complete all stories on your Spring Backlog?**
 
-> Not quite, but we did take a look at and complete most of the user stories sub tasks.
+> Your Answer
 
 **If not, what went wrong?**
 
-> We discovered that one of the subtasks for a user story, resizing the calendar, was more time intensive than we originally had planned and decided to add that to a later user story.
+> Your Answer
 
 **Did you work at a consistent rate of speed, or velocity? (Meaning did you work during the whole Sprint or did you start working when the deadline approached.)**
 
-> We mostly did a consistent speed, we didn't leave it all for the end. However towards the second half we definitely realized we had more left than we originally planned.
+> Your Answer
 
 **Did you deliver business value?**
 
-> We got a good handle of how the software works which is a good first step towards delivering business value.
+> Your Answer
 
 **Are there things the team thinks it can do better in the next Sprint?**
 
-> Communicate more frequently
+> Your Answer
 
 **How do you feel at this point? Get a pulse on the optimism of the team.**
 
-> We all feel good about where we're at and how the team is progressing
+> Your Answer
 
 ### Contributions:
 
@@ -121,7 +120,18 @@ Answer as a team!
 #### David Berry:
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
 
-    - link1 https://github.com/sjgarc20/TheFloorIsJava-Memoranda/tree/us7task17
+    - link1
+    - link2
+
+   **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
+
+    - link1
+    - link2
+
+  **GitHub links to your Code Reviews (up to 3 links) -- Sprint 2 and 3:
+
+    - link1
+    - link2
  
  **What was your main contribution to the Quality Policy documentation?:
 
@@ -130,57 +140,94 @@ Answer as a team!
 #### Jonathan Blicharz:
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
 
-    - link1 https://github.com/sjgarc20/TheFloorIsJava-Memoranda/tree/us4task24
-    - link2 https://github.com/sjgarc20/TheFloorIsJava-Memoranda/tree/us5task27
+    - link1
+    - link2
+
+   **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
+
+    - link1
+    - link2
+
+  **GitHub links to your Code Reviews (up to 3 links) -- Sprint 2 and 3:
+
+    - link1
+    - link2
  
  **What was your main contribution to the Quality Policy documentation?:
 
-    - The quality policy was formed as a group with each person providing ideas. The use of a dev branch was my main contribution.
+    - info
     
 #### Henry Buck:
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
 
-    -[ link1](https://github.com/sjgarc20/TheFloorIsJava-Memoranda/tree/us8task34)
+    - link1
+    - link2
+
+   **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
+
+    - link1
+    - link2
+
+  **GitHub links to your Code Reviews (up to 3 links) -- Sprint 2 and 3:
+
+    - link1
+    - link2
  
  **What was your main contribution to the Quality Policy documentation?:
 
-    - We generated the Quality Policy together, however as the scrum master for this round I was the one typing everything and getting the phrasing down. I also advocated for one pull request reviewer
+    - info
     
 #### Sam Garcia:
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
 
-    - [link1](https://github.com/sjgarc20/TheFloorIsJava-Memoranda/tree/us3task11)
-    - [link2](https://github.com/sjgarc20/TheFloorIsJava-Memoranda/tree/us10task29)
+    - link1
+    - link2
+
+   **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
+
+    - link1
+    - link2
+
+  **GitHub links to your Code Reviews (up to 3 links) -- Sprint 2 and 3:
+
+    - link1
+    - link2
  
  **What was your main contribution to the Quality Policy documentation?:
 
-    - We all created the quality policy together
+    - info
     
-#### Abdullah Younes:
+ #### Abdullah Younes:
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
 
-    - [link1] https://github.com/amehlhase316/memoranda/commit/bf21baf71f1efe9001d4a8e9402658d236873f35
-    - [link2] https://github.com/amehlhase316/memoranda/commit/dfea3c1a3835406b84a5154beab0f30c277e6a27
-    - [link3] https://github.com/amehlhase316/memoranda/commit/d81611c0aa421ea5939a219bf2d66b730229a49c
+    - link1
+    - link2
+
+   **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
+
+    - link1
+    - link2
+
+  **GitHub links to your Code Reviews (up to 3 links) -- Sprint 2 and 3:
+
+    - link1
+    - link2
  
  **What was your main contribution to the Quality Policy documentation?:
 
-    - We all worked on it collaboratively, but I contributed mostly to the GitHub Workflow ideas. 
+    - info
   
 ## 4: Checklist for you to see if you are done
-- [X] Filled out the complete form from above, all fields are filled and written in full sentences
-- [X] Read the kickoff again to make sure you have all the details
-- [X] User Stories that were not completed, were left in the Sprint and a copy created
-- [X] Your Quality Policies are accurate and up to date
-- [X] **Individual** Survey was submitted **individually** (create checkboxes below -- see Canvas to get link)
-  - [X] David Berry
-  - [X] Jonathan Blicharz
-  - [X] Henry Buck
-  - [X] Sam Garcia
-  - [X] Abdullah Younes
-- [X] The original of this file was copied for the next Sprint (needed for all but last Sprint where you do not need to copy it anymore)
-  - [X] Basic information (part 1) for next Sprint was included (meaning Spring Planning is complete)
-  - [X] All User Stories have acceptance tests
-  - [X] User Stories in your new Sprint Backlog have initial tasks which are in New
-  - [X] You know how to proceed
+- [ ] Filled out the complete form from above, all fields are filled and written in full sentences
+- [ ] Read the kickoff again to make sure you have all the details
+- [ ] User Stories that were not completed, were left in the Sprint and a copy created
+- [ ] Your Quality Policies are accurate and up to date
+- [ ] **Individual** Survey was submitted **individually** (create checkboxes below -- see Canvas to get link)
+  - [ ] Team member 1
+  - [ ] Team member 2
+- [ ] The original of this file was copied for the next Sprint (needed for all but last Sprint where you do not need to copy it anymore)
+  - [ ] Basic information (part 1) for next Sprint was included (meaning Spring Planning is complete)
+  - [ ] All User Stories have acceptance tests
+  - [ ] User Stories in your new Sprint Backlog have initial tasks which are in New
+  - [ ] You know how to proceed
 
