@@ -38,4 +38,18 @@ public class Bus {
     public int getSeats() {
         return seats;
     }
+
+    @Override
+    public String toString() {
+        StringBuffer info = new StringBuffer();
+        info.append("Bus ID: "+ getID() + "\n");
+        info.append("Bus seats: " + Integer.toString(getSeats())+ "\n\n");
+
+        return info.toString();
+    }
+
+    public static void main (String [] args) {
+        Bus dr = new Bus(1,55);
+        System.out.println(dr.toString());
+    }
 }

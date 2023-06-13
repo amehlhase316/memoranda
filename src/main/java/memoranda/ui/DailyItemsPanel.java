@@ -478,6 +478,6 @@ public class DailyItemsPanel extends JPanel {
     }
 
     void alarmB_actionPerformed(ActionEvent e) {
-        parentPanel.eventsB_actionPerformed(null);
+        parentPanel.routeB_actionPerformed(null);
     }
 }

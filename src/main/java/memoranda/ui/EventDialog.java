@@ -40,7 +40,7 @@ import main.java.memoranda.date.CalendarDate;
 import main.java.memoranda.util.Local;
 
 /*$Id: EventDialog.java,v 1.28 2005/02/19 10:06:25 rawsushi Exp $*/
-public class EventDialog extends JDialog implements WindowListener {	
+public class EventDialog extends JDialog implements WindowListener {
     public boolean CANCELLED = false;
     boolean ignoreStartChanged = false;
     boolean ignoreEndChanged = false;
@@ -467,7 +467,7 @@ public class EventDialog extends JDialog implements WindowListener {
         lblSince.setEnabled(true);
         enableEndDateCB.setEnabled(true);
 		startDate.getModel().setValue(
-			startCalFrame.cal.get().getCalendar().getTime());        
+                startCalFrame.cal.get().getCalendar().getTime());
     }
 
     public void noRepeatRB_actionPerformed(ActionEvent e) {
