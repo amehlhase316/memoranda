@@ -255,7 +255,7 @@ Answer as a team!
   - [x] Aman Sharma
   - [x] Paul Carmichael
   - [x] Ryan Dinaro
-  - [ ] Joseph Okonoboh
+  - [x] Joseph Okonoboh
 - [x] The original of this file was copied for the next Sprint (needed for all but last Sprint where you do not need to copy it anymore)
   - [x] Basic information (part 1) for next Sprint was included (meaning Spring Planning is complete)
   - [x] All User Stories have acceptance tests
