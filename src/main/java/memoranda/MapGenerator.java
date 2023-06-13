@@ -9,17 +9,10 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.geom.Point2D;
 import java.awt.image.BufferedImage;
 import java.awt.Stroke;
 import java.awt.BasicStroke;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.*;
 
 public class MapGenerator extends JPanel {
     private List<Node> nodes;
