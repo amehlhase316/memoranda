@@ -75,7 +75,7 @@ public class MimeType {
     public String getAppId(String plafCode) {
         Elements apps = _root.getChildElements("app");
         for (int i = 0; i < apps.size(); i++)
-            if (apps.get(i).getAttribute("platform").getValue().toLowerCase().equals(plafCode.toLowerCase()))
+            if (apps.get(i).getAttribute("platform").getValue().equalsIgnoreCase(plafCode))
                 return apps.get(i).getAttribute("appId").getValue();
         return null;
     }
@@ -84,7 +84,7 @@ public class MimeType {
         if (getAppId(plafCode) != null) {
             Elements apps = _root.getChildElements("app");
             for (int i = 0; i < apps.size(); i++)
-                if (apps.get(i).getAttribute("platform").getValue().toLowerCase().equals(plafCode.toLowerCase()))
+                if (apps.get(i).getAttribute("platform").getValue().equalsIgnoreCase(plafCode))
                     apps.get(i).getAttribute("appId").setValue(appId);
         }
         else {
@@ -132,7 +132,7 @@ public class MimeType {
             icon = new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource(ip));
           }
           catch (Exception ex2) {
-            icon = new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/util/icons/mimetypes/default.png"));
+            icon = new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/mimetypes/default.png"));
           }
         }
       }

@@ -138,10 +138,28 @@ public class App {
 
 	}
 
+	/**
+	 * for exiting out of program entirely
+	 */
+	public static void exitProgram() {
+		if (frame == null)
+			return;
+		System.exit(0);
+	}
+
+	/**
+	 * for closing the current frame but not the entire program
+	 */
 	public static void closeWindow() {
 		if (frame == null)
 			return;
 		frame.dispose();
+	}
+
+	public static void minimizeWindow() {
+		if (frame == null)
+			return;
+		frame.setState(AppFrame.ICONIFIED);
 	}
 
 	/**
@@ -150,7 +168,8 @@ public class App {
 	private void showSplash() {
 		splash = new JFrame();
 		ImageIcon spl =
-			new ImageIcon(App.class.getResource("/ui/splash.png"));
+			new ImageIcon(App.class.getResource("/ui/RHRsplash.png"));
+		 // new ImageIcon(App.class.getResource("/ui/splash.png"));
 		JLabel l = new JLabel();
 		l.setSize(400, 300);
 		l.setIcon(spl);

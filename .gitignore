@@ -20,4 +20,8 @@
 # Mac DS file
 .DS_Store
 
+### IntelliJ ###
+
+# IntelliJ Project Settings folder
+.idea
 

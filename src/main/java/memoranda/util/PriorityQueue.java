@@ -4,18 +4,18 @@ import nu.xom.Element;
 
 public class PriorityQueue {
         
-        /* Cola de Prioridad implementada con Estructura de Datos Heap,
-         * para ordenar las anotaciones por prioridad 
+        /* Priority queue implemented with heap data structure,
+         * to sort stickers by priority
          */
         
-        private Pair[] a;
+        private final Pair[] a;
         private int n;
         
         public PriorityQueue(int size){
                 a = new Pair[size+2];
                 n = 0;
         }
-        public void insertar(Pair x){
+        public void insert(Pair x){
                 ++n;
                 a[n]=x;
                 for(int j=n; j>1 && a[j].getPriority() < a[j/2].getPriority(); j/=2)
@@ -26,8 +26,8 @@ public class PriorityQueue {
                 }
         }
         
-        public Element extraer(){
-                if(!this.Vacia()){
+        public Element extract(){
+                if(!this.Empty()){
                         Element m = a[1].getElement();  
                         a[1] = a[n];
                         --n;
@@ -50,7 +50,7 @@ public class PriorityQueue {
                         return null;
         }
         
-        public boolean Vacia(){
+        public boolean Empty(){
                 return n==0;
         }
 

@@ -1,6 +1,7 @@
 package main.java.memoranda.ui;
 
 import java.io.File;
+import java.util.Collections;
 import java.util.Vector;
 import java.awt.*;
 
@@ -41,8 +42,6 @@ public class PreferencesDialog extends JDialog {
 	JCheckBox askConfirmChB = new JCheckBox();
 
 	JRadioButton closeHideRB = new JRadioButton();
-
-	JLabel jLabel3 = new JLabel();
 
 	ButtonGroup lfGroup = new ButtonGroup();
 
@@ -272,69 +271,6 @@ public class PreferencesDialog extends JDialog {
 				closeHideRB_actionPerformed(e);
 			}
 		});
-		gbc = new GridBagConstraints();
-		gbc.gridx = 1;
-		gbc.gridy = 3;
-		gbc.insets = new Insets(2, 0, 0, 10);
-		gbc.anchor = GridBagConstraints.WEST;
-		GeneralPanel.add(closeHideRB, gbc);
-		jLabel3.setHorizontalAlignment(SwingConstants.RIGHT);
-		jLabel3.setText(Local.getString("Look and feel:"));
-		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 4;
-		gbc.insets = new Insets(2, 10, 0, 15);
-		gbc.anchor = GridBagConstraints.EAST;
-		GeneralPanel.add(jLabel3, gbc);
-
-		gbc = new GridBagConstraints();
-		gbc.gridx = 1;
-		gbc.gridy = 4;
-		gbc.insets = new Insets(2, 0, 0, 10);
-		gbc.anchor = GridBagConstraints.WEST;
-
-		gbc = new GridBagConstraints();
-		gbc.gridx = 1;
-		gbc.gridy = 5;
-		gbc.insets = new Insets(2, 0, 0, 10);
-		gbc.anchor = GridBagConstraints.WEST;
-		GeneralPanel.add(lfSystemRB, gbc);
-
-		gbc = new GridBagConstraints();
-		gbc.gridx = 1;
-		gbc.gridy = 6;
-		gbc.insets = new Insets(2, 0, 0, 10);
-		gbc.anchor = GridBagConstraints.WEST;
-		GeneralPanel.add(lfJavaRB, gbc);
-		lfGroup.add(lfCustomRB);
-		lfCustomRB.setText(Local.getString("Custom"));
-		lfCustomRB.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				lfCustomRB_actionPerformed(e);
-			}
-		});
-		gbc = new GridBagConstraints();
-		gbc.gridx = 1;
-		gbc.gridy = 7;
-		gbc.insets = new Insets(2, 0, 0, 10);
-		gbc.anchor = GridBagConstraints.WEST;
-		GeneralPanel.add(lfCustomRB, gbc);
-		classNameLabel.setEnabled(false);
-		classNameLabel.setText(Local.getString("L&F class name:"));
-		gbc = new GridBagConstraints();
-		gbc.gridx = 1;
-		gbc.gridy = 8;
-		gbc.insets = new Insets(2, 20, 0, 10);
-		gbc.anchor = GridBagConstraints.WEST;
-		GeneralPanel.add(classNameLabel, gbc);
-		lfClassName.setEnabled(false);
-		gbc = new GridBagConstraints();
-		gbc.gridx = 1;
-		gbc.gridy = 9;
-		gbc.insets = new Insets(7, 20, 0, 10);
-		gbc.anchor = GridBagConstraints.WEST;
-		gbc.fill = GridBagConstraints.HORIZONTAL;
-		GeneralPanel.add(lfClassName, gbc);
 		jLabel4.setHorizontalAlignment(SwingConstants.RIGHT);
 		jLabel4.setText(Local.getString("Startup:"));
 		gbc = new GridBagConstraints();
@@ -607,7 +543,7 @@ public class PreferencesDialog extends JDialog {
 		if (Configuration.get("BASE_FONT_SIZE").toString().length() >0)
 			baseFontSize.setValue(Integer.decode(Configuration.get("BASE_FONT_SIZE").toString()));
 		else
-			baseFontSize.setValue(new Integer(16));
+			baseFontSize.setValue(Integer.valueOf(16));
 	}
 
 	void apply() {
@@ -883,13 +819,12 @@ public class PreferencesDialog extends JDialog {
 	Vector getFontNames() {
 		GraphicsEnvironment gEnv = 
         	GraphicsEnvironment.getLocalGraphicsEnvironment();
-        String envfonts[] = gEnv.getAvailableFontFamilyNames();
+        String[] envfonts = gEnv.getAvailableFontFamilyNames();
         Vector fonts = new Vector();
         fonts.add("serif");
         fonts.add("sans-serif");
         fonts.add("monospaced");
-        for (int i = 0; i < envfonts.length; i++)
-            fonts.add(envfonts[i]);
+		Collections.addAll(fonts, envfonts);
 		return fonts;
 	}
 }

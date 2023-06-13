@@ -23,7 +23,7 @@ public class CurrentStorage {
      */
     private static Storage _storage = new FileStorage();
     
-    private static Vector actionListeners = new Vector();
+    private static final Vector actionListeners = new Vector();
     
     public static Storage get() {
         return _storage;
