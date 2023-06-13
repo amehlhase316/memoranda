@@ -118,15 +118,6 @@ Answer as a team!
 
 > In this section I want you to point me to your main contributions (each of you individually). Some of the topcs are not needed for the first deliverables (you should know which things you should have done in this Sprint, if you don't then you have probably missed something):
 
-#### Abdullah Younes:
-  **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
-  - https://github.com/amehlhase316/memoranda/commit/bf21baf71f1efe9001d4a8e9402658d236873f35
-  - https://github.com/amehlhase316/memoranda/commit/dfea3c1a3835406b84a5154beab0f30c277e6a27
-  - https://github.com/amehlhase316/memoranda/commit/d81611c0aa421ea5939a219bf2d66b730229a49c
-
-  ** What was your main contribution to the Quality Policy documentation?:
-  We all worked on it collaboratively, but I contributed mostly to the GitHub Workflow ideas. 
-
 #### David Berry:
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
 
@@ -168,27 +159,28 @@ Answer as a team!
 #### Abdullah Younes:
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
 
-    - link1
-    - link2
+    - [link1] https://github.com/amehlhase316/memoranda/commit/bf21baf71f1efe9001d4a8e9402658d236873f35
+    - [link2] https://github.com/amehlhase316/memoranda/commit/dfea3c1a3835406b84a5154beab0f30c277e6a27
+    - [link3] https://github.com/amehlhase316/memoranda/commit/d81611c0aa421ea5939a219bf2d66b730229a49c
  
  **What was your main contribution to the Quality Policy documentation?:
 
-    - info
+    - We all worked on it collaboratively, but I contributed mostly to the GitHub Workflow ideas. 
   
 ## 4: Checklist for you to see if you are done
 - [X] Filled out the complete form from above, all fields are filled and written in full sentences
 - [X] Read the kickoff again to make sure you have all the details
 - [X] User Stories that were not completed, were left in the Sprint and a copy created
 - [X] Your Quality Policies are accurate and up to date
-- [ ] **Individual** Survey was submitted **individually** (create checkboxes below -- see Canvas to get link)
-  - [ ] David Berry
-  - [ ] Jonathan Blicharz
-  - [ ] Henry Buck
-  - [ ] Sam Garcia
-  - [ ] Abdullah Younes
-- [ ] The original of this file was copied for the next Sprint (needed for all but last Sprint where you do not need to copy it anymore)
-  - [ ] Basic information (part 1) for next Sprint was included (meaning Spring Planning is complete)
-  - [ ] All User Stories have acceptance tests
-  - [ ] User Stories in your new Sprint Backlog have initial tasks which are in New
+- [X] **Individual** Survey was submitted **individually** (create checkboxes below -- see Canvas to get link)
+  - [X] David Berry
+  - [X] Jonathan Blicharz
+  - [X] Henry Buck
+  - [X] Sam Garcia
+  - [X] Abdullah Younes
+- [X] The original of this file was copied for the next Sprint (needed for all but last Sprint where you do not need to copy it anymore)
+  - [X] Basic information (part 1) for next Sprint was included (meaning Spring Planning is complete)
+  - [X] All User Stories have acceptance tests
+  - [X] User Stories in your new Sprint Backlog have initial tasks which are in New
   - [X] You know how to proceed
 
