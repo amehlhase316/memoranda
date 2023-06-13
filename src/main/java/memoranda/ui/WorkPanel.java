@@ -48,7 +48,9 @@ public class WorkPanel extends JPanel {
 	
 	// NEW BUTTON FOR MAP PANEL
 	public JButton mapB = new JButton();
-	
+
+	public JButton testB = new JButton();
+
 	JButton currentB = null;
 	Border border1;
 
@@ -256,6 +258,20 @@ public class WorkPanel extends JPanel {
 		mapB.setOpaque(false);
 		mapB.setMaximumSize(new Dimension(60, 80));
 		mapB.setBackground(Color.white);
+
+		testB.setBackground(Color.white);
+		testB.setMinimumSize(new Dimension(30, 30));
+
+		testB.setFont(new java.awt.Font("Dialog", 1, 10));
+		testB.setPreferredSize(new Dimension(50, 50));
+		testB.setBorderPainted(false);
+		testB.setContentAreaFilled(false);
+		testB.setFocusPainted(false);
+		testB.setHorizontalTextPosition(SwingConstants.CENTER);
+		testB.setText(Local.getString("Agenda"));
+		testB.setVerticalAlignment(SwingConstants.TOP);
+		testB.setVerticalTextPosition(SwingConstants.BOTTOM);
+		//testB.addActionListener(new java.awt.event.ActionListener()
 		
 		this.add(toolBar, BorderLayout.WEST);
 		this.add(panel, BorderLayout.CENTER);
