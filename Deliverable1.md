@@ -144,7 +144,7 @@ Answer as a team!
  
  **What was your main contribution to the Quality Policy documentation?:
 
-    - We generated the Quality Policy together, however as the scrum master for this round I was the one typing everything and getting the phrasing down. Honestly because we all were just talking together while I was typing it, it's hard to remember who came up with what. I do believe I was at least part of the group who said that one person reviewing any pull requests should be sufficient (so as to not make us locked up in waiting for multiple pull request approvals)
+    - We generated the Quality Policy together, however as the scrum master for this round I was the one typing everything and getting the phrasing down. I also advocated for one pull request reviewer
     
 #### Sam Garcia:
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
