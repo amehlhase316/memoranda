@@ -33,15 +33,28 @@ public class AuthenticationServer {
     private BlockingQueue<Socket> clientSocketQueue;
     private HashMap<String, String> credentialMap;
     private PasswordHasher hasher;
+    private static int SERVER_PORT = 1000;
+    private static String ADDRESS = "localhost";
+    private static final int LOAD_TIME = 100;
 
-
+    /**
+     * This constructor launches the server in a new thread, then waits for the server to load
+     */
+    public AuthenticationServer() {
+        new Thread(() -> launch(SERVER_PORT)).start();
+        try {
+            Thread.sleep(LOAD_TIME);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
     /**
      * This method initiates and loads the credentials of users and launches the server Socket
      * It also launches the queue for users waiting to be authenticated and launches the thread for
      * processing login requests
      * @param port - the port the server runs on
      */
-    public void launch(int port) {
+    private void launch(int port) {
         credentialMap = new HashMap<String, String>();
         hasher = new PasswordHasher();
         try {
@@ -162,7 +175,7 @@ public class AuthenticationServer {
      */
     public static LoginReturns login(boolean newAccount, String username, String password) {
         try {
-            Socket clientTest = new Socket(LaunchServer.ADDRESS, LaunchServer.SERVER_PORT);
+            Socket clientTest = new Socket(ADDRESS, SERVER_PORT);
             ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(clientTest.getOutputStream()));
             out.writeBoolean(newAccount);
             out.writeObject(username);

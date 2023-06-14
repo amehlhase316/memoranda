@@ -1,11 +1,11 @@
-package main.java.memoranda.ui;
+package memoranda.ui;
 
 import javax.swing.*;
 import javax.swing.event.*;
 import javax.swing.table.*;
 
-import main.java.memoranda.*;
-import main.java.memoranda.util.*;
+import memoranda.*;
+import memoranda.util.*;
 
 import java.awt.*;
 import java.awt.event.*;

@@ -2,7 +2,7 @@
  * ProjectExporter.java Package: net.sf.memoranda.util Created on 19.01.2004
  * 16:44:05 @author Alex
  */
-package main.java.memoranda.util;
+package memoranda.util;
 
 import java.io.*;
 import java.util.*;
@@ -11,10 +11,10 @@ import java.util.Collections;
 
 import javax.swing.text.html.HTMLDocument;
 
-import main.java.memoranda.*;
-import main.java.memoranda.date.CalendarDate;
-import main.java.memoranda.ui.*;
-import main.java.memoranda.ui.htmleditor.AltHTMLWriter;
+import memoranda.*;
+import memoranda.date.CalendarDate;
+import memoranda.ui.*;
+import memoranda.ui.htmleditor.AltHTMLWriter;
 
 /**
  *  

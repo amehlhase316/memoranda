@@ -1,4 +1,4 @@
-package main.java.memoranda.util;
+package memoranda.util;
 
 import java.text.DateFormat;
 import java.util.Calendar;
@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.Hashtable;
 import java.util.Locale;
 
-import main.java.memoranda.date.CalendarDate;
+import memoranda.date.CalendarDate;
 
 import java.io.*;
 

@@ -1,4 +1,4 @@
-package main.java.memoranda.ui;
+package memoranda.ui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -22,7 +22,7 @@ import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.CaretEvent;
 
-import main.java.memoranda.util.Local;
+import memoranda.util.Local;
 
 /*$Id: EditTypeDialog.java,v 1.9 2005/07/05 08:17:24 alexeya Exp $*/
 public class EditTypeDialog extends JDialog {
@@ -116,8 +116,8 @@ public class EditTypeDialog extends JDialog {
         header.setFont(new java.awt.Font("Dialog", 0, 20));
         header.setForeground(new Color(0, 0, 124));
         header.setText(Local.getString("Resource type"));
-        header.setIcon(new ImageIcon(main.java.memoranda.ui.EditTypeDialog.class.getResource(
-            "/ui/icons/resource48.png")));
+        header.setIcon(new ImageIcon(memoranda.ui.EditTypeDialog.class.getResource(
+                "/ui/icons/resource48.png")));
         jPanel1.setLayout(borderLayout1);
         dialogTitlePanel.setBackground(Color.WHITE); 
         dialogTitlePanel.setLayout(flowLayout7);
@@ -239,13 +239,13 @@ public class EditTypeDialog extends JDialog {
         //chooser.setAcceptAllFileFilterUsed(true);
         chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
         chooser.setCurrentDirectory(
-            new File(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/mimetypes").getPath()));
+            new File(memoranda.ui.AppFrame.class.getResource("/ui/icons/mimetypes").getPath()));
         /*if (System.getProperty("os.name").startsWith("Win")) {
             chooser.setFileFilter(new AllFilesFilter(AllFilesFilter.ICO));
             chooser.setCurrentDirectory(new File("C:\\Program Files"));
         }
         else */
-        chooser.addChoosableFileFilter(new main.java.memoranda.ui.htmleditor.filechooser.ImageFilter());
+        chooser.addChoosableFileFilter(new memoranda.ui.htmleditor.filechooser.ImageFilter());
         if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
             try {
                 iconLabel.setIcon(new ImageIcon(chooser.getSelectedFile().getPath()));

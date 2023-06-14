@@ -6,15 +6,15 @@
  * @author Alex V. Alishevskikh, alex@openmechanics.net
  * Copyright (c) 2003 Memoranda Team. http://memoranda.sf.net
  */
-package main.java.memoranda.util;
+package memoranda.util;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.regex.Pattern;
 
-import main.java.memoranda.ui.ExceptionDialog;
-import main.java.memoranda.ui.htmleditor.HTMLEditor;
+import memoranda.ui.ExceptionDialog;
+import memoranda.ui.htmleditor.HTMLEditor;
 
 /**
  * 

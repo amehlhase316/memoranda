@@ -6,7 +6,7 @@
  * @author Alex V. Alishevskikh, alex@openmechanics.net
  * Copyright (c) 2003 Memoranda Team. http://memoranda.sf.net
  */
-package main.java.memoranda.util;
+package memoranda.util;
 import java.io.*;
 import java.util.Date;
 import java.util.regex.Pattern;
@@ -20,9 +20,9 @@ import org.apache.xml.serialize.XMLSerializer;
 import org.cyberneko.html.parsers.SAXParser;
 import org.xml.sax.InputSource;
 
-import main.java.memoranda.Note;
-import main.java.memoranda.ui.ExceptionDialog;
-import main.java.memoranda.ui.htmleditor.AltHTMLWriter;
+import memoranda.Note;
+import memoranda.ui.ExceptionDialog;
+import memoranda.ui.htmleditor.AltHTMLWriter;
 /**
  * 
  */

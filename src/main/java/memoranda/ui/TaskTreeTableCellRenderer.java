@@ -1,11 +1,10 @@
 
-package main.java.memoranda.ui;
+package memoranda.ui;
 
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -18,33 +17,33 @@ import javax.swing.table.TableCellRenderer;
 import javax.swing.tree.DefaultTreeCellRenderer;
 import javax.swing.tree.TreeCellRenderer;
 
-import main.java.memoranda.Project;
-import main.java.memoranda.Task;
-import main.java.memoranda.date.CurrentDate;
+import memoranda.Project;
+import memoranda.Task;
+import memoranda.date.CurrentDate;
 
 /**
  * 
  */
 public class TaskTreeTableCellRenderer extends DefaultTreeCellRenderer implements TreeCellRenderer, TableCellRenderer {
-    static ImageIcon PR_HIGHEST_ICON = new ImageIcon(main.java.memoranda.ui.AppFrame.class
+    static ImageIcon PR_HIGHEST_ICON = new ImageIcon(memoranda.ui.AppFrame.class
             .getResource("/ui/icons/pr_highest.png"));
-    static ImageIcon PR_HIGH_ICON = new ImageIcon(main.java.memoranda.ui.AppFrame.class
+    static ImageIcon PR_HIGH_ICON = new ImageIcon(memoranda.ui.AppFrame.class
             .getResource("/ui/icons/pr_high.png"));
-    static ImageIcon PR_NORMAL_ICON = new ImageIcon(main.java.memoranda.ui.AppFrame.class
+    static ImageIcon PR_NORMAL_ICON = new ImageIcon(memoranda.ui.AppFrame.class
             .getResource("/ui/icons/pr_normal.png"));
-    static ImageIcon PR_LOW_ICON = new ImageIcon(main.java.memoranda.ui.AppFrame.class
+    static ImageIcon PR_LOW_ICON = new ImageIcon(memoranda.ui.AppFrame.class
             .getResource("/ui/icons/pr_low.png"));
-    static ImageIcon PR_LOWEST_ICON = new ImageIcon(main.java.memoranda.ui.AppFrame.class
+    static ImageIcon PR_LOWEST_ICON = new ImageIcon(memoranda.ui.AppFrame.class
             .getResource("/ui/icons/pr_lowest.png"));
-    static ImageIcon TASK_ACTIVE_ICON = new ImageIcon(main.java.memoranda.ui.AppFrame.class
+    static ImageIcon TASK_ACTIVE_ICON = new ImageIcon(memoranda.ui.AppFrame.class
             .getResource("/ui/icons/task_active.png"));
-    static ImageIcon TASK_SCHEDULED_ICON = new ImageIcon(main.java.memoranda.ui.AppFrame.class
+    static ImageIcon TASK_SCHEDULED_ICON = new ImageIcon(memoranda.ui.AppFrame.class
             .getResource("/ui/icons/task_scheduled.png"));
-    static ImageIcon TASK_DEADLINE_ICON = new ImageIcon(main.java.memoranda.ui.AppFrame.class
+    static ImageIcon TASK_DEADLINE_ICON = new ImageIcon(memoranda.ui.AppFrame.class
             .getResource("/ui/icons/task_deadline.png"));
-    static ImageIcon TASK_FAILED_ICON = new ImageIcon(main.java.memoranda.ui.AppFrame.class
+    static ImageIcon TASK_FAILED_ICON = new ImageIcon(memoranda.ui.AppFrame.class
             .getResource("/ui/icons/task_failed.png"));
-    static ImageIcon TASK_COMPLETED_ICON = new ImageIcon(main.java.memoranda.ui.AppFrame.class
+    static ImageIcon TASK_COMPLETED_ICON = new ImageIcon(memoranda.ui.AppFrame.class
             .getResource("/ui/icons/task_completed.png"));
     // reusable cellrenderers
     JLabel label = new JLabel();

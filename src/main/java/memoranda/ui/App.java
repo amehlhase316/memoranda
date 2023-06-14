@@ -1,4 +1,4 @@
-package main.java.memoranda.ui;
+package memoranda.ui;
 
 import java.awt.Dimension;
 import java.awt.Frame;
@@ -13,8 +13,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.UIManager;
 
-import main.java.memoranda.EventsScheduler;
-import main.java.memoranda.util.Configuration;
+import memoranda.EventsScheduler;
+import memoranda.util.Configuration;
 
 /**
  * 
@@ -66,7 +66,6 @@ public class App {
 		}
 		VERSION_INFO = props.getProperty("version");
 		BUILD_INFO = props.getProperty("build");
-
 		if (fullmode)
 			fullmode = !Configuration.get("START_MINIMIZED").equals("yes");
 		/* DEBUG */
@@ -88,7 +87,7 @@ public class App {
 					Configuration.get("LOOK_AND_FEEL").toString());
 
 		} catch (Exception e) {		    
-			new ExceptionDialog(e, "Error when initializing a pluggable look-and-feel. Default LF will be used.", "Make sure that specified look-and-feel library classes are on the CLASSPATH.");
+			new memoranda.ui.ExceptionDialog(e, "Error when initializing a pluggable look-and-feel. Default LF will be used.", "Make sure that specified look-and-feel library classes are on the CLASSPATH.");
 		}
 		if (Configuration.get("FIRST_DAY_OF_WEEK").equals("")) {
 			String fdow;

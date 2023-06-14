@@ -6,13 +6,13 @@
  * @author Alex V. Alishevskikh, alex@openmechanics.net
  * Copyright (c) 2003 Memoranda Team. http://memoranda.sf.net
  */
-package main.java.memoranda;
+package memoranda;
 import java.util.Collection;
 import java.util.Vector;
 
-import main.java.memoranda.date.CalendarDate;
-import main.java.memoranda.date.CurrentDate;
-import main.java.memoranda.util.Util;
+import memoranda.date.CalendarDate;
+import memoranda.date.CurrentDate;
+import memoranda.util.Util;
 import nu.xom.Attribute;
 import nu.xom.Document;
 import nu.xom.Element;
@@ -69,7 +69,7 @@ public class NoteListImpl implements NoteList {
     }
     
     /**
-     * @see main.java.memoranda.NoteList#getMarkedNotes()
+     * @see memoranda.NoteList#getMarkedNotes()
      */
     public Collection getMarkedNotes() {
         Vector v = new Vector();
@@ -411,7 +411,7 @@ public class NoteListImpl implements NoteList {
 	}
 	
     /**
-     * @see main.java.memoranda.NoteList#getXMLContent()
+     * @see memoranda.NoteList#getXMLContent()
      */
     public Document getXMLContent() {
         return _doc;

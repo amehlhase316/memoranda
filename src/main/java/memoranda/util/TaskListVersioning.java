@@ -2,14 +2,14 @@
  * Created on Feb 12, 2005
  *
  */
-package main.java.memoranda.util;
+package memoranda.util;
 
 import java.io.File;
 import java.util.Iterator;
 import java.util.Vector;
 
-import main.java.memoranda.Project;
-import main.java.memoranda.ProjectManager;
+import memoranda.Project;
+import memoranda.ProjectManager;
 import nu.xom.Attribute;
 import nu.xom.DocType;
 import nu.xom.Document;

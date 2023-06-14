@@ -6,13 +6,14 @@
  * @author Alex V. Alishevskikh, alex@openmechanics.net
  * Copyright (c) 2003 Memoranda Team. http://memoranda.sf.net
  */
-package main.java.memoranda;
+package memoranda;
 
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import main.java.memoranda.ui.*;
-import main.java.memoranda.util.Configuration;
+import memoranda.ui.*;
+import memoranda.util.Configuration;
+import memoranda.AuthenticationService.AuthenticationServer;
 
 /**
  *
@@ -21,9 +22,10 @@ import main.java.memoranda.util.Configuration;
 public class Start {
     
     static App app = null;
-    
+    static AuthenticationServer server;
     static int DEFAULT_PORT = 19432;
     static boolean checkIfAlreadyStartet = true;
+
     
     static {
         String port = Configuration.get("PORT_NUMBER").toString().trim();
@@ -44,6 +46,8 @@ public class Start {
     }
     
     public static void main(String[] args) {
+        server = new AuthenticationServer();
+        new LoginFrame();
         if (checkIfAlreadyStartet) {
             try {
                 // Try to open a socket. If socket opened successfully (app is already started), take no action and exit.

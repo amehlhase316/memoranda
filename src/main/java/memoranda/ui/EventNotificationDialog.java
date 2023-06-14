@@ -1,4 +1,4 @@
-package main.java.memoranda.ui;
+package memoranda.ui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -14,8 +14,8 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 
-import main.java.memoranda.util.Configuration;
-import main.java.memoranda.util.Local;
+import memoranda.util.Configuration;
+import memoranda.util.Local;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -49,7 +49,7 @@ public class EventNotificationDialog extends JFrame {
       new ExceptionDialog(ex);
     }
     timeLabel.setText(time);
-    timeLabel.setIcon(new ImageIcon(main.java.memoranda.ui.TaskDialog.class.getResource(
+    timeLabel.setIcon(new ImageIcon(memoranda.ui.TaskDialog.class.getResource(
             "/ui/icons/event48.png")));
     textLabel.setText(text);
     this.setSize(300,200);
@@ -118,7 +118,7 @@ public class EventNotificationDialog extends JFrame {
 		if (Configuration.get("NOTIFY_SOUND").equals("DEFAULT"))
 			url =
 				EventNotificationDialog.class.getResource(
-					"/ui/beep.wav");
+                        "/ui/beep.wav");
 		else
 			try {
 				url =
@@ -127,7 +127,7 @@ public class EventNotificationDialog extends JFrame {
 			} catch (Exception ex) {
 				url =
 					EventNotificationDialog.class.getResource(
-						"/ui/beep.wav");
+                            "/ui/beep.wav");
 			}
 		try {
 			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(url);

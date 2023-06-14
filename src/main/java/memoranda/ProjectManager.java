@@ -6,14 +6,14 @@
  * @author Alex V. Alishevskikh, alex@openmechanics.net
  * Copyright (c) 2003 Memoranda Team. http://memoranda.sf.net
  */
-package main.java.memoranda;
+package memoranda;
 
 import java.util.Vector;
 
-import main.java.memoranda.date.CalendarDate;
-import main.java.memoranda.util.CurrentStorage;
-import main.java.memoranda.util.Local;
-import main.java.memoranda.util.Util;
+import memoranda.date.CalendarDate;
+import memoranda.util.CurrentStorage;
+import memoranda.util.Local;
+import memoranda.util.Util;
 import nu.xom.Attribute;
 import nu.xom.Document;
 import nu.xom.Element;

@@ -1,4 +1,4 @@
-package main.java.memoranda.ui.treetable;
+package memoranda.ui.treetable;
 
 import java.awt.Component;
 import java.awt.event.*;

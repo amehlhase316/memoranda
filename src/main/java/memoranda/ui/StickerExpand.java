@@ -1,29 +1,22 @@
-package main.java.memoranda.ui;
+package memoranda.ui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.Insets;
-import java.awt.event.ActionEvent;
-import java.text.DateFormat;
 
 import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 
-import main.java.memoranda.date.CalendarDate;
-import main.java.memoranda.ui.StickerDialog.ComboBoxRenderer;
-import main.java.memoranda.util.Context;
-import main.java.memoranda.util.Local;
+import memoranda.ui.StickerDialog.ComboBoxRenderer;
+import memoranda.util.Context;
+import memoranda.util.Local;
 
 public class StickerExpand extends JDialog{
 	String txt;

@@ -1,4 +1,4 @@
-package main.java.memoranda;
+package memoranda;
 
 public interface NoteListener {
   void noteChange(Note note, boolean toSaveCurrentNote);

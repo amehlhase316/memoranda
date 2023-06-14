@@ -1,4 +1,4 @@
-package main.java.memoranda.ui.treetable;
+package memoranda.ui.treetable;
 
 /*
  * @(#)JTreeTable.java	1.2 98/10/27
@@ -18,15 +18,13 @@ import javax.swing.*;
 import javax.swing.event.*;
 import javax.swing.tree.*;
 
-import main.java.memoranda.Task;
+import memoranda.Task;
 
 import javax.swing.table.*;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Component;
 import java.awt.Graphics;
-import java.awt.Rectangle;
 
 import java.awt.event.MouseEvent;
 

@@ -1,8 +1,8 @@
-package main.java.memoranda.ui;
+package memoranda.ui;
 
 import javax.swing.JOptionPane;
 
-import main.java.memoranda.util.Local;
+import memoranda.util.Local;
 
 public class ImportSticker {
 

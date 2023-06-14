@@ -1,4 +1,4 @@
-package main.java.memoranda.ui;
+package memoranda.ui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -23,12 +23,12 @@ import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.ListSelectionEvent;
 
-import main.java.memoranda.util.AppList;
-import main.java.memoranda.util.CurrentStorage;
-import main.java.memoranda.util.Local;
-import main.java.memoranda.util.MimeType;
-import main.java.memoranda.util.MimeTypesList;
-import main.java.memoranda.util.Util;
+import memoranda.util.AppList;
+import memoranda.util.CurrentStorage;
+import memoranda.util.Local;
+import memoranda.util.MimeType;
+import memoranda.util.MimeTypesList;
+import memoranda.util.Util;
 
 /*$Id: ResourceTypePanel.java,v 1.8 2004/10/18 19:09:10 ivanrise Exp $*/
 public class ResourceTypePanel extends JPanel {
@@ -154,7 +154,7 @@ public class ResourceTypePanel extends JPanel {
         dlg.appPanel.argumentsField.setText("$1");
         dlg.iconLabel.setIcon(
             new ImageIcon(
-                main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/mimetypes/default.png")));
+                memoranda.ui.AppFrame.class.getResource("/ui/icons/mimetypes/default.png")));
         dlg.setVisible(true);
         if (dlg.CANCELLED)
             return;

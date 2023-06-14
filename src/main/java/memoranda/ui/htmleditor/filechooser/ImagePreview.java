@@ -1,4 +1,4 @@
-package main.java.memoranda.ui.htmleditor.filechooser;
+package memoranda.ui.htmleditor.filechooser;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -13,7 +13,7 @@ import javax.swing.JComponent;
 import javax.swing.JFileChooser;
 import javax.swing.border.TitledBorder;
 
-import main.java.memoranda.ui.htmleditor.util.Local;
+import memoranda.ui.htmleditor.util.Local;
 
 public class ImagePreview extends JComponent
                           implements PropertyChangeListener {

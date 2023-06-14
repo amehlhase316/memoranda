@@ -6,7 +6,7 @@
  * @author Alex V. Alishevskikh, alex@openmechanics.net
  * Copyright (c) 2003 Memoranda team: http://memoranda.sf.net
  */
-package main.java.memoranda.util;
+package memoranda.util;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -18,10 +18,10 @@ import java.util.Iterator;
 
 import javax.swing.JFileChooser;
 
-import main.java.memoranda.date.CalendarDate;
-import main.java.memoranda.ui.App;
-import main.java.memoranda.ui.AppFrame;
-import main.java.memoranda.ui.ExceptionDialog;
+import memoranda.date.CalendarDate;
+import memoranda.ui.App;
+import memoranda.ui.AppFrame;
+import memoranda.ui.ExceptionDialog;
 
 import java.util.Random;
 

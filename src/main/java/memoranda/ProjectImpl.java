@@ -6,10 +6,10 @@
  * @author Alex V. Alishevskikh, alex@openmechanics.net
  * Copyright (c) 2003 Memoranda Team. http://memoranda.sf.net
  */
-package main.java.memoranda;
+package memoranda;
 
-import main.java.memoranda.date.CalendarDate;
-import main.java.memoranda.date.CurrentDate;
+import memoranda.date.CalendarDate;
+import memoranda.date.CurrentDate;
 import nu.xom.Attribute;
 import nu.xom.Element;
 
@@ -29,14 +29,14 @@ public class ProjectImpl implements Project {
     }
 
     /**
-     * @see main.java.memoranda.Project#getID()
+     * @see memoranda.Project#getID()
      */
     public String getID() {
         return _root.getAttribute("id").getValue();
     }
 
     /**
-     * @see main.java.memoranda.Project#getStartDate()
+     * @see memoranda.Project#getStartDate()
      */
     public CalendarDate getStartDate() {
         Attribute d = _root.getAttribute("startDate");
@@ -45,7 +45,7 @@ public class ProjectImpl implements Project {
     }
 
     /**
-     * @see main.java.memoranda.Project#setStartDate(net.sf.memoranda.util.CalendarDate)
+     * @see memoranda.Project#setStartDate(net.sf.memoranda.util.CalendarDate)
      */
     public void setStartDate(CalendarDate date) {
         if (date != null)
@@ -53,7 +53,7 @@ public class ProjectImpl implements Project {
     }
 
     /**
-     * @see main.java.memoranda.Project#getEndDate()
+     * @see memoranda.Project#getEndDate()
      */
     public CalendarDate getEndDate() {
         Attribute d = _root.getAttribute("endDate");
@@ -62,7 +62,7 @@ public class ProjectImpl implements Project {
     }
 
     /**
-     * @see main.java.memoranda.Project#setEndDate(net.sf.memoranda.util.CalendarDate)
+     * @see memoranda.Project#setEndDate(net.sf.memoranda.util.CalendarDate)
      */
     public void setEndDate(CalendarDate date) {
         if (date != null)
@@ -72,7 +72,7 @@ public class ProjectImpl implements Project {
     }
 
     /**
-     * @see main.java.memoranda.Project#getStatus()
+     * @see memoranda.Project#getStatus()
      */
     public int getStatus() {
         if (isFrozen())
@@ -116,14 +116,14 @@ public class ProjectImpl implements Project {
   
     
     /**
-     * @see main.java.memoranda.Project#freeze()
+     * @see memoranda.Project#freeze()
      */
     public void freeze() {
         _root.addAttribute(new Attribute("frozen", "yes"));
     }
 
     /**
-     * @see main.java.memoranda.Project#unfreeze()
+     * @see memoranda.Project#unfreeze()
      */
     public void unfreeze() {
         if (this.isFrozen())
@@ -131,7 +131,7 @@ public class ProjectImpl implements Project {
     }
     
     /**
-     * @see main.java.memoranda.Project#getTitle()
+     * @see memoranda.Project#getTitle()
      */
     public String getTitle() {
         Attribute ta = _root.getAttribute("title");
@@ -140,7 +140,7 @@ public class ProjectImpl implements Project {
         return "";
     }
     /**
-     * @see main.java.memoranda.Project#setTitle(java.lang.String)
+     * @see memoranda.Project#setTitle(java.lang.String)
      */
     public void setTitle(String title) {
         setAttr("title", title);
