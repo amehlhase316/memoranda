@@ -12,13 +12,11 @@ public class ClientLogin {
      * @param newAccount - Creating a new account
      * @param username - Input Username
      * @param password - Input Password
-     * @param port - Port of the server
-     * @param address - Server Address - localhost until a dedicated server is made
      * @return - The LoginReturns that represents the state of the login attempt
      */
-    public static LoginReturns login(boolean newAccount, String username, String password, int port, String address) {
+    public static LoginReturns login(boolean newAccount, String username, String password) {
         try {
-            Socket clientTest = new Socket(address, port);
+            Socket clientTest = new Socket(LaunchServer.ADDRESS, LaunchServer.SERVER_PORT);
             ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(clientTest.getOutputStream()));
             out.writeBoolean(newAccount);
             out.writeObject(username);

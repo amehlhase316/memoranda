@@ -10,13 +10,29 @@ import java.util.Properties;
  */
 public class LaunchServer {
     public static int SERVER_PORT = 1000;
+    public static String ADDRESS = "localhost";
 
     /**
      * Launches the server in a new thread
      */
     public static void main(String[] args){
+        LaunchServer launch = new LaunchServer();
+        launch.runTests();
+    }
+    public LaunchServer() {
         AuthenticationServer server = new AuthenticationServer();
         new Thread(() -> server.launch(SERVER_PORT)).start();
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
-
+    public void runTests() {
+        System.out.println(ClientLogin.login(true, "lioninn", "innlion"));
+        System.out.println(ClientLogin.login(false, "lioninn", "innlion"));
+        System.out.println(ClientLogin.login(true, "lioninn", "innlion"));
+        System.out.println(ClientLogin.login(false, "lioninn", "ifefefnlion"));
+        System.out.println(ClientLogin.login(false, "HeMan!", "innlion"));
+    }
 }
