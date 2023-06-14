@@ -27,6 +27,12 @@ public class AuthenticationServer {
     private HashMap<Integer, Integer> credentialMap;
 
 
+    /**
+     * This method initiates and loads the credentials of users and launches the server Socket
+     * It also launches the queue for users waiting to be authenticated and launches the thread for
+     * processing login requests
+     * @param port - the port the server runs on
+     */
     public void launch(int port) {
         credentialMap = new HashMap<Integer, Integer>();
         try {
@@ -65,7 +71,10 @@ public class AuthenticationServer {
         }
     }
 
-
+    /**
+     * This thread authenticates a users credentials and returns to the clients
+     * The result of the login attempt
+     */
     private void runCheck() {
         while(true) {
                 try {
@@ -113,6 +122,12 @@ public class AuthenticationServer {
         }
     }
 
+    /**
+     * This method logs failed login attempts.
+     * Multiple failures in a short period could indicate a security breach attempt.
+     * @param username - The username failed to log in
+     * @param date - The time stamp of the attempt
+     */
     private void logAttempt(String username, LocalDateTime date) {
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yy-HH:mm:ss");
@@ -126,6 +141,12 @@ public class AuthenticationServer {
         }
     }
 
+    /**
+     * This method hashes the passwords using a simple hashcode.
+     * Able to be modified to use more complex hashing with fewer collisions should the need arise.
+     * @param password - the users password
+     * @return - the hashed password
+     */
     private Integer hashPassword(String password){
         return password.hashCode();
     }
