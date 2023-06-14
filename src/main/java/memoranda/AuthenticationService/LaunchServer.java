@@ -10,6 +10,7 @@ public class LaunchServer {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+        ClientLogin.login(false, "lioninn", "farts");
     }
 
 }

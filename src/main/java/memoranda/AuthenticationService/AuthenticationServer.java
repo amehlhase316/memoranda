@@ -4,6 +4,8 @@ package memoranda.AuthenticationService;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.io.File;
@@ -96,7 +98,7 @@ public class AuthenticationServer {
                                 out.writeObject(LoginReturns.LOGIN_SUCCESSFUL);
                             } else {
                                 out.writeObject(LoginReturns.INCORRECT_PASSWORD);
-                                logAttempt(userName, Calendar.getInstance());
+                                logAttempt(userName, LocalDateTime.now());
                             }
                             out.flush();
                         }
@@ -111,11 +113,13 @@ public class AuthenticationServer {
         }
     }
 
-    private void logAttempt(String username, Calendar date) {
-        String dateStamp = String.valueOf(date.getTime().getTime());
+    private void logAttempt(String username, LocalDateTime date) {
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yy-HH:mm:ss");
+        String timestamp = date.format(formatter);
         try {
             FileWriter logWriter = new FileWriter("logs/loginAttemptLog.txt", true);
-            logWriter.write(username + ": " + dateStamp);
+            logWriter.write(username + ": " + timestamp + "\n");
             logWriter.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
