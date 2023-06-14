@@ -8,6 +8,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.io.File;
 import java.io.FileWriter;
+import java.util.Scanner;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -25,7 +26,15 @@ public class AuthenticationServer {
 
 
     public void launch(int port) {
-        credentialMap = new HashMap<Integer, Integer>(); //remember to read from file in v2
+        credentialMap = new HashMap<Integer, Integer>();
+        try {
+            Scanner userPopulator = new Scanner(new File("logs/loginInfoDatabase"));
+            while(userPopulator.hasNextInt()) {
+                credentialMap.put(userPopulator.nextInt(),userPopulator.nextInt());
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
         clientSocketQueue = new LinkedBlockingQueue<Socket>();
         try {
             server = new ServerSocket(port);
@@ -66,7 +75,7 @@ public class AuthenticationServer {
                     ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(client.getOutputStream()));
                     if (newUserCheck) {
                         if(credentialMap.containsKey(hashPassword(userName))) {
-                            out.writeBoolean(false);
+                            out.writeObject(LoginReturns.USERNAME_TAKEN);
                         }
                         else {
                             credentialMap.put(hashPassword(userName), hashPassword(password));
@@ -76,7 +85,7 @@ public class AuthenticationServer {
                             writer.write(hashPassword(userName) + "\n");
                             writer.write(hashPassword(password) + "\n");
                             writer.close();
-                            out.writeBoolean(true);
+                            out.writeObject(LoginReturns.CREATED_ACCOUNT_INFO);
                         }
                         out.flush();
                         //remember to save to file in v2
@@ -84,15 +93,15 @@ public class AuthenticationServer {
                         if(credentialMap.containsKey(hashPassword(userName))) {
                             Integer storedPassword = credentialMap.get(hashPassword(userName));
                             if (storedPassword.equals(hashPassword(password))) {
-                                out.writeBoolean(true);
+                                out.writeObject(LoginReturns.LOGIN_SUCCESSFUL);
                             } else {
-                                out.writeBoolean(false);
+                                out.writeObject(LoginReturns.INCORRECT_PASSWORD);
                                 logAttempt(userName, Calendar.getInstance());
                             }
                             out.flush();
                         }
                         else {
-                            out.writeBoolean(false);
+                            out.writeObject(LoginReturns.USER_NOT_FOUND);
                             out.flush();
                         }
                     }
