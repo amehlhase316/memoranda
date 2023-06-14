@@ -6,33 +6,32 @@ import java.util.Properties;
 
 /**
  * {@code @Author} Ryan Dinaro
- * Executing this code will launch the dedicated authentication server for Gym Master login system
+ * This class will launch the dedicated authentication server for Gym Master login system
  */
 public class LaunchServer {
     public static int SERVER_PORT = 1000;
     public static String ADDRESS = "localhost";
+    private static final int LOAD_TIME = 100;
+    private AuthenticationServer server;
 
     /**
-     * Launches the server in a new thread
+     * Launches the server in a new thread to be deleted if Gym Master implements local Authentication Server
      */
     public static void main(String[] args){
         LaunchServer launch = new LaunchServer();
-        launch.runTests();
     }
+
+    /**
+     * Starts the authentication server in a separate thread pauses main thread to let the server load before
+     * any requests are sent in
+     */
     public LaunchServer() {
-        AuthenticationServer server = new AuthenticationServer();
+        server = new AuthenticationServer();
         new Thread(() -> server.launch(SERVER_PORT)).start();
         try {
-            Thread.sleep(100);
+            Thread.sleep(LOAD_TIME);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-    }
-    public void runTests() {
-        System.out.println(ClientLogin.login(true, "lioninn", "innlion"));
-        System.out.println(ClientLogin.login(false, "lioninn", "innlion"));
-        System.out.println(ClientLogin.login(true, "lioninn", "innlion"));
-        System.out.println(ClientLogin.login(false, "lioninn", "ifefefnlion"));
-        System.out.println(ClientLogin.login(false, "HeMan!", "innlion"));
     }
 }

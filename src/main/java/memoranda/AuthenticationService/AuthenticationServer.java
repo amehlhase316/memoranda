@@ -6,16 +6,17 @@ import javax.crypto.spec.PBEKeySpec;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.security.InvalidKeyException;
-import java.security.Key;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.*;
 import java.io.File;
 import java.io.FileWriter;
+import java.util.Arrays;
+import java.util.Base64;
+import java.util.HashMap;
+import java.util.Scanner;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -25,7 +26,6 @@ import java.util.concurrent.LinkedBlockingQueue;
  * It stores a HashMap of usernames and hashed passwords in local storage.
  * When a user sends a username and a password this server hashes the password and compares the hashed password
  * to the stored hashed password. If it is a match it returns true.
- *
  * Designed to be run as a dedicated server if wanted
  */
 public class AuthenticationServer {
@@ -33,8 +33,6 @@ public class AuthenticationServer {
     private BlockingQueue<Socket> clientSocketQueue;
     private HashMap<String, String> credentialMap;
     private PasswordHasher hasher;
-    private static final String CIPHER = "AES";
-    private static final int KEY_SIZE = 128;
 
 
     /**
@@ -133,6 +131,52 @@ public class AuthenticationServer {
         }
     }
 
+    /**
+     * Changes the user password if credentials are correct
+     * @param userName - user inputted username
+     * @param oldPassword - user inputted old password
+     * @param newPassword - user inputted desired password
+     * @return returns a LoginReturn type that represents the state of the result
+     */
+    public LoginReturns changePassword(String userName, String oldPassword, String newPassword){
+        String storedPassword = credentialMap.get(userName);
+        if(storedPassword==null)
+            return LoginReturns.USER_NOT_FOUND;
+        boolean verifyCredentials = hasher.verifyPassword(oldPassword, storedPassword);
+        if(!verifyCredentials) {
+            logAttempt(userName);
+            return LoginReturns.INCORRECT_PASSWORD;
+        }
+        else {
+            credentialMap.put(userName, hasher.hashPassword(newPassword));
+            return LoginReturns.PASSWORD_CHANGED;
+        }
+    }
+
+    /**
+     * This method processes client login requests and returns the result of the authentication
+     * @param newAccount - Creating a new account
+     * @param username - Input Username
+     * @param password - Input Password
+     * @return - The LoginReturns that represents the state of the login attempt
+     */
+    public static LoginReturns login(boolean newAccount, String username, String password) {
+        try {
+            Socket clientTest = new Socket(LaunchServer.ADDRESS, LaunchServer.SERVER_PORT);
+            ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(clientTest.getOutputStream()));
+            out.writeBoolean(newAccount);
+            out.writeObject(username);
+            out.writeObject(password);
+            out.flush();
+            ObjectInputStream in = new ObjectInputStream(new BufferedInputStream(clientTest.getInputStream()));
+            LoginReturns result = (LoginReturns) (in.readObject());
+            in.close();
+            out.close();
+            return result;
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     /**
      * This method logs failed login attempts.
