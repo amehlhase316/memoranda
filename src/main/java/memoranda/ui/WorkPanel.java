@@ -150,7 +150,7 @@ public class WorkPanel extends JPanel {
 		routeB.setIcon(
 				new ImageIcon(
 						main.java.memoranda.ui.AppFrame.class.getResource(
-								"/ui/icons/events.png")));
+								"/ui/icons/route.png")));
 		routeB.setOpaque(false);
 		routeB.setMargin(new Insets(0, 0, 0, 0));
 		//eventsB.setSelected(true);
