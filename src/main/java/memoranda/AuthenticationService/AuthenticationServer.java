@@ -48,6 +48,17 @@ public class AuthenticationServer {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * Closes the server socket on call
+     */
+    public void closeServer() {
+        try {
+            server.close();
+        } catch (IOException e) {
+            //throw new RuntimeException(e);
+        }
+    }
     /**
      * This method initiates and loads the credentials of users and launches the server Socket
      * It also launches the queue for users waiting to be authenticated and launches the thread for
@@ -59,8 +70,13 @@ public class AuthenticationServer {
         hasher = new PasswordHasher();
         try {
             Scanner userPopulator = new Scanner(new File("logs/loginInfoDatabase"));
-            while(userPopulator.hasNextLine()) {
-                credentialMap.put(userPopulator.nextLine(),userPopulator.nextLine());
+            if(userPopulator.hasNextLine()) {
+                while (userPopulator.hasNextLine()) {
+                    String userName = userPopulator.nextLine();
+                    if(userName!=null&&userPopulator.hasNextLine()) {
+                        credentialMap.put(userName, userPopulator.nextLine());
+                    }
+                }
             }
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
@@ -173,7 +189,7 @@ public class AuthenticationServer {
      * @param password - Input Password
      * @return - The LoginReturns that represents the state of the login attempt
      */
-    public static LoginReturns login(boolean newAccount, String username, String password) {
+    public LoginReturns login(boolean newAccount, String username, String password) {
         try {
             Socket clientTest = new Socket(ADDRESS, SERVER_PORT);
             ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(clientTest.getOutputStream()));

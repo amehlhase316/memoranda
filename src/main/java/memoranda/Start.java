@@ -13,7 +13,6 @@ import java.net.Socket;
 
 import memoranda.ui.*;
 import memoranda.util.Configuration;
-import memoranda.AuthenticationService.AuthenticationServer;
 
 /**
  *
@@ -22,7 +21,6 @@ import memoranda.AuthenticationService.AuthenticationServer;
 public class Start {
     
     static App app = null;
-    static AuthenticationServer server;
     static int DEFAULT_PORT = 19432;
     static boolean checkIfAlreadyStartet = true;
 
@@ -46,8 +44,6 @@ public class Start {
     }
     
     public static void main(String[] args) {
-        server = new AuthenticationServer();
-        new LoginFrame();
         if (checkIfAlreadyStartet) {
             try {
                 // Try to open a socket. If socket opened successfully (app is already started), take no action and exit.

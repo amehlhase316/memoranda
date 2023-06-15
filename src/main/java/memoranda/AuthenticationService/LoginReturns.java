@@ -6,7 +6,7 @@ package memoranda.AuthenticationService;
  */
 public enum LoginReturns {
     LOGIN_SUCCESSFUL("User has successfully logged in"),
-    USER_NOT_FOUND("User information not found, try again or create a new account"),
+    USER_NOT_FOUND("User information not found"),
     INCORRECT_PASSWORD("The password does not match"),
     CREATED_ACCOUNT_INFO("User account has been successfully created"),
     USERNAME_TAKEN("This username has already been taken"),
