@@ -57,9 +57,7 @@ Code Smells (CS):
 10. Too long identifiers
 11. Too short identifiers
 
-Code Review Checklist
-
-Add comments. Boxes are checkable (☐+👆= ☒). 
+Code Review Checklist (Will be included in pull request comments)
 
 Specification / Design 
 
