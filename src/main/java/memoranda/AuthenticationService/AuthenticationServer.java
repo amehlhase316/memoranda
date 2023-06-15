@@ -4,8 +4,7 @@ package memoranda.AuthenticationService;
 import javax.crypto.*;
 import javax.crypto.spec.PBEKeySpec;
 import java.io.*;
-import java.net.ServerSocket;
-import java.net.Socket;
+import java.net.*;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
@@ -145,7 +144,6 @@ public class AuthenticationServer {
                                 out.writeObject(LoginReturns.LOGIN_SUCCESSFUL);
                             } else {
                                 out.writeObject(LoginReturns.INCORRECT_PASSWORD);
-                                logAttempt(userName);
                             }
                             out.flush();
                         }
@@ -173,7 +171,6 @@ public class AuthenticationServer {
             return LoginReturns.USER_NOT_FOUND;
         boolean verifyCredentials = hasher.verifyPassword(oldPassword, storedPassword);
         if(!verifyCredentials) {
-            logAttempt(userName);
             return LoginReturns.INCORRECT_PASSWORD;
         }
         else {
@@ -199,6 +196,9 @@ public class AuthenticationServer {
             out.flush();
             ObjectInputStream in = new ObjectInputStream(new BufferedInputStream(clientTest.getInputStream()));
             LoginReturns result = (LoginReturns) (in.readObject());
+            if(result==LoginReturns.INCORRECT_PASSWORD) {
+                logAttempt(username, clientTest);
+            }
             in.close();
             out.close();
             return result;
@@ -212,13 +212,17 @@ public class AuthenticationServer {
      * Multiple failures in a short period could indicate a security breach attempt.
      * @param username - The username failed to log in
      */
-    private void logAttempt(String username) {
+    private void logAttempt(String username, Socket clientSocket) {
         LocalDateTime date = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yy-HH:mm:ss");
         String timestamp = date.format(formatter);
+        InetSocketAddress sockaddr = (InetSocketAddress)clientSocket.getRemoteSocketAddress();
+        InetAddress inaddr = sockaddr.getAddress();
+        Inet4Address in4addr = (Inet4Address)inaddr;
+        String ip4string = in4addr.toString();
         try {
             FileWriter logWriter = new FileWriter("logs/loginAttemptLog.txt", true);
-            logWriter.write(username + ": " + timestamp + "\n");
+            logWriter.write(username + ": " + timestamp + " " + ip4string +"\n");
             logWriter.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
