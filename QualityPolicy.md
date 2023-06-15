@@ -20,14 +20,10 @@
     > The team will keep a daily journal for each sprint that documents what tasks they worked on each day
 
 **Unit Tests Blackbox** (start Sprint 2)
-  The developer writes blackbox tests and tests them before submitting a pull request. The tester also runs the blackbox tests and adds any new ones they feel are necessary when testing.
-  
-  Blackbox testing classes are named us#task#BB, where # stands the the number of the user story/task.
+The developer writes blackbox tests and tests them before submitting a pull request. The tester also runs the blackbox tests and adds any new ones they feel are necessary when testing. Blackbox testing classes are named us#task#BB, where # stands the the number of the user story/task.
 
  **Unit Tests Whitebox** (online: start Sprint 2, campus: start Sprint 3)
-  The developer writes whitebox tests and tests them before submitting a pull request. The tester also runs the whitebox tests and adds any new ones they feel are necessary when testing.
-
-    Blackbox testing classes are named us#task#WB, where # stands the the number of the user story/task.
+The developer writes whitebox tests and tests them before submitting a pull request. The tester also runs the whitebox tests and adds any new ones they feel are necessary when testing. Whitebox testing classes are named us#task#WB, where # stands the the number of the user story/task.
 
 **Code Review** (online: due start Sprint 2, campus: start Sprint 3)
 After running black and whitebox tests, the tester does a code review following these standards: 
