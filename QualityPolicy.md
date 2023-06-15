@@ -21,8 +21,7 @@
 
 **Unit Tests Blackbox** (start Sprint 2)
   The developer writes blackbox tests and tests them before submitting a pull request. The tester also runs the blackbox tests and adds any new ones they feel are necessary when testing.
-
-  Naming conventions:
+  
   Blackbox testing classes are named us#task#BB, where # stands the the number of the user story/task.
 
  **Unit Tests Whitebox** (online: start Sprint 2, campus: start Sprint 3)
