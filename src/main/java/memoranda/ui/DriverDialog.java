@@ -1,15 +1,14 @@
 package main.java.memoranda.ui;
 
+import main.java.memoranda.Driver;
 import main.java.memoranda.util.Local;
 
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
-/*$Id: TaskDialog.java,v 1.25 2005/12/01 08:12:26 alexeya Exp $*/
 public class DriverDialog extends JDialog {
     JPanel mPanel = new JPanel(new BorderLayout());
     JPanel areaPanel = new JPanel(new BorderLayout());
@@ -35,6 +34,7 @@ public class DriverDialog extends JDialog {
     JPanel phoneLabelPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
     JLabel phoneNumberLabel = new JLabel();
     JPanel phoneFieldPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+    Driver tempDriver;
 
 
     public DriverDialog(Frame frame, String title) {
@@ -139,12 +139,33 @@ public class DriverDialog extends JDialog {
         phoneLabelPanel.add(phoneNumberLabel, null);
         gridPanel.add(idFieldPanel, null);
         idFieldPanel.add(idField, null);
+        gridPanel.add(phoneField, phoneFieldConstraints);
         gridPanel.add(phoneFieldPanel, null);
         phoneFieldPanel.add(phoneField,null);
+
+        //Listener to ensure only integers with length no greater than 6 characters are typed
+        idField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                if(idField.getText().length() >= 6)
+                    e.consume();
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                if(!idField.getText().matches("\\d"))
+                    idField.setText(idField.getText().replaceAll("\\D", ""));
+            }
+        });
     }
-	
+
     void okayButton_ActionPerformed(ActionEvent e) {
-	CANCELLED = false;
+	    CANCELLED = false;
+        int id = Integer.valueOf(idField.getText());
+        tempDriver = new Driver(id, nameField.getText(), phoneField.getText());
         this.dispose();
     }
 
