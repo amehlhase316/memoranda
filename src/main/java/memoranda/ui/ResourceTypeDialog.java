@@ -51,7 +51,7 @@ public class ResourceTypeDialog extends JDialog {
         dialogTitlePanel.setBorder(BorderFactory.createEmptyBorder(0, 5, 0, 5));
         header.setFont(new java.awt.Font("Dialog", 0, 20));
         header.setForeground(new Color(0, 0, 124));
-        header.setText(Local.getString("Resource type"));
+        header.setText(Local.getString("Trainer type"));
         header.setIcon(new ImageIcon(main.java.memoranda.ui.ResourceTypeDialog.class.getResource(
             "/ui/icons/resource48.png")));        
         dialogTitlePanel.add(header);

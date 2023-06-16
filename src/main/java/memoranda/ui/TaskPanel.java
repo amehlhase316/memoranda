@@ -104,7 +104,7 @@ public class TaskPanel extends JPanel {
         newTaskB.setEnabled(true);
         newTaskB.setMaximumSize(new Dimension(24, 24));
         newTaskB.setMinimumSize(new Dimension(24, 24));
-        newTaskB.setToolTipText(Local.getString("Create new task"));
+        newTaskB.setToolTipText(Local.getString("Create new belt"));
         newTaskB.setRequestFocusEnabled(false);
         newTaskB.setPreferredSize(new Dimension(24, 24));
         newTaskB.setFocusable(false);
@@ -120,7 +120,7 @@ public class TaskPanel extends JPanel {
         subTaskB.setEnabled(true);
         subTaskB.setMaximumSize(new Dimension(24, 24));
         subTaskB.setMinimumSize(new Dimension(24, 24));
-        subTaskB.setToolTipText(Local.getString("Add subtask"));
+        subTaskB.setToolTipText(Local.getString("Add stripe"));
         subTaskB.setRequestFocusEnabled(false);
         subTaskB.setPreferredSize(new Dimension(24, 24));
         subTaskB.setFocusable(false);
@@ -140,7 +140,7 @@ public class TaskPanel extends JPanel {
         });
         editTaskB.setPreferredSize(new Dimension(24, 24));
         editTaskB.setRequestFocusEnabled(false);
-        editTaskB.setToolTipText(Local.getString("Edit task"));
+        editTaskB.setToolTipText(Local.getString("Edit belt"));
         editTaskB.setMinimumSize(new Dimension(24, 24));
         editTaskB.setMaximumSize(new Dimension(24, 24));
 //        editTaskB.setEnabled(true);
@@ -156,7 +156,7 @@ public class TaskPanel extends JPanel {
         });
         removeTaskB.setPreferredSize(new Dimension(24, 24));
         removeTaskB.setRequestFocusEnabled(false);
-        removeTaskB.setToolTipText(Local.getString("Remove task"));
+        removeTaskB.setToolTipText(Local.getString("Remove belt"));
         removeTaskB.setMinimumSize(new Dimension(24, 24));
         removeTaskB.setMaximumSize(new Dimension(24, 24));
         removeTaskB.setIcon(
@@ -171,7 +171,7 @@ public class TaskPanel extends JPanel {
         });
         completeTaskB.setPreferredSize(new Dimension(24, 24));
         completeTaskB.setRequestFocusEnabled(false);
-        completeTaskB.setToolTipText(Local.getString("Complete task"));
+        completeTaskB.setToolTipText(Local.getString("Graduate belt"));
         completeTaskB.setMinimumSize(new Dimension(24, 24));
         completeTaskB.setMaximumSize(new Dimension(24, 24));
         completeTaskB.setIcon(
@@ -234,7 +234,7 @@ public class TaskPanel extends JPanel {
         /*taskTable.setMaximumSize(new Dimension(32767, 32767));
         taskTable.setRowHeight(24);*/
         ppEditTask.setFont(new java.awt.Font("Dialog", 1, 11));
-    ppEditTask.setText(Local.getString("Edit task")+"...");
+    ppEditTask.setText(Local.getString("Edit belt")+"...");
     ppEditTask.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ppEditTask_actionPerformed(e);
@@ -244,7 +244,7 @@ public class TaskPanel extends JPanel {
     ppEditTask.setIcon(new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/todo_edit.png")));
     taskPPMenu.setFont(new java.awt.Font("Dialog", 1, 10));
     ppRemoveTask.setFont(new java.awt.Font("Dialog", 1, 11));
-    ppRemoveTask.setText(Local.getString("Remove task"));
+    ppRemoveTask.setText(Local.getString("Remove belt"));
     ppRemoveTask.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ppRemoveTask_actionPerformed(e);
@@ -253,7 +253,7 @@ public class TaskPanel extends JPanel {
     ppRemoveTask.setIcon(new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/todo_remove.png")));
     ppRemoveTask.setEnabled(false);
     ppNewTask.setFont(new java.awt.Font("Dialog", 1, 11));
-    ppNewTask.setText(Local.getString("New task")+"...");
+    ppNewTask.setText(Local.getString("New stripe")+"...");
     ppNewTask.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ppNewTask_actionPerformed(e);
@@ -262,7 +262,7 @@ public class TaskPanel extends JPanel {
     ppNewTask.setIcon(new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/todo_new.png")));
 
     ppAddSubTask.setFont(new java.awt.Font("Dialog", 1, 11));
-    ppAddSubTask.setText(Local.getString("Add subtask"));
+    ppAddSubTask.setText(Local.getString("Add stripe"));
     ppAddSubTask.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ppAddSubTask_actionPerformed(e);
@@ -291,7 +291,7 @@ public class TaskPanel extends JPanel {
     */
 
 	ppCompleteTask.setFont(new java.awt.Font("Dialog", 1, 11));
-	ppCompleteTask.setText(Local.getString("Complete task"));
+	ppCompleteTask.setText(Local.getString("Graduate belt"));
 	ppCompleteTask.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ppCompleteTask_actionPerformed(e);
@@ -301,7 +301,7 @@ public class TaskPanel extends JPanel {
 	ppCompleteTask.setEnabled(false);
 
 	ppCalcTask.setFont(new java.awt.Font("Dialog", 1, 11));
-	ppCalcTask.setText(Local.getString("Calculate task data"));
+	ppCalcTask.setText(Local.getString("Calculate stripe data"));
 	ppCalcTask.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ppCalcTask_actionPerformed(e);
@@ -446,7 +446,7 @@ public class TaskPanel extends JPanel {
         Task t =
             CurrentProject.getTaskList().getTask(
                 taskTable.getModel().getValueAt(taskTable.getSelectedRow(), TaskTable.TASK_ID).toString());
-        TaskDialog dlg = new TaskDialog(App.getFrame(), Local.getString("Edit task"));
+        TaskDialog dlg = new TaskDialog(App.getFrame(), Local.getString("Edit belt"));
         Dimension frmSize = App.getFrame().getSize();
         Point loc = App.getFrame().getLocation();
         dlg.setLocation((frmSize.width - dlg.getSize().width) / 2 + loc.x, (frmSize.height - dlg.getSize().height) / 2 + loc.y);
@@ -489,7 +489,7 @@ public class TaskPanel extends JPanel {
     }
 
     void newTaskB_actionPerformed(ActionEvent e) {
-        TaskDialog dlg = new TaskDialog(App.getFrame(), Local.getString("New task"));
+        TaskDialog dlg = new TaskDialog(App.getFrame(), Local.getString("New belt"));
         
         //XXX String parentTaskId = taskTable.getCurrentRootTask();
         
@@ -520,7 +520,7 @@ public class TaskPanel extends JPanel {
     }
 
     void addSubTask_actionPerformed(ActionEvent e) {
-        TaskDialog dlg = new TaskDialog(App.getFrame(), Local.getString("New Task"));
+        TaskDialog dlg = new TaskDialog(App.getFrame(), Local.getString("New belt"));
         String parentTaskId = taskTable.getModel().getValueAt(taskTable.getSelectedRow(), TaskTable.TASK_ID).toString();
         
 //        Util.debug("Adding sub task under " + parentTaskId);
@@ -640,23 +640,23 @@ public class TaskPanel extends JPanel {
         String thisTaskId = taskTable.getModel().getValueAt(taskTable.getSelectedRow(), TaskTable.TASK_ID).toString();
         
         if (taskTable.getSelectedRows().length > 1)
-            msg = Local.getString("Remove")+" "+taskTable.getSelectedRows().length +" "+Local.getString("tasks")+"?"
+            msg = Local.getString("Remove")+" "+taskTable.getSelectedRows().length +" "+Local.getString("belts")+"?"
              + "\n"+Local.getString("Are you sure?");
         else {        	
         	Task t = CurrentProject.getTaskList().getTask(thisTaskId);
         	// check if there are subtasks
 			if(CurrentProject.getTaskList().hasSubTasks(thisTaskId)) {
-				msg = Local.getString("Remove task")+"\n'" + t.getText() + Local.getString("' and all subtasks") +"\n"+Local.getString("Are you sure?");
+				msg = Local.getString("Remove belts")+"\n'" + t.getText() + Local.getString("' and all stripes") +"\n"+Local.getString("Are you sure?");
 			}
 			else {		            
-				msg = Local.getString("Remove task")+"\n'" + t.getText() + "'\n"+Local.getString("Are you sure?");
+				msg = Local.getString("Remove belts")+"\n'" + t.getText() + "'\n"+Local.getString("Are you sure?");
 			}
         }
         int n =
             JOptionPane.showConfirmDialog(
                 App.getFrame(),
                 msg,
-                Local.getString("Remove task"),
+                Local.getString("Remove belt"),
                 JOptionPane.YES_NO_OPTION);
         if (n != JOptionPane.YES_OPTION)
             return;

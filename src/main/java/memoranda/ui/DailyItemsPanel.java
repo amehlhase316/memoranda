@@ -165,7 +165,7 @@ public class DailyItemsPanel extends JPanel {
         alarmB.setMaximumSize(new Dimension(24, 24));
         alarmB.setOpaque(false);
         alarmB.setPreferredSize(new Dimension(24, 24));
-        alarmB.setToolTipText(Local.getString("Active events"));
+        alarmB.setToolTipText(Local.getString("Reserved Rooms"));
         alarmB.setBorderPainted(false);
         alarmB.setMargin(new Insets(0, 0, 0, 0));
         alarmB.addActionListener(new java.awt.event.ActionListener() {
@@ -183,7 +183,7 @@ public class DailyItemsPanel extends JPanel {
             }
         });
         taskB.setPreferredSize(new Dimension(24, 24));
-        taskB.setToolTipText(Local.getString("Active to-do tasks"));
+        taskB.setToolTipText(Local.getString("Upcoming belt graduations"));
         taskB.setBorderPainted(false);
         taskB.setMaximumSize(new Dimension(24, 24));
         taskB.setOpaque(false);

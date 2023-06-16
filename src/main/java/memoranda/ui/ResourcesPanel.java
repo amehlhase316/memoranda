@@ -64,7 +64,7 @@ public class ResourcesPanel extends JPanel {
         newResB.setEnabled(true);
         newResB.setMaximumSize(new Dimension(24, 24));
         newResB.setMinimumSize(new Dimension(24, 24));
-        newResB.setToolTipText(Local.getString("New resource"));
+        newResB.setToolTipText(Local.getString("New trainer"));
         newResB.setRequestFocusEnabled(false);
         newResB.setPreferredSize(new Dimension(24, 24));
         newResB.setFocusable(false);
@@ -85,7 +85,7 @@ public class ResourcesPanel extends JPanel {
         });
         removeResB.setPreferredSize(new Dimension(24, 24));
         removeResB.setRequestFocusEnabled(false);
-        removeResB.setToolTipText(Local.getString("Remove resource"));
+        removeResB.setToolTipText(Local.getString("Remove trainer"));
         removeResB.setMinimumSize(new Dimension(24, 24));
         removeResB.setMaximumSize(new Dimension(24, 24));
         removeResB.setIcon(
@@ -126,7 +126,7 @@ public class ResourcesPanel extends JPanel {
             new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/refreshres.png")));
         resPPMenu.setFont(new java.awt.Font("Dialog", 1, 10));
     ppRun.setFont(new java.awt.Font("Dialog", 1, 11));
-    ppRun.setText(Local.getString("Open resource")+"...");
+    ppRun.setText(Local.getString("Open trainer")+"...");
     ppRun.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ppRun_actionPerformed(e);
@@ -135,7 +135,7 @@ public class ResourcesPanel extends JPanel {
     ppRun.setEnabled(false);
 
     ppRemoveRes.setFont(new java.awt.Font("Dialog", 1, 11));
-    ppRemoveRes.setText(Local.getString("Remove resource"));
+    ppRemoveRes.setText(Local.getString("Remove trainer"));
     ppRemoveRes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ppRemoveRes_actionPerformed(e);
@@ -144,7 +144,7 @@ public class ResourcesPanel extends JPanel {
     ppRemoveRes.setIcon(new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/removeresource.png")));
     ppRemoveRes.setEnabled(false);
     ppNewRes.setFont(new java.awt.Font("Dialog", 1, 11));
-    ppNewRes.setText(Local.getString("New resource")+"...");
+    ppNewRes.setText(Local.getString("New trainer")+"...");
     ppNewRes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ppNewRes_actionPerformed(e);
@@ -188,7 +188,7 @@ public class ResourcesPanel extends JPanel {
     }
 
     void newResB_actionPerformed(ActionEvent e) {
-        AddResourceDialog dlg = new AddResourceDialog(App.getFrame(), Local.getString("New resource"));
+        AddResourceDialog dlg = new AddResourceDialog(App.getFrame(), Local.getString("New trainer"));
         Dimension frmSize = App.getFrame().getSize();
         Point loc = App.getFrame().getLocation();
         dlg.setLocation((frmSize.width - dlg.getSize().width) / 2 + loc.x, (frmSize.height - dlg.getSize().height) / 2 + loc.y);
@@ -228,7 +228,7 @@ public class ResourcesPanel extends JPanel {
         String msg = "";
         if (toRemove.length == 1)
             msg =
-                Local.getString("Remove the shortcut to resource")
+                Local.getString("Remove the shortcut to trainer")
                     + "\n'"
                     + resourcesTable.getModel().getValueAt(toRemove[0], 0)
                     + "'";
@@ -242,7 +242,7 @@ public class ResourcesPanel extends JPanel {
             JOptionPane.showConfirmDialog(
                 App.getFrame(),
                 msg,
-                Local.getString("Remove resource"),
+                Local.getString("Remove trainer"),
                 JOptionPane.YES_NO_OPTION);
         if (n != JOptionPane.YES_OPTION)
             return;
@@ -254,7 +254,7 @@ public class ResourcesPanel extends JPanel {
     }
 
     MimeType addResourceType(String fpath) {
-        ResourceTypeDialog dlg = new ResourceTypeDialog(App.getFrame(), Local.getString("Resource type"));
+        ResourceTypeDialog dlg = new ResourceTypeDialog(App.getFrame(), Local.getString("Trainer type"));
         Dimension dlgSize = new Dimension(420, 300);
         dlg.setSize(dlgSize);
         Dimension frmSize = App.getFrame().getSize();
