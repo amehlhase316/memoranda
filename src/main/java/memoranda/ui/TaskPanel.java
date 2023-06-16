@@ -102,6 +102,31 @@ public class TaskPanel extends JPanel {
 
 
         //#####################################################################################
+        newDriverButton.setIcon(
+                new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/todo_new.png")));
+        newDriverButton.setEnabled(true);
+        newDriverButton.setMaximumSize(new Dimension(24, 24));
+        newDriverButton.setMinimumSize(new Dimension(24, 24));
+        newDriverButton.setToolTipText(Local.getString("Create New Driver"));
+        newDriverButton.setRequestFocusEnabled(false);
+        newDriverButton.setPreferredSize(new Dimension(24, 24));
+        newDriverButton.setFocusable(false);
+        newDriverButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                newDriverButton_ActionPerformed(e);
+            }
+        });
+        newTaskB.setBorderPainted(false);
+
+
+
+
+
+
+
+
+
+
         newTaskB.setIcon(
             new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/todo_new.png")));
         newTaskB.setEnabled(true);
@@ -318,7 +343,7 @@ public class TaskPanel extends JPanel {
         tasksToolBar.add(historyBackB, null);
         tasksToolBar.add(historyForwardB, null);
         tasksToolBar.addSeparator(new Dimension(8, 24));
-
+        tasksToolBar.add(newDriverButton, null);
         tasksToolBar.add(newTaskB, null);
         tasksToolBar.add(subTaskB, null);
         tasksToolBar.add(removeTaskB, null);
@@ -493,6 +518,40 @@ public class TaskPanel extends JPanel {
 
 
     //POPUP DIALOGUE BOX #####################################################
+    void newDriverButton_ActionPerformed(ActionEvent e) {
+        TaskDialog dlg = new TaskDialog(App.getFrame(), Local.getString("New task"));
+
+        //XXX String parentTaskId = taskTable.getCurrentRootTask();
+
+        Dimension frmSize = App.getFrame().getSize();
+        Point loc = App.getFrame().getLocation();
+        dlg.startDate.getModel().setValue(CurrentDate.get().getDate());
+        dlg.endDate.getModel().setValue(CurrentDate.get().getDate());
+        dlg.setLocation((frmSize.width - dlg.getSize().width) / 2 + loc.x, (frmSize.height - dlg.getSize().height) / 2 + loc.y);
+        dlg.setVisible(true);
+        if (dlg.CANCELLED)
+            return;
+        CalendarDate sd = new CalendarDate((Date) dlg.startDate.getModel().getValue());
+//        CalendarDate ed = new CalendarDate((Date) dlg.endDate.getModel().getValue());
+        CalendarDate ed;
+        if(dlg.chkEndDate.isSelected())
+            ed = new CalendarDate((Date) dlg.endDate.getModel().getValue());
+        else
+            ed = null;
+        long effort = Util.getMillisFromHours(dlg.effortField.getText());
+        //XXX Task newTask = CurrentProject.getTaskList().createTask(sd, ed, dlg.todoField.getText(), dlg.priorityCB.getSelectedIndex(),effort, dlg.descriptionField.getText(),parentTaskId);
+        Task newTask = CurrentProject.getTaskList().createTask(sd, ed, dlg.todoField.getText(), dlg.priorityCB.getSelectedIndex(),effort, dlg.descriptionField.getText(),null);
+//		CurrentProject.getTaskList().adjustParentTasks(newTask);
+        newTask.setProgress(((Integer)dlg.progress.getValue()).intValue());
+        CurrentStorage.get().storeTaskList(CurrentProject.getTaskList(), CurrentProject.get());
+        taskTable.tableChanged();
+        parentPanel.updateIndicators();
+        //taskTable.updateUI();
+    }
+
+
+
+
     void newTaskB_actionPerformed(ActionEvent e) {
         TaskDialog dlg = new TaskDialog(App.getFrame(), Local.getString("New task"));
         
