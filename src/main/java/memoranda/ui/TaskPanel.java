@@ -338,6 +338,8 @@ public class TaskPanel extends JPanel {
 	ppCalcTask.setIcon(new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/todo_complete.png")));
 	ppCalcTask.setEnabled(false);
 
+
+    //############################################################################# Taskbar
     scrollPane.getViewport().add(taskTable, null);
         this.add(scrollPane, BorderLayout.CENTER);
         tasksToolBar.add(historyBackB, null);
@@ -519,7 +521,7 @@ public class TaskPanel extends JPanel {
 
     //POPUP DIALOGUE BOX #####################################################
     void newDriverButton_ActionPerformed(ActionEvent e) {
-        TaskDialog dlg = new TaskDialog(App.getFrame(), Local.getString("New task"));
+        TaskDialog dlg = new TaskDialog(App.getFrame(), Local.getString("New Driver"));
 
         //XXX String parentTaskId = taskTable.getCurrentRootTask();
 
