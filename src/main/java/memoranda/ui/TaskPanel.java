@@ -532,12 +532,7 @@ public class TaskPanel extends JPanel {
         dialog.setVisible(true);
         if (dialog.CANCELLED)
             return;
-
-        long effort = Util.getMillisFromHours(dialog.effortField.getText());
-        //XXX Task newTask = CurrentProject.getTaskList().createTask(sd, ed, dlg.todoField.getText(), dlg.priorityCB.getSelectedIndex(),effort, dlg.descriptionField.getText(),parentTaskId);
-        //Task newTask = CurrentProject.getTaskList().createTask(sd, ed, dlg.todoField.getText(), dlg.priorityCB.getSelectedIndex(),effort, dlg.descriptionField.getText(),null);
-//		CurrentProject.getTaskList().adjustParentTasks(newTask);
-        //newTask.setProgress(((Integer)dlg.progress.getValue()).intValue());
+        
         CurrentStorage.get().storeTaskList(CurrentProject.getTaskList(), CurrentProject.get());
         taskTable.tableChanged();
         parentPanel.updateIndicators();
