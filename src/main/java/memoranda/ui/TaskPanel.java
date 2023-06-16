@@ -47,6 +47,7 @@ public class TaskPanel extends JPanel {
     JToolBar tasksToolBar = new JToolBar();
     JButton historyForwardB = new JButton();
     JButton newTaskB = new JButton();
+    JButton newDriverButton = new JButton();
     JButton subTaskB = new JButton();
     JButton editTaskB = new JButton();
     JButton removeTaskB = new JButton();
@@ -99,6 +100,8 @@ public class TaskPanel extends JPanel {
         historyForwardB.setMaximumSize(new Dimension(24, 24));
         historyForwardB.setText("");
 
+
+        //#####################################################################################
         newTaskB.setIcon(
             new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/todo_new.png")));
         newTaskB.setEnabled(true);
@@ -488,6 +491,8 @@ public class TaskPanel extends JPanel {
         //taskTable.updateUI();
     }
 
+
+    //POPUP DIALOGUE BOX #####################################################
     void newTaskB_actionPerformed(ActionEvent e) {
         TaskDialog dlg = new TaskDialog(App.getFrame(), Local.getString("New task"));
         
