@@ -49,7 +49,7 @@ public class Util {
             if (colorVal.startsWith("#"))
                 colorVal = colorVal.substring(1);            
             try {
-                colorVal = new Integer(Integer.parseInt(colorVal, 16)).toString();
+                colorVal = String.valueOf(Integer.parseInt(colorVal, 16));
                 return Color.decode(colorVal.toLowerCase());
             }
             catch (Exception ex) {

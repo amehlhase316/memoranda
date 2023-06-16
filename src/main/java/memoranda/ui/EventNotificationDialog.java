@@ -17,8 +17,10 @@ import javax.swing.border.Border;
 import main.java.memoranda.util.Configuration;
 import main.java.memoranda.util.Local;
 
-import java.applet.Applet;
-import java.applet.AudioClip;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+
 import java.io.File;
 import java.net.URL;
 
@@ -128,8 +130,10 @@ public class EventNotificationDialog extends JFrame {
 						"/ui/beep.wav");
 			}
 		try {
-			AudioClip clip = Applet.newAudioClip(url);
-			clip.play();
+			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(url);
+			Clip clip = AudioSystem.getClip();
+			clip.open(audioInputStream);
+			clip.start();
 		} catch (Exception ex) {
 			new ExceptionDialog(ex, "Error loading audioclip from "+url, "Check the location and type of audioclip file.");
 		}

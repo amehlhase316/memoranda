@@ -263,14 +263,14 @@ public class TaskImpl implements Task, Comparable {
      * @see main.java.memoranda.Task#getProgress()
      */
     public int getProgress() {
-        return new Integer(_element.getAttribute("progress").getValue()).intValue();
+        return Integer.valueOf(_element.getAttribute("progress").getValue());
     }
     /**
      * @see main.java.memoranda.Task#setProgress(int)
      */
     public void setProgress(int p) {
         if ((p >= 0) && (p <= 100))
-            setAttr("progress", new Integer(p).toString());
+            setAttr("progress", String.valueOf(p));
     }
     /**
      * @see main.java.memoranda.Task#getPriority()
@@ -279,7 +279,7 @@ public class TaskImpl implements Task, Comparable {
         Attribute pa = _element.getAttribute("priority");
         if (pa == null)
             return Task.PRIORITY_NORMAL;
-        return new Integer(pa.getValue()).intValue();
+        return Integer.valueOf(pa.getValue());
     }
     /**
      * @see main.java.memoranda.Task#setPriority(int)

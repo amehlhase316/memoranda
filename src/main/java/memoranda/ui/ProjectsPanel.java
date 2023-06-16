@@ -444,8 +444,7 @@ public class ProjectsPanel extends JPanel implements ExpandablePanel {
 	void ppShowActiveOnlyChB_actionPerformed(ActionEvent e) {
 		prjTablePanel.setShowActiveOnly(ppShowActiveOnlyChB.isSelected());
 		Context.put(
-			"SHOW_ACTIVE_PROJECTS_ONLY",
-			new Boolean(ppShowActiveOnlyChB.isSelected()));
+			"SHOW_ACTIVE_PROJECTS_ONLY", ppShowActiveOnlyChB.isSelected());
 	}
 
 	void setMenuEnabled(boolean enabled) {

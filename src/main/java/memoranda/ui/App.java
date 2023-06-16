@@ -3,7 +3,10 @@ package main.java.memoranda.ui;
 import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.Toolkit;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Calendar;
+import java.util.Properties;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -35,8 +38,8 @@ public class App {
        The actual values are substituted by the Ant build script using 
        'version' property and datestamp.*/
 
-	public static final String VERSION_INFO = "@VERSION@";
-	public static final String BUILD_INFO = "@BUILD@";
+	public static String VERSION_INFO;
+	public static String BUILD_INFO;
 	
 	/*========================================================================*/
 
@@ -54,6 +57,16 @@ public class App {
 
 	public App(boolean fullmode) {
 		super();
+		Properties props = new Properties();
+		InputStream is = getClass().getClassLoader().getResourceAsStream("version.properties");
+		try {
+			props.load(is);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+		VERSION_INFO = props.getProperty("version");
+		BUILD_INFO = props.getProperty("build");
+
 		if (fullmode)
 			fullmode = !Configuration.get("START_MINIMIZED").equals("yes");
 		/* DEBUG */
@@ -61,7 +74,6 @@ public class App {
 			System.out.println("Minimized mode");
 		if (!Configuration.get("SHOW_SPLASH").equals("no"))
 			showSplash();
-		System.out.println(VERSION_INFO);
 		System.out.println(Configuration.get("LOOK_AND_FEEL"));
 		try {
 			if (Configuration.get("LOOK_AND_FEEL").equals("system"))

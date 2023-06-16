@@ -253,8 +253,8 @@ public class JNCalendarPanel extends JPanel {
   private void refreshView() {
     ignoreChange = true;
     jnCalendar.set(_date);
-    monthsCB.setSelectedIndex(new Integer(_date.getMonth()));
-    yearSpin.setValue(new Integer(_date.getYear()));
+    monthsCB.setSelectedIndex(_date.getMonth());
+    yearSpin.setValue(_date.getYear());
     ignoreChange = false;
   }
 
