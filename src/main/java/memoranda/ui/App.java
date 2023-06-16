@@ -120,7 +120,7 @@ public class App {
 		EventsScheduler.init();
 		frame = new AppFrame();
 		if (fullmode) {
-			new LoginFrame(this);
+			new LoginFrame(frame, this);
 		}
 		if (!Configuration.get("SHOW_SPLASH").equals("no"))
 			splash.dispose();

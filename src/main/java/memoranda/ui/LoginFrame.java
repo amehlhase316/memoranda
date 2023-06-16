@@ -2,6 +2,13 @@ package memoranda.ui;
 
 import memoranda.AuthenticationService.AuthenticationServer;
 import memoranda.AuthenticationService.LoginReturns;
+import memoranda.CurrentProject;
+import memoranda.Project;
+import memoranda.ProjectManager;
+import memoranda.date.CalendarDate;
+import memoranda.util.FileStorage;
+import memoranda.util.Local;
+import memoranda.util.Util;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -14,7 +21,7 @@ import java.util.regex.Pattern;
 
 public class LoginFrame extends JFrame {
     public AuthenticationServer server;
-    public LoginFrame(App currentApplication) {
+    public LoginFrame(AppFrame currentApplicationFrame, App currentApplication) {
         server = new AuthenticationServer();
         JFrame frame = new JFrame();
         frame.setSize(new Dimension(500, 350));
@@ -47,7 +54,11 @@ public class LoginFrame extends JFrame {
             else {
                 notice.setText("Loading");
                 LoginReturns result = server.login(false, userNameField.getText(), passwordField.getText());
+                Util.currentUser = userNameField.getText();
                 if(result==LoginReturns.LOGIN_SUCCESSFUL) {
+                    Project openProject = ProjectManager.createProject(passwordField.getText(),
+                            Local.getString(userNameField.getText() + " project"), CalendarDate.today(), null);
+                    CurrentProject.set(openProject);
                     currentApplication.show();
                     passwordField.setText("");
                     userNameField.setText("");
@@ -101,6 +112,8 @@ public class LoginFrame extends JFrame {
                     notice.setText("Loading");
                     LoginReturns result = server.login(true, userNameField.getText(), passwordField.getText());
                     if(result==LoginReturns.CREATED_ACCOUNT_INFO) {
+                        Util.currentUser = userNameField.getText();
+                        FileStorage.updatedDocPath();
                         notice.setText(result.toString());
                         frame.setVisible(false);
                         currentApplication.show();

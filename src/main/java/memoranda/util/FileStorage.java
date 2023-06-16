@@ -45,6 +45,9 @@ public class FileStorage implements Storage {
     public static String JN_DOCPATH = Util.getEnvDir();
     private HTMLEditorKit editorKit = new HTMLEditorKit();
 
+    public static void updatedDocPath() {
+        JN_DOCPATH = Util.getEnvDir();
+    }
     public FileStorage() {
         /*The 'MEMORANDA_HOME' key is an undocumented feature for 
           hacking the default location (Util.getEnvDir()) of the memoranda 
@@ -112,7 +115,7 @@ public class FileStorage implements Storage {
             JN_DOCPATH + note.getProject().getID() + File.separator;
         doc.putProperty(
             javax.swing.text.Document.TitleProperty,
-            note.getTitle());        
+            note.getTitle());
         CalendarDate d = note.getDate();
 
         filename += note.getId();//d.getDay() + "-" + d.getMonth() + "-" + d.getYear();

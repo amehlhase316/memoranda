@@ -32,6 +32,7 @@ import java.util.Random;
 public class Util {
 
 	static long seed = 0;
+    public static String currentUser = "";
 	
     public static String generateId() {
         long seed1 = System.currentTimeMillis();
@@ -83,11 +84,11 @@ public class Util {
     public static String getEnvDir() {
     	// Changed static building of getEnvDir
     	// Now system-related path-separator is used
-		String p = System.getProperty("user.home") + File.separator 
-			+ ".jnotes2" + File.separator;
+		String p = System.getProperty("user.home") + File.separator + "Memoranda" + File.separator
+                + currentUser + File.separator + ".jnotes2" + File.separator;
         if (new File(p).isDirectory()) return p;
-        return System.getProperty("user.home") + File.separator 
-        	+ ".memoranda" + File.separator;
+        return System.getProperty("user.home") + File.separator + "Memoranda" + File.separator
+                + currentUser + File.separator;
     }
 
     public static String getCDATA(String s) {
