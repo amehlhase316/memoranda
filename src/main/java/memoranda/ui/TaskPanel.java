@@ -521,30 +521,23 @@ public class TaskPanel extends JPanel {
 
     //POPUP DIALOGUE BOX #####################################################
     void newDriverButton_ActionPerformed(ActionEvent e) {
-        TaskDialog dlg = new TaskDialog(App.getFrame(), Local.getString("New Driver"));
+        DriverDialog dialog = new DriverDialog(App.getFrame(), Local.getString("New Driver"));
+        //Driver object has (int) ID, (String) Name, (String) Phone Number
 
         //XXX String parentTaskId = taskTable.getCurrentRootTask();
 
         Dimension frmSize = App.getFrame().getSize();
         Point loc = App.getFrame().getLocation();
-        dlg.startDate.getModel().setValue(CurrentDate.get().getDate());
-        dlg.endDate.getModel().setValue(CurrentDate.get().getDate());
-        dlg.setLocation((frmSize.width - dlg.getSize().width) / 2 + loc.x, (frmSize.height - dlg.getSize().height) / 2 + loc.y);
-        dlg.setVisible(true);
-        if (dlg.CANCELLED)
+        dialog.setLocation((frmSize.width - dialog.getSize().width) / 2 + loc.x, (frmSize.height - dialog.getSize().height) / 2 + loc.y);
+        dialog.setVisible(true);
+        if (dialog.CANCELLED)
             return;
-        CalendarDate sd = new CalendarDate((Date) dlg.startDate.getModel().getValue());
-//        CalendarDate ed = new CalendarDate((Date) dlg.endDate.getModel().getValue());
-        CalendarDate ed;
-        if(dlg.chkEndDate.isSelected())
-            ed = new CalendarDate((Date) dlg.endDate.getModel().getValue());
-        else
-            ed = null;
-        long effort = Util.getMillisFromHours(dlg.effortField.getText());
+
+        long effort = Util.getMillisFromHours(dialog.effortField.getText());
         //XXX Task newTask = CurrentProject.getTaskList().createTask(sd, ed, dlg.todoField.getText(), dlg.priorityCB.getSelectedIndex(),effort, dlg.descriptionField.getText(),parentTaskId);
-        Task newTask = CurrentProject.getTaskList().createTask(sd, ed, dlg.todoField.getText(), dlg.priorityCB.getSelectedIndex(),effort, dlg.descriptionField.getText(),null);
+        //Task newTask = CurrentProject.getTaskList().createTask(sd, ed, dlg.todoField.getText(), dlg.priorityCB.getSelectedIndex(),effort, dlg.descriptionField.getText(),null);
 //		CurrentProject.getTaskList().adjustParentTasks(newTask);
-        newTask.setProgress(((Integer)dlg.progress.getValue()).intValue());
+        //newTask.setProgress(((Integer)dlg.progress.getValue()).intValue());
         CurrentStorage.get().storeTaskList(CurrentProject.getTaskList(), CurrentProject.get());
         taskTable.tableChanged();
         parentPanel.updateIndicators();
