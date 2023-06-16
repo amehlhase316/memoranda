@@ -26,7 +26,8 @@ public class RoutePanel extends JPanel implements ActionListener {
 
     BorderLayout borderLayout1 = new BorderLayout();
     JScrollPane scrollPane = new JScrollPane();
-    MapGraph mapGraph;
+    JsonHandler jsonHandler = new JsonHandler();
+    MapGenerator mapGen;
 
     public RoutePanel() {
         try {
@@ -38,14 +39,14 @@ public class RoutePanel extends JPanel implements ActionListener {
     }
     void jbInit() throws Exception {
 
-        mapGraph = new MapGraph();
-        mapGraph.readNodesFromJSON("nodes1.json");
+    	jsonHandler.readNodesFromJSON("nodes1.json");
+        mapGen = new MapGenerator(jsonHandler.nodes);
         route = new Route(5.0);
 
         this.setLayout(borderLayout1);
         scrollPane.getViewport().setBackground(Color.white);
-        scrollPane.getViewport().add(mapGraph);
-        mapGraph.repaint();
+        scrollPane.getViewport().add(mapGen);
+        mapGen.repaint();
 
 
         JScrollBar vertScrollBar = scrollPane.getVerticalScrollBar();
