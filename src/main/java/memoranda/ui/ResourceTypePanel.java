@@ -143,7 +143,7 @@ public class ResourceTypePanel extends JPanel {
 
 
     void newTypeB_actionPerformed(ActionEvent e) {
-        EditTypeDialog dlg = new EditTypeDialog(App.getFrame(), Local.getString("New resource type"));
+        EditTypeDialog dlg = new EditTypeDialog(App.getFrame(), Local.getString("New trainer type"));
         Dimension dlgSize = new Dimension(420, 420);
         dlg.setSize(dlgSize);
         Dimension frmSize = App.getFrame().getSize();
@@ -187,12 +187,12 @@ public class ResourceTypePanel extends JPanel {
         int n =
             JOptionPane.showConfirmDialog(
                 App.getFrame(),
-                Local.getString("Delete resource type")
+                Local.getString("Delete trainer type")
                     + "\n'"
                     + mt.getLabel()
                     + "'\n"
                     + Local.getString("Are you sure?"),
-                Local.getString("Delete resource type"),
+                Local.getString("Delete trainer type"),
                 JOptionPane.YES_NO_OPTION);
         if (n != JOptionPane.YES_OPTION)
             return;
@@ -202,7 +202,7 @@ public class ResourceTypePanel extends JPanel {
     }
 
     void editB_actionPerformed(ActionEvent e) {
-        EditTypeDialog dlg = new EditTypeDialog(App.getFrame(), Local.getString("Edit resource type"));
+        EditTypeDialog dlg = new EditTypeDialog(App.getFrame(), Local.getString("Edit trainer type"));
         Dimension dlgSize = new Dimension(420, 450);
         dlg.setSize(dlgSize);
         Dimension frmSize = App.getFrame().getSize();

@@ -398,9 +398,8 @@ public class ImageDialog extends JDialog implements WindowListener {
             try {
                 ImageIcon img = new ImageIcon(chooser.getSelectedFile()
                         .getPath());
-                widthField.setText(new Integer(img.getIconWidth()).toString());
-                heightField
-                        .setText(new Integer(img.getIconHeight()).toString());
+                widthField.setText(String.valueOf(img.getIconWidth()));
+                heightField.setText(String.valueOf(img.getIconHeight()));
             }
             catch (Exception ex) {
                 ex.printStackTrace();

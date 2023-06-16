@@ -125,11 +125,11 @@ public class TableSorter extends TableMap {
 	    int result;
 	    if(data.getColumnName(column).equals(Local.getString("Priority"))) {
 		    Hashtable priority = new Hashtable();
-		    priority.put(Local.getString("Lowest"), new Integer(1));
-		    priority.put(Local.getString("Low"), new Integer(2));
-		    priority.put(Local.getString("Normal"), new Integer(3));
-		    priority.put(Local.getString("High"), new Integer(4));
-		    priority.put(Local.getString("Highest"), new Integer(5));
+		    priority.put(Local.getString("Lowest"), 1);
+		    priority.put(Local.getString("Low"), 2);
+		    priority.put(Local.getString("Normal"), 3);
+		    priority.put(Local.getString("High"), 4);
+		    priority.put(Local.getString("Highest"), 5);
 	
 		    Integer s1 = (Integer)priority.get((String)data.getValueAt(row1, column));
 		    Integer s2 = (Integer)priority.get((String)data.getValueAt(row2, column));
@@ -138,11 +138,11 @@ public class TableSorter extends TableMap {
 	    }
 	    else if(data.getColumnName(column).equals(Local.getString("Status"))) {
 		    Hashtable priority = new Hashtable();
-		    priority.put(Local.getString("Completed"), new Integer(1));
-		    priority.put(Local.getString("Failed"), new Integer(2));
-		    priority.put(Local.getString("Scheduled"), new Integer(3));
-		    priority.put(Local.getString("Active"), new Integer(4));
-		    priority.put(Local.getString("Deadline"), new Integer(5));
+		    priority.put(Local.getString("Completed"), 1);
+		    priority.put(Local.getString("Failed"), 2);
+		    priority.put(Local.getString("Scheduled"), 3);
+		    priority.put(Local.getString("Active"), 4);
+		    priority.put(Local.getString("Deadline"), 5);
 	
 		    Integer s1 = (Integer)priority.get((String)data.getValueAt(row1, column));
 		    Integer s2 = (Integer)priority.get((String)data.getValueAt(row2, column));
@@ -332,7 +332,7 @@ public class TableSorter extends TableMap {
         sortBy = column;
         this.ascending = ascending;
         sortingColumns.removeAllElements();
-        sortingColumns.addElement(new Integer(column));
+        sortingColumns.addElement(column);
         sort(this);
         super.tableChanged(new TableModelEvent(this)); 
     }

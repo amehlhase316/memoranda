@@ -11,10 +11,9 @@ import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import java.io.File;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Vector;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.*;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -262,7 +261,7 @@ public class AppFrame extends JFrame {
         contentPane = (JPanel) this.getContentPane();
         contentPane.setLayout(borderLayout1);
         //this.setSize(new Dimension(800, 500));
-        this.setTitle("Memoranda - " + CurrentProject.get().getTitle());
+        this.setTitle("Gym Master");
         //Added a space to App.VERSION_INFO to make it look some nicer
         statusBar.setText(" Version:" + App.VERSION_INFO + " (Build "
                 + App.BUILD_INFO + " )");
@@ -301,7 +300,7 @@ public class AppFrame extends JFrame {
             }
         });        
         
-        jMenuHelpAbout.setText(Local.getString("About Memoranda"));
+        jMenuHelpAbout.setText(Local.getString("About Gym Master"));
         jMenuHelpAbout.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 jMenuHelpAbout_actionPerformed(e);
@@ -598,8 +597,8 @@ public class AppFrame extends JFrame {
         Object fwo = Context.get("FRAME_WIDTH");
         Object fho = Context.get("FRAME_HEIGHT");
         if ((fwo != null) && (fho != null)) {
-            int w = new Integer((String) fwo).intValue();
-            int h = new Integer((String) fho).intValue();
+            int w = Integer.valueOf((String) fwo);
+            int h = Integer.valueOf((String) fho);
             this.setSize(w, h);
         }
         else
@@ -608,8 +607,8 @@ public class AppFrame extends JFrame {
         Object xo = Context.get("FRAME_XPOS");
         Object yo = Context.get("FRAME_YPOS");
         if ((xo != null) && (yo != null)) {
-            int x = new Integer((String) xo).intValue();
-            int y = new Integer((String) yo).intValue();
+            int x = Integer.valueOf((String) xo);
+            int y = Integer.valueOf((String) yo);
             this.setLocation(x, y);
         }
 
@@ -626,7 +625,7 @@ public class AppFrame extends JFrame {
             }
 
             public void projectWasChanged() {
-                setTitle("Memoranda - " + CurrentProject.get().getTitle());
+                setTitle("Gym Master");
             }
         });
 
@@ -656,10 +655,10 @@ public class AppFrame extends JFrame {
                         if(dlg.CANCELLED) return;
         }
 
-        Context.put("FRAME_WIDTH", new Integer(this.getWidth()));
-        Context.put("FRAME_HEIGHT", new Integer(this.getHeight()));
-        Context.put("FRAME_XPOS", new Integer(this.getLocation().x));
-        Context.put("FRAME_YPOS", new Integer(this.getLocation().y));
+        Context.put("FRAME_WIDTH", this.getWidth());
+        Context.put("FRAME_HEIGHT", this.getHeight());
+        Context.put("FRAME_XPOS", this.getLocation().x);
+        Context.put("FRAME_YPOS", this.getLocation().y);
         exitNotify();
         System.exit(0);
     }
@@ -682,15 +681,11 @@ public class AppFrame extends JFrame {
 
     protected void processWindowEvent(WindowEvent e) {
         if (e.getID() == WindowEvent.WINDOW_CLOSING) {
-            if (Configuration.get("ON_CLOSE").equals("exit"))
                 doExit();
-            else
-                doMinimize();
         }
         else if ((e.getID() == WindowEvent.WINDOW_ICONIFIED)) {
             super.processWindowEvent(new WindowEvent(this,
-                    WindowEvent.WINDOW_CLOSING));
-            doMinimize();
+                    WindowEvent.WINDOW_ICONIFIED));
         }
         else
             super.processWindowEvent(e);
@@ -912,8 +907,10 @@ public class AppFrame extends JFrame {
                         Context.put(
                                 "LAST_SELECTED_EXPORT_FILE",
                                 chooser.getSelectedFile().getPath());
-                        Context.put("EXPORT_SPLIT_NOTES", new Boolean(dlg.splitChB.isSelected()).toString());
-                        Context.put("EXPORT_TITLES_AS_HEADERS", new Boolean(dlg.titlesAsHeadersChB.isSelected()).toString());
+                        Context.put("EXPORT_SPLIT_NOTES",
+                            String.valueOf(dlg.splitChB.isSelected()));
+                        Context.put("EXPORT_TITLES_AS_HEADERS",
+                            String.valueOf(dlg.titlesAsHeadersChB.isSelected()));
                 
                 int ei = dlg.encCB.getSelectedIndex();
                 enc = null;
