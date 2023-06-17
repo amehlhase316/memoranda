@@ -56,6 +56,7 @@ public class LoginFrame extends JFrame {
                 LoginReturns result = server.login(false, userNameField.getText(), passwordField.getText());
                 Util.currentUser = userNameField.getText();
                 if(result==LoginReturns.LOGIN_SUCCESSFUL) {
+                    Util.currentUser = userNameField.getText();
                     Project openProject = ProjectManager.createProject(userNameField.getText(),
                             Local.getString(userNameField.getText() + " project"), CalendarDate.today(), null);
                     CurrentProject.set(openProject);
@@ -113,12 +114,13 @@ public class LoginFrame extends JFrame {
                     LoginReturns result = server.login(true, userNameField.getText(), passwordField.getText());
                     if(result==LoginReturns.CREATED_ACCOUNT_INFO) {
                         Util.currentUser = userNameField.getText();
-                        FileStorage.updatedDocPath();
-                        notice.setText(result.toString());
-                        frame.setVisible(false);
+                        Project openProject = ProjectManager.createProject(userNameField.getText(),
+                                Local.getString(userNameField.getText() + " project"), CalendarDate.today(), null);
+                        CurrentProject.set(openProject);
                         currentApplication.show();
                         passwordField.setText("");
                         userNameField.setText("");
+                        frame.setVisible(false);
                     }
                     else {
                         notice.setText(result.toString());
