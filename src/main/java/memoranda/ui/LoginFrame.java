@@ -56,7 +56,7 @@ public class LoginFrame extends JFrame {
                 LoginReturns result = server.login(false, userNameField.getText(), passwordField.getText());
                 Util.currentUser = userNameField.getText();
                 if(result==LoginReturns.LOGIN_SUCCESSFUL) {
-                    Project openProject = ProjectManager.createProject(passwordField.getText(),
+                    Project openProject = ProjectManager.createProject(userNameField.getText(),
                             Local.getString(userNameField.getText() + " project"), CalendarDate.today(), null);
                     CurrentProject.set(openProject);
                     currentApplication.show();
