@@ -6,15 +6,12 @@ import memoranda.CurrentProject;
 import memoranda.Project;
 import memoranda.ProjectManager;
 import memoranda.date.CalendarDate;
-import memoranda.util.FileStorage;
 import memoranda.util.Local;
 import memoranda.util.Util;
 
+
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-import javax.swing.text.JTextComponent;
 import java.awt.*;
-import java.awt.event.MouseListener;
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -25,7 +22,6 @@ public class LoginFrame extends JFrame {
         server = new AuthenticationServer();
         JFrame frame = new JFrame();
         frame.setSize(new Dimension(500, 350));
-        frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel framePanel = new JPanel(new GridBagLayout());
@@ -45,6 +41,8 @@ public class LoginFrame extends JFrame {
 
         JButton login = new JButton("Login");
         JButton createNewAccount = new JButton("Create New Account");
+
+
         login.addActionListener(e -> {
             if(userNameField.getText().length()<6||userNameField.getText().length()>32
             || passwordField.getText().length()<8 || passwordField.getText().length()>64) {
@@ -149,6 +147,7 @@ public class LoginFrame extends JFrame {
 
         frame.add(framePanel);
         frame.pack();
+        frame.setLocationRelativeTo(null);
         frame.setAlwaysOnTop(true);
         frame.setVisible(true);
 
