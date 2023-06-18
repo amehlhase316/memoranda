@@ -16,6 +16,7 @@ public class JsonHandler {
 	
 	public JsonHandler() {
 		nodes = new ArrayList<Node>();
+        drivers = new ArrayList<Driver>();
 	}
 	
 	public void addNode(String id, double latitude, double longitude) {
