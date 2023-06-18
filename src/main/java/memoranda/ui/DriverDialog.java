@@ -160,6 +160,41 @@ public class DriverDialog extends JDialog {
                     idField.setText(idField.getText().replaceAll("\\D", ""));
             }
         });
+
+        nameField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                if(nameField.getText().length() >= 100)
+                    e.consume();
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {       }
+
+            @Override
+            public void keyReleased(KeyEvent e) {      }
+        });
+
+        phoneField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                if(phoneField.getText().length() >= 14)
+                    e.consume();
+                if(phoneField.getText().length() == 0)
+                    phoneField.setText("(");
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {       }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                if(phoneField.getText().length() == 4)
+                    phoneField.setText(phoneField.getText() + ") ");
+                if(phoneField.getText().length() == 9)
+                    phoneField.setText(phoneField.getText() + "-");
+            }
+        });
     }
 
     void okayButton_ActionPerformed(ActionEvent e) {
