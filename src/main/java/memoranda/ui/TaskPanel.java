@@ -354,7 +354,6 @@ public class TaskPanel extends JPanel {
         tasksToolBar.add(completeTaskB, null);
 
 		//tasksToolBar.add(showActiveOnly, null);
-        
 
         this.add(tasksToolBar, BorderLayout.NORTH);
 
