@@ -51,8 +51,8 @@ public class JsonHandler {
             for (Object obj : nodesArray) {
                 JSONObject nodeObj = (JSONObject) obj;
                 int id = (int) nodeObj.get("ID");
-                double latitude = Double.parseDouble((String) nodeObj.get("name"));
-                double longitude = Double.parseDouble((String) nodeObj.get("phoneNumber"));
+                String name = (String) nodeObj.get("name");
+                String phoneNumber = (String) nodeObj.get("phoneNumber");
 
                 addDriver
             }
