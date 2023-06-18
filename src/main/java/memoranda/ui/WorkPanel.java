@@ -259,27 +259,6 @@ public class WorkPanel extends JPanel {
 		mapB.setMaximumSize(new Dimension(60, 80));
 		mapB.setBackground(Color.white);
 
-		/*testB.setBackground(Color.white);
-		testB.setMinimumSize(new Dimension(30, 30));
-		testB.setFont(new java.awt.Font("Dialog", 1, 10));
-		testB.setPreferredSize(new Dimension(50, 50));
-		testB.setBorderPainted(false);
-		testB.setContentAreaFilled(false);
-		testB.setFocusPainted(false);
-		testB.setHorizontalTextPosition(SwingConstants.CENTER);
-		testB.setText(Local.getString("Agenda"));
-		testB.setVerticalAlignment(SwingConstants.TOP);
-<<<<<<< HEAD
-		testB.setVerticalTextPosition(SwingConstants.BOTTOM);
-//		testB.addActionListener(new java.awt.event.ActionListener() {
-//			public void actionPerformed(ActionEvent e){testB_actionPerformed(e)};
-//		});
-
-=======
-		testB.setVerticalTextPosition(SwingConstants.BOTTOM);*/
-		//testB.addActionListener(new java.awt.event.ActionListener()
-		
->>>>>>> 5609c96503e48cf8dcb35b9df796e2e29a84950c
 		this.add(toolBar, BorderLayout.WEST);
 		this.add(panel, BorderLayout.CENTER);
 		panel.add(dailyItemsPanel, "DAILYITEMS");
