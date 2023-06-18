@@ -56,7 +56,6 @@ public class TaskPanel extends JPanel {
 	JMenuItem ppAddSubTask = new JMenuItem();
 	JMenuItem ppCalcTask = new JMenuItem();
 	DailyItemsPanel parentPanel = null;
-    DriverList driverList = new DriverList();
 
     public TaskPanel(DailyItemsPanel _parentPanel) {
         try {
@@ -520,7 +519,6 @@ public class TaskPanel extends JPanel {
         dialogBox.setVisible(true);
         if (dialogBox.CANCELLED)
             return;
-        driverList.addDriver(dialogBox.tempDriver);
 
         CurrentStorage.get().storeTaskList(CurrentProject.getTaskList(), CurrentProject.get());
         taskTable.tableChanged();

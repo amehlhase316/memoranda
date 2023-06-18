@@ -1,9 +1,6 @@
 package main.java.memoranda;
 
-<<<<<<< HEAD
-import main.java.memoranda.DriverList;
-=======
->>>>>>> 1dd83ad09e07cf1fa6b101cbf09f88e48ebc136a
+
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
