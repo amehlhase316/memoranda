@@ -1,5 +1,6 @@
 package main.java.memoranda;
 
+import main.java.memoranda.*;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +35,26 @@ public class JsonHandler {
                 double longitude = Double.parseDouble((String) nodeObj.get("lon"));
 
                 addNode(id, latitude, longitude);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void readDriversFromJSON(String filename) {
+        try {
+            JSONParser parser = new JSONParser();
+            JSONObject jsonObject = (JSONObject) parser.parse(new FileReader(filename));
+
+            JSONArray nodesArray = (JSONArray) jsonObject.get("drivers");
+
+            for (Object obj : nodesArray) {
+                JSONObject nodeObj = (JSONObject) obj;
+                int id = (int) nodeObj.get("ID");
+                double latitude = Double.parseDouble((String) nodeObj.get("name"));
+                double longitude = Double.parseDouble((String) nodeObj.get("phoneNumber"));
+
+                addDriver
             }
         } catch (Exception e) {
             e.printStackTrace();
