@@ -24,14 +24,7 @@ import javax.swing.JToolBar;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import main.java.memoranda.CurrentProject;
-import main.java.memoranda.History;
-import main.java.memoranda.NoteList;
-import main.java.memoranda.Project;
-import main.java.memoranda.ProjectListener;
-import main.java.memoranda.ResourcesList;
-import main.java.memoranda.Task;
-import main.java.memoranda.TaskList;
+import main.java.memoranda.*;
 import main.java.memoranda.date.CalendarDate;
 import main.java.memoranda.date.CurrentDate;
 import main.java.memoranda.date.DateListener;
@@ -52,9 +45,7 @@ public class TaskPanel extends JPanel {
     JButton editTaskB = new JButton();
     JButton removeTaskB = new JButton();
     JButton completeTaskB = new JButton();
-    
 	JCheckBoxMenuItem ppShowActiveOnlyChB = new JCheckBoxMenuItem();
-		
     JScrollPane scrollPane = new JScrollPane();
     TaskTable taskTable = new TaskTable();
 	JMenuItem ppEditTask = new JMenuItem();
@@ -62,11 +53,10 @@ public class TaskPanel extends JPanel {
 	JMenuItem ppRemoveTask = new JMenuItem();
 	JMenuItem ppNewTask = new JMenuItem();
 	JMenuItem ppCompleteTask = new JMenuItem();
-	//JMenuItem ppSubTasks = new JMenuItem();
-	//JMenuItem ppParentTask = new JMenuItem();
 	JMenuItem ppAddSubTask = new JMenuItem();
 	JMenuItem ppCalcTask = new JMenuItem();
 	DailyItemsPanel parentPanel = null;
+    DriverList driverList = new DriverList();
 
     public TaskPanel(DailyItemsPanel _parentPanel) {
         try {
@@ -432,7 +422,7 @@ public class TaskPanel extends JPanel {
 	
 		// define key actions in TaskPanel:
 		// - KEY:DELETE => delete tasks (recursivly).
-		// - KEY:INTERT => insert new Subtask if another is selected.
+		// - KEY:INERT => insert new Subtask if another is selected.
 		// - KEY:INSERT => insert new Task if nothing is selected.
 		// - KEY:SPACE => finish Task.
 		taskTable.addKeyListener(new KeyListener() {
@@ -510,30 +500,17 @@ public class TaskPanel extends JPanel {
 
     //POPUP DIALOGUE BOX #####################################################
     void newDriverButton_ActionPerformed(ActionEvent e) {
-        TaskDialog dlg = new TaskDialog(App.getFrame(), Local.getString("New Driver"));
-
-        //XXX String parentTaskId = taskTable.getCurrentRootTask();
+        DriverDialog dialogBox = new DriverDialog(App.getFrame(), Local.getString("New Driver"));
+        //Driver object has (int) ID, (String) Name, (String) Phone Number
 
         Dimension frmSize = App.getFrame().getSize();
         Point loc = App.getFrame().getLocation();
-        dlg.startDate.getModel().setValue(CurrentDate.get().getDate());
-        dlg.endDate.getModel().setValue(CurrentDate.get().getDate());
-        dlg.setLocation((frmSize.width - dlg.getSize().width) / 2 + loc.x, (frmSize.height - dlg.getSize().height) / 2 + loc.y);
-        dlg.setVisible(true);
-        if (dlg.CANCELLED)
+        dialogBox.setLocation((frmSize.width - dialogBox.getSize().width) / 2 + loc.x, (frmSize.height - dialogBox.getSize().height) / 2 + loc.y);
+        dialogBox.setVisible(true);
+        if (dialogBox.CANCELLED)
             return;
-        CalendarDate sd = new CalendarDate((Date) dlg.startDate.getModel().getValue());
-//        CalendarDate ed = new CalendarDate((Date) dlg.endDate.getModel().getValue());
-        CalendarDate ed;
-        if(dlg.chkEndDate.isSelected())
-            ed = new CalendarDate((Date) dlg.endDate.getModel().getValue());
-        else
-            ed = null;
-        long effort = Util.getMillisFromHours(dlg.effortField.getText());
-        //XXX Task newTask = CurrentProject.getTaskList().createTask(sd, ed, dlg.todoField.getText(), dlg.priorityCB.getSelectedIndex(),effort, dlg.descriptionField.getText(),parentTaskId);
-        Task newTask = CurrentProject.getTaskList().createTask(sd, ed, dlg.todoField.getText(), dlg.priorityCB.getSelectedIndex(),effort, dlg.descriptionField.getText(),null);
-//		CurrentProject.getTaskList().adjustParentTasks(newTask);
-        newTask.setProgress(((Integer)dlg.progress.getValue()).intValue());
+        driverList.addDriver(dialogBox.tempDriver);
+
         CurrentStorage.get().storeTaskList(CurrentProject.getTaskList(), CurrentProject.get());
         taskTable.tableChanged();
         parentPanel.updateIndicators();
