@@ -18,10 +18,13 @@ public class DriverList {
     private int numberOfDrivers;
 
     public DriverList() {
-        drivers = new ArrayList<>();
+        this.drivers = new ArrayList<Driver>();
         numberOfDrivers = 0;
+    }
 
-        //import the drivers from JSON here
+    public DriverList(List<Driver> drivers) {
+        this.drivers = drivers;
+        numberOfDrivers = drivers.size();
     }
 
     public Driver getDriver(int id) { return (Driver) drivers.get(id); }

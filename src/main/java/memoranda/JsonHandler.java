@@ -1,6 +1,6 @@
 package main.java.memoranda;
 
-import main.java.memoranda.*;
+import main.java.memoranda.DriverList;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 public class JsonHandler {
-	
+
 	public List<Node> nodes;
 	
 	public JsonHandler() {
@@ -53,8 +53,6 @@ public class JsonHandler {
                 int id = (int) nodeObj.get("ID");
                 String name = (String) nodeObj.get("name");
                 String phoneNumber = (String) nodeObj.get("phoneNumber");
-
-                addDriver
             }
         } catch (Exception e) {
             e.printStackTrace();
