@@ -28,10 +28,7 @@ import main.java.memoranda.*;
 import main.java.memoranda.date.CalendarDate;
 import main.java.memoranda.date.CurrentDate;
 import main.java.memoranda.date.DateListener;
-import main.java.memoranda.util.Context;
-import main.java.memoranda.util.CurrentStorage;
-import main.java.memoranda.util.Local;
-import main.java.memoranda.util.Util;
+import main.java.memoranda.util.*;
 
 /*$Id: TaskPanel.java,v 1.27 2007/01/17 20:49:12 killerjoe Exp $*/
 public class TaskPanel extends JPanel {
@@ -57,6 +54,8 @@ public class TaskPanel extends JPanel {
 	JMenuItem ppCalcTask = new JMenuItem();
 	DailyItemsPanel parentPanel = null;
     DriverList driverList = new DriverList();
+
+    BusList busList = new BusList();
 
     public TaskPanel(DailyItemsPanel _parentPanel) {
         try {
@@ -517,37 +516,49 @@ public class TaskPanel extends JPanel {
         //taskTable.updateUI();
     }
 
-
-
+    /**
+     *
+     * @param e
+     */
 
     void newBusB_actionPerformed(ActionEvent e) {
-        TaskDialog dlg = new TaskDialog(App.getFrame(), Local.getString("New Bus"));
-        
-        //XXX String parentTaskId = taskTable.getCurrentRootTask();
-        
+        BusDialog dlg = new BusDialog(App.getFrame(), Local.getString("New Bus"));
+
         Dimension frmSize = App.getFrame().getSize();
         Point loc = App.getFrame().getLocation();
-        dlg.startDate.getModel().setValue(CurrentDate.get().getDate());
-        dlg.endDate.getModel().setValue(CurrentDate.get().getDate());
         dlg.setLocation((frmSize.width - dlg.getSize().width) / 2 + loc.x, (frmSize.height - dlg.getSize().height) / 2 + loc.y);
         dlg.setVisible(true);
         if (dlg.CANCELLED)
             return;
-        CalendarDate sd = new CalendarDate((Date) dlg.startDate.getModel().getValue());
-//        CalendarDate ed = new CalendarDate((Date) dlg.endDate.getModel().getValue());
-          CalendarDate ed;
- 		if(dlg.chkEndDate.isSelected())
- 			ed = new CalendarDate((Date) dlg.endDate.getModel().getValue());
- 		else
- 			ed = null;
-        long effort = Util.getMillisFromHours(dlg.effortField.getText());
-		//XXX Task newTask = CurrentProject.getTaskList().createTask(sd, ed, dlg.todoField.getText(), dlg.priorityCB.getSelectedIndex(),effort, dlg.descriptionField.getText(),parentTaskId);
-		Task newTask = CurrentProject.getTaskList().createTask(sd, ed, dlg.todoField.getText(), dlg.priorityCB.getSelectedIndex(),effort, dlg.descriptionField.getText(),null);
-//		CurrentProject.getTaskList().adjustParentTasks(newTask);
-		newTask.setProgress(((Integer)dlg.progress.getValue()).intValue());
+        busList.addBus(dlg.tempBus);
+
         CurrentStorage.get().storeTaskList(CurrentProject.getTaskList(), CurrentProject.get());
         taskTable.tableChanged();
         parentPanel.updateIndicators();
+
+
+
+//        dlg.startDate.getModel().setValue(CurrentDate.get().getDate());
+//        dlg.endDate.getModel().setValue(CurrentDate.get().getDate());
+//        dlg.setLocation((frmSize.width - dlg.getSize().width) / 2 + loc.x, (frmSize.height - dlg.getSize().height) / 2 + loc.y);
+//        dlg.setVisible(true);
+//        if (dlg.CANCELLED)
+//            return;
+//        CalendarDate sd = new CalendarDate((Date) dlg.startDate.getModel().getValue());
+////        CalendarDate ed = new CalendarDate((Date) dlg.endDate.getModel().getValue());
+//          CalendarDate ed;
+// 		if(dlg.chkEndDate.isSelected())
+// 			ed = new CalendarDate((Date) dlg.endDate.getModel().getValue());
+// 		else
+// 			ed = null;
+//        long effort = Util.getMillisFromHours(dlg.effortField.getText());
+//		//XXX Task newTask = CurrentProject.getTaskList().createTask(sd, ed, dlg.todoField.getText(), dlg.priorityCB.getSelectedIndex(),effort, dlg.descriptionField.getText(),parentTaskId);
+//		Task newTask = CurrentProject.getTaskList().createTask(sd, ed, dlg.todoField.getText(), dlg.priorityCB.getSelectedIndex(),effort, dlg.descriptionField.getText(),null);
+////		CurrentProject.getTaskList().adjustParentTasks(newTask);
+//		newTask.setProgress(((Integer)dlg.progress.getValue()).intValue());
+//        CurrentStorage.get().storeTaskList(CurrentProject.getTaskList(), CurrentProject.get());
+//        taskTable.tableChanged();
+//        parentPanel.updateIndicators();
         //taskTable.updateUI();
     }
 
