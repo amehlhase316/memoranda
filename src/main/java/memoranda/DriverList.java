@@ -8,23 +8,17 @@
  */
 package main.java.memoranda;
 
-import main.java.memoranda.date.CalendarDate;
-import main.java.memoranda.util.Util;
-import nu.xom.*;
-
-import java.util.Collection;
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.Vector;
+import java.util.ArrayList;
+import java.util.List;
 
 
 
 public class DriverList {
-    private Hashtable drivers;
+    private List<Driver> drivers;
     private int numberOfDrivers;
 
     public DriverList() {
-        drivers = new Hashtable();
+        drivers = new ArrayList<>();
         numberOfDrivers = 0;
 
         //import the drivers from JSON here
@@ -33,7 +27,7 @@ public class DriverList {
     public Driver getDriver(int id) { return (Driver) drivers.get(id); }
 
     public void addDriver(Driver driver) {
-        drivers.put(driver.getID(), driver);
+        drivers.add(driver);
         numberOfDrivers++;
     }
 
