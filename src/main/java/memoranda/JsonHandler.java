@@ -1,6 +1,5 @@
 package main.java.memoranda;
 
-import main.java.memoranda.*;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +11,7 @@ import org.json.simple.parser.JSONParser;
 public class JsonHandler {
 	
 	public List<Node> nodes;
+	public List<Driver> drivers;
 	
 	public JsonHandler() {
 		nodes = new ArrayList<Node>();
@@ -20,6 +20,10 @@ public class JsonHandler {
 	public void addNode(String id, double latitude, double longitude) {
         nodes.add(new Node(id, latitude, longitude));
     }
+	
+	public void addDriver(int id, String name, String phoneNumber) {
+		drivers.add(new Driver(id, name, phoneNumber));
+	}
 
 	public void readNodesFromJSON(String filename) {
         try {
@@ -54,7 +58,7 @@ public class JsonHandler {
                 String name = (String) nodeObj.get("name");
                 String phoneNumber = (String) nodeObj.get("phoneNumber");
 
-                addDriver
+                addDriver(id, name, phoneNumber);
             }
         } catch (Exception e) {
             e.printStackTrace();
