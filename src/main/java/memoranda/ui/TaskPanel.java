@@ -56,8 +56,10 @@ public class TaskPanel extends JPanel {
 	JMenuItem ppAddSubTask = new JMenuItem();
 	JMenuItem ppCalcTask = new JMenuItem();
 	DailyItemsPanel parentPanel = null;
-    JsonHandler driverImport = new JsonHandler();
-    DriverList driverList = new DriverList(driverImport.drivers);
+    JsonHandler jsonImport = new JsonHandler();
+    DriverList driverList = ((jsonImport.drivers.size() == 0) ? new DriverList() : new DriverList(jsonImport.drivers));
+
+
 
     public TaskPanel(DailyItemsPanel _parentPanel) {
         try {
