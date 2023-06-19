@@ -9,35 +9,30 @@
 package main.java.memoranda;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.function.Consumer;
 
 
+public class DriverList implements Iterable<Driver> {
+    private ArrayList<Driver> drivers;
 
-public class DriverList {
-    private List<Driver> drivers;
-    private int numberOfDrivers;
 
     public DriverList() {
         this.drivers = new ArrayList<Driver>();
-        numberOfDrivers = 0;
     }
 
-    public DriverList(List<Driver> drivers) {
+    public DriverList(ArrayList<Driver> drivers) {
         this.drivers = drivers;
-        numberOfDrivers = drivers.size();
     }
 
     public Driver getDriver(int id) { return (Driver) drivers.get(id); }
 
-    public void addDriver(Driver driver) {
-        drivers.add(driver);
-        numberOfDrivers++;
-    }
+    public void addDriver(Driver driver) { drivers.add(driver); }
 
-    public void removeDriver(int id) {
-        drivers.remove(id);
-        numberOfDrivers--;
-    }
+    public void removeDriver(int id) { drivers.remove(id); }
 
-    public int getNumberOfDrivers() { return numberOfDrivers; }
+    public int getNumberOfDrivers() { return drivers.size(); }
+
+    public Iterator<Driver> iterator() { return drivers.iterator(); }
 }

@@ -12,7 +12,7 @@ import org.json.simple.parser.JSONParser;
 public class JsonHandler {
 
 	public List<Node> nodes;
-	public List<Driver> drivers;
+	public ArrayList<Driver> drivers;
 	
 	public JsonHandler() {
 		nodes = new ArrayList<Node>();
@@ -57,7 +57,7 @@ public class JsonHandler {
 
             for (Object obj : nodesArray) {
                 JSONObject nodeObj = (JSONObject) obj;
-                int id = (int) nodeObj.get("ID");
+                int id = Integer.valueOf((String) nodeObj.get("ID"));
                 String name = (String) nodeObj.get("name");
                 String phoneNumber = (String) nodeObj.get("phoneNumber");
 

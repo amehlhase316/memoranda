@@ -8,6 +8,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Vector;
 
 public class BusAndDriverPanel extends JPanel {
     private JButton createDriverButton;
@@ -17,9 +20,12 @@ public class BusAndDriverPanel extends JPanel {
     JPanel listPanel = new JPanel();
     JScrollPane driverScrollPane = new JScrollPane();
     JScrollPane busScrollPane = new JScrollPane();
+    JPanel driverDetail;
     JsonHandler jsonHandler = new JsonHandler();
     DriverList driverList;
     //buslist here
+
+    JList<Driver> driverJList = new JList<>();
 
     public BusAndDriverPanel() {
         try {
@@ -29,12 +35,14 @@ public class BusAndDriverPanel extends JPanel {
             new ExceptionDialog(ex);
         }
     }
-    void jbInit() throws Exception {
-
+    private void jbInit() throws Exception {
+        //Import the drivers from the json file and populate driverList
     	jsonHandler.readDriversFromJSON("memoranda/nodes1.json");
         driverList = new DriverList(jsonHandler.drivers);
 
+        //set the main panel layout to be a borderlayout
         this.setLayout(borderLayout1);
+        //listPanel is set as a horizontal boxlayout
         listPanel.setLayout(new BoxLayout(listPanel, BoxLayout.X_AXIS));
         driverScrollPane.getViewport().setBackground(Color.white);
         busScrollPane.getViewport().setBackground(Color.blue);
@@ -57,11 +65,8 @@ public class BusAndDriverPanel extends JPanel {
         BusAndDriverPanel.PopupListener ppListener = new BusAndDriverPanel.PopupListener();
         driverScrollPane.addMouseListener(ppListener);
 
-        buildTopPanel();
+        //buildTopPanel();
 
-    }
-
-    private void buildTopPanel() {
         // Side Panel
         JPanel topPanel = new JPanel();
         topPanel.setLayout(new BorderLayout());
@@ -88,11 +93,10 @@ public class BusAndDriverPanel extends JPanel {
         topPanel.add(buttonPanel, BorderLayout.WEST);
         this.add(topPanel, BorderLayout.NORTH);
 
-
-
     }
 
-    void createDriverButton_ActionPerformed(ActionEvent e) {
+
+    private void createDriverButton_ActionPerformed(ActionEvent e) {
         DriverDialog dialogBox = new DriverDialog(App.getFrame(), Local.getString("New Driver"));
         //Driver object has (int) ID, (String) Name, (String) Phone Number
 
@@ -104,15 +108,26 @@ public class BusAndDriverPanel extends JPanel {
             return;
 
         driverList.addDriver(dialogBox.tempDriver);
+        for(Driver driver : driverList)
+            System.out.println(driver.getName());
+        updateList();
+    }
 
-            /*CurrentStorage.get().storeTaskList(CurrentProject.getTaskList(), CurrentProject.get());
-            taskTable.tableChanged();
-            parentPanel.updateIndicators();*/
-        //taskTable.updateUI();
+    private void updateList() {
+        listPanel.removeAll();
+
+        for(Driver driver : driverList) {
+            JLabel tempLabel = new JLabel(driver.getName());
+            driverScrollPane.add(tempLabel);
+        }
+        driverScrollPane.revalidate();
+        driverScrollPane.repaint();
+        listPanel.add(driverScrollPane);
+        listPanel.add(busScrollPane);
     }
 
 
-    class PopupListener extends MouseAdapter {
+    private class PopupListener extends MouseAdapter {
 
         public void mouseClicked(MouseEvent e) {
             //            if ((e.getClickCount() == 2) && (eventsTable.getSelectedRow() > -1))
