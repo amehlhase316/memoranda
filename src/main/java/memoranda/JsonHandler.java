@@ -12,11 +12,13 @@ import org.json.simple.parser.JSONParser;
 public class JsonHandler {
 
 	public List<Node> nodes;
-	public ArrayList<Driver> drivers;
+	public ArrayList<Driver> driverList;
+    public ArrayList<Bus> busList;
 	
 	public JsonHandler() {
 		nodes = new ArrayList<Node>();
-        drivers = new ArrayList<Driver>();
+        driverList = new ArrayList<Driver>();
+        busList = new ArrayList<Bus>();
 	}
 	
 	public void addNode(String id, double latitude, double longitude) {
@@ -24,7 +26,7 @@ public class JsonHandler {
     }
 	
 	public void addDriver(int id, String name, String phoneNumber) {
-		drivers.add(new Driver(id, name, phoneNumber));
+		driverList.add(new Driver(id, name, phoneNumber));
 	}
 
 	public void readNodesFromJSON(String filename) {
@@ -49,7 +51,6 @@ public class JsonHandler {
 
     public void readDriversFromJSON(String filename) {
         try {
-            filename = "memoranda/nodes1.json";
             JSONParser parser = new JSONParser();
             JSONObject jsonObject = (JSONObject) parser.parse(new FileReader(filename));
 
@@ -62,6 +63,25 @@ public class JsonHandler {
                 String phoneNumber = (String) nodeObj.get("phoneNumber");
 
                 addDriver(id, name, phoneNumber);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void readBusesFromJSON(String filename) {
+        try {
+            JSONParser parser = new JSONParser();
+            JSONObject jsonObject = (JSONObject) parser.parse(new FileReader(filename));
+
+            JSONArray nodesArray = (JSONArray) jsonObject.get("buses");
+
+            for (Object obj : nodesArray) {
+                JSONObject nodeObj = (JSONObject) obj;
+                int id = Integer.valueOf((String) nodeObj.get("ID"));
+                int seats = Integer.valueOf((String) nodeObj.get("Seats"));
+
+                busList.add(new Bus(id, seats));
             }
         } catch (Exception e) {
             e.printStackTrace();

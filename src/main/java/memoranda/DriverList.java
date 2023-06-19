@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 
-public class DriverList extends JList<Driver> implements Iterable<Driver> {
+public class DriverList implements Iterable<Driver> {
     private ArrayList<Driver> driverList;
 
     /**

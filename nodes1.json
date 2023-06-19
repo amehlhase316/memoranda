@@ -24,5 +24,8 @@
 		{"ID":  "1", "name":  "Joe Bob", "phoneNumber":  "(401) 555-5555"},
 		{"ID":  "2", "name":  "Jim Cob", "phoneNumber":  "(401) 555-5555"},
 		{"ID":  "3", "name":  "One Round for Jose Cuervo", "phoneNumber":  "(401) 555-5555"}
+	],
+	"buses": [
+		{"ID":  "1", "Seats":  "32"}
 	]
 }

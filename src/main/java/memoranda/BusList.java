@@ -3,20 +3,26 @@ package main.java.memoranda;
 import main.java.memoranda.Bus;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class BusList {
+public class BusList implements Iterable<Bus> {
     private List<Bus> buses;
 
     public BusList(){
         buses = new ArrayList<>();
     }
+
+    public BusList(ArrayList<Bus> busList){
+        buses = busList;
+    }
+
     public void addBus(Bus bus) {
         buses.add(bus);
     }
 
-    public void removeBus(int id) {
-        buses.remove(id);
+    public void removeBus(Bus bus) {
+        buses.remove(bus);
     }
 
     public int getNumberOfBuses() {
@@ -36,5 +42,10 @@ public class BusList {
             }
         }
         return null;
+    }
+
+    @Override
+    public Iterator<Bus> iterator() {
+        return buses.iterator();
     }
 }

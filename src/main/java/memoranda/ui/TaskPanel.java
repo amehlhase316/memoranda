@@ -72,7 +72,7 @@ public class TaskPanel extends JPanel {
     }
     void jbInit() throws Exception {
         jsonHandler.readNodesFromJSON("memoranda/nodes1.json");
-        driverList = new DriverList(jsonHandler.drivers);
+        driverList = new DriverList(jsonHandler.driverList);
         tasksToolBar.setFloatable(false);
 
         historyBackB.setAction(History.historyBackAction);
