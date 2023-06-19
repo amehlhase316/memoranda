@@ -32,13 +32,6 @@ public class DriverList extends JList<Driver> implements Iterable<Driver> {
     }
 
     /**
-     * Returns a driver object.
-     * @param id integer driver ID.
-     * @return driver object.
-     */
-    public Driver getDriver(int id) { return (Driver) driverList.get(id); }
-
-    /**
      * Add a driver to the driverList.
      * @param driver driver object
      */
@@ -49,6 +42,15 @@ public class DriverList extends JList<Driver> implements Iterable<Driver> {
      * @param id int driver id
      */
     public void removeDriver(int id) { driverList.remove(id); }
+
+    /**
+     * Returns a driver object.
+     * @param id integer driver ID.
+     * @return driver object.
+     */
+    public Driver getDriver(int id) { return (Driver) driverList.get(id); }
+
+    public Boolean hasDriver(int id) { return getDriver(id) != null; }
 
     /**
      * Gets the number of drivers within the driverList.

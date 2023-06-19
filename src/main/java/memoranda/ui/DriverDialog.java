@@ -182,17 +182,22 @@ public class DriverDialog extends JDialog {
                     e.consume();
                 if(phoneField.getText().length() == 0)
                     phoneField.setText("(");
-            }
-
-            @Override
-            public void keyPressed(KeyEvent e) {       }
-
-            @Override
-            public void keyReleased(KeyEvent e) {
                 if(phoneField.getText().length() == 4)
                     phoneField.setText(phoneField.getText() + ") ");
                 if(phoneField.getText().length() == 9)
                     phoneField.setText(phoneField.getText() + "-");
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if(phoneField.getText().length() >= 14)
+                    e.consume();
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                if(phoneField.getText().length() >= 14)
+                    e.consume();
             }
         });
     }

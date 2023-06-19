@@ -82,10 +82,12 @@ public class BusAndDriverPanel extends JPanel {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout());
 
-        createDriverButton = new JButton("Create Driver");
-        createDriverButton.setMaximumSize(new Dimension(50, 50));
+        createDriverButton = new JButton();
+        createDriverButton.setIcon(
+                new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/Add_Driver.png")));
+        createDriverButton.setMaximumSize(new Dimension(40, 50));
         createDriverButton.setToolTipText(Local.getString("Create a New Driver"));
-        createDriverButton.setPreferredSize(new Dimension(50, 50));
+        createDriverButton.setPreferredSize(new Dimension(40, 50));
         createDriverButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 createDriverButton_ActionPerformed(e);
@@ -113,7 +115,8 @@ public class BusAndDriverPanel extends JPanel {
         dialogBox.setVisible(true);
         if (dialogBox.CANCELLED)
             return;
-
+        if(driverList.hasDriver(dialogBox.tempDriver.getID()))
+            return; //temp solution so no duplicate IDs are made
         driverList.addDriver(dialogBox.tempDriver);
 
         updateList();
