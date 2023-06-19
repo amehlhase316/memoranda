@@ -15,6 +15,7 @@ public class BusAndDriverPanel extends JPanel {
     JsonHandler jsonHandler = new JsonHandler();
     DriverList driverList;
     BusList busList;
+    Font font = new Font(Font.MONOSPACED,Font.BOLD, 14);
 
 
     /**
@@ -99,28 +100,50 @@ public class BusAndDriverPanel extends JPanel {
         busColumns = new JPanel();
         busColumns.setLayout(new GridBagLayout());
 
+        //Set up GridBagConstraints
+        GridBagConstraints driverIDConstraints = new GridBagConstraints();
+        driverIDConstraints.fill = GridBagConstraints.HORIZONTAL;
+        driverIDConstraints.weightx = 0.05;
+        driverIDConstraints.gridx = 0;
+        driverIDConstraints.gridy = 0;
+
+        GridBagConstraints driverNameConstraints = new GridBagConstraints();
+        driverNameConstraints.fill = GridBagConstraints.HORIZONTAL;
+        driverNameConstraints.weightx = 0.6;
+        driverNameConstraints.gridx = 1;
+        driverNameConstraints.gridy = 0;
+
+        GridBagConstraints driverPhoneConstraints = new GridBagConstraints();
+        driverPhoneConstraints.fill = GridBagConstraints.HORIZONTAL;
+        driverPhoneConstraints.weightx = 0.25;
+        driverPhoneConstraints.gridx = 2;
+        driverPhoneConstraints.gridy = 0;
+
+        GridBagConstraints driverBufferConstraints = new GridBagConstraints();
+        driverBufferConstraints.fill = GridBagConstraints.HORIZONTAL;
+        driverBufferConstraints.weightx = 0.1;
+        driverBufferConstraints.gridx = 3;
+        driverBufferConstraints.gridy = 0;
+
         //set up the columns
         JPanel driverID = new JPanel();
         driverID.add(new JLabel("Driver ID"));
-        driverID.setPreferredSize(new Dimension(100,25));
         JPanel driverName = new JPanel();
         driverName.add(new JLabel("Driver Name"));
-        driverName.setPreferredSize(new Dimension(200,25));
         JPanel driverPhone = new JPanel();
         driverPhone.add(new JLabel("Driver Phone"));
-        driverPhone.setPreferredSize(new Dimension(100, 25));
         JPanel driverBuffer = new JPanel();
-        driverBuffer.add(new JLabel(""));
-        driverBuffer.setPreferredSize(new Dimension(200, 25));
+        driverBuffer.add(new JLabel("   "));
         JPanel busID = new JPanel();
         busID.add(new JLabel("Bus ID"));
         JPanel busSeats = new JPanel();
         busSeats.add(new JLabel("Bus Seats"));
 
         //Add columns to driverColumns pane
-        driverColumns.add(driverID);
-        driverColumns.add(driverName);
-        driverColumns.add(driverPhone);
+        driverColumns.add(driverID, driverIDConstraints);
+        driverColumns.add(driverName, driverNameConstraints);
+        driverColumns.add(driverPhone, driverPhoneConstraints);
+        driverColumns.add(driverBuffer, driverBufferConstraints);
         busColumns.add(busID);
         busColumns.add(busSeats);
 
@@ -266,20 +289,42 @@ public class BusAndDriverPanel extends JPanel {
 
             //Create the individual sections for the driver information and the delete button
             JLabel driverID = new JLabel(String.valueOf(driver.getID()));
+            driverID.setFont(font);
             JLabel driverName = new JLabel(driver.getName());
+            driverName.setFont(font);
             JLabel driverPhone = new JLabel(driver.getPhone());
+            driverPhone.setFont(font);
             DeleteButton deleteButton = new DeleteButton(driver);
 
-            //Update the properties of each item
-            driverID.setPreferredSize(new Dimension(100, 25));
-            driverName.setPreferredSize(new Dimension(200,25));
-            driverPhone.setPreferredSize(new Dimension(100, 25));
+            GridBagConstraints driverIDConstraints = new GridBagConstraints();
+            driverIDConstraints.fill = GridBagConstraints.HORIZONTAL;
+            driverIDConstraints.weightx = 0.15;
+            driverIDConstraints.gridx = 0;
+            driverIDConstraints.gridy = 0;
+
+            GridBagConstraints driverNameConstraints = new GridBagConstraints();
+            driverNameConstraints.fill = GridBagConstraints.HORIZONTAL;
+            driverNameConstraints.weightx = 0.5;
+            driverNameConstraints.gridx = 1;
+            driverNameConstraints.gridy = 0;
+
+            GridBagConstraints driverPhoneConstraints = new GridBagConstraints();
+            driverPhoneConstraints.fill = GridBagConstraints.HORIZONTAL;
+            driverPhoneConstraints.weightx = 0.2;
+            driverPhoneConstraints.gridx = 2;
+            driverPhoneConstraints.gridy = 0;
+
+            GridBagConstraints deleteButtonConstraints = new GridBagConstraints();
+            deleteButtonConstraints.fill = GridBagConstraints.HORIZONTAL;
+            deleteButtonConstraints.weightx = 0.15;
+            deleteButtonConstraints.gridx = 3;
+            deleteButtonConstraints.gridy = 0;
 
             //Add the items to the temporary pane
-            tempPane.add(driverID, createConstraints(0,0));
-            tempPane.add(driverName, createConstraints(1,0));
-            tempPane.add(driverPhone, createConstraints(2,0));
-            tempPane.add(deleteButton, createConstraints(3,0));
+            tempPane.add(driverID, driverIDConstraints);
+            tempPane.add(driverName, driverNameConstraints);
+            tempPane.add(driverPhone, driverPhoneConstraints);
+            tempPane.add(deleteButton, deleteButtonConstraints);
 
             //Add the tempPane to the driverPane
             driverPane.add(tempPane);

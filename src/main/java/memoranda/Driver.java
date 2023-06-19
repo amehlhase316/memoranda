@@ -1,7 +1,7 @@
 package main.java.memoranda;
 
 public class Driver {
-    private final int ID;
+    private final String ID;
     private String name;
     private String phone;
 
@@ -11,8 +11,16 @@ public class Driver {
      * @param name String, max of 100 characters
      * @param phone String, max of 14 characters
      */
-    public Driver(int ID, String name, String phone) {
+    public Driver(String ID, String name, String phone) {
+        if(ID.length() < 6)
+            for(int i = ID.length(); i < 6; i++)
+                ID = "0" + ID;
+        for(int i = 0; i < 2; i++)
+            ID = " " + ID;
         this.ID = ID;
+        if(name.length() < 35)
+            for(int i = name.length(); i <= 35; i ++)
+                name += " ";
         this.name = name;
         this.phone = phone;
     }
@@ -21,7 +29,7 @@ public class Driver {
      * Returns Driver ID.
      * @return int ID
      */
-    public int getID() { return this.ID; }
+    public String getID() { return this.ID; }
 
     /**
      * Returns Driver name.
