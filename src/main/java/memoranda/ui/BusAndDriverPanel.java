@@ -14,6 +14,7 @@ public class BusAndDriverPanel extends JPanel {
     private JButton createBusButton;
 
     BorderLayout borderLayout1 = new BorderLayout();
+    JPanel listPanel = new JPanel();
     JScrollPane driverScrollPane = new JScrollPane();
     JScrollPane busScrollPane = new JScrollPane();
     JsonHandler jsonHandler = new JsonHandler();
@@ -34,28 +35,27 @@ public class BusAndDriverPanel extends JPanel {
         driverList = new DriverList(jsonHandler.drivers);
 
         this.setLayout(borderLayout1);
+        listPanel.setLayout(new BoxLayout(listPanel, BoxLayout.X_AXIS));
         driverScrollPane.getViewport().setBackground(Color.white);
+        busScrollPane.getViewport().setBackground(Color.blue);
 
-        JScrollBar vertScrollBar = driverScrollPane.getVerticalScrollBar();
-        vertScrollBar.setUnitIncrement(25);
-        vertScrollBar.setBlockIncrement(50);
-        this.add(driverScrollPane, BorderLayout.CENTER);
+        //Edit the scroll bars for each scrollpane
+        JScrollBar driverVertScrollBar = driverScrollPane.getVerticalScrollBar();
+        driverVertScrollBar.setUnitIncrement(25);
+        driverVertScrollBar.setBlockIncrement(50);
+        JScrollBar busVertScrollBar = busScrollPane.getVerticalScrollBar();
+        busVertScrollBar.setUnitIncrement(25);
+        busVertScrollBar.setBlockIncrement(50);
+
+        //Add lists to the listPanel
+        listPanel.add(driverScrollPane);
+        listPanel.add(busScrollPane);
+
+        //Add listPanel to the main window
+        this.add(listPanel);
 
         BusAndDriverPanel.PopupListener ppListener = new BusAndDriverPanel.PopupListener();
         driverScrollPane.addMouseListener(ppListener);
-
-        // Top Panel
-        JPanel topPanel = new JPanel();
-        topPanel.setLayout(new BorderLayout());
-        topPanel.setPreferredSize(new Dimension(getWidth(), 100));
-        topPanel.setBackground(Color.white);
-
-
-        // Buttons
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new FlowLayout());
-
-        createDriverButton = new JButton("Create Driver");
 
         buildTopPanel();
 
