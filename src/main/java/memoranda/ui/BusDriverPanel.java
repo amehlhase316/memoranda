@@ -59,25 +59,25 @@ public class BusDriverPanel extends JPanel {
         driverList = new DriverList(jsonHandler.drivers);
         tasksToolBar.setFloatable(false);
 
-        historyBackB.setAction(History.historyBackAction);
-        historyBackB.setFocusable(false);
-        historyBackB.setBorderPainted(false);
-        historyBackB.setToolTipText(Local.getString("History back"));
-        historyBackB.setRequestFocusEnabled(false);
-        historyBackB.setPreferredSize(new Dimension(24, 24));
-        historyBackB.setMinimumSize(new Dimension(24, 24));
-        historyBackB.setMaximumSize(new Dimension(24, 24));
-        historyBackB.setText("");
-
-        historyForwardB.setAction(History.historyForwardAction);
-        historyForwardB.setBorderPainted(false);
-        historyForwardB.setFocusable(false);
-        historyForwardB.setPreferredSize(new Dimension(24, 24));
-        historyForwardB.setRequestFocusEnabled(false);
-        historyForwardB.setToolTipText(Local.getString("History forward"));
-        historyForwardB.setMinimumSize(new Dimension(24, 24));
-        historyForwardB.setMaximumSize(new Dimension(24, 24));
-        historyForwardB.setText("");
+//        historyBackB.setAction(History.historyBackAction);
+//        historyBackB.setFocusable(false);
+//        historyBackB.setBorderPainted(false);
+//        historyBackB.setToolTipText(Local.getString("History back"));
+//        historyBackB.setRequestFocusEnabled(false);
+//        historyBackB.setPreferredSize(new Dimension(24, 24));
+//        historyBackB.setMinimumSize(new Dimension(24, 24));
+//        historyBackB.setMaximumSize(new Dimension(24, 24));
+//        historyBackB.setText("");
+//
+//        historyForwardB.setAction(History.historyForwardAction);
+//        historyForwardB.setBorderPainted(false);
+//        historyForwardB.setFocusable(false);
+//        historyForwardB.setPreferredSize(new Dimension(24, 24));
+//        historyForwardB.setRequestFocusEnabled(false);
+//        historyForwardB.setToolTipText(Local.getString("History forward"));
+//        historyForwardB.setMinimumSize(new Dimension(24, 24));
+//        historyForwardB.setMaximumSize(new Dimension(24, 24));
+//        historyForwardB.setText("");
 
 
         //#####################################################################################
@@ -95,7 +95,7 @@ public class BusDriverPanel extends JPanel {
                 newDriverButton_ActionPerformed(e);
             }
         });
-        newTaskB.setBorderPainted(false);
+        newDriverButton.setBorderPainted(false);
 
 
 
@@ -106,21 +106,21 @@ public class BusDriverPanel extends JPanel {
 
 
 
-        newTaskB.setIcon(
-            new ImageIcon(AppFrame.class.getResource("/ui/icons/todo_new.png")));
-        newTaskB.setEnabled(true);
-        newTaskB.setMaximumSize(new Dimension(24, 24));
-        newTaskB.setMinimumSize(new Dimension(24, 24));
-        newTaskB.setToolTipText(Local.getString("Create new task"));
-        newTaskB.setRequestFocusEnabled(false);
-        newTaskB.setPreferredSize(new Dimension(24, 24));
-        newTaskB.setFocusable(false);
-        newTaskB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                newTaskB_actionPerformed(e);
-            }
-        });
-        newTaskB.setBorderPainted(false);
+//        newTaskB.setIcon(
+//            new ImageIcon(AppFrame.class.getResource("/ui/icons/todo_new.png")));
+//        newTaskB.setEnabled(true);
+//        newTaskB.setMaximumSize(new Dimension(24, 24));
+//        newTaskB.setMinimumSize(new Dimension(24, 24));
+//        newTaskB.setToolTipText(Local.getString("Create new task"));
+//        newTaskB.setRequestFocusEnabled(false);
+//        newTaskB.setPreferredSize(new Dimension(24, 24));
+//        newTaskB.setFocusable(false);
+//        newTaskB.addActionListener(new java.awt.event.ActionListener() {
+//            public void actionPerformed(ActionEvent e) {
+//                newTaskB_actionPerformed(e);
+//            }
+//        });
+//        newTaskB.setBorderPainted(false);
         
         subTaskB.setIcon(
             new ImageIcon(AppFrame.class.getResource("/ui/icons/todo_new_sub.png")));

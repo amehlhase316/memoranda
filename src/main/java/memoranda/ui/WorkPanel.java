@@ -38,6 +38,7 @@ public class WorkPanel extends JPanel {
 	public RoutePanel routePanel = new RoutePanel();
 	public JButton agendaB = new JButton();
 	public JButton tasksB = new JButton();
+	public JButton busDriverB = new JButton();
 //
 	public JButton routeB = new JButton();
 	
@@ -157,6 +158,33 @@ public class WorkPanel extends JPanel {
 		routeB.setMargin(new Insets(0, 0, 0, 0));
 		//eventsB.setSelected(true);
 
+		
+		busDriverB.setSelected(true);
+		busDriverB.setFont(new java.awt.Font("Dialog", 1, 10));
+		busDriverB.setMargin(new Insets(0, 0, 0, 0));
+//		busDriverB.setIcon(
+//			new ImageIcon(
+//				main.java.memoranda.ui.AppFrame.class.getResource(
+//					"/ui/icons/tasks.png")));
+		busDriverB.setVerticalTextPosition(SwingConstants.BOTTOM);
+		busDriverB.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				busDriverB_actionPerformed(e);
+			}
+		});
+		busDriverB.setVerticalAlignment(SwingConstants.TOP);
+		busDriverB.setText(Local.getString("Bus/Driver"));
+		busDriverB.setHorizontalTextPosition(SwingConstants.CENTER);
+		busDriverB.setFocusPainted(false);
+		busDriverB.setBorderPainted(false);
+		busDriverB.setContentAreaFilled(false);
+		busDriverB.setPreferredSize(new Dimension(50, 50));
+		busDriverB.setMinimumSize(new Dimension(30, 30));
+		busDriverB.setOpaque(false);
+		busDriverB.setMaximumSize(new Dimension(60, 80));
+		busDriverB.setBackground(Color.white);
+		
+		
 		tasksB.setSelected(true);
 		tasksB.setFont(new java.awt.Font("Dialog", 1, 10));
 		tasksB.setMargin(new Insets(0, 0, 0, 0));
@@ -281,6 +309,7 @@ public class WorkPanel extends JPanel {
 //		panel.add(filesPanel, "FILES");
 		toolBar.add(agendaB, null);
 		toolBar.add(routeB, null);
+		toolBar.add(busDriverB, null);
 		toolBar.add(tasksB, null);
 		toolBar.add(mapB, null);
 //		toolBar.add(notesB, null);
@@ -327,6 +356,13 @@ public class WorkPanel extends JPanel {
 //		Context.put("CURRENT_PANEL", "NOTES");
 //	}
 
+	public void busDriverB_actionPerformed(ActionEvent e) {
+		cardLayout1.show(panel, "DAILYITEMS");
+		dailyItemsPanel.selectPanel("BUSDRIVERS");
+		setCurrentButton(busDriverB);
+		Context.put("CURRENT_PANEL", "TASKS");
+	}
+	
 	public void tasksB_actionPerformed(ActionEvent e) {
 		cardLayout1.show(panel, "DAILYITEMS");
 		dailyItemsPanel.selectPanel("TASKS");
