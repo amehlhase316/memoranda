@@ -110,7 +110,7 @@ public class BusDialog extends JDialog {
         GridBagConstraints seatsFieldConstraints = new GridBagConstraints();
         seatsFieldConstraints.gridwidth = GridBagConstraints.REMAINDER;
         seatsFieldConstraints.weighty = 1;
-        gbLayout.setConstraints(idField,seatsFieldConstraints);
+        gbLayout.setConstraints(seatsField,seatsFieldConstraints);
         seatsLabel.setText(Local.getString("Number of Seats"));
         seatsLabel.setMinimumSize(new Dimension(60, 16));
         seatsLabel.setMaximumSize(new Dimension(100, 16));
@@ -134,7 +134,25 @@ public class BusDialog extends JDialog {
         gridPanel.add(seatsFieldPanel, null);
         seatsFieldPanel.add(seatsField, null);
 
+        seatsField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                if(idField.getText().length() >= 6)
+                    e.consume();
+            }
 
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                if(!seatsField.getText().matches("\\d")) {
+                    seatsField.setText(seatsField.getText().replaceAll("\\D", ""));
+                }
+            }
+        });
 
         idField.addKeyListener(new KeyListener() {
             @Override
@@ -148,8 +166,9 @@ public class BusDialog extends JDialog {
 
             @Override
             public void keyReleased(KeyEvent e) {
-                if(!idField.getText().matches("\\d"))
+                if (!idField.getText().matches("\\d")) {
                     idField.setText(idField.getText().replaceAll("\\D", ""));
+                }
             }
         });
 
