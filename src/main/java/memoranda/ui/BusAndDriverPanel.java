@@ -35,7 +35,7 @@ public class BusAndDriverPanel extends JPanel {
      */
     private void panelInitialization() {
         //Import the drivers from the json file and populate driverList
-    	jsonHandler.readDriversFromJSON("nodes1.json");
+    	jsonHandler.readDriversFromJSON("memoranda/nodes1.json");
         driverList = new DriverList(jsonHandler.drivers);
 
         //set the main panel layout to be a borderlayout
