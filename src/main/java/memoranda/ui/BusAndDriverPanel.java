@@ -89,31 +89,45 @@ public class BusAndDriverPanel extends JPanel {
         //displayPane the columnPanes **NONE OF THIS COLUMN STUFF WORKS YET**
         columnPane = new JPanel();
         columnPane.setLayout(new BoxLayout(columnPane, BoxLayout.X_AXIS));
-        columnPane.setPreferredSize(new Dimension(getWidth(), 50));
+        columnPane.setPreferredSize(new Dimension(getWidth(), 25));
+        columnPane.setMinimumSize(new Dimension(getWidth(), 25));
 
         //Set up the columnPanes
         driverColumns = new JPanel();
-        driverColumns.setLayout(new GridLayout());
+        driverColumns.setLayout(new GridBagLayout());
         driverColumns.setPreferredSize(new Dimension(getWidth(), 50));
         busColumns = new JPanel();
-        busColumns.setLayout(new GridLayout());
+        busColumns.setLayout(new GridBagLayout());
 
         //set up the columns
         JPanel driverID = new JPanel();
         driverID.add(new JLabel("Driver ID"));
+        driverID.setPreferredSize(new Dimension(100,25));
         JPanel driverName = new JPanel();
         driverName.add(new JLabel("Driver Name"));
+        driverName.setPreferredSize(new Dimension(200,25));
         JPanel driverPhone = new JPanel();
         driverPhone.add(new JLabel("Driver Phone"));
+        driverPhone.setPreferredSize(new Dimension(100, 25));
+        JPanel driverBuffer = new JPanel();
+        driverBuffer.add(new JLabel(""));
+        driverBuffer.setPreferredSize(new Dimension(200, 25));
+        JPanel busID = new JPanel();
+        busID.add(new JLabel("Bus ID"));
+        JPanel busSeats = new JPanel();
+        busSeats.add(new JLabel("Bus Seats"));
 
         //Add columns to driverColumns pane
         driverColumns.add(driverID);
         driverColumns.add(driverName);
         driverColumns.add(driverPhone);
+        busColumns.add(busID);
+        busColumns.add(busSeats);
 
         //Add columnPanes to displayPane
         columnPane.add(driverColumns);
         columnPane.add(busColumns);
+        topPanel.add(columnPane, BorderLayout.SOUTH);
 
 
         //########################################## Lists ##########################################
@@ -151,12 +165,14 @@ public class BusAndDriverPanel extends JPanel {
 
         //add top panel and lists to main panel
         this.add(topPanel, BorderLayout.NORTH);
-        this.add(columnPane);
         this.add(listPane);
     }
 
+    /**
+     * Opens a pop-up window to create a bus.
+     * @param e Action Event
+     */
     private void createBusButton_ActionPerformed(ActionEvent e) {
-        //TODO: Insert call to BusDialog here
         BusDialog dialogBox = new BusDialog(App.getFrame(), Local.getString("New Bus"));
         Dimension frmSize = App.getFrame().getSize();
         Point loc = App.getFrame().getLocation();
@@ -235,7 +251,7 @@ public class BusAndDriverPanel extends JPanel {
     }
 
     /**
-     * Updates the displayed list(s)
+     * Updates the displayed list(s).
      */
     private void updateList() {
         //Remove all items from both lists
@@ -300,6 +316,12 @@ public class BusAndDriverPanel extends JPanel {
         busPane.repaint();
     }
 
+    /**
+     * Generages GridBagConstraints for a given gid location.
+     * @param x column parameter
+     * @param y row parameter
+     * @return
+     */
     private GridBagConstraints createConstraints(int x, int y) {
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.gridx = x;
