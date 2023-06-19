@@ -1,32 +1,24 @@
 package main.java.memoranda.ui;
 
-import main.java.memoranda.JsonHandler;
-import main.java.memoranda.MapGenerator;
-import main.java.memoranda.Route;
+import main.java.memoranda.*;
+import main.java.memoranda.util.Local;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class BusAndDriverPanel extends JPanel implements ActionListener {
+public class BusAndDriverPanel extends JPanel {
     private JButton createDriverButton;
-    private JLabel startLabel;
-    private JLabel finishLabel;
-    private JTextField startField;
-    private JTextField finishField;
-
-    private JLabel driverLabel;
-    private JLabel busLabel;
-    private JTextField driverField;
-    private JTextField busField;
+    private JButton createBusButton;
 
     BorderLayout borderLayout1 = new BorderLayout();
-    JScrollPane scrollPane = new JScrollPane();
+    JScrollPane driverScrollPane = new JScrollPane();
+    JScrollPane busScrollPane = new JScrollPane();
     JsonHandler jsonHandler = new JsonHandler();
-    MapGenerator mapGen;
+    DriverList driverList;
+    //buslist here
 
     public BusAndDriverPanel() {
         try {
@@ -38,29 +30,25 @@ public class BusAndDriverPanel extends JPanel implements ActionListener {
     }
     void jbInit() throws Exception {
 
-    	jsonHandler.readNodesFromJSON("nodes1.json");
-        mapGen = new MapGenerator(jsonHandler.nodes);
-
+    	jsonHandler.readDriversFromJSON("memoranda/nodes1.json");
+        driverList = new DriverList(jsonHandler.drivers);
 
         this.setLayout(borderLayout1);
-        scrollPane.getViewport().setBackground(Color.white);
-        scrollPane.getViewport().add(mapGen);
-        mapGen.repaint();
+        driverScrollPane.getViewport().setBackground(Color.white);
 
-
-        JScrollBar vertScrollBar = scrollPane.getVerticalScrollBar();
+        JScrollBar vertScrollBar = driverScrollPane.getVerticalScrollBar();
         vertScrollBar.setUnitIncrement(25);
         vertScrollBar.setBlockIncrement(50);
-        this.add(scrollPane, BorderLayout.CENTER);
+        this.add(driverScrollPane, BorderLayout.CENTER);
 
         BusAndDriverPanel.PopupListener ppListener = new BusAndDriverPanel.PopupListener();
-        scrollPane.addMouseListener(ppListener);
+        driverScrollPane.addMouseListener(ppListener);
 
-        // Side Panel
-        JPanel sidePanel = new JPanel();
-        sidePanel.setLayout(new BorderLayout());
-        sidePanel.setPreferredSize(new Dimension(200, getHeight()));
-        sidePanel.setBackground(Color.white);
+        // Top Panel
+        JPanel topPanel = new JPanel();
+        topPanel.setLayout(new BorderLayout());
+        topPanel.setPreferredSize(new Dimension(getWidth(), 100));
+        topPanel.setBackground(Color.white);
 
 
         // Buttons
@@ -68,85 +56,61 @@ public class BusAndDriverPanel extends JPanel implements ActionListener {
         buttonPanel.setLayout(new FlowLayout());
 
         createDriverButton = new JButton("Create Driver");
-        createDriverButton.addActionListener(this);
-        buttonPanel.add(createDriverButton);
 
-//        JButton modifyButton = new JButton("Modify");
-//        modifyButton.addActionListener(this);
-//        buttonPanel.add(modifyButton);
-
-        sidePanel.add(buttonPanel, BorderLayout.CENTER);
-
-        buildSidePanel();
+        buildTopPanel();
 
     }
 
-    private void buildSidePanel() {
+    private void buildTopPanel() {
         // Side Panel
-        JPanel sidePanel = new JPanel();
-        sidePanel.setLayout(new BorderLayout());
-        sidePanel.setPreferredSize(new Dimension(200, getHeight()));
-        sidePanel.setBackground(Color.white);
+        JPanel topPanel = new JPanel();
+        topPanel.setLayout(new BorderLayout());
+        topPanel.setPreferredSize(new Dimension(getWidth(), 75));
+        //topPanel.setBackground(Color.white);
 
 
         // Buttons
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout());
 
-        startLabel = new JLabel("Start of Route: ");
-        finishLabel = new JLabel("End of Route: ");
-        startField =  new JTextField(15);
-        finishField = new JTextField(15);
-        driverLabel = new JLabel("Driver: ");
-        busLabel = new JLabel("Bus: ");
-        driverField =  new JTextField(15);
-        busField = new JTextField(15);
-
-        startLabel.setBounds(10,20,100,40);
-        startField.setBounds(10,50,50,25);
-
-        finishLabel.setBounds(10,70,100,40);
-        finishField.setBounds(10,100,50,25);
-
-        driverLabel.setBounds(10,120,100,40);
-        driverField.setBounds(10,150,50,25);
-
-        busLabel.setBounds(10,170,100,40);
-        busField.setBounds(10,200,50,25);
-
         createDriverButton = new JButton("Create Driver");
-        createDriverButton.addActionListener(this);
+        createDriverButton.setMaximumSize(new Dimension(50, 50));
+        createDriverButton.setToolTipText(Local.getString("Create a New Driver"));
+        createDriverButton.setPreferredSize(new Dimension(50, 50));
+        createDriverButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                createDriverButton_ActionPerformed(e);
+            }
+        });
 
         buttonPanel.add(createDriverButton);
 
-        //        JButton modifyButton = new JButton("Modify");
-        //        modifyButton.addActionListener(this);
-        //        buttonPanel.add(modifyButton);
-        sidePanel.add(startLabel);
-        sidePanel.add(startField);
-        sidePanel.add(finishLabel);
-        sidePanel.add(finishField);
-        sidePanel.add(driverLabel);
-        sidePanel.add(driverField);
-        sidePanel.add(busLabel);
-        sidePanel.add(busField);
+        topPanel.add(buttonPanel, BorderLayout.WEST);
+        this.add(topPanel, BorderLayout.NORTH);
 
-        sidePanel.add(buttonPanel, BorderLayout.CENTER);
-        this.add(sidePanel, BorderLayout.EAST);
-    }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
-        if(e.getSource() == createDriverButton) {
-            createRoute();
-        }
 
     }
 
-    private void createRoute(){
+    void createDriverButton_ActionPerformed(ActionEvent e) {
+        DriverDialog dialogBox = new DriverDialog(App.getFrame(), Local.getString("New Driver"));
+        //Driver object has (int) ID, (String) Name, (String) Phone Number
 
+        Dimension frmSize = App.getFrame().getSize();
+        Point loc = App.getFrame().getLocation();
+        dialogBox.setLocation((frmSize.width - dialogBox.getSize().width) / 2 + loc.x, (frmSize.height - dialogBox.getSize().height) / 2 + loc.y);
+        dialogBox.setVisible(true);
+        if (dialogBox.CANCELLED)
+            return;
+
+        driverList.addDriver(dialogBox.tempDriver);
+
+            /*CurrentStorage.get().storeTaskList(CurrentProject.getTaskList(), CurrentProject.get());
+            taskTable.tableChanged();
+            parentPanel.updateIndicators();*/
+        //taskTable.updateUI();
     }
+
 
     class PopupListener extends MouseAdapter {
 
