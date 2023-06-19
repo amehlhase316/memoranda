@@ -8,13 +8,12 @@
  */
 package main.java.memoranda;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
-import java.util.function.Consumer;
 
 
-public class DriverList implements Iterable<Driver> {
+public class DriverList extends JList<Driver> implements Iterable<Driver> {
     private ArrayList<Driver> drivers;
 
 
