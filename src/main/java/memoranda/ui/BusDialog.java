@@ -28,9 +28,8 @@ public class BusDialog extends JDialog {
     Border border3;
     Border border4;
     JPanel gridPanel = new JPanel(new GridLayout(2, 2));
-    JTextField seatField = new JTextField();
+    JTextField seatsField = new JTextField();
     JTextField idField = new JTextField();
-    JTextField phoneField = new JTextField();
     Border border8;
 
     JPanel idFieldPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -95,22 +94,26 @@ public class BusDialog extends JDialog {
         header.setIcon(new ImageIcon(DriverDialog.class.getResource( "/ui/icons/task48.png")));
 
         GridBagLayout gbLayout = (GridBagLayout) jPanel8.getLayout();
-        jPanel8.setBorder(border3);
 
-        seatField.setBorder(border8);
-        seatField.setPreferredSize(new Dimension(375, 24));
-        GridBagConstraints seatFieldConstraints = new GridBagConstraints();
-        seatFieldConstraints.gridwidth = GridBagConstraints.REMAINDER;
-        seatFieldConstraints.weighty = 1;
-        gbLayout.setConstraints(seatField,seatFieldConstraints);
-
+        idField.setBorder(border8);
+        idField.setPreferredSize(new Dimension(55, 24));
+        GridBagConstraints idFieldConstraints = new GridBagConstraints();
+        idFieldConstraints.gridwidth = GridBagConstraints.REMAINDER;
+        idFieldConstraints.weighty = 1;
+        gbLayout.setConstraints(idField,idFieldConstraints);
         idLabel.setText(Local.getString("ID Number"));
         idLabel.setMinimumSize(new Dimension(60, 16));
         idLabel.setMaximumSize(new Dimension(100, 16));
 
+        seatsField.setBorder(border8);
+        seatsField.setPreferredSize(new Dimension(55, 24));
+        GridBagConstraints seatsFieldConstraints = new GridBagConstraints();
+        seatsFieldConstraints.gridwidth = GridBagConstraints.REMAINDER;
+        seatsFieldConstraints.weighty = 1;
+        gbLayout.setConstraints(idField,seatsFieldConstraints);
         seatsLabel.setText(Local.getString("Number of Seats"));
-        seatsLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-        seatsLabel.setMaximumSize(new Dimension(270, 16));
+        seatsLabel.setMinimumSize(new Dimension(60, 16));
+        seatsLabel.setMaximumSize(new Dimension(100, 16));
 
         getContentPane().add(mPanel);
         mPanel.add(areaPanel, BorderLayout.CENTER);
@@ -120,6 +123,17 @@ public class BusDialog extends JDialog {
         this.getContentPane().add(dialogTitlePanel, BorderLayout.NORTH);
         dialogTitlePanel.add(header, null);
         areaPanel.add(jPanel8, BorderLayout.NORTH);
+        areaPanel.add(gridPanel, BorderLayout.CENTER);
+
+        gridPanel.add(idLabelPanel, null);
+        idLabelPanel.add(idLabel, null);
+        gridPanel.add(idFieldPanel, null);
+        idFieldPanel.add(idField, null);
+        gridPanel.add(seatsLabelPanel, null);
+        seatsLabelPanel.add(seatsLabel, null);
+        gridPanel.add(seatsFieldPanel, null);
+        seatsFieldPanel.add(seatsField, null);
+
 
 
         idField.addKeyListener(new KeyListener() {
@@ -145,7 +159,7 @@ public class BusDialog extends JDialog {
     void okayBtn_ActionPerformed(ActionEvent e) {
         CANCELLED = false;
         int id = Integer.valueOf(idField.getText());
-        int seats = Integer.valueOf(seatField.getText());
+        int seats = Integer.valueOf(seatsField.getText());
         tempBus = new Bus(id, seats);
         this.dispose();
     }
