@@ -129,7 +129,7 @@ public class BusAndDriverPanel extends JPanel {
             //Create the individual sections for the driver information and the delete button
             JLabel driverID = new JLabel(String.valueOf(driver.getID()));
             JLabel driverName = new JLabel(driver.getName());
-            JLabel driverPhone = new JLabel(driver.getPhoneNumber());
+            JLabel driverPhone = new JLabel(driver.getPhone());
             JButton deleteButton = new JButton("Delete");
             //Update the properties of each item
             driverID.setPreferredSize(new Dimension(100, 25));
