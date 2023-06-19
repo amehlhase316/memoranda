@@ -9,13 +9,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import static java.awt.Color.*;
-
 public class BusAndDriverPanel extends JPanel {
     JButton createDriverButton, createBusButton;
-    JPanel listPane = new JPanel();
     JScrollPane driverScrollPane, busScrollPane;
-    JPanel driverPane, busPane;
+    JPanel columnPane, listPane, driverPane, busPane, driverColumns, busColumns;
     JsonHandler jsonHandler = new JsonHandler();
     DriverList driverList;
     //buslist here
@@ -38,12 +35,89 @@ public class BusAndDriverPanel extends JPanel {
      */
     private void panelInitialization() {
         //Import the drivers from the json file and populate driverList
-    	jsonHandler.readDriversFromJSON("memoranda/nodes1.json");
+    	jsonHandler.readDriversFromJSON("nodes1.json");
         driverList = new DriverList(jsonHandler.drivers);
 
         //set the main panel layout to be a borderlayout
         this.setLayout(new BorderLayout());
-        //listPanel is set as a horizontal boxlayout
+
+        //########################################## Top Panel ##########################################
+        JPanel topPanel = new JPanel();
+        topPanel.setLayout(new BorderLayout());
+        topPanel.setPreferredSize(new Dimension(getWidth(), 75));
+
+        //Buttons
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new FlowLayout());
+
+        //Create Driver Button
+        createDriverButton = new JButton();
+        createDriverButton.setIcon(
+                new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/Add_Driver.png")));
+        createDriverButton.setMaximumSize(new Dimension(40, 50));
+        createDriverButton.setToolTipText(Local.getString("Create a New Driver"));
+        createDriverButton.setPreferredSize(new Dimension(40, 50));
+        createDriverButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                createDriverButton_ActionPerformed(e);
+            }
+        });
+
+        //Create Bus Button
+        createBusButton = new JButton();
+        //createBusButton.setIcon(
+        //new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/Add_Driver.png")));
+        createBusButton.setMaximumSize(new Dimension(40, 50));
+        createBusButton.setToolTipText(Local.getString("Create a New Bus"));
+        createBusButton.setPreferredSize(new Dimension(40, 50));
+        createBusButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                createBusButton_ActionPerformed(e);
+            }
+        });
+
+        //Add buttons to buttonPanel
+        buttonPanel.add(createDriverButton);
+        buttonPanel.add(createBusButton);
+
+        //Add button panel to the top panel
+        topPanel.add(buttonPanel, BorderLayout.WEST);
+
+
+        //########################################## Columns ##########################################
+        //displayPane the columnPanes **NONE OF THIS COLUMN STUFF WORKS YET**
+        columnPane = new JPanel();
+        columnPane.setLayout(new BoxLayout(columnPane, BoxLayout.X_AXIS));
+        columnPane.setPreferredSize(new Dimension(getWidth(), 50));
+
+        //Set up the columnPanes
+        driverColumns = new JPanel();
+        driverColumns.setLayout(new GridLayout());
+        driverColumns.setPreferredSize(new Dimension(getWidth(), 50));
+        busColumns = new JPanel();
+        busColumns.setLayout(new GridLayout());
+
+        //set up the columns
+        JPanel driverID = new JPanel();
+        driverID.add(new JLabel("Driver ID"));
+        JPanel driverName = new JPanel();
+        driverName.add(new JLabel("Driver Name"));
+        JPanel driverPhone = new JPanel();
+        driverPhone.add(new JLabel("Driver Phone"));
+
+        //Add columns to driverColumns pane
+        driverColumns.add(driverID);
+        driverColumns.add(driverName);
+        driverColumns.add(driverPhone);
+
+        //Add columnPanes to displayPane
+        columnPane.add(driverColumns);
+        columnPane.add(busColumns);
+
+
+        //########################################## Lists ##########################################
+        //listPane is set as a horizontal boxlayout
+        listPane = new JPanel();
         listPane.setLayout(new BoxLayout(listPane, BoxLayout.X_AXIS));
 
         //Driver List
@@ -74,50 +148,9 @@ public class BusAndDriverPanel extends JPanel {
 
 
 
-        //Top Panel setup
-        JPanel topPanel = new JPanel();
-        topPanel.setLayout(new BorderLayout());
-        topPanel.setPreferredSize(new Dimension(getWidth(), 75));
-
-        //########################################## Buttons ##########################################
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new FlowLayout());
-
-        //Create Driver Button
-        createDriverButton = new JButton();
-        createDriverButton.setIcon(
-                new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/Add_Driver.png")));
-        createDriverButton.setMaximumSize(new Dimension(40, 50));
-        createDriverButton.setToolTipText(Local.getString("Create a New Driver"));
-        createDriverButton.setPreferredSize(new Dimension(40, 50));
-        createDriverButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                createDriverButton_ActionPerformed(e);
-            }
-        });
-
-        //Create Bus Button
-        createBusButton = new JButton();
-        //createBusButton.setIcon(
-                //new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/Add_Driver.png")));
-        createBusButton.setMaximumSize(new Dimension(40, 50));
-        createBusButton.setToolTipText(Local.getString("Create a New Bus"));
-        createBusButton.setPreferredSize(new Dimension(40, 50));
-        createBusButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                createBusButton_ActionPerformed(e);
-            }
-        });
-
-        //Add buttons to buttonpanel
-        buttonPanel.add(createDriverButton);
-        buttonPanel.add(createBusButton);
-
-        //Add button panel to the top panel
-        topPanel.add(buttonPanel, BorderLayout.WEST);
-
         //add top panel and lists to main panel
         this.add(topPanel, BorderLayout.NORTH);
+        this.add(columnPane);
         this.add(listPane);
     }
 
@@ -173,7 +206,11 @@ public class BusAndDriverPanel extends JPanel {
      * Updates the displayed list(s)
      */
     private void updateList() {
+        //Remove all items from both lists
         driverPane.removeAll();
+        busPane.removeAll();
+
+        //Update the driverPane
         for(Driver driver : driverList) {
             //Create a temporary panel to hold all the driver information
             JPanel tempPane = new JPanel();
@@ -202,6 +239,11 @@ public class BusAndDriverPanel extends JPanel {
         }
         driverPane.revalidate();
         driverPane.repaint();
+
+        //Update the busPane
+        //TODO: Iterate through busList and update busPane
+        busPane.revalidate();
+        busPane.repaint();
     }
 
     private GridBagConstraints createConstraints(int x, int y) {
@@ -213,29 +255,4 @@ public class BusAndDriverPanel extends JPanel {
         constraints.insets = new Insets(gap, gap + 2 * gap * x, gap, gap);
         return constraints;
     }
-
-
-    private class PopupListener extends MouseAdapter {
-
-        public void mouseClicked(MouseEvent e) {
-            //            if ((e.getClickCount() == 2) && (eventsTable.getSelectedRow() > -1))
-            //                editEventB_actionPerformed(null);
-        }
-
-        public void mousePressed(MouseEvent e) {
-            maybeShowPopup(e);
-        }
-
-        public void mouseReleased(MouseEvent e) {
-            maybeShowPopup(e);
-        }
-
-        private void maybeShowPopup(MouseEvent e) {
-            if (e.isPopupTrigger()) {
-                //                eventPPMenu.show(e.getComponent(), e.getX(), e.getY());
-            }
-        }
-
-    }
-
 }
