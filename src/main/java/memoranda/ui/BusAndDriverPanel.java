@@ -47,30 +47,7 @@ public class BusAndDriverPanel extends JPanel {
 
         driverPane = new JPanel();
         driverPane.setLayout(new GridLayout(50, 1));
-        for(Driver driver : driverList) {
-            //Create a temporary panel to hold all the driver information
-            JPanel tempPane = new JPanel();
-            tempPane.setLayout(new GridBagLayout());
-            //Create the individual sections for the driver information and the delete button
-            JLabel driverID = new JLabel(String.valueOf(driver.getID()));
-            JLabel driverName = new JLabel(driver.getName());
-            JLabel driverPhone = new JLabel(driver.getPhoneNumber());
-            JButton deleteButton = new JButton("Delete");
-            //Update the properties of each item
-            driverID.setPreferredSize(new Dimension(100, 25));
-            driverName.setPreferredSize(new Dimension(200,25));
-            driverPhone.setPreferredSize(new Dimension(100, 25));
-            deleteButton.setPreferredSize(new Dimension(75, 25));
-            deleteButton.setBackground(Color.red);
-            //Add the items to the temporary pane
-            tempPane.add(driverID, createConstraints(0,0));
-            tempPane.add(driverName, createConstraints(1,0));
-            tempPane.add(driverPhone, createConstraints(2,0));
-            tempPane.add(deleteButton, createConstraints(3,0));
-            //Add the tempPane to the driverPane
-            driverPane.add(tempPane);
-            driverPane.setAlignmentX(tempPane.LEFT_ALIGNMENT);
-        }
+        updateList();
         driverScrollPane  = new JScrollPane(driverPane);
         driverScrollPane.setPreferredSize(new Dimension(getWidth(),getHeight()));
 
@@ -95,7 +72,7 @@ public class BusAndDriverPanel extends JPanel {
         BusAndDriverPanel.PopupListener ppListener = new BusAndDriverPanel.PopupListener();
         //driverScrollPane.addMouseListener(ppListener);
 
-        // Side Panel
+        //Top Panel
         JPanel topPanel = new JPanel();
         topPanel.setLayout(new BorderLayout());
         topPanel.setPreferredSize(new Dimension(getWidth(), 75));
@@ -121,16 +98,10 @@ public class BusAndDriverPanel extends JPanel {
         this.add(topPanel, BorderLayout.NORTH);
     }
 
-    private GridBagConstraints createConstraints(int x, int y) {
-        GridBagConstraints constraints = new GridBagConstraints();
-        constraints.gridx = x;
-        constraints.gridy = y;
-        constraints.fill = GridBagConstraints.HORIZONTAL;
-        int gap = 3;
-        constraints.insets = new Insets(gap, gap + 2 * gap * x, gap, gap);
-        return constraints;
+    private void deleteDriverButton_ActionPerformed(ActionEvent e, int id) {
+        driverList.removeDriver(id);
+        updateList();
     }
-
 
     private void createDriverButton_ActionPerformed(ActionEvent e) {
         DriverDialog dialogBox = new DriverDialog(App.getFrame(), Local.getString("New Driver"));
@@ -148,16 +119,50 @@ public class BusAndDriverPanel extends JPanel {
         updateList();
     }
 
+
     private void updateList() {
-        driverScrollPane.removeAll();
-        DefaultListModel<Driver> driverModel = new DefaultListModel<>();
-        for(Driver driver : driverList)
-            driverModel.addElement(driver);
-        driverJList = new JList<>(driverModel);
-        driverJList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        driverJList.setSelectedIndex(0);
-        driverJList.setVisibleRowCount(10);
-        driverScrollPane = new JScrollPane(driverJList);
+        driverPane.removeAll();
+        for(Driver driver : driverList) {
+            //Create a temporary panel to hold all the driver information
+            JPanel tempPane = new JPanel();
+            tempPane.setLayout(new GridBagLayout());
+            //Create the individual sections for the driver information and the delete button
+            JLabel driverID = new JLabel(String.valueOf(driver.getID()));
+            JLabel driverName = new JLabel(driver.getName());
+            JLabel driverPhone = new JLabel(driver.getPhoneNumber());
+            JButton deleteButton = new JButton("Delete");
+            //Update the properties of each item
+            driverID.setPreferredSize(new Dimension(100, 25));
+            driverName.setPreferredSize(new Dimension(200,25));
+            driverPhone.setPreferredSize(new Dimension(100, 25));
+            deleteButton.setPreferredSize(new Dimension(75, 25));
+            deleteButton.setBackground(Color.red);
+            deleteButton.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    deleteDriverButton_ActionPerformed(e, driver.getID());
+                }
+            });
+            //Add the items to the temporary pane
+            tempPane.add(driverID, createConstraints(0,0));
+            tempPane.add(driverName, createConstraints(1,0));
+            tempPane.add(driverPhone, createConstraints(2,0));
+            tempPane.add(deleteButton, createConstraints(3,0));
+            //Add the tempPane to the driverPane
+            driverPane.add(tempPane);
+            driverPane.setAlignmentX(tempPane.LEFT_ALIGNMENT);
+            driverPane.revalidate();
+            driverPane.repaint();
+        }
+    }
+
+    private GridBagConstraints createConstraints(int x, int y) {
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.gridx = x;
+        constraints.gridy = y;
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+        int gap = 3;
+        constraints.insets = new Insets(gap, gap + 2 * gap * x, gap, gap);
+        return constraints;
     }
 
 
