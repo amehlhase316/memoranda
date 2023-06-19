@@ -174,7 +174,7 @@ public class WorkPanel extends JPanel {
 			}
 		});
 		busAndDriverButton.setVerticalAlignment(SwingConstants.TOP);
-		busAndDriverButton.setText(Local.getString("Buses/Drivers"));
+		busAndDriverButton.setText(Local.getString("Buses\nand\nDrivers"));
 		busAndDriverButton.setHorizontalTextPosition(SwingConstants.CENTER);
 		busAndDriverButton.setFocusPainted(false);
 		busAndDriverButton.setBorderPainted(false);
@@ -361,7 +361,7 @@ public class WorkPanel extends JPanel {
 //	}
 
 	public void busDriverButton_actionPerformed(ActionEvent e) {
-		cardLayout1.show(panel, "Buses/Drivers");
+		cardLayout1.show(panel, "Buses/Drivers"); //switches to the correct window
 		setCurrentButton(busAndDriverButton);
 		Context.put("CURRENT_PANEL", "Buses/Drivers");
 	}

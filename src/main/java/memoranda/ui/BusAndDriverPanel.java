@@ -12,47 +12,53 @@ import java.awt.event.MouseEvent;
 import static java.awt.Color.*;
 
 public class BusAndDriverPanel extends JPanel {
-    private JButton createDriverButton;
-    private JButton createBusButton;
-
-    BorderLayout borderLayout1 = new BorderLayout();
+    JButton createDriverButton, createBusButton;
     JPanel listPane = new JPanel();
-    JScrollPane driverScrollPane;
-    JPanel driverPane;
-    JScrollPane busScrollPane = new JScrollPane();
-    JPanel driverDetail;
+    JScrollPane driverScrollPane, busScrollPane;
+    JPanel driverPane, busPane;
     JsonHandler jsonHandler = new JsonHandler();
     DriverList driverList;
     //buslist here
 
-    JList<Driver> driverJList = new JList<>();
 
+    /**
+     * Default Constructor.
+     */
     public BusAndDriverPanel() {
         try {
-            jbInit();
+            panelInitialization();
         }
         catch (Exception ex) {
             new ExceptionDialog(ex);
         }
     }
-    private void jbInit() throws Exception {
+
+    /**
+     * Initializes the panel and its respective lists.
+     */
+    private void panelInitialization() {
         //Import the drivers from the json file and populate driverList
     	jsonHandler.readDriversFromJSON("memoranda/nodes1.json");
         driverList = new DriverList(jsonHandler.drivers);
 
         //set the main panel layout to be a borderlayout
-        this.setLayout(borderLayout1);
+        this.setLayout(new BorderLayout());
         //listPanel is set as a horizontal boxlayout
         listPane.setLayout(new BoxLayout(listPane, BoxLayout.X_AXIS));
 
+        //Driver List
         driverPane = new JPanel();
         driverPane.setLayout(new GridLayout(50, 1));
+        //Bus List
+        busPane = new JPanel();
+        busPane.setLayout(new GridLayout(50, 1));
+
+        //Update list and add both bus and driver panes to their respective lists
         updateList();
         driverScrollPane  = new JScrollPane(driverPane);
         driverScrollPane.setPreferredSize(new Dimension(getWidth(),getHeight()));
-
-
-        busScrollPane.getViewport().setBackground(blue);
+        busScrollPane = new JScrollPane(busPane);
+        busScrollPane.setPreferredSize((new Dimension(getWidth(), getHeight())));
 
         //Edit the scroll bars for each scrollpane
         JScrollBar driverVertScrollBar = driverScrollPane.getVerticalScrollBar();
@@ -66,22 +72,18 @@ public class BusAndDriverPanel extends JPanel {
         listPane.add(driverScrollPane);
         listPane.add(busScrollPane);
 
-        //Add listPanel to the main window
-        this.add(listPane);
 
-        BusAndDriverPanel.PopupListener ppListener = new BusAndDriverPanel.PopupListener();
-        //driverScrollPane.addMouseListener(ppListener);
 
-        //Top Panel
+        //Top Panel setup
         JPanel topPanel = new JPanel();
         topPanel.setLayout(new BorderLayout());
         topPanel.setPreferredSize(new Dimension(getWidth(), 75));
 
-
-        // Buttons
+        //########################################## Buttons ##########################################
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout());
 
+        //Create Driver Button
         createDriverButton = new JButton();
         createDriverButton.setIcon(
                 new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/Add_Driver.png")));
@@ -94,17 +96,39 @@ public class BusAndDriverPanel extends JPanel {
             }
         });
 
-        buttonPanel.add(createDriverButton);
+        //Create Bus Button
+        createBusButton = new JButton();
+        //createBusButton.setIcon(
+                //new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/Add_Driver.png")));
+        createBusButton.setMaximumSize(new Dimension(40, 50));
+        createBusButton.setToolTipText(Local.getString("Create a New Bus"));
+        createBusButton.setPreferredSize(new Dimension(40, 50));
+        createBusButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                createBusButton_ActionPerformed(e);
+            }
+        });
 
+        //Add buttons to buttonpanel
+        buttonPanel.add(createDriverButton);
+        buttonPanel.add(createBusButton);
+
+        //Add button panel to the top panel
         topPanel.add(buttonPanel, BorderLayout.WEST);
+
+        //add top panel and lists to main panel
         this.add(topPanel, BorderLayout.NORTH);
+        this.add(listPane);
     }
 
-    /*private void deleteDriverButton_ActionPerformed(ActionEvent e, int id) {
-        driverList.removeDriver(id);
-        updateList();
-    }*/
+    private void createBusButton_ActionPerformed(ActionEvent e) {
+        //Insert call to BusDialog here
+    }
 
+    /**
+     * Opens a pop-up window to create a driver.
+     * @param e ActionEvent
+     */
     private void createDriverButton_ActionPerformed(ActionEvent e) {
         DriverDialog dialogBox = new DriverDialog(App.getFrame(), Local.getString("New Driver"));
         //Driver object has (int) ID, (String) Name, (String) Phone Number
@@ -122,6 +146,9 @@ public class BusAndDriverPanel extends JPanel {
         updateList();
     }
 
+    /**
+     * Internal class to associate a delete button with a driver.
+     */
     public class DeleteButton extends JButton {
         private final Driver driver;
 
@@ -142,6 +169,9 @@ public class BusAndDriverPanel extends JPanel {
         }
     }
 
+    /**
+     * Updates the displayed list(s)
+     */
     private void updateList() {
         driverPane.removeAll();
         for(Driver driver : driverList) {
@@ -169,9 +199,9 @@ public class BusAndDriverPanel extends JPanel {
             //Add the tempPane to the driverPane
             driverPane.add(tempPane);
             driverPane.setAlignmentX(tempPane.LEFT_ALIGNMENT);
-            driverPane.revalidate();
-            driverPane.repaint();
         }
+        driverPane.revalidate();
+        driverPane.repaint();
     }
 
     private GridBagConstraints createConstraints(int x, int y) {
