@@ -64,14 +64,7 @@ public class BusAndDriverPanel extends JPanel {
 
         //Create Bus Button
         createBusButton = new JButton();
-
-        // rescale image
-        ImageIcon imageIcon = new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/Add_Bus.png"));
-        Image image = imageIcon.getImage();
-        Image newimg = image.getScaledInstance(40, 50, Image.SCALE_SMOOTH);
-        imageIcon = new ImageIcon(newimg);
-
-        createBusButton.setIcon(imageIcon);
+        createBusButton.setIcon(new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/Add_Bus.png")));
         createBusButton.setMaximumSize(new Dimension(40, 50));
         createBusButton.setToolTipText(Local.getString("Create a New Bus"));
         createBusButton.setPreferredSize(new Dimension(40, 50));
