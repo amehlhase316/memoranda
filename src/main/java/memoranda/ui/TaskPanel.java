@@ -25,6 +25,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import main.java.memoranda.*;
+import main.java.memoranda.JsonHandler;
 import main.java.memoranda.date.CalendarDate;
 import main.java.memoranda.date.CurrentDate;
 import main.java.memoranda.date.DateListener;
@@ -56,8 +57,8 @@ public class TaskPanel extends JPanel {
 	JMenuItem ppAddSubTask = new JMenuItem();
 	JMenuItem ppCalcTask = new JMenuItem();
 	DailyItemsPanel parentPanel = null;
-    JsonHandler jsonImport = new JsonHandler();
-    DriverList driverList = ((jsonImport.drivers.size() == 0) ? new DriverList() : new DriverList(jsonImport.drivers));
+    JsonHandler jsonHandler = new JsonHandler();
+    DriverList driverList = new DriverList(jsonHandler.drivers);
 
 
 

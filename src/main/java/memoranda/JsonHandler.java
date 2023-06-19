@@ -49,6 +49,7 @@ public class JsonHandler {
 
     public void readDriversFromJSON(String filename) {
         try {
+            filename = "memoranda/nodes1.json";
             JSONParser parser = new JSONParser();
             JSONObject jsonObject = (JSONObject) parser.parse(new FileReader(filename));
 
