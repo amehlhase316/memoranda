@@ -36,9 +36,10 @@ public class WorkPanel extends JPanel {
 	public MapPanel mapPanel = new MapPanel();
 
 	public RoutePanel routePanel = new RoutePanel();
+	public BusAndDriverPanel busAndDriverPanel = new BusAndDriverPanel();
 	public JButton agendaB = new JButton();
 	public JButton tasksB = new JButton();
-	public JButton busDriverB = new JButton();
+	public JButton busAndDriverButton = new JButton();
 //
 	public JButton routeB = new JButton();
 	
@@ -159,30 +160,30 @@ public class WorkPanel extends JPanel {
 		//eventsB.setSelected(true);
 
 		
-		busDriverB.setSelected(true);
-		busDriverB.setFont(new java.awt.Font("Dialog", 1, 10));
-		busDriverB.setMargin(new Insets(0, 0, 0, 0));
+		busAndDriverButton.setSelected(true);
+		busAndDriverButton.setFont(new java.awt.Font("Dialog", 1, 10));
+		busAndDriverButton.setMargin(new Insets(0, 0, 0, 0));
 //		busDriverB.setIcon(
 //			new ImageIcon(
 //				main.java.memoranda.ui.AppFrame.class.getResource(
 //					"/ui/icons/tasks.png")));
-		busDriverB.setVerticalTextPosition(SwingConstants.BOTTOM);
-		busDriverB.addActionListener(new java.awt.event.ActionListener() {
+		busAndDriverButton.setVerticalTextPosition(SwingConstants.BOTTOM);
+		busAndDriverButton.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				busDriverB_actionPerformed(e);
+				busDriverButton_actionPerformed(e);
 			}
 		});
-		busDriverB.setVerticalAlignment(SwingConstants.TOP);
-		busDriverB.setText(Local.getString("Bus/Driver"));
-		busDriverB.setHorizontalTextPosition(SwingConstants.CENTER);
-		busDriverB.setFocusPainted(false);
-		busDriverB.setBorderPainted(false);
-		busDriverB.setContentAreaFilled(false);
-		busDriverB.setPreferredSize(new Dimension(50, 50));
-		busDriverB.setMinimumSize(new Dimension(30, 30));
-		busDriverB.setOpaque(false);
-		busDriverB.setMaximumSize(new Dimension(60, 80));
-		busDriverB.setBackground(Color.white);
+		busAndDriverButton.setVerticalAlignment(SwingConstants.TOP);
+		busAndDriverButton.setText(Local.getString("Buses/Drivers"));
+		busAndDriverButton.setHorizontalTextPosition(SwingConstants.CENTER);
+		busAndDriverButton.setFocusPainted(false);
+		busAndDriverButton.setBorderPainted(false);
+		busAndDriverButton.setContentAreaFilled(false);
+		busAndDriverButton.setPreferredSize(new Dimension(50, 50));
+		busAndDriverButton.setMinimumSize(new Dimension(30, 30));
+		busAndDriverButton.setOpaque(false);
+		busAndDriverButton.setMaximumSize(new Dimension(60, 80));
+		busAndDriverButton.setBackground(Color.white);
 		
 		
 		tasksB.setSelected(true);
@@ -306,10 +307,11 @@ public class WorkPanel extends JPanel {
 		panel.add(dailyItemsPanel, "DAILYITEMS");
 		panel.add(mapPanel, "MAP");
 		panel.add(routePanel,"Routes");
+		panel.add(busAndDriverPanel, "Buses/Drivers");
 //		panel.add(filesPanel, "FILES");
 		toolBar.add(agendaB, null);
 		toolBar.add(routeB, null);
-		toolBar.add(busDriverB, null);
+		toolBar.add(busAndDriverButton, null);
 		toolBar.add(tasksB, null);
 		toolBar.add(mapB, null);
 //		toolBar.add(notesB, null);
@@ -339,6 +341,8 @@ public class WorkPanel extends JPanel {
 //				filesB_actionPerformed(null);
 			else if (pan.equals("MAP"))
 				mapB_actionPerformed(null);
+			else if (pan.equals("BUSDRIVERS"))
+				busDriverButton_actionPerformed(null);
 		}
 	}
 
@@ -356,11 +360,10 @@ public class WorkPanel extends JPanel {
 //		Context.put("CURRENT_PANEL", "NOTES");
 //	}
 
-	public void busDriverB_actionPerformed(ActionEvent e) {
-		cardLayout1.show(panel, "DAILYITEMS");
-		dailyItemsPanel.selectPanel("BUSDRIVERS");
-		setCurrentButton(busDriverB);
-		Context.put("CURRENT_PANEL", "TASKS");
+	public void busDriverButton_actionPerformed(ActionEvent e) {
+		cardLayout1.show(panel, "Buses/Drivers");
+		setCurrentButton(busAndDriverButton);
+		Context.put("CURRENT_PANEL", "Buses/Drivers");
 	}
 	
 	public void tasksB_actionPerformed(ActionEvent e) {

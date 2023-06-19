@@ -588,6 +588,7 @@ public class AppFrame extends JFrame {
 //        this.workPanel.filesB.addActionListener(setMenusDisabled);
         this.workPanel.agendaB.addActionListener(setMenusDisabled);
         this.workPanel.mapB.addActionListener(setMenusDisabled);
+        this.workPanel.busAndDriverButton.addActionListener(setMenusDisabled);
 
 //        this.workPanel.notesB.addActionListener(
 //                new java.awt.event.ActionListener() {
