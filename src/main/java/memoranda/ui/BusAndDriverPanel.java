@@ -34,8 +34,11 @@ public class BusAndDriverPanel extends JPanel {
      */
     private void panelInitialization() {
         //Import the drivers from the json file and populate driverList
-    	jsonHandler.readDriversFromJSON("nodes1.json");
-        driverList = new DriverList(jsonHandler.drivers);
+        String fileName = "memoranda/nodes1.json";
+    	jsonHandler.readDriversFromJSON(fileName);
+        driverList = new DriverList(jsonHandler.driverList);
+        jsonHandler.readBusesFromJSON(fileName);
+        busList = new BusList(jsonHandler.busList);
 
         //set the main panel layout to be a borderlayout
         this.setLayout(new BorderLayout());
@@ -194,20 +197,39 @@ public class BusAndDriverPanel extends JPanel {
      */
     public class DeleteButton extends JButton {
         private final Driver driver;
+        private final Bus bus;
 
         public DeleteButton(Driver driver) {
             this.setBackground(Color.red);
             this.setPreferredSize(new Dimension(75, 25));
             this.setText("Delete");
             this.driver = driver;
+            this.bus = null;
             this.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    deleteDriverButton_ActionPerformed(e);
+                    deleteButton_ActionPerformed(e);
                 }
             });
         }
-        private void deleteDriverButton_ActionPerformed(ActionEvent e) {
-            driverList.removeDriver(this.driver);
+
+        public DeleteButton(Bus bus) {
+            this.setBackground(Color.red);
+            this.setPreferredSize(new Dimension(75, 25));
+            this.setText("Delete");
+            this.bus = bus;
+            this.driver = null;
+            this.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    deleteButton_ActionPerformed(e);
+                }
+            });
+        }
+
+        private void deleteButton_ActionPerformed(ActionEvent e) {
+            if(this.bus == null)
+                driverList.removeDriver(this.driver);
+            else
+                busList.removeBus(this.bus);
             updateList();
         }
     }
@@ -251,7 +273,29 @@ public class BusAndDriverPanel extends JPanel {
         driverPane.repaint();
 
         //Update the busPane
-        //TODO: Iterate through busList and update busPane
+        for(Bus bus : busList) {
+            //Create a temporary panel to hold all the driver information
+            JPanel tempPane = new JPanel();
+            tempPane.setLayout(new GridBagLayout());
+
+            //Create the individual sections for the driver information and the delete button
+            JLabel busID = new JLabel(String.valueOf(bus.getID()));
+            JLabel busSeats = new JLabel(String.valueOf(bus.getSeats()));
+            DeleteButton deleteButton = new DeleteButton(bus);
+
+            //Update the properties of each item
+            busID.setPreferredSize(new Dimension(100, 25));
+            busSeats.setPreferredSize(new Dimension(200,25));
+
+            //Add the items to the temporary pane
+            tempPane.add(busID, createConstraints(0,0));
+            tempPane.add(busSeats, createConstraints(1,0));
+            tempPane.add(deleteButton, createConstraints(2,0));
+
+            //Add the tempPane to the driverPane
+            busPane.add(tempPane);
+            busPane.setAlignmentX(tempPane.LEFT_ALIGNMENT);
+        }
         busPane.revalidate();
         busPane.repaint();
     }
