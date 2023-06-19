@@ -29,10 +29,7 @@ import main.java.memoranda.JsonHandler;
 import main.java.memoranda.date.CalendarDate;
 import main.java.memoranda.date.CurrentDate;
 import main.java.memoranda.date.DateListener;
-import main.java.memoranda.util.Context;
-import main.java.memoranda.util.CurrentStorage;
-import main.java.memoranda.util.Local;
-import main.java.memoranda.util.Util;
+import main.java.memoranda.util.*;
 
 /*$Id: TaskPanel.java,v 1.27 2007/01/17 20:49:12 killerjoe Exp $*/
 public class TaskPanel extends JPanel {
@@ -40,7 +37,7 @@ public class TaskPanel extends JPanel {
     JButton historyBackB = new JButton();
     JToolBar tasksToolBar = new JToolBar();
     JButton historyForwardB = new JButton();
-    JButton newTaskB = new JButton();
+    JButton newBusB = new JButton();
     JButton newDriverButton = new JButton();
     JButton subTaskB = new JButton();
     JButton editTaskB = new JButton();
@@ -61,6 +58,8 @@ public class TaskPanel extends JPanel {
     DriverList driverList;
 
 
+
+    BusList busList = new BusList();
 
     public TaskPanel(DailyItemsPanel _parentPanel) {
         try {
@@ -112,32 +111,22 @@ public class TaskPanel extends JPanel {
                 newDriverButton_ActionPerformed(e);
             }
         });
-        newTaskB.setBorderPainted(false);
-
-
-
-
-
-
-
-
-
-
-        newTaskB.setIcon(
+        newBusB.setBorderPainted(false);
+        newBusB.setIcon(
             new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/todo_new.png")));
-        newTaskB.setEnabled(true);
-        newTaskB.setMaximumSize(new Dimension(24, 24));
-        newTaskB.setMinimumSize(new Dimension(24, 24));
-        newTaskB.setToolTipText(Local.getString("Create new task"));
-        newTaskB.setRequestFocusEnabled(false);
-        newTaskB.setPreferredSize(new Dimension(24, 24));
-        newTaskB.setFocusable(false);
-        newTaskB.addActionListener(new java.awt.event.ActionListener() {
+        newBusB.setEnabled(true);
+        newBusB.setMaximumSize(new Dimension(24, 24));
+        newBusB.setMinimumSize(new Dimension(24, 24));
+        newBusB.setToolTipText(Local.getString("Create New Bus"));
+        newBusB.setRequestFocusEnabled(false);
+        newBusB.setPreferredSize(new Dimension(24, 24));
+        newBusB.setFocusable(false);
+        newBusB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                newTaskB_actionPerformed(e);
+                newBusB_actionPerformed(e);
             }
         });
-        newTaskB.setBorderPainted(false);
+        newBusB.setBorderPainted(false);
         
         subTaskB.setIcon(
             new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/todo_new_sub.png")));
@@ -342,7 +331,7 @@ public class TaskPanel extends JPanel {
         tasksToolBar.add(historyForwardB, null);
         tasksToolBar.addSeparator(new Dimension(8, 24));
         tasksToolBar.add(newDriverButton, null);
-        tasksToolBar.add(newTaskB, null);
+        tasksToolBar.add(newBusB, null);
         tasksToolBar.add(subTaskB, null);
         tasksToolBar.add(removeTaskB, null);
         tasksToolBar.addSeparator(new Dimension(8, 24));
@@ -350,7 +339,6 @@ public class TaskPanel extends JPanel {
         tasksToolBar.add(completeTaskB, null);
 
 		//tasksToolBar.add(showActiveOnly, null);
-        
 
         this.add(tasksToolBar, BorderLayout.NORTH);
 
@@ -362,12 +350,12 @@ public class TaskPanel extends JPanel {
 
         CurrentDate.addDateListener(new DateListener() {
             public void dateChange(CalendarDate d) {
-                newTaskB.setEnabled(d.inPeriod(CurrentProject.get().getStartDate(), CurrentProject.get().getEndDate()));
+                newBusB.setEnabled(d.inPeriod(CurrentProject.get().getStartDate(), CurrentProject.get().getEndDate()));
             }
         });
         CurrentProject.addProjectListener(new ProjectListener() {
             public void projectChange(Project p, NoteList nl, TaskList tl, ResourcesList rl) {
-                newTaskB.setEnabled(
+                newBusB.setEnabled(
                     CurrentDate.get().inPeriod(p.getStartDate(), p.getEndDate()));
             }
             public void projectWasChanged() {
@@ -535,37 +523,49 @@ public class TaskPanel extends JPanel {
         //taskTable.updateUI();
     }
 
+    /**
+     *
+     * @param e
+     */
 
+    void newBusB_actionPerformed(ActionEvent e) {
+        BusDialog dlg = new BusDialog(App.getFrame(), Local.getString("New Bus"));
 
-
-    void newTaskB_actionPerformed(ActionEvent e) {
-        TaskDialog dlg = new TaskDialog(App.getFrame(), Local.getString("New task"));
-        
-        //XXX String parentTaskId = taskTable.getCurrentRootTask();
-        
         Dimension frmSize = App.getFrame().getSize();
         Point loc = App.getFrame().getLocation();
-        dlg.startDate.getModel().setValue(CurrentDate.get().getDate());
-        dlg.endDate.getModel().setValue(CurrentDate.get().getDate());
         dlg.setLocation((frmSize.width - dlg.getSize().width) / 2 + loc.x, (frmSize.height - dlg.getSize().height) / 2 + loc.y);
         dlg.setVisible(true);
         if (dlg.CANCELLED)
             return;
-        CalendarDate sd = new CalendarDate((Date) dlg.startDate.getModel().getValue());
-//        CalendarDate ed = new CalendarDate((Date) dlg.endDate.getModel().getValue());
-          CalendarDate ed;
- 		if(dlg.chkEndDate.isSelected())
- 			ed = new CalendarDate((Date) dlg.endDate.getModel().getValue());
- 		else
- 			ed = null;
-        long effort = Util.getMillisFromHours(dlg.effortField.getText());
-		//XXX Task newTask = CurrentProject.getTaskList().createTask(sd, ed, dlg.todoField.getText(), dlg.priorityCB.getSelectedIndex(),effort, dlg.descriptionField.getText(),parentTaskId);
-		Task newTask = CurrentProject.getTaskList().createTask(sd, ed, dlg.todoField.getText(), dlg.priorityCB.getSelectedIndex(),effort, dlg.descriptionField.getText(),null);
-//		CurrentProject.getTaskList().adjustParentTasks(newTask);
-		newTask.setProgress(((Integer)dlg.progress.getValue()).intValue());
+        busList.addBus(dlg.tempBus);
+
         CurrentStorage.get().storeTaskList(CurrentProject.getTaskList(), CurrentProject.get());
         taskTable.tableChanged();
         parentPanel.updateIndicators();
+
+
+
+//        dlg.startDate.getModel().setValue(CurrentDate.get().getDate());
+//        dlg.endDate.getModel().setValue(CurrentDate.get().getDate());
+//        dlg.setLocation((frmSize.width - dlg.getSize().width) / 2 + loc.x, (frmSize.height - dlg.getSize().height) / 2 + loc.y);
+//        dlg.setVisible(true);
+//        if (dlg.CANCELLED)
+//            return;
+//        CalendarDate sd = new CalendarDate((Date) dlg.startDate.getModel().getValue());
+////        CalendarDate ed = new CalendarDate((Date) dlg.endDate.getModel().getValue());
+//          CalendarDate ed;
+// 		if(dlg.chkEndDate.isSelected())
+// 			ed = new CalendarDate((Date) dlg.endDate.getModel().getValue());
+// 		else
+// 			ed = null;
+//        long effort = Util.getMillisFromHours(dlg.effortField.getText());
+//		//XXX Task newTask = CurrentProject.getTaskList().createTask(sd, ed, dlg.todoField.getText(), dlg.priorityCB.getSelectedIndex(),effort, dlg.descriptionField.getText(),parentTaskId);
+//		Task newTask = CurrentProject.getTaskList().createTask(sd, ed, dlg.todoField.getText(), dlg.priorityCB.getSelectedIndex(),effort, dlg.descriptionField.getText(),null);
+////		CurrentProject.getTaskList().adjustParentTasks(newTask);
+//		newTask.setProgress(((Integer)dlg.progress.getValue()).intValue());
+//        CurrentStorage.get().storeTaskList(CurrentProject.getTaskList(), CurrentProject.get());
+//        taskTable.tableChanged();
+//        parentPanel.updateIndicators();
         //taskTable.updateUI();
     }
 
@@ -790,7 +790,7 @@ public class TaskPanel extends JPanel {
     removeTaskB_actionPerformed(e);
   }
   void ppNewTask_actionPerformed(ActionEvent e) {
-    newTaskB_actionPerformed(e);
+    newBusB_actionPerformed(e);
   }
 
   void ppAddSubTask_actionPerformed(ActionEvent e) {

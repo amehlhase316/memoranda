@@ -43,6 +43,7 @@ public class DriverDialog extends JDialog {
             jbInit();            
             pack();
         }
+
         catch (Exception ex) {
             new ExceptionDialog(ex);
         }
