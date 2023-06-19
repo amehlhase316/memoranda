@@ -156,6 +156,22 @@ public class BusAndDriverPanel extends JPanel {
 
     private void createBusButton_ActionPerformed(ActionEvent e) {
         //TODO: Insert call to BusDialog here
+        createBusButton.setBorderPainted(false);
+        createBusButton.setIcon(
+                new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/todo_new.png")));
+        createBusButton.setEnabled(true);
+        createBusButton.setMaximumSize(new Dimension(24, 24));
+        createBusButton.setMinimumSize(new Dimension(24, 24));
+        createBusButton.setToolTipText(Local.getString("Create New Bus"));
+        createBusButton.setRequestFocusEnabled(false);
+        createBusButton.setPreferredSize(new Dimension(24, 24));
+        createBusButton.setFocusable(false);
+        createBusButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                createBusButton_ActionPerformed(e);
+            }
+        });
+        createBusButton.setBorderPainted(false);
     }
 
     /**
