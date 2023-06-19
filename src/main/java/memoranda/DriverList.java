@@ -39,16 +39,21 @@ public class DriverList extends JList<Driver> implements Iterable<Driver> {
 
     /**
      * Removes a driver from the driverList.
-     * @param id int driver id
+     * @param driver driver object
      */
-    public void removeDriver(int id) { driverList.remove(id); }
+    public void removeDriver(Driver driver) { driverList.remove(driver); }
 
     /**
      * Returns a driver object.
      * @param id integer driver ID.
      * @return driver object.
      */
-    public Driver getDriver(int id) { return (Driver) driverList.get(id); }
+    public Driver getDriver(int id) {
+        for(int i = 0; i < driverList.size(); i++)
+            if(driverList.get(i).getID() == id)
+                return driverList.get(i);
+        return null;
+    }
 
     public Boolean hasDriver(int id) { return getDriver(id) != null; }
 

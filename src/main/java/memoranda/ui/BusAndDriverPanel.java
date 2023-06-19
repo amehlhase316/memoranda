@@ -100,10 +100,10 @@ public class BusAndDriverPanel extends JPanel {
         this.add(topPanel, BorderLayout.NORTH);
     }
 
-    private void deleteDriverButton_ActionPerformed(ActionEvent e, int id) {
+    /*private void deleteDriverButton_ActionPerformed(ActionEvent e, int id) {
         driverList.removeDriver(id);
         updateList();
-    }
+    }*/
 
     private void createDriverButton_ActionPerformed(ActionEvent e) {
         DriverDialog dialogBox = new DriverDialog(App.getFrame(), Local.getString("New Driver"));
@@ -122,6 +122,25 @@ public class BusAndDriverPanel extends JPanel {
         updateList();
     }
 
+    public class DeleteButton extends JButton {
+        private final Driver driver;
+
+        public DeleteButton(Driver driver) {
+            this.setBackground(Color.red);
+            this.setPreferredSize(new Dimension(75, 25));
+            this.setText("Delete");
+            this.driver = driver;
+            this.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    deleteDriverButton_ActionPerformed(e);
+                }
+            });
+        }
+        private void deleteDriverButton_ActionPerformed(ActionEvent e) {
+            driverList.removeDriver(this.driver);
+            updateList();
+        }
+    }
 
     private void updateList() {
         driverPane.removeAll();
@@ -129,27 +148,24 @@ public class BusAndDriverPanel extends JPanel {
             //Create a temporary panel to hold all the driver information
             JPanel tempPane = new JPanel();
             tempPane.setLayout(new GridBagLayout());
+
             //Create the individual sections for the driver information and the delete button
             JLabel driverID = new JLabel(String.valueOf(driver.getID()));
             JLabel driverName = new JLabel(driver.getName());
             JLabel driverPhone = new JLabel(driver.getPhone());
-            JButton deleteButton = new JButton("Delete");
+            DeleteButton deleteButton = new DeleteButton(driver);
+
             //Update the properties of each item
             driverID.setPreferredSize(new Dimension(100, 25));
             driverName.setPreferredSize(new Dimension(200,25));
             driverPhone.setPreferredSize(new Dimension(100, 25));
-            deleteButton.setPreferredSize(new Dimension(75, 25));
-            deleteButton.setBackground(Color.red);
-            deleteButton.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    deleteDriverButton_ActionPerformed(e, driver.getID());
-                }
-            });
+
             //Add the items to the temporary pane
             tempPane.add(driverID, createConstraints(0,0));
             tempPane.add(driverName, createConstraints(1,0));
             tempPane.add(driverPhone, createConstraints(2,0));
             tempPane.add(deleteButton, createConstraints(3,0));
+
             //Add the tempPane to the driverPane
             driverPane.add(tempPane);
             driverPane.setAlignmentX(tempPane.LEFT_ALIGNMENT);
