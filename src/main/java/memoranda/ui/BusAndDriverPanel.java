@@ -1,13 +1,12 @@
 package main.java.memoranda.ui;
 
 import main.java.memoranda.*;
+import main.java.memoranda.BusList;
 import main.java.memoranda.util.Local;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 public class BusAndDriverPanel extends JPanel {
     JButton createDriverButton, createBusButton;
@@ -15,7 +14,7 @@ public class BusAndDriverPanel extends JPanel {
     JPanel columnPane, listPane, driverPane, busPane, driverColumns, busColumns;
     JsonHandler jsonHandler = new JsonHandler();
     DriverList driverList;
-    //buslist here
+    BusList busList;
 
 
     /**
@@ -156,22 +155,18 @@ public class BusAndDriverPanel extends JPanel {
 
     private void createBusButton_ActionPerformed(ActionEvent e) {
         //TODO: Insert call to BusDialog here
-        createBusButton.setBorderPainted(false);
-        createBusButton.setIcon(
-                new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/todo_new.png")));
-        createBusButton.setEnabled(true);
-        createBusButton.setMaximumSize(new Dimension(24, 24));
-        createBusButton.setMinimumSize(new Dimension(24, 24));
-        createBusButton.setToolTipText(Local.getString("Create New Bus"));
-        createBusButton.setRequestFocusEnabled(false);
-        createBusButton.setPreferredSize(new Dimension(24, 24));
-        createBusButton.setFocusable(false);
-        createBusButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                createBusButton_ActionPerformed(e);
-            }
-        });
-        createBusButton.setBorderPainted(false);
+        BusDialog dialogBox = new BusDialog(App.getFrame(), Local.getString("New Bus"));
+        Dimension frmSize = App.getFrame().getSize();
+        Point loc = App.getFrame().getLocation();
+        dialogBox.setLocation((frmSize.width - dialogBox.getSize().width) / 2 + loc.x, (frmSize.height - dialogBox.getSize().height) / 2 + loc.y);
+        dialogBox.setVisible(true);
+        if (dialogBox.CANCELLED)
+            return;
+        if(busList.hasBus(dialogBox.tempBus.getID()))
+            return; //temp solution so no duplicate IDs are made
+        busList.addBus(dialogBox.tempBus);
+
+        updateList();
     }
 
     /**

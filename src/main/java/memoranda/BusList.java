@@ -1,4 +1,4 @@
-package main.java.memoranda.util;
+package main.java.memoranda;
 
 import main.java.memoranda.Bus;
 
@@ -11,10 +11,6 @@ public class BusList {
     public BusList(){
         buses = new ArrayList<>();
     }
-    public Bus getBus(int id){
-        return (Bus) buses.get(id);
-    }
-
     public void addBus(Bus bus) {
         buses.add(bus);
     }
@@ -25,5 +21,20 @@ public class BusList {
 
     public int getNumberOfBuses() {
         return buses.size();
+    }
+
+    public boolean hasBus(int id) {
+        if(getBus(id) != null)
+            return true;
+        return false;
+    }
+
+    public Bus getBus(int id){
+        for(int i = 0; i < buses.size(); ++i){
+            if(buses.get(i).getID() == id) {
+                return buses.get(i);
+            }
+        }
+        return null;
     }
 }
