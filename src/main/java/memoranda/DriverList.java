@@ -14,24 +14,51 @@ import java.util.Iterator;
 
 
 public class DriverList extends JList<Driver> implements Iterable<Driver> {
-    private ArrayList<Driver> drivers;
+    private ArrayList<Driver> driverList;
 
-
+    /**
+     * Default Constructor.
+     */
     public DriverList() {
-        this.drivers = new ArrayList<Driver>();
+        this.driverList = new ArrayList<Driver>();
     }
 
-    public DriverList(ArrayList<Driver> drivers) {
-        this.drivers = drivers;
+    /**
+     * General Constructor.
+     * @param driverList ArrayList of driver objects.
+     */
+    public DriverList(ArrayList<Driver> driverList) {
+        this.driverList = driverList;
     }
 
-    public Driver getDriver(int id) { return (Driver) drivers.get(id); }
+    /**
+     * Returns a driver object.
+     * @param id integer driver ID.
+     * @return driver object.
+     */
+    public Driver getDriver(int id) { return (Driver) driverList.get(id); }
 
-    public void addDriver(Driver driver) { drivers.add(driver); }
+    /**
+     * Add a driver to the driverList.
+     * @param driver driver object
+     */
+    public void addDriver(Driver driver) { driverList.add(driver); }
 
-    public void removeDriver(int id) { drivers.remove(id); }
+    /**
+     * Removes a driver from the driverList.
+     * @param id int driver id
+     */
+    public void removeDriver(int id) { driverList.remove(id); }
 
-    public int getNumberOfDrivers() { return drivers.size(); }
+    /**
+     * Gets the number of drivers within the driverList.
+     * @return int numberOfDrivers
+     */
+    public int getNumberOfDrivers() { return driverList.size(); }
 
-    public Iterator<Driver> iterator() { return drivers.iterator(); }
+    /**
+     * Returns an iterable driverList.
+     * @return Iterator
+     */
+    public Iterator<Driver> iterator() { return driverList.iterator(); }
 }
