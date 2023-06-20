@@ -205,8 +205,7 @@ public class DriverDialog extends JDialog {
 
     void okayButton_ActionPerformed(ActionEvent e) {
 	    CANCELLED = false;
-        int id = Integer.valueOf(idField.getText());
-        tempDriver = new Driver(id, nameField.getText(), phoneField.getText());
+        tempDriver = new Driver(idField.getText(), nameField.getText(), phoneField.getText());
         this.dispose();
     }
 

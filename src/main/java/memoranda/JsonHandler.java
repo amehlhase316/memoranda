@@ -25,7 +25,7 @@ public class JsonHandler {
         nodes.add(new Node(id, latitude, longitude));
     }
 	
-	public void addDriver(int id, String name, String phoneNumber) {
+	public void addDriver(String id, String name, String phoneNumber) {
 		driverList.add(new Driver(id, name, phoneNumber));
 	}
 
@@ -58,7 +58,7 @@ public class JsonHandler {
 
             for (Object obj : nodesArray) {
                 JSONObject nodeObj = (JSONObject) obj;
-                int id = Integer.valueOf((String) nodeObj.get("ID"));
+                String id = (String) nodeObj.get("ID");
                 String name = (String) nodeObj.get("name");
                 String phoneNumber = (String) nodeObj.get("phoneNumber");
 

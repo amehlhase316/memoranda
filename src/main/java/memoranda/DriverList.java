@@ -48,14 +48,14 @@ public class DriverList implements Iterable<Driver> {
      * @param id integer driver ID.
      * @return driver object.
      */
-    public Driver getDriver(int id) {
+    public Driver getDriver(String id) {
         for(int i = 0; i < driverList.size(); i++)
-            if(driverList.get(i).getID() == id)
+            if(driverList.get(i).getID().equals(id))
                 return driverList.get(i);
         return null;
     }
 
-    public Boolean hasDriver(int id) { return getDriver(id) != null; }
+    public Boolean hasDriver(String id) { return getDriver(id) != null; }
 
     /**
      * Gets the number of drivers within the driverList.
