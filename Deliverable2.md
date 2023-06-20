@@ -16,22 +16,22 @@ Document your Sprint Planning here. Also check the kickoff document for more det
 
 **Sprint Goal:** For this sprint we plan to get the basic foundations of our topic implemented then progress from there.
 
-**How many User Stories did you add to the Product Backlog:**  Number
+**How many User Stories did you add to the Product Backlog:**  7
 
 **How many User Stories did you add to this Sprint:** 
-> Answer the questions below about your Sprint Planning?
+> 9
 
 **Why did you add these US, why do you think you can get them done in the next Sprint?**
 
-> Your Answer
+> These are basic foundations and left over US from sprint 1
 
 **Why do you think these fit well with your Sprint goal? (details)**
 
-> Your Answer
+> Yes as we need the basic foundation for the bus scheduler implemented before the more advanced parts can be added.
 
 **Do you have a rough idea what you need to do? (if the answer is no then please let me know on Slack)**
 
-> Your Answer
+> Yes
 
 
 
