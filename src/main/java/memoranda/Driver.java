@@ -15,12 +15,7 @@ public class Driver {
         if(ID.length() < 6)
             for(int i = ID.length(); i < 6; i++)
                 ID = "0" + ID;
-        for(int i = 0; i < 2; i++)
-            ID = " " + ID;
         this.ID = ID;
-        if(name.length() < 35)
-            for(int i = name.length(); i <= 35; i ++)
-                name += " ";
         this.name = name;
         this.phone = phone;
     }

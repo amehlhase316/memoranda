@@ -2,6 +2,7 @@ package main.java.memoranda;
 
 
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,7 +59,7 @@ public class JsonHandler {
 
             for (Object obj : nodesArray) {
                 JSONObject nodeObj = (JSONObject) obj;
-                String id = (String) nodeObj.get("ID");
+                String id = (String) nodeObj.get("id");
                 String name = (String) nodeObj.get("name");
                 String phoneNumber = (String) nodeObj.get("phoneNumber");
 
@@ -78,11 +79,38 @@ public class JsonHandler {
 
             for (Object obj : nodesArray) {
                 JSONObject nodeObj = (JSONObject) obj;
-                int id = Integer.valueOf((String) nodeObj.get("ID"));
-                int seats = Integer.valueOf((String) nodeObj.get("Seats"));
+                int id = Integer.valueOf((String) nodeObj.get("id"));
+                int seats = Integer.valueOf((String) nodeObj.get("seats"));
 
                 busList.add(new Bus(id, seats));
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void writeDriversToJSON(String filename) {
+        try {
+            JSONArray driversArray = new JSONArray();
+
+            if (!driverList.isEmpty() && driverList != null) {
+            	for (Driver driver : driverList) {
+                    JSONObject driverObj = new JSONObject();
+                    driverObj.put("id", driver.getID());
+                    driverObj.put("name", driver.getName());
+                    driverObj.put("phoneNumber", driver.getPhone());
+
+                    driversArray.add(driverObj);
+                }
+            }
+
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("drivers", driversArray);
+
+            FileWriter fileWriter = new FileWriter(filename);
+            fileWriter.write(jsonObject.toJSONString());
+            fileWriter.flush();
+            fileWriter.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
