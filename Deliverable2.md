@@ -7,9 +7,9 @@
 
 **Sprint Number:** 2
 
-**Scrum Master**: Name
+**Scrum Master**: Andrea Schooner
 
-**Git Master**: Name
+**Git Master**: Robert Buice
 
 ### Sprint Planning (For Sprint 1-3)
 Document your Sprint Planning here. Also check the kickoff document for more details on what needs to be done. This is just the documentation. 
