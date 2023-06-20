@@ -3,9 +3,9 @@
 
 ## 1: Basic Information (needed before you start with your Sprint -- Sprint Planning)
 
-**Topic you chose:** topic name
+**Topic you chose:** Bus Route
 
-**Sprint Number:** Nr
+**Sprint Number:** 2
 
 **Scrum Master**: Name
 
@@ -14,7 +14,7 @@
 ### Sprint Planning (For Sprint 1-3)
 Document your Sprint Planning here. Also check the kickoff document for more details on what needs to be done. This is just the documentation. 
 
-**Sprint Goal:** Your Sprint goal
+**Sprint Goal:** For this sprint we plan to get the basic foundations of our topic implemented then progress from there.
 
 **How many User Stories did you add to the Product Backlog:**  Number
 
