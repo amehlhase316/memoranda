@@ -27,6 +27,6 @@
     {"id":  "3", "name":  "One Round for Jose Cuervo", "phoneNumber":  "(401) 555-5555"}
 ],
 "buses": [
-    {"id":  "1", "seats":  "32", "assignedDriver": "00001"}
+    {"id":  "1", "seats":  "32", "assignedDriver": "000001"}
 ]
 }
