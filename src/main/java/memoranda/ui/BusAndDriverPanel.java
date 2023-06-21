@@ -287,9 +287,6 @@ public class BusAndDriverPanel extends JPanel {
             choices = c;
 
             //this.setSize(500, 500);
-
-
-
         }
 
 
