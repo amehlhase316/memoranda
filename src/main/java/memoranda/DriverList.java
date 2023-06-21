@@ -50,7 +50,7 @@ public class DriverList implements Iterable<Driver> {
      */
     public Driver getDriver(String id) {
         for(int i = 0; i < driverList.size(); i++)
-            if(driverList.get(i).getID().equals(id))
+            if(driverList.get(i).getId().equals(id))
                 return driverList.get(i);
         return null;
     }

@@ -15,12 +15,7 @@ public class Driver {
         if(ID.length() < 6)
             for(int i = ID.length(); i < 6; i++)
                 ID = "0" + ID;
-        for(int i = 0; i < 2; i++)
-            ID = " " + ID;
         this.ID = ID;
-        if(name.length() < 35)
-            for(int i = name.length(); i <= 35; i ++)
-                name += " ";
         this.name = name;
         this.phone = phone;
     }
@@ -29,7 +24,7 @@ public class Driver {
      * Returns Driver ID.
      * @return int ID
      */
-    public String getID() { return this.ID; }
+    public String getId() { return this.ID; }
 
     /**
      * Returns Driver name.
@@ -41,7 +36,7 @@ public class Driver {
      * Returns Driver phone number.
      * @return String phoneNumber
      */
-    public String getPhone() { return this.phone; }
+    public String getPhoneNumber() { return this.phone; }
 
     /**
      * Sets the name of the Driver if they have chosen a legal name change.
@@ -64,8 +59,8 @@ public class Driver {
         StringBuffer info = new StringBuffer();
 
         info.append("Driver: "+getName() + "\n");
-        info.append("ID: "+ getID() + "\n");
-        info.append("Phone Number: " + getPhone() + "\n");
+        info.append("ID: "+ getId() + "\n");
+        info.append("Phone Number: " + getPhoneNumber() + "\n");
         return info.toString();
     }
 

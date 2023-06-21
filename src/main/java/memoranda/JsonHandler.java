@@ -2,6 +2,7 @@ package main.java.memoranda;
 
 
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,7 +59,7 @@ public class JsonHandler {
 
             for (Object obj : nodesArray) {
                 JSONObject nodeObj = (JSONObject) obj;
-                String id = (String) nodeObj.get("ID");
+                String id = (String) nodeObj.get("id");
                 String name = (String) nodeObj.get("name");
                 String phoneNumber = (String) nodeObj.get("phoneNumber");
 
@@ -78,11 +79,78 @@ public class JsonHandler {
 
             for (Object obj : nodesArray) {
                 JSONObject nodeObj = (JSONObject) obj;
-                int id = Integer.valueOf((String) nodeObj.get("ID"));
-                int seats = Integer.valueOf((String) nodeObj.get("Seats"));
-
-                busList.add(new Bus(id, seats));
+                String id = (String) nodeObj.get("id");
+                int seats = Integer.valueOf((String) nodeObj.get("seats"));
+                Bus tempBus = new Bus(id, seats);
+                tempBus.setAssignedDriver((String) nodeObj.get("assignedDriver"));
+                busList.add(tempBus);
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void writeDriversToJSON(String filename) {
+    	try {
+            // Read the existing JSON file and parse it into a JSONObject
+            JSONParser parser = new JSONParser();
+            JSONObject jsonObject = (JSONObject) parser.parse(new FileReader(filename));
+
+            // Create a new JSONArray to store all drivers (existing + new)
+            JSONArray driversArray = new JSONArray();
+
+            // Add the new drivers to the driversArray
+            for (Driver driver : driverList) {
+                JSONObject driverObj = new JSONObject();
+                driverObj.put("id", driver.getId());
+                driverObj.put("name", driver.getName());
+                driverObj.put("phoneNumber", driver.getPhoneNumber());
+
+                driversArray.add(driverObj);
+            }
+
+            // Update the drivers array in the JSONObject
+            jsonObject.put("drivers", driversArray);
+
+            // Write the updated JSONObject to the file
+            FileWriter fileWriter = new FileWriter(filename);
+            fileWriter.write(jsonObject.toJSONString());
+            fileWriter.flush();
+            fileWriter.close();
+            System.out.println("Drivers have been written to and saved in nodes1.json");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void writeBusesToJSON(String filename) {
+    	try {
+            // Read the existing JSON file and parse it into a JSONObject
+            JSONParser parser = new JSONParser();
+            JSONObject jsonObject = (JSONObject) parser.parse(new FileReader(filename));
+
+            // Create a new JSONArray to store all drivers (existing + new)
+            JSONArray busesArray = new JSONArray();
+
+            // Add the new drivers to the driversArray
+            for (Bus bus : busList) {
+                JSONObject busObj = new JSONObject();
+                busObj.put("id", String.valueOf(bus.getId()));
+                busObj.put("seats", String.valueOf(bus.getSeats()));
+                busObj.put("assignedDriver", String.valueOf(bus.getAssignedDriverID()));
+
+                busesArray.add(busObj);
+            }
+
+            // Update the drivers array in the JSONObject
+            jsonObject.put("buses", busesArray);
+
+            // Write the updated JSONObject to the file
+            FileWriter fileWriter = new FileWriter(filename);
+            fileWriter.write(jsonObject.toJSONString());
+            fileWriter.flush();
+            fileWriter.close();
+            System.out.println("Buses have been written to and saved in nodes1.json");
         } catch (Exception e) {
             e.printStackTrace();
         }
