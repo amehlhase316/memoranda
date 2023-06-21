@@ -21,11 +21,11 @@
 	{"id": "19", "lat": "33.425502367605745", "lon": "-111.94001299549043"}
 ],
 	"drivers": [
-		{"ID":  "1", "name":  "Joe Bob", "phoneNumber":  "(401) 555-5555"},
-		{"ID":  "2", "name":  "Jim Cob", "phoneNumber":  "(401) 555-5555"},
-		{"ID":  "3", "name":  "One Round for Jose Cuervo", "phoneNumber":  "(401) 555-5555"}
+		{"id":  "1", "name":  "Joe Bob", "phoneNumber":  "(401) 555-5555"},
+		{"id":  "2", "name":  "Jim Cob", "phoneNumber":  "(401) 555-5555"},
+		{"id":  "3", "name":  "One Round for Jose Cuervo", "phoneNumber":  "(401) 555-5555"}
 	],
 	"buses": [
-		{"ID":  "1", "Seats":  "32"}
+		{"id":  "1", "seats":  "32"}
 	]
 }

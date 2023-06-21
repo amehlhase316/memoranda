@@ -248,8 +248,6 @@ public class BusAndDriverPanel extends JPanel {
         if(busList.hasBus(dialogBox.tempBus.getID()))
             return; //temp solution so no duplicate IDs are made
         busList.addBus(dialogBox.tempBus);
-        
-        jsonHandler.writeDriversToJSON("nodes1.json");
 
         updateList();
     }
@@ -271,6 +269,8 @@ public class BusAndDriverPanel extends JPanel {
         if(driverList.hasDriver(dialogBox.tempDriver.getID()))
             return; //temp solution so no duplicate IDs are made
         driverList.addDriver(dialogBox.tempDriver);
+        
+        jsonHandler.writeDriversToJSON("nodes1.json");
 
         updateList();
     }
