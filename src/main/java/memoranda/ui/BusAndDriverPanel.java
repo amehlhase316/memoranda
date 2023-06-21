@@ -54,7 +54,7 @@ public class BusAndDriverPanel extends JPanel {
      */
     private void panelInitialization() {
         //Import the drivers from the json file and populate driverList
-        String fileName = "memoranda/nodes1.json";
+        String fileName = "nodes1.json";
     	jsonHandler.readDriversFromJSON(fileName);
         driverList = new DriverList(jsonHandler.driverList);
         jsonHandler.readBusesFromJSON(fileName);
@@ -397,20 +397,39 @@ public class BusAndDriverPanel extends JPanel {
             //Create the individual sections for the driver information and the delete button
             JLabel busID = new JLabel(String.valueOf(bus.getId()));
             busID.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 1, Color.GRAY)); // Set cell border
-            JLabel busSeats = new JLabel(String.valueOf("   " + bus.getSeats()));
+            JLabel busSeats = new JLabel(String.valueOf("   " + bus.getSeats()) + " ");
             busSeats.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 1, Color.GRAY)); // Set cell border
+            JLabel assignedDriverName = new JLabel(" ");
+            if(bus.hasAssignedDriver())
+                if(driverList.hasDriver(bus.getAssignedDriverID()))
+                    assignedDriverName.setText(driverList.getDriver(bus.getAssignedDriverID()).getName()); //WHY THIS NO WORK!?!?!?!?!?
+            assignedDriverName.setBorder(BorderFactory.createMatteBorder(0,0,1,1,Color.GRAY)); // Set cell border
+            JLabel assignedDriverID = new JLabel(" ");
+            if(bus.hasAssignedDriver())
+                assignedDriverID.setText(" " + bus.getAssignedDriverID() + " ");
+            assignedDriverID.setBorder(BorderFactory.createMatteBorder(0,0,1,1,Color.GRAY)); // Set cell border
             DeleteButton deleteButton = new DeleteButton(bus);
             SelectDriverButton selectDriverB = new SelectDriverButton(bus);
 
             //Update the properties of each item
-            busID.setPreferredSize(new Dimension(100, 25));
-            busSeats.setPreferredSize(new Dimension(200, 25));
+            //busID.setPreferredSize(new Dimension(100, 25));
+            //busSeats.setPreferredSize(new Dimension(200, 25));
             
             JPanel idPane = new JPanel();
             idPane.setLayout(new GridLayout(1, 1));
             idPane.add(busID);
             idPane.setPreferredSize(new Dimension(83, idPane.getHeight()));
             busID.setHorizontalAlignment(SwingConstants.CENTER);
+
+            JPanel busInfoPane = new JPanel();
+            busInfoPane.setLayout(new BorderLayout());
+            JPanel driverInfoPane = new JPanel();
+            driverInfoPane.setLayout(new BorderLayout());
+            driverInfoPane.add(assignedDriverName, BorderLayout.CENTER);
+            driverInfoPane.add(assignedDriverID, BorderLayout.EAST);
+
+            busInfoPane.add(busSeats, BorderLayout.WEST);
+            busInfoPane.add(driverInfoPane, BorderLayout.CENTER);
             
             JPanel buttonsPane = new JPanel();
             buttonsPane.setLayout(new BorderLayout());
@@ -419,7 +438,8 @@ public class BusAndDriverPanel extends JPanel {
 
             //Add the items to the temporary pane
             busPane.add(idPane, BorderLayout.WEST);
-            busPane.add(busSeats, BorderLayout.CENTER);
+            busPane.add(busInfoPane, BorderLayout.CENTER);
+
             busPane.add(buttonsPane, BorderLayout.EAST);
 
             //Add the tempPane to the driverPane
