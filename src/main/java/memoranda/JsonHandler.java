@@ -84,7 +84,6 @@ public class JsonHandler {
                 Bus tempBus = new Bus(id, seats);
                 tempBus.setAssignedDriver((String) nodeObj.get("assignedDriver"));
                 busList.add(tempBus);
-
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -138,6 +137,7 @@ public class JsonHandler {
                 JSONObject busObj = new JSONObject();
                 busObj.put("id", String.valueOf(bus.getId()));
                 busObj.put("seats", String.valueOf(bus.getSeats()));
+                busObj.put("assignedDriver", String.valueOf(bus.getAssignedDriverID()));
 
                 busesArray.add(busObj);
             }
