@@ -54,7 +54,7 @@ public class BusAndDriverPanel extends JPanel {
      */
     private void panelInitialization() {
         //Import the drivers from the json file and populate driverList
-        String fileName = "nodes1.json";
+        String fileName = "memoranda/nodes1.json";
     	jsonHandler.readDriversFromJSON(fileName);
         driverList = new DriverList(jsonHandler.driverList);
         jsonHandler.readBusesFromJSON(fileName);
@@ -391,8 +391,8 @@ public class BusAndDriverPanel extends JPanel {
         //Update the busPane
         for(Bus bus : busList) {
             //Create a temporary panel to hold all the driver information
-            JPanel borderPane = new JPanel();
-            borderPane.setLayout(new BorderLayout());
+            JPanel busPane = new JPanel();
+            busPane.setLayout(new BorderLayout());
 
             //Create the individual sections for the driver information and the delete button
             JLabel busID = new JLabel(String.valueOf(bus.getId()));
@@ -418,12 +418,12 @@ public class BusAndDriverPanel extends JPanel {
             buttonsPane.add(selectDriverB, BorderLayout.WEST);
 
             //Add the items to the temporary pane
-            borderPane.add(idPane, BorderLayout.WEST);
-            borderPane.add(busSeats, BorderLayout.CENTER);
-            borderPane.add(buttonsPane, BorderLayout.EAST);
+            busPane.add(idPane, BorderLayout.WEST);
+            busPane.add(busSeats, BorderLayout.CENTER);
+            busPane.add(buttonsPane, BorderLayout.EAST);
 
             //Add the tempPane to the driverPane
-            busPane.add(borderPane);
+            this.busPane.add(busPane);
         }
         busPane.revalidate();
         busPane.repaint();
@@ -435,7 +435,10 @@ public class BusAndDriverPanel extends JPanel {
         public SelectDriverButton(Bus bus) {
         	this.bus = bus;
             this.setPreferredSize(new Dimension(225, 25));
-            this.setText("Select A Driver For This Bus");
+            if(bus.hasAssignedDriver())
+                this.setText("Change Driver");
+            else
+                this.setText("Add Driver");
             this.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                 	selectDriverButton_ActionPerformed(e);

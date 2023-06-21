@@ -3,6 +3,7 @@ package main.java.memoranda;
 public class Bus {
     private final int ID;
     private final int seats;
+    private Driver assignedDriver = null;
 
     /**
      * Default constructor with ID input
@@ -38,6 +39,14 @@ public class Bus {
     public int getSeats() {
         return seats;
     }
+
+    public void setAssignedDriver(Driver driver) { this.assignedDriver = driver; }
+
+    public Driver getAssignedDriver() { return this.assignedDriver; }
+
+    public boolean hasAssignedDriver() { return this.assignedDriver != null; }
+
+    public void removeAssignedDriver() { this.assignedDriver = null; }
 
     @Override
     public String toString() {
