@@ -177,7 +177,7 @@ public class BusDialog extends JDialog {
 
     void okayBtn_ActionPerformed(ActionEvent e) {
         CANCELLED = false;
-        int id = Integer.valueOf(idField.getText());
+        String id = idField.getText();
         int seats = Integer.valueOf(seatsField.getText());
         tempBus = new Bus(id, seats);
         this.dispose();

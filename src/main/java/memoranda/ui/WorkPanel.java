@@ -154,19 +154,19 @@ public class WorkPanel extends JPanel {
 		routeB.setIcon(
 				new ImageIcon(
 						main.java.memoranda.ui.AppFrame.class.getResource(
-								"/ui/icons/route.png")));
+								"/ui/icons/routes.png")));
 		routeB.setOpaque(false);
 		routeB.setMargin(new Insets(0, 0, 0, 0));
 		//eventsB.setSelected(true);
 
 		
 		busAndDriverButton.setSelected(true);
-		busAndDriverButton.setFont(new java.awt.Font("Dialog", 1, 10));
+		busAndDriverButton.setFont(new java.awt.Font("Dialog", 1, 9));
 		busAndDriverButton.setMargin(new Insets(0, 0, 0, 0));
-//		busDriverB.setIcon(
-//			new ImageIcon(
-//				main.java.memoranda.ui.AppFrame.class.getResource(
-//					"/ui/icons/tasks.png")));
+		busAndDriverButton.setIcon(
+			new ImageIcon(
+				main.java.memoranda.ui.AppFrame.class.getResource(
+					"/ui/icons/bus-driver.png")));
 		busAndDriverButton.setVerticalTextPosition(SwingConstants.BOTTOM);
 		busAndDriverButton.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -174,7 +174,7 @@ public class WorkPanel extends JPanel {
 			}
 		});
 		busAndDriverButton.setVerticalAlignment(SwingConstants.TOP);
-		busAndDriverButton.setText(Local.getString("Buses\nand\nDrivers"));
+		busAndDriverButton.setText(Local.getString("<html><center>Buses &amp;<br>Drivers</center></html>"));
 		busAndDriverButton.setHorizontalTextPosition(SwingConstants.CENTER);
 		busAndDriverButton.setFocusPainted(false);
 		busAndDriverButton.setBorderPainted(false);

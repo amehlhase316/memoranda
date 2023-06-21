@@ -165,7 +165,7 @@ public class DriverDialog extends JDialog {
         nameField.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
-                if(nameField.getText().length() >= 100)
+                if(nameField.getText().length() >= 35)
                     e.consume();
             }
 
