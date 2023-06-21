@@ -94,7 +94,7 @@ public class BusAndDriverPanel extends JPanel {
         createBusButton.setIcon(new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/Add_Bus.png")));
         createBusButton.setToolTipText(Local.getString("Create a New Bus"));
         createBusButton.setPreferredSize(new Dimension(120, 80));
-        createBusButton.setText("New Driver");
+        createBusButton.setText("New Bus");
         createBusButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 createBusButton_ActionPerformed(e);
