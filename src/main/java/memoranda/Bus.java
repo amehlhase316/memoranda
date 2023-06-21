@@ -4,6 +4,8 @@ public class Bus {
     private final int ID;
     private final int seats;
 
+    private Driver driver;
+
     /**
      * Default constructor with ID input
      * Average number of seats on a city bus is 30
@@ -11,6 +13,7 @@ public class Bus {
      */
     public Bus (int ID) {
         this(ID, 30);
+        this.driver = null;
     }
 
     /**
@@ -19,6 +22,7 @@ public class Bus {
      * @param seats
      */
     public Bus (int ID, int seats) {
+        this.driver = null;
         this.ID = ID;
         this.seats = seats;
     }
@@ -46,6 +50,22 @@ public class Bus {
         info.append("Bus seats: " + Integer.toString(getSeats())+ "\n\n");
 
         return info.toString();
+    }
+
+    /**
+     * Gets the driver's reference assigned to the Bus
+     * @return the Driver object or null if no assigned driver
+     */
+    public Driver getDriver(){
+        return driver;
+    }
+
+    /**
+     * Setter for the driver variable
+     * @param d the Driver reference
+     */
+    public void setDriver(Driver d){
+        driver = d;
     }
 
     public static void main (String [] args) {

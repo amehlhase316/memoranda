@@ -231,6 +231,25 @@ public class BusAndDriverPanel extends JPanel {
         updateList();
     }
 
+    public class OptionsDropdown extends JComboBox {
+        String choices;
+        Driver driver;
+        Bus bus;
+
+        public OptionsDropdown (Driver d, String c){
+            bus = null;
+            driver = d;
+            choices = c;
+
+            this.setSize(500, 500);
+
+
+
+        }
+
+
+    }
+
     /**
      * Internal class to associate a delete button with a driver.
      */
@@ -324,7 +343,7 @@ public class BusAndDriverPanel extends JPanel {
             tempPane.add(driverID, driverIDConstraints);
             tempPane.add(driverName, driverNameConstraints);
             tempPane.add(driverPhone, driverPhoneConstraints);
-            tempPane.add(deleteButton, deleteButtonConstraints);
+            //tempPane.add(deleteButton, deleteButtonConstraints);
 
             //Add the tempPane to the driverPane
             driverPane.add(tempPane);
