@@ -81,8 +81,10 @@ public class JsonHandler {
                 JSONObject nodeObj = (JSONObject) obj;
                 int id = Integer.valueOf((String) nodeObj.get("id"));
                 int seats = Integer.valueOf((String) nodeObj.get("seats"));
+                Bus tempBus = new Bus(id, seats);
+                tempBus.setAssignedDriver((String) nodeObj.get("assignedDriver"));
+                busList.add(tempBus);
 
-                busList.add(new Bus(id, seats));
             }
         } catch (Exception e) {
             e.printStackTrace();
