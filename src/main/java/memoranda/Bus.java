@@ -27,7 +27,7 @@ public class Bus {
      * Returns the ID of the bus
      * @return int ID
      */
-    public int getID() {
+    public int getId() {
         return ID;
     }
 
@@ -42,7 +42,7 @@ public class Bus {
     @Override
     public String toString() {
         StringBuffer info = new StringBuffer();
-        info.append("Bus ID: "+ getID() + "\n");
+        info.append("Bus ID: "+ getId() + "\n");
         info.append("Bus seats: " + Integer.toString(getSeats())+ "\n\n");
 
         return info.toString();

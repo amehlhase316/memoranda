@@ -37,7 +37,7 @@ public class BusList implements Iterable<Bus> {
 
     public Bus getBus(int id){
         for(int i = 0; i < buses.size(); ++i){
-            if(buses.get(i).getID() == id) {
+            if(buses.get(i).getId() == id) {
                 return buses.get(i);
             }
         }
