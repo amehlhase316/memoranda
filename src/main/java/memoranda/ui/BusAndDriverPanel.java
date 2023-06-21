@@ -3,16 +3,14 @@ package main.java.memoranda.ui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
-import java.awt.Insets;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 
 import javax.swing.BorderFactory;
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -68,21 +66,22 @@ public class BusAndDriverPanel extends JPanel {
         //########################################## Top Panel ##########################################
         JPanel topPanel = new JPanel();
         topPanel.setLayout(new BorderLayout());
-        topPanel.setPreferredSize(new Dimension(getWidth(), 82));
+        topPanel.setPreferredSize(new Dimension(getWidth(), 90));
         topPanel.setBackground(Color.WHITE);
 
         //Buttons
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new FlowLayout());
+        buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.X_AXIS));
         buttonPanel.setBackground(Color.WHITE);
 
         //Create Driver Button
         createDriverButton = new JButton();
+        createDriverButton.setBackground(Color.WHITE);
         createDriverButton.setIcon(
                 new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/Add_Driver.png")));
-        createDriverButton.setMaximumSize(new Dimension(40, 50));
         createDriverButton.setToolTipText(Local.getString("Create a New Driver"));
-        createDriverButton.setPreferredSize(new Dimension(40, 50));
+        createDriverButton.setPreferredSize(new Dimension(120, 80));
+        createDriverButton.setText("New Driver");
         createDriverButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 createDriverButton_ActionPerformed(e);
@@ -91,22 +90,31 @@ public class BusAndDriverPanel extends JPanel {
 
         //Create Bus Button
         createBusButton = new JButton();
+        createBusButton.setBackground(Color.WHITE);
         createBusButton.setIcon(new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/Add_Bus.png")));
-        createBusButton.setMaximumSize(new Dimension(40, 50));
         createBusButton.setToolTipText(Local.getString("Create a New Bus"));
-        createBusButton.setPreferredSize(new Dimension(40, 50));
+        createBusButton.setPreferredSize(new Dimension(120, 80));
+        createBusButton.setText("New Driver");
         createBusButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 createBusButton_ActionPerformed(e);
             }
         });
 
-        //Add buttons to buttonPanel
+     // Create a placeholder panel for centering
+        JPanel placeholderPanel = new JPanel(new GridBagLayout());
+        placeholderPanel.setBackground(Color.WHITE);
+
+        // Set horizontal gap between buttons
         buttonPanel.add(createDriverButton);
+        buttonPanel.add(Box.createHorizontalStrut(875));
         buttonPanel.add(createBusButton);
 
-        //Add button panel to the top panel
-        topPanel.add(buttonPanel, BorderLayout.WEST);
+        // Add button panel to the placeholder panel
+        placeholderPanel.add(buttonPanel);
+
+        // Add the placeholder panel to the top panel
+        topPanel.add(placeholderPanel, BorderLayout.CENTER);
 
         //########################################## Columns ##########################################
         //displayPane the columnPanes **NONE OF THIS COLUMN STUFF WORKS YET**
@@ -173,10 +181,10 @@ public class BusAndDriverPanel extends JPanel {
         JLabel buttonHeader = new JLabel("Select A Driver");
         buttonHeader.setHorizontalAlignment(SwingConstants.CENTER);
         buttonHeader.setBorder(BorderFactory.createRaisedBevelBorder()); // Set cell border
-        buttonHeader.setPreferredSize(new Dimension(150, buttonHeader.getHeight()));
+        buttonHeader.setPreferredSize(new Dimension(225, buttonHeader.getHeight()));
         
         JLabel bufferLbl2 = new JLabel();
-        bufferLbl2.setPreferredSize(new Dimension(200, bufferLbl2.getHeight()));
+        bufferLbl2.setPreferredSize(new Dimension(91, bufferLbl2.getHeight()));
         
         buttonHdrPane.add(buttonHeader, BorderLayout.WEST);
         buttonHdrPane.add(bufferLbl2, BorderLayout.EAST);
@@ -245,9 +253,11 @@ public class BusAndDriverPanel extends JPanel {
         dialogBox.setVisible(true);
         if (dialogBox.CANCELLED)
             return;
-        if(busList.hasBus(dialogBox.tempBus.getID()))
+        if(busList.hasBus(dialogBox.tempBus.getId()))
             return; //temp solution so no duplicate IDs are made
         busList.addBus(dialogBox.tempBus);
+        
+    	jsonHandler.writeBusesToJSON("nodes1.json");
 
         updateList();
     }
@@ -266,7 +276,7 @@ public class BusAndDriverPanel extends JPanel {
         dialogBox.setVisible(true);
         if (dialogBox.CANCELLED)
             return;
-        if(driverList.hasDriver(dialogBox.tempDriver.getID()))
+        if(driverList.hasDriver(dialogBox.tempDriver.getId()))
             return; //temp solution so no duplicate IDs are made
         driverList.addDriver(dialogBox.tempDriver);
         
@@ -309,10 +319,14 @@ public class BusAndDriverPanel extends JPanel {
         }
 
         private void deleteButton_ActionPerformed(ActionEvent e) {
-            if(this.bus == null)
+            if (this.bus == null) {
                 driverList.removeDriver(this.driver);
-            else
+            	jsonHandler.writeDriversToJSON("nodes1.json");
+            }
+            else {
                 busList.removeBus(this.bus);
+            	jsonHandler.writeBusesToJSON("nodes1.json");
+            }
             updateList();
         }
     }
@@ -332,7 +346,7 @@ public class BusAndDriverPanel extends JPanel {
             borderPane.setLayout(new BorderLayout());
 
             //Create the individual sections for the driver information and the delete button
-            JLabel driverID = new JLabel(driver.getID());
+            JLabel driverID = new JLabel(driver.getId());
             driverID.setFont(font);
             driverID.setBackground(Color.WHITE); // Set background color
             driverID.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 1, Color.GRAY)); // Set cell border
@@ -342,7 +356,7 @@ public class BusAndDriverPanel extends JPanel {
             driverName.setBackground(Color.WHITE); // Set background color
             driverName.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 1, Color.GRAY)); // Set cell border
             
-            JLabel driverPhone = new JLabel(driver.getPhone());
+            JLabel driverPhone = new JLabel(driver.getPhoneNumber());
             driverPhone.setFont(font);
             driverPhone.setBackground(Color.WHITE); // Set background color
             driverPhone.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 1, Color.GRAY)); // Set cell border
@@ -381,11 +395,12 @@ public class BusAndDriverPanel extends JPanel {
             borderPane.setLayout(new BorderLayout());
 
             //Create the individual sections for the driver information and the delete button
-            JLabel busID = new JLabel(String.valueOf(bus.getID()));
+            JLabel busID = new JLabel(String.valueOf(bus.getId()));
             busID.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 1, Color.GRAY)); // Set cell border
             JLabel busSeats = new JLabel(String.valueOf("   " + bus.getSeats()));
             busSeats.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 1, Color.GRAY)); // Set cell border
             DeleteButton deleteButton = new DeleteButton(bus);
+            SelectDriverButton selectDriverB = new SelectDriverButton(bus);
 
             //Update the properties of each item
             busID.setPreferredSize(new Dimension(100, 25));
@@ -396,16 +411,40 @@ public class BusAndDriverPanel extends JPanel {
             idPane.add(busID);
             idPane.setPreferredSize(new Dimension(83, idPane.getHeight()));
             busID.setHorizontalAlignment(SwingConstants.CENTER);
+            
+            JPanel buttonsPane = new JPanel();
+            buttonsPane.setLayout(new BorderLayout());
+            buttonsPane.add(deleteButton, BorderLayout.EAST);
+            buttonsPane.add(selectDriverB, BorderLayout.WEST);
 
             //Add the items to the temporary pane
             borderPane.add(idPane, BorderLayout.WEST);
             borderPane.add(busSeats, BorderLayout.CENTER);
-            borderPane.add(deleteButton, BorderLayout.EAST);
+            borderPane.add(buttonsPane, BorderLayout.EAST);
 
             //Add the tempPane to the driverPane
             busPane.add(borderPane);
         }
         busPane.revalidate();
         busPane.repaint();
+    }
+    
+    public class SelectDriverButton extends JButton {
+    	private Bus bus;
+    	
+        public SelectDriverButton(Bus bus) {
+        	this.bus = bus;
+            this.setPreferredSize(new Dimension(225, 25));
+            this.setText("Select A Driver For This Bus");
+            this.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                	selectDriverButton_ActionPerformed(e);
+                }
+            });
+        }
+
+        private void selectDriverButton_ActionPerformed(ActionEvent e) {
+            
+        }
     }
 }
