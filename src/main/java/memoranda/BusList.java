@@ -29,15 +29,15 @@ public class BusList implements Iterable<Bus> {
         return buses.size();
     }
 
-    public boolean hasBus(int id) {
+    public boolean hasBus(String id) {
         if(getBus(id) != null)
             return true;
         return false;
     }
 
-    public Bus getBus(int id){
+    public Bus getBus(String id){
         for(int i = 0; i < buses.size(); ++i){
-            if(buses.get(i).getId() == id) {
+            if(buses.get(i).getId().equals(id)) {
                 return buses.get(i);
             }
         }

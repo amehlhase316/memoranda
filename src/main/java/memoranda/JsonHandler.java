@@ -79,7 +79,7 @@ public class JsonHandler {
 
             for (Object obj : nodesArray) {
                 JSONObject nodeObj = (JSONObject) obj;
-                int id = Integer.valueOf((String) nodeObj.get("id"));
+                String id = (String) nodeObj.get("id");
                 int seats = Integer.valueOf((String) nodeObj.get("seats"));
                 Bus tempBus = new Bus(id, seats);
                 tempBus.setAssignedDriver((String) nodeObj.get("assignedDriver"));
