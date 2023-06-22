@@ -2,7 +2,8 @@ package main.java.memoranda.ui;
 
 import main.java.memoranda.*;
 
-
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -23,11 +24,16 @@ public class RoutePanel extends JPanel implements ActionListener {
     private JLabel busLabel;
     private JTextField driverField;
     private JTextField busField;
+    private BorderLayout borderLayout1 = new BorderLayout();
+    private JScrollPane scrollPane = new JScrollPane();
+    private JsonHandler jsonHandler = new JsonHandler();
+    private MapGenerator mapGen;
 
-    BorderLayout borderLayout1 = new BorderLayout();
-    JScrollPane scrollPane = new JScrollPane();
-    JsonHandler jsonHandler = new JsonHandler();
-    MapGenerator mapGen;
+    private JList<String> startPointList;
+    private JList<String> endPointList;
+    private JComboBox<String> driverBox;
+    private JComboBox<String> busBox;
+
 
     public RoutePanel() {
         try {
@@ -39,7 +45,8 @@ public class RoutePanel extends JPanel implements ActionListener {
     }
     void jbInit() throws Exception {
 
-    	jsonHandler.readNodesFromJSON("nodes1.json");
+    	jsonHandler = new JsonHandler();
+        jsonHandler.readNodesFromJSON("nodes1.json");
         mapGen = new MapGenerator(jsonHandler.nodes);
         route = new Route(5.0);
 
@@ -80,7 +87,9 @@ public class RoutePanel extends JPanel implements ActionListener {
 
         buildSidePanel();
 
+
     }
+
 
     private void buildSidePanel() {
         // Side Panel
@@ -104,25 +113,28 @@ public class RoutePanel extends JPanel implements ActionListener {
         busField = new JTextField(15);
 
         startLabel.setBounds(10,20,100,40);
-        startField.setBounds(10,50,50,25);
 
         finishLabel.setBounds(10,70,100,40);
-        finishField.setBounds(10,100,50,25);
 
         driverLabel.setBounds(10,120,100,40);
-        driverField.setBounds(10,150,50,25);
+
 
         busLabel.setBounds(10,170,100,40);
-        busField.setBounds(10,200,50,25);
+
 
         createButton = new JButton("Create");
         createButton.addActionListener(this);
 
+
+        initializeDropdown();
         buttonPanel.add(createButton);
 
         //        JButton modifyButton = new JButton("Modify");
         //        modifyButton.addActionListener(this);
         //        buttonPanel.add(modifyButton);
+
+        sidePanel.add(startPointList);
+        sidePanel.add(endPointList);
         sidePanel.add(startLabel);
         sidePanel.add(startField);
         sidePanel.add(finishLabel);
@@ -136,16 +148,44 @@ public class RoutePanel extends JPanel implements ActionListener {
         this.add(sidePanel, BorderLayout.EAST);
     }
 
+    private void initializeDropdown() {
+        startPointList = new JList<>();
+        endPointList = new JList<>();
+        driverBox = new JComboBox<>();
+        busBox = new JComboBox<>();
+
+        startPointList.setBounds(10,50,80,25);
+        endPointList.setBounds(10,100,50,25);
+        driverBox.setBounds(10,150,50,25);
+        busBox.setBounds(10,200,50,25);
+
+        DefaultListModel listModel = new DefaultListModel();
+        jsonHandler.getNodesString().forEach(listModel::addElement);
+        startPointList.setModel(listModel);
+        endPointList.setModel(listModel);
+
+        //Set up nce Driver and bus json objects exists, and JsonHandler manipulates the same
+//        DefaultComboBoxModel busModel = new DefaultComboBoxModel();
+//        DefaultComboBoxModel driverModel = new DefaultComboBoxModel();
+//
+//        driverBox.setModel(model);
+//        busBox.setModel(model);
+    }
+
+//    private void createRoute() {
+//        String selectedChoice = (String) choicesComboBox.getSelectedItem();
+//        JSONObject routeObject = new JSONObject();
+//        routeObject.put( , selectedChoice);
+//
+//        // Save the routeObject to a JSON file or perform further processing
+//    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
 
         if(e.getSource() == createButton) {
-            createRoute();
+//            createRoute();
         }
-
-    }
-
-    private void createRoute(){
 
     }
 
