@@ -36,8 +36,10 @@ public class WorkPanel extends JPanel {
 	public MapPanel mapPanel = new MapPanel();
 
 	public RoutePanel routePanel = new RoutePanel();
+	public BusAndDriverPanel busAndDriverPanel = new BusAndDriverPanel();
 	public JButton agendaB = new JButton();
 	public JButton tasksB = new JButton();
+	public JButton busAndDriverButton = new JButton();
 //
 	public JButton routeB = new JButton();
 	
@@ -48,7 +50,9 @@ public class WorkPanel extends JPanel {
 	
 	// NEW BUTTON FOR MAP PANEL
 	public JButton mapB = new JButton();
-	
+
+	public JButton testB = new JButton();
+
 	JButton currentB = null;
 	Border border1;
 
@@ -150,11 +154,38 @@ public class WorkPanel extends JPanel {
 		routeB.setIcon(
 				new ImageIcon(
 						main.java.memoranda.ui.AppFrame.class.getResource(
-								"/ui/icons/route.png")));
+								"/ui/icons/routes.png")));
 		routeB.setOpaque(false);
 		routeB.setMargin(new Insets(0, 0, 0, 0));
 		//eventsB.setSelected(true);
 
+		
+		busAndDriverButton.setSelected(true);
+		busAndDriverButton.setFont(new java.awt.Font("Dialog", 1, 9));
+		busAndDriverButton.setMargin(new Insets(0, 0, 0, 0));
+		busAndDriverButton.setIcon(
+			new ImageIcon(
+				main.java.memoranda.ui.AppFrame.class.getResource(
+					"/ui/icons/bus-driver.png")));
+		busAndDriverButton.setVerticalTextPosition(SwingConstants.BOTTOM);
+		busAndDriverButton.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				busDriverButton_actionPerformed(e);
+			}
+		});
+		busAndDriverButton.setVerticalAlignment(SwingConstants.TOP);
+		busAndDriverButton.setText(Local.getString("<html><center>Buses &amp;<br>Drivers</center></html>"));
+		busAndDriverButton.setHorizontalTextPosition(SwingConstants.CENTER);
+		busAndDriverButton.setFocusPainted(false);
+		busAndDriverButton.setBorderPainted(false);
+		busAndDriverButton.setContentAreaFilled(false);
+		busAndDriverButton.setPreferredSize(new Dimension(50, 50));
+		busAndDriverButton.setMinimumSize(new Dimension(30, 30));
+		busAndDriverButton.setOpaque(false);
+		busAndDriverButton.setMaximumSize(new Dimension(60, 80));
+		busAndDriverButton.setBackground(Color.white);
+		
+		
 		tasksB.setSelected(true);
 		tasksB.setFont(new java.awt.Font("Dialog", 1, 10));
 		tasksB.setMargin(new Insets(0, 0, 0, 0));
@@ -256,15 +287,17 @@ public class WorkPanel extends JPanel {
 		mapB.setOpaque(false);
 		mapB.setMaximumSize(new Dimension(60, 80));
 		mapB.setBackground(Color.white);
-		
+
 		this.add(toolBar, BorderLayout.WEST);
 		this.add(panel, BorderLayout.CENTER);
 		panel.add(dailyItemsPanel, "DAILYITEMS");
 		panel.add(mapPanel, "MAP");
 		panel.add(routePanel,"Routes");
+		panel.add(busAndDriverPanel, "Buses/Drivers");
 //		panel.add(filesPanel, "FILES");
 		toolBar.add(agendaB, null);
 		toolBar.add(routeB, null);
+		toolBar.add(busAndDriverButton, null);
 		toolBar.add(tasksB, null);
 		toolBar.add(mapB, null);
 //		toolBar.add(notesB, null);
@@ -294,6 +327,8 @@ public class WorkPanel extends JPanel {
 //				filesB_actionPerformed(null);
 			else if (pan.equals("MAP"))
 				mapB_actionPerformed(null);
+			else if (pan.equals("BUSDRIVERS"))
+				busDriverButton_actionPerformed(null);
 		}
 	}
 
@@ -311,6 +346,12 @@ public class WorkPanel extends JPanel {
 //		Context.put("CURRENT_PANEL", "NOTES");
 //	}
 
+	public void busDriverButton_actionPerformed(ActionEvent e) {
+		cardLayout1.show(panel, "Buses/Drivers"); //switches to the correct window
+		setCurrentButton(busAndDriverButton);
+		Context.put("CURRENT_PANEL", "Buses/Drivers");
+	}
+	
 	public void tasksB_actionPerformed(ActionEvent e) {
 		cardLayout1.show(panel, "DAILYITEMS");
 		dailyItemsPanel.selectPanel("TASKS");
