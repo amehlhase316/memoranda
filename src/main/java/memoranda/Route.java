@@ -78,6 +78,7 @@ Route {
         this.bus = bus;
     }
 
+
     /**
      * Getter function for the length of the Route
      * @return the length of the Route in km
