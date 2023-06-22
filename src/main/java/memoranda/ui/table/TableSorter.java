@@ -125,11 +125,11 @@ public class TableSorter extends TableMap {
 	    int result;
 	    if(data.getColumnName(column).equals(Local.getString("Priority"))) {
 		    Hashtable priority = new Hashtable();
-		    priority.put(Local.getString("Lowest"), new Integer(1));
-		    priority.put(Local.getString("Low"), new Integer(2));
-		    priority.put(Local.getString("Normal"), new Integer(3));
-		    priority.put(Local.getString("High"), new Integer(4));
-		    priority.put(Local.getString("Highest"), new Integer(5));
+		    priority.put(Local.getString("Lowest"), Integer.valueOf(1));
+		    priority.put(Local.getString("Low"), Integer.valueOf(2));
+		    priority.put(Local.getString("Normal"), Integer.valueOf(3));
+		    priority.put(Local.getString("High"), Integer.valueOf(4));
+		    priority.put(Local.getString("Highest"), Integer.valueOf(5));
 	
 		    Integer s1 = (Integer)priority.get((String)data.getValueAt(row1, column));
 		    Integer s2 = (Integer)priority.get((String)data.getValueAt(row2, column));
@@ -138,11 +138,11 @@ public class TableSorter extends TableMap {
 	    }
 	    else if(data.getColumnName(column).equals(Local.getString("Status"))) {
 		    Hashtable priority = new Hashtable();
-		    priority.put(Local.getString("Completed"), new Integer(1));
-		    priority.put(Local.getString("Failed"), new Integer(2));
-		    priority.put(Local.getString("Scheduled"), new Integer(3));
-		    priority.put(Local.getString("Active"), new Integer(4));
-		    priority.put(Local.getString("Deadline"), new Integer(5));
+		    priority.put(Local.getString("Completed"), Integer.valueOf(1));
+		    priority.put(Local.getString("Failed"), Integer.valueOf(2));
+		    priority.put(Local.getString("Scheduled"), Integer.valueOf(3));
+		    priority.put(Local.getString("Active"), Integer.valueOf(4));
+		    priority.put(Local.getString("Deadline"), Integer.valueOf(5));
 	
 		    Integer s1 = (Integer)priority.get((String)data.getValueAt(row1, column));
 		    Integer s2 = (Integer)priority.get((String)data.getValueAt(row2, column));
@@ -332,7 +332,7 @@ public class TableSorter extends TableMap {
         sortBy = column;
         this.ascending = ascending;
         sortingColumns.removeAllElements();
-        sortingColumns.addElement(new Integer(column));
+        sortingColumns.addElement(Integer.valueOf(column));
         sort(this);
         super.tableChanged(new TableModelEvent(this)); 
     }

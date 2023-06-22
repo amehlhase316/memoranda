@@ -55,7 +55,16 @@ import nu.xom.Builder;
 import nu.xom.Document;
 import nu.xom.Element;
 import nu.xom.Elements;
-
+import java.awt.SystemTray;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.TrayIcon;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.Frame;
+import java.util.Properties;
+import java.io.InputStream;
+import java.io.IOException;
 
 /**
  * 
@@ -233,7 +242,7 @@ public class AppFrame extends JFrame {
     JMenuItem jMenuGoToday = new JMenuItem(
             workPanel.dailyItemsPanel.calendar.todayAction);
 
-    JMenuItem jMenuEditPref = new JMenuItem(preferencesAction);
+    //JMenuItem jMenuEditPref = new JMenuItem(preferencesAction);
 
     JMenu jMenuInsertSpecial = new JMenu();
     
@@ -262,10 +271,27 @@ public class AppFrame extends JFrame {
         contentPane = (JPanel) this.getContentPane();
         contentPane.setLayout(borderLayout1);
         //this.setSize(new Dimension(800, 500));
-        this.setTitle("Memoranda - " + CurrentProject.get().getTitle());
+        this.setTitle("PowerZone - " + CurrentProject.get().getTitle());
         //Added a space to App.VERSION_INFO to make it look some nicer
-        statusBar.setText(" Version:" + App.VERSION_INFO + " (Build "
-                + App.BUILD_INFO + " )");
+        //statusBar.setText(" Version:" + App.VERSION_INFO + " (Build "
+                //+ App.BUILD_INFO + " )");
+        // Load properties from version.properties
+        Properties props = new Properties();
+        try (InputStream is = getClass().getResourceAsStream("/version.properties")) {
+            if (is != null) {
+                props.load(is);
+            } else {
+                System.err.println("Could not find version.properties");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        String version = props.getProperty("version", "Unknown version");
+        String buildNumber = props.getProperty("buildNumber", "Unknown build number");
+
+       // Set the text in the statusBar
+        statusBar.setText(" Version: " + version + " (Build " + buildNumber + " )");
 
         jMenuFile.setText(Local.getString("File"));
         jMenuFileExit.setText(Local.getString("Exit"));
@@ -359,7 +385,7 @@ public class AppFrame extends JFrame {
 
         jMenuEditFind.setText(Local.getString("Find & replace") + "...");
 
-        jMenuEditPref.setText(Local.getString("Preferences") + "...");
+        //jMenuEditPref.setText(Local.getString("Preferences") + "...");
 
         jMenuInsert.setText(Local.getString("Insert"));
 
@@ -456,7 +482,7 @@ public class AppFrame extends JFrame {
         jMenuFile.add(jMenuFileImportNote);
         jMenuFile.add(jMenuFileImportPrj);
         jMenuFile.addSeparator();
-        jMenuFile.add(jMenuEditPref);
+        //jMenuFile.add(jMenuEditPref);
         jMenuFile.addSeparator();
         jMenuFile.add(jMenuFileMin);
         jMenuFile.addSeparator();
@@ -598,8 +624,8 @@ public class AppFrame extends JFrame {
         Object fwo = Context.get("FRAME_WIDTH");
         Object fho = Context.get("FRAME_HEIGHT");
         if ((fwo != null) && (fho != null)) {
-            int w = new Integer((String) fwo).intValue();
-            int h = new Integer((String) fho).intValue();
+            int w = Integer.valueOf((String) fwo).intValue();
+            int h = Integer.valueOf((String) fho).intValue();
             this.setSize(w, h);
         }
         else
@@ -608,8 +634,8 @@ public class AppFrame extends JFrame {
         Object xo = Context.get("FRAME_XPOS");
         Object yo = Context.get("FRAME_YPOS");
         if ((xo != null) && (yo != null)) {
-            int x = new Integer((String) xo).intValue();
-            int y = new Integer((String) yo).intValue();
+            int x = Integer.valueOf((String) xo).intValue();
+            int y = Integer.valueOf((String) yo).intValue();
             this.setLocation(x, y);
         }
 
@@ -656,18 +682,50 @@ public class AppFrame extends JFrame {
                         if(dlg.CANCELLED) return;
         }
 
-        Context.put("FRAME_WIDTH", new Integer(this.getWidth()));
-        Context.put("FRAME_HEIGHT", new Integer(this.getHeight()));
-        Context.put("FRAME_XPOS", new Integer(this.getLocation().x));
-        Context.put("FRAME_YPOS", new Integer(this.getLocation().y));
+        Context.put("FRAME_WIDTH", Integer.valueOf(this.getWidth()));
+        Context.put("FRAME_HEIGHT", Integer.valueOf(this.getHeight()));
+        Context.put("FRAME_XPOS", Integer.valueOf(this.getLocation().x));
+        Context.put("FRAME_YPOS", Integer.valueOf(this.getLocation().y));
         exitNotify();
         System.exit(0);
     }
 
     public void doMinimize() {
         exitNotify();
-        App.closeWindow();
+        try {
+            if (SystemTray.isSupported()) {
+                SystemTray systemTray = SystemTray.getSystemTray();
+                Image image = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/ui/icons/notes.png"));
+                TrayIcon trayIcon = new TrayIcon(image, "Memoranda");
+
+                // Add MouseListener to TrayIcon
+                trayIcon.addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        // Make the application window visible
+                        setVisible(true);
+                        // De-iconify the application window
+                        setState(Frame.NORMAL);
+                        // Bring the application window to the front
+                        toFront();
+                        // Remove the TrayIcon from the SystemTray
+                        systemTray.remove(trayIcon);
+                    }
+                });
+
+
+                trayIcon.setImageAutoSize(true);
+                systemTray.add(trayIcon);
+                this.setVisible(false);
+            } else {
+                System.err.println("System tray not supported!");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
+
+
 
     //Help | About action performed
     public void jMenuHelpAbout_actionPerformed(ActionEvent e) {
@@ -682,19 +740,15 @@ public class AppFrame extends JFrame {
 
     protected void processWindowEvent(WindowEvent e) {
         if (e.getID() == WindowEvent.WINDOW_CLOSING) {
-            if (Configuration.get("ON_CLOSE").equals("exit"))
-                doExit();
-            else
-                doMinimize();
-        }
-        else if ((e.getID() == WindowEvent.WINDOW_ICONIFIED)) {
-            super.processWindowEvent(new WindowEvent(this,
-                    WindowEvent.WINDOW_CLOSING));
+            doExit();
+        } else if ((e.getID() == WindowEvent.WINDOW_ICONIFIED)) {
+            super.processWindowEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
             doMinimize();
-        }
-        else
+        } else {
             super.processWindowEvent(e);
+        }
     }
+
 
     public static void addExitListener(ActionListener al) {
         exitListeners.add(al);
@@ -833,7 +887,7 @@ public class AppFrame extends JFrame {
     public void showPreferences() {
         PreferencesDialog dlg = new PreferencesDialog(this);
         dlg.pack();
-        dlg.setLocationRelativeTo(this);
+        dlg.setLocationRelativeTo(null);
         dlg.setVisible(true);
     }
     

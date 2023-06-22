@@ -39,9 +39,9 @@ public class NoteImpl implements Note, Comparable {
 
      //   return new CalendarDate(day.getAttribute("date").getValue());
 		
-		return new CalendarDate(new Integer(day.getAttribute("day").getValue()).intValue(), 
-								new Integer(month.getAttribute("month").getValue()).intValue(),
-								new Integer(year.getAttribute("year").getValue()).intValue());
+		return new CalendarDate(Integer.valueOf(day.getAttribute("day").getValue()).intValue(), 
+								Integer.valueOf(month.getAttribute("month").getValue()).intValue(),
+								Integer.valueOf(year.getAttribute("year").getValue()).intValue());
 
     }
     
@@ -116,5 +116,7 @@ public class NoteImpl implements Note, Comparable {
 		else 
 			return 0;
 	}
-    
+
+    public void setProject(Project newProject) {
+    }
 }
