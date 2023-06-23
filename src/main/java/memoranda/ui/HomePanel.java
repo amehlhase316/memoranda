@@ -10,7 +10,6 @@ import java.util.Map;
 
 import javax.swing.JButton;
 import javax.swing.JEditorPane;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -33,7 +32,7 @@ import main.java.memoranda.TaskList;
 import main.java.memoranda.date.CalendarDate;
 import main.java.memoranda.date.CurrentDate;
 import main.java.memoranda.date.DateListener;
-import main.java.memoranda.util.AgendaGenerator;
+import main.java.memoranda.util.HomeGenerator;
 import main.java.memoranda.util.CurrentStorage;
 import main.java.memoranda.util.Local;
 import main.java.memoranda.util.Util;
@@ -42,8 +41,8 @@ import javax.swing.JOptionPane;
 
 import nu.xom.Element;
 
-/*$Id: AgendaPanel.java,v 1.11 2005/02/15 16:58:02 rawsushi Exp $*/
-public class AgendaPanel extends JPanel {
+/*$Id: HomePanel.java,v 1.11 2005/02/15 16:58:02 rawsushi Exp $*/
+public class HomePanel extends JPanel {
 	BorderLayout borderLayout1 = new BorderLayout();
 	JButton historyBackB = new JButton();
 	JToolBar toolBar = new JToolBar();
@@ -63,7 +62,7 @@ public class AgendaPanel extends JPanel {
 
 	boolean isActive = true;
 
-	public AgendaPanel(DailyItemsPanel _parentPanel) {
+	public HomePanel(DailyItemsPanel _parentPanel) {
 		try {
 			parentPanel = _parentPanel;
 			jbInit();
@@ -294,7 +293,7 @@ public class AgendaPanel extends JPanel {
 	}
 
 	public void refresh(CalendarDate date) {
-		viewer.setText(AgendaGenerator.getAgenda(date,expandedTasks));
+		viewer.setText(HomeGenerator.getAgenda(date,expandedTasks));
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				if(gotoTask != null) {
