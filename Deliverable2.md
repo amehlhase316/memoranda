@@ -208,8 +208,8 @@ Answer as a team!
 
   **GitHub links to your Code Reviews (up to 3 links) -- Sprint 2 and 3:
 
-    - https://github.com/amansharma96/Professional_Cowboys-Summer23C/pull/9#pullrequestreview-1496167221
-    - link2
+- [Code review #1](https://github.com/amansharma96/Professional_Cowboys-Summer23C/pull/9#pullrequestreview-1496167221)
+- [Code review #2](https://github.com/amansharma96/Professional_Cowboys-Summer23C/pull/18#pullrequestreview-1496178221)
 
   **How did you contribute to Static Analysis -- Sprint 3:
 
