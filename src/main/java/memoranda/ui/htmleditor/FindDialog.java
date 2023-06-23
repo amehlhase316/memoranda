@@ -1,4 +1,4 @@
-package main.java.memoranda.ui.htmleditor;
+package memoranda.ui.htmleditor;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -19,7 +19,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import main.java.memoranda.ui.htmleditor.util.Local;
+import memoranda.ui.htmleditor.util.Local;
 
 /**
  * <p>Title: </p>
@@ -70,7 +70,7 @@ public class FindDialog extends JDialog {
 		header.setText(Local.getString("Find & replace"));
 		header.setIcon(
 			new ImageIcon(
-				main.java.memoranda.ui.htmleditor.ImageDialog.class.getResource(
+				memoranda.ui.htmleditor.ImageDialog.class.getResource(
 					"/htmleditor/icons/findbig.png")));
 		headerPanel.setBackground(Color.WHITE);
 		headerPanel.add(header);

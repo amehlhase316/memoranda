@@ -1,4 +1,4 @@
-package main.java.memoranda.ui;
+package memoranda.ui;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -23,13 +23,13 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import main.java.memoranda.CurrentNote;
-import main.java.memoranda.CurrentProject;
-import main.java.memoranda.Note;
-import main.java.memoranda.date.CurrentDate;
-import main.java.memoranda.util.Configuration;
-import main.java.memoranda.util.CurrentStorage;
-import main.java.memoranda.util.Local;
+import memoranda.CurrentNote;
+import memoranda.CurrentProject;
+import memoranda.Note;
+import memoranda.date.CurrentDate;
+import memoranda.util.Configuration;
+import memoranda.util.CurrentStorage;
+import memoranda.util.Local;
 
 /*$Id: NotesControlPanel.java,v 1.16 2005/05/05 16:19:16 ivanrise Exp $*/
 public class NotesControlPanel extends JPanel {
@@ -91,7 +91,7 @@ public class NotesControlPanel extends JPanel {
             }
         });
         ppOpenB.setIcon(
-            new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/nopen.png")));
+            new ImageIcon(memoranda.ui.AppFrame.class.getResource("/ui/icons/nopen.png")));
         buttonsPanel.setMinimumSize(new Dimension(70, 22));
         buttonsPanel.setOpaque(false);
         //buttonsPanel.setPreferredSize(new Dimension(80, 22));
@@ -105,7 +105,7 @@ public class NotesControlPanel extends JPanel {
             }
         });
         ppAddBkmrk.setIcon(
-            new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/addbookmark.png")));
+            new ImageIcon(memoranda.ui.AppFrame.class.getResource("/ui/icons/addbookmark.png")));
         ppClearNote.setFont(new java.awt.Font("Dialog", 1, 11));
         ppClearNote.setText(Local.getString("Clear note"));
         ppClearNote.addActionListener(new java.awt.event.ActionListener() {
@@ -114,7 +114,7 @@ public class NotesControlPanel extends JPanel {
             }
         });
         ppClearNote.setIcon(
-            new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/editdelete.png")));
+            new ImageIcon(memoranda.ui.AppFrame.class.getResource("/ui/icons/editdelete.png")));
         ppClearNote.setEnabled(false);
         notesPPMenu.setFont(new java.awt.Font("Dialog", 1, 10));
         ppOpenNote.setFont(new java.awt.Font("Dialog", 1, 11));
@@ -146,7 +146,7 @@ public class NotesControlPanel extends JPanel {
             }
         });
         ppRemoveBkmrk.setIcon(
-            new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/removebookmark.png")));
+            new ImageIcon(memoranda.ui.AppFrame.class.getResource("/ui/icons/removebookmark.png")));
         ppRemoveBkmrk.setEnabled(false);
         tabbedPane.add(notesListPanel, Local.getString("Notes"));
         tabbedPane.add(bookmarksListPanel, Local.getString("Bookmarks"));

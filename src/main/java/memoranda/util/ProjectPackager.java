@@ -6,9 +6,8 @@
  * @author Alex V. Alishevskikh, alex@openmechanics.net
  * Copyright (c) 2003 Memoranda Team. http://memoranda.sf.net
  */
-package main.java.memoranda.util;
+package memoranda.util;
 import java.io.BufferedReader;
-import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -21,11 +20,11 @@ import java.util.zip.ZipOutputStream;
 
 import javax.swing.JOptionPane;
 
-import main.java.memoranda.Project;
-import main.java.memoranda.ProjectManager;
-import main.java.memoranda.date.CalendarDate;
-import main.java.memoranda.ui.App;
-import main.java.memoranda.ui.ExceptionDialog;
+import memoranda.Project;
+import memoranda.ProjectManager;
+import memoranda.date.CalendarDate;
+import memoranda.ui.App;
+import memoranda.ui.ExceptionDialog;
 /**
  * 
  */

@@ -1,4 +1,4 @@
-package main.java.memoranda.ui;
+package memoranda.ui;
 
 import java.awt.Component;
 import java.awt.Font;
@@ -13,19 +13,19 @@ import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 import javax.swing.ListSelectionModel;
 
-import main.java.memoranda.CurrentNote;
-import main.java.memoranda.CurrentProject;
-import main.java.memoranda.Note;
-import main.java.memoranda.NoteList;
-import main.java.memoranda.NoteListener;
-import main.java.memoranda.Project;
-import main.java.memoranda.ProjectListener;
-import main.java.memoranda.ResourcesList;
-import main.java.memoranda.TaskList;
-import main.java.memoranda.date.CalendarDate;
-import main.java.memoranda.date.CurrentDate;
-import main.java.memoranda.date.DateListener;
-import main.java.memoranda.util.Configuration;
+import memoranda.CurrentNote;
+import memoranda.CurrentProject;
+import memoranda.Note;
+import memoranda.NoteList;
+import memoranda.NoteListener;
+import memoranda.Project;
+import memoranda.ProjectListener;
+import memoranda.ResourcesList;
+import memoranda.TaskList;
+import memoranda.date.CalendarDate;
+import memoranda.date.CurrentDate;
+import memoranda.date.DateListener;
+import memoranda.util.Configuration;
 
 /*$Id: NotesList.java,v 1.9 2005/05/05 16:19:16 ivanrise Exp $*/
 public class NotesList extends JList {
@@ -134,7 +134,7 @@ public class NotesListModel extends AbstractListModel {
 
     }
 
-    ImageIcon bookmarkIcon = new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/star8.png"));
+    ImageIcon bookmarkIcon = new ImageIcon(memoranda.ui.AppFrame.class.getResource("/ui/icons/star8.png"));
 
     public ListCellRenderer getCellRenderer() {
         return new DefaultListCellRenderer()  {

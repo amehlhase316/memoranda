@@ -1,4 +1,4 @@
-package main.java.memoranda.ui;
+package memoranda.ui;
 
 /**
  * AllFilesFilter.java
@@ -12,7 +12,7 @@ import java.io.File;
 
 import javax.swing.filechooser.FileFilter;
 
-import main.java.memoranda.util.Local;
+import memoranda.util.Local;
 
 /**
  *

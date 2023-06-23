@@ -26,7 +26,7 @@ def formatter = DateTimeFormatter.ofPattern("MM/dd/yy-HH:mm:ss")
 def timestamp = now.format(formatter)
 
 ext {
-  version = '1.0.2'
+  version = '1.2.0'
   build = timestamp
 }
 

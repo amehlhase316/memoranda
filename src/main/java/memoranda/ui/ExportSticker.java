@@ -1,19 +1,15 @@
-package main.java.memoranda.ui;
+package memoranda.ui;
 
 import java.io.*;
-import java.nio.*;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
 import javax.swing.JOptionPane;
 
-import main.java.memoranda.EventsManager;
-import main.java.memoranda.util.CurrentStorage;
-import main.java.memoranda.util.Local;
-import nu.xom.Document;
+import memoranda.EventsManager;
+import memoranda.util.CurrentStorage;
+import memoranda.util.Local;
 import nu.xom.Element;
-import nu.xom.Elements;
 
 public class ExportSticker {
 

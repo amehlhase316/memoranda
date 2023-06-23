@@ -6,12 +6,12 @@
  * @author Alex V. Alishevskikh, alex@openmechanics.net
  * Copyright (c) 2003 Memoranda Team. http://memoranda.sf.net
  */
-package main.java.memoranda.util;
+package memoranda.util;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-import main.java.memoranda.ui.ExceptionDialog;
+import memoranda.ui.ExceptionDialog;
 /**
  *
  */

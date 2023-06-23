@@ -1,4 +1,4 @@
-package main.java.memoranda.ui;
+package memoranda.ui;
 
 import java.io.File;
 import java.util.Vector;
@@ -7,10 +7,10 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.*;
 
-import main.java.memoranda.util.Configuration;
-import main.java.memoranda.util.CurrentStorage;
-import main.java.memoranda.util.Local;
-import main.java.memoranda.util.MimeTypesList;
+import memoranda.util.Configuration;
+import memoranda.util.CurrentStorage;
+import memoranda.util.Local;
+import memoranda.util.MimeTypesList;
 
 import java.awt.event.*;
 

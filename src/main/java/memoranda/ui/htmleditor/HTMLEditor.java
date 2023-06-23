@@ -1,4 +1,4 @@
-package main.java.memoranda.ui.htmleditor;
+package memoranda.ui.htmleditor;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -56,7 +56,7 @@ import javax.swing.undo.CannotRedoException;
 import javax.swing.undo.CannotUndoException;
 import javax.swing.undo.UndoManager;
 
-import main.java.memoranda.ui.htmleditor.util.Local;
+import memoranda.ui.htmleditor.util.Local;
 
 /**
  *  
@@ -79,7 +79,7 @@ public class HTMLEditor extends JPanel {
 
 	Border border1, border2;
 
-	Class cl = main.java.memoranda.ui.htmleditor.HTMLEditor.class;
+	Class cl = memoranda.ui.htmleditor.HTMLEditor.class;
 
 	String imagesDir = null;
 	String imagesPath = null;

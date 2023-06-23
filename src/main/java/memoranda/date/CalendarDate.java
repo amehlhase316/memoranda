@@ -6,14 +6,14 @@
  * @author Alex V. Alishevskikh, alex@openmechanics.net
  * Copyright (c) 2003 Memoranda Team. http://memoranda.sf.net
  */
-package main.java.memoranda.date;
+package memoranda.date;
 
 import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import main.java.memoranda.util.Local;
-import main.java.memoranda.util.Util;
+import memoranda.util.Local;
+import memoranda.util.Util;
 
 /**
  *

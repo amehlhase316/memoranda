@@ -1,4 +1,4 @@
-package main.java.memoranda.ui.htmleditor.filechooser;
+package memoranda.ui.htmleditor.filechooser;
 
 import java.io.File;
 

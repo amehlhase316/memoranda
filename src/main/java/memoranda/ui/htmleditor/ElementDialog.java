@@ -1,4 +1,4 @@
-package main.java.memoranda.ui.htmleditor;
+package memoranda.ui.htmleditor;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -18,7 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import main.java.memoranda.ui.htmleditor.util.Local;
+import memoranda.ui.htmleditor.util.Local;
 
 /**
  * <p>Title: </p>
@@ -68,7 +68,7 @@ public class ElementDialog extends JDialog {
 	header.setForeground(new Color(0, 0, 124));
 	header.setText(Local.getString("Object properties"));
 	header.setIcon(new ImageIcon(
-		main.java.memoranda.ui.htmleditor.ElementDialog.class.getResource(
+		memoranda.ui.htmleditor.ElementDialog.class.getResource(
 		"/htmleditor/icons/textbig.png")));
     headerPanel.add(header);
     this.getContentPane().add(headerPanel, BorderLayout.NORTH);

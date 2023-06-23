@@ -1,33 +1,24 @@
-package main.java.memoranda.ui;
+package memoranda.ui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
-import java.text.DateFormat;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JColorChooser;
-import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.ListCellRenderer;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 
-import main.java.memoranda.date.CalendarDate;
-import main.java.memoranda.util.Context;
-import main.java.memoranda.util.Local;
+import memoranda.util.Context;
+import memoranda.util.Local;
 
 
 public class StickerConfirmation extends JDialog {
@@ -97,8 +88,8 @@ public class StickerConfirmation extends JDialog {
                 header.setFont(new java.awt.Font("Dialog", 0, 20));
                 header.setForeground(new Color(0, 0, 124));
                 header.setText(Local.getString("Sticker"));
-                header.setIcon(new ImageIcon(main.java.memoranda.ui.StickerDialog.class.getResource(
-            "/ui/icons/sticker48.png")));
+                header.setIcon(new ImageIcon(memoranda.ui.StickerDialog.class.getResource(
+                        "/ui/icons/sticker48.png")));
 
 
                 jLabel1.setText(Local.getString("DELETE THIS STICKER?"));

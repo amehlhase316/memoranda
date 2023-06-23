@@ -6,7 +6,7 @@
  * @author Alex V. Alishevskikh, alex@openmechanics.net
  * Copyright (c) 2003 Memoranda Team. http://memoranda.sf.net
  */
-package main.java.memoranda;
+package memoranda;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
@@ -20,7 +20,7 @@ import javax.swing.Action;
 import javax.swing.ImageIcon;
 import javax.swing.KeyStroke;
 
-import main.java.memoranda.util.Local;
+import memoranda.util.Local;
 /**
  * 
  */
@@ -142,7 +142,7 @@ public class History {
 
         public HistoryBackAction() {
             super(Local.getString("History back"), 
-            new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/hist_back.png")));
+            new ImageIcon(memoranda.ui.AppFrame.class.getResource("/ui/icons/hist_back.png")));
             putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, KeyEvent.ALT_MASK));
             setEnabled(false);
         }
@@ -181,7 +181,7 @@ public class History {
 
         public HistoryForwardAction() {
             super(Local.getString("History forward"), 
-            new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/hist_forward.png")));
+            new ImageIcon(memoranda.ui.AppFrame.class.getResource("/ui/icons/hist_forward.png")));
             putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, KeyEvent.ALT_MASK));
             setEnabled(false);
         }

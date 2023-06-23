@@ -1,9 +1,9 @@
-package main.java.memoranda.ui;
+package memoranda.ui;
 
 import java.awt.*;
 import javax.swing.*;
 
-import main.java.memoranda.util.*;
+import memoranda.util.*;
 
 import java.awt.event.*;
 import java.io.*;
@@ -74,7 +74,7 @@ public class ExceptionDialog extends JDialog {
     jLabel1.setHorizontalAlignment(SwingConstants.LEFT);
     jLabel1.setHorizontalTextPosition(SwingConstants.RIGHT);
     jLabel1.setText("Problem occured");
-    jLabel1.setIcon(new ImageIcon(main.java.memoranda.ui.ExceptionDialog.class.getResource(
+    jLabel1.setIcon(new ImageIcon(memoranda.ui.ExceptionDialog.class.getResource(
             "/ui/icons/error.png")));
         
     jLabel2.setFont(new java.awt.Font("Dialog", 0, 11));

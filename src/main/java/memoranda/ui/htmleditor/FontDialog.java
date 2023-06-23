@@ -1,4 +1,4 @@
-package main.java.memoranda.ui.htmleditor;
+package memoranda.ui.htmleditor;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -26,7 +26,7 @@ import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.border.TitledBorder;
 
-import main.java.memoranda.ui.htmleditor.util.Local;
+import memoranda.ui.htmleditor.util.Local;
 
 /**
  * <p>Title: </p>
@@ -89,7 +89,7 @@ public class FontDialog extends JDialog {
 		header.setForeground(new Color(0, 0, 124));
 		header.setText(Local.getString("Text properties"));
 		header.setIcon(new ImageIcon(
-			main.java.memoranda.ui.htmleditor.ImageDialog.class.getResource(
+			memoranda.ui.htmleditor.ImageDialog.class.getResource(
 			"/htmleditor/icons/fontbig.png")));
 		headerPanel.add(header);
 		this.getContentPane().add(headerPanel, BorderLayout.NORTH);
@@ -144,7 +144,7 @@ public class FontDialog extends JDialog {
 			}
 		});
 		colorB.setIcon(new ImageIcon(
-			main.java.memoranda.ui.htmleditor.FontDialog.class.getResource(
+			memoranda.ui.htmleditor.FontDialog.class.getResource(
 			"/htmleditor/icons/color.png")));
 		colorB.setPreferredSize(new Dimension(25, 25));
 		gbc = new GridBagConstraints();

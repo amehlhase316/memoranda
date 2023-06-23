@@ -1,4 +1,4 @@
-package main.java.memoranda.ui;
+package memoranda.ui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -24,7 +24,7 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.event.CaretEvent;
 
-import main.java.memoranda.util.Local;
+import memoranda.util.Local;
 
 /*$Id: AddResourceDialog.java,v 1.12 2007/03/20 06:21:46 alexeya Exp $*/
 public class AddResourceDialog extends JDialog {
@@ -69,8 +69,8 @@ public class AddResourceDialog extends JDialog {
         header.setFont(new java.awt.Font("Dialog", 0, 20));
         header.setForeground(new Color(0, 0, 124));
         header.setText(Local.getString("New resource"));
-        header.setIcon(new ImageIcon(main.java.memoranda.ui.AddResourceDialog.class.getResource(
-            "/ui/icons/resource48.png")));
+        header.setIcon(new ImageIcon(memoranda.ui.AddResourceDialog.class.getResource(
+                "/ui/icons/resource48.png")));
         dialogTitlePanel.add(header);
         this.getContentPane().add(dialogTitlePanel, BorderLayout.NORTH);
         

@@ -1,4 +1,4 @@
-package main.java.memoranda.ui;
+package memoranda.ui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -8,7 +8,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JInternalFrame;
 import javax.swing.border.Border;
 
-import main.java.memoranda.util.Local;
+import memoranda.util.Local;
 
 /*$Id: CalendarFrame.java,v 1.5 2004/04/05 10:05:44 alexeya Exp $*/
 public class CalendarFrame extends JInternalFrame {

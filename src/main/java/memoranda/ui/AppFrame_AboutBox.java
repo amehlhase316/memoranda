@@ -1,4 +1,4 @@
-package main.java.memoranda.ui;
+package memoranda.ui;
 
 import java.awt.AWTEvent;
 import java.awt.Color;
@@ -14,7 +14,7 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 
-import main.java.memoranda.util.Local;
+import memoranda.util.Local;
 
 /**
  * 

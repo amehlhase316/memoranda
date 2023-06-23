@@ -1,4 +1,4 @@
-package main.java.memoranda.ui.htmleditor;
+package memoranda.ui.htmleditor;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -25,7 +25,7 @@ import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
 
-import main.java.memoranda.ui.htmleditor.util.Local;
+import memoranda.ui.htmleditor.util.Local;
 
 /**
  * <p>Title: </p>
@@ -92,7 +92,7 @@ public class ImageDialog extends JDialog implements WindowListener {
         header.setForeground(new Color(0, 0, 124));
         header.setText(Local.getString("Image"));
         header.setIcon(new ImageIcon(
-                main.java.memoranda.ui.htmleditor.ImageDialog.class.getResource(
+                memoranda.ui.htmleditor.ImageDialog.class.getResource(
                         "/htmleditor/icons/imgbig.png")));
         headerPanel.add(header);
         this.getContentPane().add(headerPanel, BorderLayout.NORTH);
@@ -119,7 +119,7 @@ public class ImageDialog extends JDialog implements WindowListener {
         browseB.setMinimumSize(new Dimension(25, 25));
         browseB.setPreferredSize(new Dimension(25, 25));
         browseB.setIcon(new ImageIcon(
-                main.java.memoranda.ui.htmleditor.ImageDialog.class.getResource(
+                memoranda.ui.htmleditor.ImageDialog.class.getResource(
                         "/htmleditor/icons/fileopen16.png")));
         browseB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -375,9 +375,9 @@ public class ImageDialog extends JDialog implements WindowListener {
         chooser.setAcceptAllFileFilterUsed(false);
         chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
         chooser.addChoosableFileFilter(
-                new main.java.memoranda.ui.htmleditor.filechooser.ImageFilter());
+                new memoranda.ui.htmleditor.filechooser.ImageFilter());
         chooser.setAccessory(
-                new main.java.memoranda.ui.htmleditor.filechooser.ImagePreview(
+                new memoranda.ui.htmleditor.filechooser.ImagePreview(
                         chooser));
         chooser.setPreferredSize(new Dimension(550, 375));
         java.io.File lastSel = (java.io.File) Context.get(

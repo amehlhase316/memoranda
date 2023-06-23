@@ -1,4 +1,4 @@
-package main.java.memoranda.ui.treetable;
+package memoranda.ui.treetable;
 /*
  * TreeTableModel.java
  *

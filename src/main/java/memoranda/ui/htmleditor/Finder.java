@@ -6,7 +6,7 @@
  * @author Alex V. Alishevskikh, alex@openmechanics.net
  * Copyright (c) 2003 OpenMechanics.org
  */
-package main.java.memoranda.ui.htmleditor;
+package memoranda.ui.htmleditor;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.util.regex.Matcher;
@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 
 import javax.swing.JOptionPane;
 
-import main.java.memoranda.ui.htmleditor.util.Local;
+import memoranda.ui.htmleditor.util.Local;
 /**
  *
  */

@@ -7,16 +7,16 @@
  * Copyright (c) 2003 Memoranda Team. http://memoranda.sf.net
  *
  */
-package main.java.memoranda;
+package memoranda;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Collection;
 import java.util.Vector;
 
-import main.java.memoranda.ui.AppFrame;
-import main.java.memoranda.util.Context;
-import main.java.memoranda.util.CurrentStorage;
-import main.java.memoranda.util.Storage;
+import memoranda.ui.AppFrame;
+import memoranda.util.Context;
+import memoranda.util.CurrentStorage;
+import memoranda.util.Storage;
 
 /**
  *
@@ -61,7 +61,7 @@ public class CurrentProject {
     }
         
 
-    public static Project get() {
+    public static memoranda.Project get() {
         return _project;
     }
 

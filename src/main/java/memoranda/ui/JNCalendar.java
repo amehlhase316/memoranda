@@ -5,7 +5,7 @@
  * @author Alex V. Alishevskikh, alex@openmechanics.net Copyright (c) 2003
  *         Memoranda Team. http://memoranda.sf.net
  */
-package main.java.memoranda.ui;
+package memoranda.ui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,10 +19,10 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableCellRenderer;
 
-import main.java.memoranda.date.CalendarDate;
-import main.java.memoranda.date.CurrentDate;
-import main.java.memoranda.util.Configuration;
-import main.java.memoranda.util.Local;
+import memoranda.date.CalendarDate;
+import memoranda.date.CurrentDate;
+import memoranda.util.Configuration;
+import memoranda.util.Local;
 
 /**
  *  
