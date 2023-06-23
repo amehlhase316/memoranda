@@ -16,6 +16,8 @@ repositories {
 dependencies {
   implementation 'com.io7m.xom:xom:1.2.+'
   implementation 'net.sourceforge.nekohtml:nekohtml:1.9.+'
+  implementation 'junit:junit:4.12'
+  implementation files('src/test/java/')
 }
 
 // Get the current date and time as a string
