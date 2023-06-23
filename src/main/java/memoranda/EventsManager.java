@@ -46,7 +46,7 @@ public class EventsManager {
 	static {
 		CurrentStorage.get().openEventsManager();
 		if (_doc == null) {
-			_root = new Element("eventslist");
+			_root = new Element("eventsandnoteslist");
 /*			_root.addNamespaceDeclaration("jnevents", NS_JNEVENTS);
 			_root.appendChild(
 				new Comment("This is JNotes 2 data file. Do not modify.")); */
@@ -57,7 +57,7 @@ public class EventsManager {
 	}
 
 	public static void createSticker(String text, int prior) {
-		Element el = new Element("sticker");
+		Element el = new Element("note");
 		el.addAttribute(new Attribute("id", Util.generateId()));
 		el.addAttribute(new Attribute("priority", prior+""));
 		el.appendChild(text);
@@ -67,7 +67,7 @@ public class EventsManager {
 	@SuppressWarnings("unchecked")
 	public static Map getStickers() {
 		Map m = new HashMap();
-		Elements els = _root.getChildElements("sticker");
+		Elements els = _root.getChildElements("note");
 		for (int i = 0; i < els.size(); i++) {
 			Element se = els.get(i);
 			m.put(se.getAttribute("id").getValue(), se);
@@ -76,7 +76,7 @@ public class EventsManager {
 	}
 
 	public static void removeSticker(String stickerId) {
-		Elements els = _root.getChildElements("sticker");
+		Elements els = _root.getChildElements("note");
 		for (int i = 0; i < els.size(); i++) {
 			Element se = els.get(i);
 			if (se.getAttribute("id").getValue().equals(stickerId)) {

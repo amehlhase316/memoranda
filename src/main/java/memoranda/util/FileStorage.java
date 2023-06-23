@@ -359,14 +359,14 @@ public class FileStorage implements Storage {
      * @see memoranda.util.Storage#openEventsList()
      */
     public void openEventsManager() {
-        if (!new File(JN_DOCPATH + ".events").exists()) {
+        if (!new File(JN_DOCPATH + ".events&notes").exists()) {
             EventsManager._doc = null;
             return;
         }
         /*DEBUG*/
         System.out.println(
-            "[DEBUG] Open events manager: " + JN_DOCPATH + ".events");
-        EventsManager._doc = openDocument(JN_DOCPATH + ".events");
+            "[DEBUG] Open events manager: " + JN_DOCPATH + ".events&notes");
+        EventsManager._doc = openDocument(JN_DOCPATH + ".events&notes");
     }
     /**
      * @see memoranda.util.Storage#storeEventsList()
@@ -374,8 +374,8 @@ public class FileStorage implements Storage {
     public void storeEventsManager() {
         /*DEBUG*/
         System.out.println(
-            "[DEBUG] Save events manager: " + JN_DOCPATH + ".events");
-        saveDocument(EventsManager._doc, JN_DOCPATH + ".events");
+            "[DEBUG] Save events manager: " + JN_DOCPATH + ".events&notes");
+        saveDocument(EventsManager._doc, JN_DOCPATH + ".events&notes");
     }
     /**
      * @see memoranda.util.Storage#openMimeTypesList()
