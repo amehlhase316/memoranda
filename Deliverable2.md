@@ -9,7 +9,7 @@
 
 **Scrum Master**: Aman Sharma
 
-**Git Master**: Joseph Okonoboh
+**Git Master**: Ryan Dinaro
 
 ### Sprint Planning (For Sprint 1-3)
 Document your Sprint Planning here. Also check the kickoff document for more details on what needs to be done. This is just the documentation. 
@@ -49,6 +49,13 @@ I would also advise you to already fill out the Contributions section (End of sp
 |06/07/2023   | Everyone attended  | Almost done with all US  |  on track |  |  |
 |06/09/2023   | Everyone attended  | Final communication prior to submission  |  on track |  |  |
 |06/10/2023   | Everyone attended  | Sprint 1 complete  |  on track |  |  |
+|05/12/2023   | Everyone attended  | Team member selected their new tasks to work on  |  on track/starting sprint 2 |  |  |
+|05/14/2023   | Everyone attended  | Team members worked on task and communicated frequently  |  on track |  |  |
+|06/16/2023   | Everyone attended  | Most team members finished a their stories  |  on track |  |  |
+|06/19/2023   | Everyone attended  | Team members chated about our sprint  |  on track |  |  |
+|06/21/2023   | Everyone attended  | Almost done with all US  |  on track |  |  |
+|06/23/2023   | Everyone attended  | Final communication prior to submission  |  on track |  |  |
+|06/24/2023   | Everyone attended  | Sprint 2 complete  |  on track |  |  |
 
 
 ## 3: After the Sprint
@@ -113,7 +120,8 @@ Answer as a team!
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
 
     - [link1] (https://github.com/amansharma96/Professional_Cowboys-Summer23C/commit/5d900839cff2ce1d4b90c80e7a15047f6262340f)
-    - link2
+    - [link2] (https://github.com/amansharma96/Professional_Cowboys-Summer23C/commit/5d900839cff2ce1d4b90c80e7a15047f6262340f)
+    - [link3] (https://github.com/amansharma96/Professional_Cowboys-Summer23C/commit/3c5a7a180010c7dc3018a1a7001443edb238e4cc)
 
    **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
 
