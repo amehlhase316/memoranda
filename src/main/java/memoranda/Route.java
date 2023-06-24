@@ -14,6 +14,7 @@ Route {
     private Driver driver;
     private Bus bus;
 
+
     /**
      * Constructor for Route, uses an existing ArrayList of Node objects
      * @param n ArrayList of Nodes
@@ -211,6 +212,8 @@ Route {
         minutes += (stopDuration * nodes.size());
         return minutes;
     }
+
+
 
 
     /**
