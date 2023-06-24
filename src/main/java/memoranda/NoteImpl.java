@@ -115,5 +115,7 @@ public class NoteImpl implements Note, Comparable {
 		else 
 			return 0;
 	}
-    
+
+    public void setProject(Project newProject) {
+    }
 }
