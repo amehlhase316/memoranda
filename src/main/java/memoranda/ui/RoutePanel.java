@@ -2,37 +2,20 @@ package main.java.memoranda.ui;
 
 import main.java.memoranda.*;
 
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JComboBox;
+
 import javax.swing.*;
+
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class RoutePanel extends JPanel implements ActionListener {
 
-    private Route route;
-    private JButton createButton;
-    private JLabel startLabel;
-    private JLabel finishLabel;
-    private JTextField startField;
-    private JTextField finishField;
+public class RoutePanel extends JPanel {
 
-    private JLabel driverLabel;
-    private JLabel busLabel;
-    private JTextField driverField;
-    private JTextField busField;
-    private BorderLayout borderLayout1 = new BorderLayout();
-    private JScrollPane scrollPane = new JScrollPane();
-    private JsonHandler jsonHandler = new JsonHandler();
+    private JScrollPane scrollPane;
+    private JsonHandler jsonHandler;
     private MapGenerator mapGen;
-
-    private JList<String> startPointList;
-    private JList<String> endPointList;
-    private JComboBox<String> driverBox;
-    private JComboBox<String> busBox;
 
 
     public RoutePanel() {
@@ -46,148 +29,43 @@ public class RoutePanel extends JPanel implements ActionListener {
     void jbInit() throws Exception {
 
     	jsonHandler = new JsonHandler();
-        jsonHandler.readNodesFromJSON("nodes1.json");
-        mapGen = new MapGenerator(jsonHandler.nodes);
-        route = new Route(5.0);
+        String fileName = "nodes1.json";
+        jsonHandler.readNodesFromJSON(fileName);
+        mapGen = new MapGenerator(jsonHandler.getNodes());
+        scrollPane = new JScrollPane();
 
-        this.setLayout(borderLayout1);
-        scrollPane.getViewport().setBackground(Color.white);
+        this.setLayout(new GridLayout(0,2));
+        scrollPane.getViewport().setBackground(Color.DARK_GRAY);
         scrollPane.getViewport().add(mapGen);
+        scrollPane.setPreferredSize(new Dimension(900, 800));
         mapGen.repaint();
 
 
         JScrollBar vertScrollBar = scrollPane.getVerticalScrollBar();
         vertScrollBar.setUnitIncrement(25);
         vertScrollBar.setBlockIncrement(50);
-        this.add(scrollPane, BorderLayout.CENTER);
+        this.add(scrollPane, BorderLayout.WEST);
 
         RoutePanel.PopupListener ppListener = new RoutePanel.PopupListener();
         scrollPane.addMouseListener(ppListener);
 
-        // Side Panel
-        JPanel sidePanel = new JPanel();
-        sidePanel.setLayout(new BorderLayout());
-        sidePanel.setPreferredSize(new Dimension(200, getHeight()));
-        sidePanel.setBackground(Color.white);
-
-
-        // Buttons
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new FlowLayout());
-
-        createButton = new JButton("Create");
-        createButton.addActionListener(this);
-        buttonPanel.add(createButton);
-
-//        JButton modifyButton = new JButton("Modify");
-//        modifyButton.addActionListener(this);
-//        buttonPanel.add(modifyButton);
-
-        sidePanel.add(buttonPanel, BorderLayout.CENTER);
-
         buildSidePanel();
-
-
     }
 
 
     private void buildSidePanel() {
         // Side Panel
+        CreateRoutePanel routePanel = new CreateRoutePanel();
         JPanel sidePanel = new JPanel();
-        sidePanel.setLayout(new BorderLayout());
-        sidePanel.setPreferredSize(new Dimension(200, getHeight()));
-        sidePanel.setBackground(Color.white);
+        sidePanel.setLayout(new GridLayout(2,1));
+        sidePanel.setPreferredSize(new Dimension(getWidth(), getHeight()));
+        sidePanel.setBackground(Color.BLACK);
 
+        sidePanel.add(routePanel);
 
-        // Buttons
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new FlowLayout());
-
-        startLabel = new JLabel("Start of Route: ");
-        finishLabel = new JLabel("End of Route: ");
-        startField =  new JTextField(15);
-        finishField = new JTextField(15);
-        driverLabel = new JLabel("Driver: ");
-        busLabel = new JLabel("Bus: ");
-        driverField =  new JTextField(15);
-        busField = new JTextField(15);
-
-        startLabel.setBounds(10,20,100,40);
-
-        finishLabel.setBounds(10,70,100,40);
-
-        driverLabel.setBounds(10,120,100,40);
-
-
-        busLabel.setBounds(10,170,100,40);
-
-
-        createButton = new JButton("Create");
-        createButton.addActionListener(this);
-
-
-        initializeDropdown();
-        buttonPanel.add(createButton);
-
-        //        JButton modifyButton = new JButton("Modify");
-        //        modifyButton.addActionListener(this);
-        //        buttonPanel.add(modifyButton);
-
-        sidePanel.add(startPointList);
-        sidePanel.add(endPointList);
-        sidePanel.add(startLabel);
-        sidePanel.add(startField);
-        sidePanel.add(finishLabel);
-        sidePanel.add(finishField);
-        sidePanel.add(driverLabel);
-        sidePanel.add(driverField);
-        sidePanel.add(busLabel);
-        sidePanel.add(busField);
-
-        sidePanel.add(buttonPanel, BorderLayout.CENTER);
         this.add(sidePanel, BorderLayout.EAST);
     }
 
-    private void initializeDropdown() {
-        startPointList = new JList<>();
-        endPointList = new JList<>();
-        driverBox = new JComboBox<>();
-        busBox = new JComboBox<>();
-
-        startPointList.setBounds(10,50,80,25);
-        endPointList.setBounds(10,100,50,25);
-        driverBox.setBounds(10,150,50,25);
-        busBox.setBounds(10,200,50,25);
-
-        DefaultListModel listModel = new DefaultListModel();
-        jsonHandler.getNodesString().forEach(listModel::addElement);
-        startPointList.setModel(listModel);
-        endPointList.setModel(listModel);
-
-        //Set up nce Driver and bus json objects exists, and JsonHandler manipulates the same
-//        DefaultComboBoxModel busModel = new DefaultComboBoxModel();
-//        DefaultComboBoxModel driverModel = new DefaultComboBoxModel();
-//
-//        driverBox.setModel(model);
-//        busBox.setModel(model);
-    }
-
-//    private void createRoute() {
-//        String selectedChoice = (String) choicesComboBox.getSelectedItem();
-//        JSONObject routeObject = new JSONObject();
-//        routeObject.put( , selectedChoice);
-//
-//        // Save the routeObject to a JSON file or perform further processing
-//    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
-        if(e.getSource() == createButton) {
-//            createRoute();
-        }
-
-    }
 
     class PopupListener extends MouseAdapter {
 
