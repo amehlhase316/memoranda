@@ -39,7 +39,7 @@ public class TaskListImpl implements TaskList {
 	 * Hastable of "task" XOM elements for quick searching them by ID's
 	 * (ID => element) 
 	 */
-	private Hashtable elements = new Hashtable();
+	private final Hashtable elements = new Hashtable();
     
     /**
      * Constructor for TaskListImpl.
@@ -155,12 +155,7 @@ public class TaskListImpl implements TaskList {
     public boolean hasSubTasks(String id) {
         Element task = getTaskElement(id);
         if (task == null) return false;
-        if(task.getChildElements("task").size() > 0) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return task.getChildElements("task").size() > 0;
     }
 
     public Task getTask(String id) {
@@ -174,12 +169,7 @@ public class TaskListImpl implements TaskList {
     	Node parentNode = t.getParent();
     	if (parentNode instanceof Element) {
     	    Element parent = (Element) parentNode;
-        	if (parent.getLocalName().equalsIgnoreCase("task")) {
-        	    return true;
-        	}
-        	else {
-        	    return false;
-        	}
+            return parent.getLocalName().equalsIgnoreCase("task");
     	}
     	else {
     	    return false;
@@ -357,12 +347,7 @@ public class TaskListImpl implements TaskList {
     }
 
     private boolean isActive(Task t,CalendarDate date) {
-    	if ((t.getStatus(date) == Task.ACTIVE) || (t.getStatus(date) == Task.DEADLINE) || (t.getStatus(date) == Task.FAILED)) {
-    		return true;
-    	}
-    	else {
-    		return false;
-    	}
+        return (t.getStatus(date) == Task.ACTIVE) || (t.getStatus(date) == Task.DEADLINE) || (t.getStatus(date) == Task.FAILED);
     }
 
     /*

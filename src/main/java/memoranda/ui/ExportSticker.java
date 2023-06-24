@@ -17,7 +17,7 @@ import nu.xom.Elements;
 
 public class ExportSticker {
 
-        private String name; 
+        private final String name;
         
         /*public static Document _doc = null;
         static Element _root = null;
@@ -88,7 +88,7 @@ public class ExportSticker {
         String nl = System.getProperty("line.separator"); 
                 for (Iterator i = stickers.keySet().iterator(); i.hasNext();) {
             String id = (String)i.next();
-            result += (String)(((Element)stickers.get(id)).getValue())+nl;
+            result += ((Element)stickers.get(id)).getValue() +nl;
             }
             
                 return result;
