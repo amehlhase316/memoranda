@@ -46,7 +46,7 @@ public class HomePanel extends JPanel {
 	BorderLayout borderLayout1 = new BorderLayout();
 	JButton historyBackB = new JButton();
 	JToolBar toolBar = new JToolBar();
-	JButton historyForwardB = new JButton();
+	JButton logoutB = new JButton();
 	JButton export = new JButton();
 	JEditorPane viewer = new JEditorPane("text/html", "");
 	String[] priorities = {"Very High","High","Medium","Low","Very Low"};
@@ -220,15 +220,17 @@ public class HomePanel extends JPanel {
 		historyBackB.setMaximumSize(new Dimension(24, 24));
 		historyBackB.setText("");
 
-		historyForwardB.setAction(History.historyForwardAction);
-		historyForwardB.setBorderPainted(false);
-		historyForwardB.setFocusable(false);
-		historyForwardB.setPreferredSize(new Dimension(24, 24));
-		historyForwardB.setRequestFocusEnabled(false);
-		historyForwardB.setToolTipText(Local.getString("History forward"));
-		historyForwardB.setMinimumSize(new Dimension(24, 24));
-		historyForwardB.setMaximumSize(new Dimension(24, 24));
-		historyForwardB.setText("");
+		//logoutB.setAction(History.historyForwardAction);
+		logoutB.setBorderPainted(false);
+		logoutB.setFocusable(false);
+		logoutB.setPreferredSize(new Dimension(72, 24));
+		logoutB.setRequestFocusEnabled(false);
+		logoutB.setToolTipText(Local.getString("Logout User"));
+		logoutB.setMinimumSize(new Dimension(72, 24));
+		logoutB.setMaximumSize(new Dimension(72, 24));
+		logoutB.setText("Logout");
+
+		
 
 		this.setLayout(borderLayout1);
 		scrollPane.getViewport().setBackground(Color.white);
@@ -236,7 +238,7 @@ public class HomePanel extends JPanel {
 		scrollPane.getViewport().add(viewer, null);
 		this.add(scrollPane, BorderLayout.CENTER);
 		toolBar.add(historyBackB, null);
-		toolBar.add(historyForwardB, null);
+		toolBar.add(logoutB, null);
 		toolBar.addSeparator(new Dimension(8, 24));
 
 		this.add(toolBar, BorderLayout.NORTH);
