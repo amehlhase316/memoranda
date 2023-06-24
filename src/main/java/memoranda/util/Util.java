@@ -51,7 +51,7 @@ public class Util {
             + "/"
             + (cal.get(Calendar.MONTH))
             + "/"
-            + new Integer(cal.get(Calendar.YEAR)).toString();
+            + Integer.valueOf(cal.get(Calendar.YEAR)).toString();
 
     }
 
@@ -64,9 +64,9 @@ public class Util {
         int i1 = s.indexOf("/");
         int i2 = s.indexOf("/", i1 + 1);
         int[] date = new int[3];
-        date[0] = new Integer(s.substring(0, i1)).intValue();
-        date[1] = new Integer(s.substring(i1 + 1, i2)).intValue();
-        date[2] = new Integer(s.substring(i2 + 1)).intValue();
+        date[0] = Integer.valueOf(s.substring(0, i1)).intValue();
+        date[1] = Integer.valueOf(s.substring(i1 + 1, i2)).intValue();
+        date[2] = Integer.valueOf(s.substring(i2 + 1)).intValue();
         return date;
         /*DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.SHORT, currentLocale);
         Date d = null;

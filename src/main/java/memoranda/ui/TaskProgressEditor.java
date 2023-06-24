@@ -29,7 +29,7 @@ public class TaskProgressEditor extends JPanel implements TableCellEditor{
 		addMouseListener(new java.awt.event.MouseAdapter(){
 			public void mousePressed(java.awt.event.MouseEvent e){
 				if(e instanceof MouseEvent){
-					MouseEvent me = (MouseEvent) e;
+					MouseEvent me = e;
 					if(me.getButton() != MouseEvent.BUTTON1){
 						stopEditing();
 						return;
@@ -90,11 +90,8 @@ public class TaskProgressEditor extends JPanel implements TableCellEditor{
 		return null; // just return null, because model will not use this
 	}
 	public boolean isCellEditable(java.util.EventObject e){
-		if(e instanceof MouseEvent){
-			MouseEvent me = (MouseEvent) e;
-			if(me.getButton() == MouseEvent.BUTTON1){
-				return true;
-			}
+		if(e instanceof MouseEvent me){
+			return me.getButton() == MouseEvent.BUTTON1;
 		}
 		return false;
 	}

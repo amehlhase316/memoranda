@@ -274,10 +274,9 @@ public class TaskTable extends JTable {
             // Make the tree's cell renderer use the table's cell selection
             // colors.
             TreeCellRenderer tcr = getCellRenderer();
-            if (tcr instanceof DefaultTreeCellRenderer) {
-                DefaultTreeCellRenderer dtcr = ((DefaultTreeCellRenderer) tcr);
- 
-				dtcr.setBorderSelectionColor(null);
+            if (tcr instanceof DefaultTreeCellRenderer dtcr) {
+
+                dtcr.setBorderSelectionColor(null);
                 dtcr.setTextSelectionColor(UIManager
                         .getColor("Table.selectionForeground"));
                 dtcr.setBackgroundSelectionColor(UIManager
@@ -482,7 +481,7 @@ public class TaskTable extends JTable {
 	 */
 	 class ExpansionHandler implements TreeExpansionListener { // {{{
 	
-		private java.util.Set expanded = new java.util.HashSet();
+		private final java.util.Set expanded = new java.util.HashSet();
 		
 		public void treeExpanded(TreeExpansionEvent e) {
 			expanded.add(e.getPath());

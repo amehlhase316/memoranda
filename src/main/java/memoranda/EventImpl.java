@@ -37,14 +37,15 @@ public class EventImpl implements Event, Comparable {
      * @see main.java.memoranda.Event#getHour()
      */
     public int getHour() {
-        return new Integer(_elem.getAttribute("hour").getValue()).intValue();
+        return Integer.valueOf(_elem.getAttribute("hour").getValue()).intValue();
+       // return new Integer(_elem.getAttribute("hour").getValue()).intValue();
     }
 
     /**
      * @see main.java.memoranda.Event#getMinute()
      */
     public int getMinute() {
-        return new Integer(_elem.getAttribute("min").getValue()).intValue();
+        return Integer.valueOf(_elem.getAttribute("min").getValue()).intValue();
     }
     
     public String getTimeString() {
@@ -92,7 +93,7 @@ public class EventImpl implements Event, Comparable {
      */
     public int getPeriod() {
         Attribute a = _elem.getAttribute("period");
-        if (a != null) return new Integer(a.getValue()).intValue();
+        if (a != null) return Integer.valueOf(a.getValue()).intValue();
         return 0;
     }
     /**
@@ -108,7 +109,7 @@ public class EventImpl implements Event, Comparable {
      */
     public int getRepeat() {
         Attribute a = _elem.getAttribute("repeat-type");
-        if (a != null) return new Integer(a.getValue()).intValue();
+        if (a != null) return Integer.valueOf(a.getValue()).intValue();
         return 0;
     }
     /**
@@ -137,9 +138,8 @@ public class EventImpl implements Event, Comparable {
      */
 	public boolean getWorkingDays() {
         Attribute a = _elem.getAttribute("workingDays");
-        if (a != null && a.getValue().equals("true")) return true;
-        return false;
-	}
+        return a != null && a.getValue().equals("true");
+    }
 	
 	public int compareTo(Object o) {
 		Event event = (Event) o;
