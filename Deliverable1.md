@@ -3,35 +3,35 @@
 
 ## 1: Basic Information (needed before you start with your Sprint -- Sprint Planning)
 
-**Topic you chose:** topic name
+**Topic you chose:** Gym Class (scheduling system)
 
-**Sprint Number:** Nr
+**Sprint Number:** 1
 
-**Scrum Master**: Name
+**Scrum Master**: Gustavo Lezama
 
-**Git Master**: Name
+**Git Master**: Ben Meddeb
 
 ### Sprint Planning (For Sprint 1-3)
 Document your Sprint Planning here. Also check the kickoff document for more details on what needs to be done. This is just the documentation. 
 
-**Sprint Goal:** Your Sprint goal
+**Sprint Goal:** Our goal for Sprint 1 is to familiarize ourselves with the system/program itself. Another goal is to fix bugs in the user interface. The team will mostly work on front-end stuff and hope to get a deep understanding about how the program works.
 
-**How many User Stories did you add to the Product Backlog:**  Number
+**How many User Stories did you add to the Product Backlog:** : 3
 
-**How many User Stories did you add to this Sprint:** 
+**How many User Stories did you add to this Sprint:**  10 total
 > Answer the questions below about your Sprint Planning?
 
 **Why did you add these US, why do you think you can get them done in the next Sprint?**
 
-> Your Answer
+> We added the the necessary tasks to our Sprint 1 so the team could easily navigate into the code. We are planning to fix some issue with warnings and front-end errors/bugs. 
 
 **Why do you think these fit well with your Sprint goal? (details)**
 
-> Your Answer
+These fit well with our Sprint 1 goal because the team needs to get a good understanding and knowledge of the software without being overwhelmed. The program also needs to be cleaned up before making any major changes and moving deeper into the project.
 
 **Do you have a rough idea what you need to do? (if the answer is no then please let me know on Slack)**
 
-> Your Answer
+> Yes, we need to implement and create a gym class scheduling software from the memoranda software.
 
 
 
@@ -42,19 +42,29 @@ I would also advise you to already fill out the Contributions section (End of sp
 ### Meeting minutes of your Daily Scrums (3 per week, should not take longer than 10 minutes):
 > Add as many rows as needed and fill out the table. (Burndown starts with Sprint 2 and Travis CI starts with Sprint 3, not needed before that). 
 
-| Date  | Who did not attend  |Meeting notes (very brief)   | Burndown Info (on track, ahead behind is enough) | TravisCI info (does the master pass) | Additional Info  |
+| Date  | Who did not attend  |Meeting notes (very brief)   | Burndown Info (on track, ahead behind is enough) | GitHub actions info (does the master pass) | Additional Info  |
 |---|---|---|---|--|--|
-|   |   |   |   |  |  |
-|   |   |   |   |  |  |
-|   |   |   |   |  |  |
+| 05/18/23 | N/A | Icebreaker, meeting the team members through Slack | N/A | Individual checklist for Project set-up | N/A |
+| 05/19/23 | N/A | Group set-up (taiga,github) via Zoom | N/A | Group repository created | N/A |
+| 05/22/23 | N/A | Sprint 1 Planning via Zoom | N/A | Quality Policy update | N/A |
+| 05/24/23 | N/A | Presented complete list of US tasks on Taiga through Slack | N/A | N/A | N/A |
+| 05/26/23 | N/A | Continue presenting US tasks, discussed GitHub/Scrum process through Slack | N/A | N/A | N/A |
+| 05/30/23 | N/A | Start Sprint 1, confirmed with team members that memoranda is up and running on their own local machines | N/A |  dev branch created via Zoom | N/A |
+| 06/03/23 | N/A  | Discussed updates/progress on US tasks through Slack | N/A | Merged US#20 and US#3 with dev, uploaded KeyClasses.MD | N/A |
+| 06/07/23 | N/A | Team meeting update, fixed issues, discussed issue with splash screen via Zoom | N/A | Pushed US#6 and US#19 to dev | N/A |
+| 06/09/23 | N/A | Final meeting for Spint 1 to complete everything and complete Deliverable1.md via Zoom | N/A  | Merged all US tasks, Deliverable1.md update | N/A |
 
 ### Meeting Summary:
 
 > Add rows as needed and add the number how many meetings for each team member:
 
-   Name1 : Num Meetings
+   Ben Meddeb : 9 Meetings
 
-   Name2 : Num Meetings
+   Gustavo Lezama : 9 Meetings
+   
+   Geena Rustia : 9 Meetings
+   
+   Brinson Doederlein : 9 Meetings
 
 
 ## 3: After the Sprint
@@ -62,21 +72,21 @@ I would also advise you to already fill out the Contributions section (End of sp
 ### Sprint Review
 Answer as a team!
 
-**Screen Cast link**: Your link
+**Screen Cast link**: [Link](https://youtu.be/asAyuV-vn2Y)
 
 > Answer the following questions as a team. 
 
 **What do you think is the value you created this Sprint?**
 
-> Your Answer
+> The team learned how the codebase we were given works through the changes that we made.
 
 **Do you think you worked enough and that you did what was expected of you?**
 
-> Your Answer
+> I believe that the team worked hard enough for this sprint.
 
 **Would you say you met the customers’ expectations? Why, why not?**
 
-> Your Answer
+> As long as the Customer expected for us to learn the codebase through this first Sprint.
 
 
 ### Sprint Retrospective
@@ -85,37 +95,62 @@ Answer as a team!
 
 **Did you meet your sprint goal?**
 
-> Your Answer
+> Yes, all of the User Stories that we moved into the sprint were completed.
 
 **Did you complete all stories on your Spring Backlog?**
 
-> Your Answer
+> We completed all the Stories on the 1st Sprint board.
 
 **If not, what went wrong?**
 
-> Your Answer
+> N/A
 
 **Did you work at a consistent rate of speed, or velocity? (Meaning did you work during the whole Sprint or did you start working when the deadline approached.)**
 
-> Your Answer
+> The rate of work was overall consistent over the span of the sprint.
 
 **Did you deliver business value?**
 
-> Your Answer
+> Yes, by understanding the codebase the team is better prepared to begin the conversion of Memoranda into the Gym Scheduling app.
 
 **Are there things the team thinks it can do better in the next Sprint?**
 
-> Your Answer
+> We are not sure if there are.
 
 **How do you feel at this point? Get a pulse on the optimism of the team.**
 
-> Your Answer
+> The team feels prepared and ready for Sprint 2 planning.
 
 ### Contributions:
 
 > In this section I want you to point me to your main contributions (each of you individually). Some of the topcs are not needed for the first deliverables (you should know which things you should have done in this Sprint, if you don't then you have probably missed something):
 
-#### Team member A -- replace this with your name:
+#### Geena Rustia:
+  **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
+
+    - link1
+    - link2
+
+   **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
+
+    - link1
+    - link2
+
+  **GitHub links to your Code Reviews (up to 3 links) -- Sprint 2 and 3:
+
+    - link1
+    - link2
+
+  **How did you contribute to Static Analysis -- Sprint 3:
+
+    - link1
+    - link2
+ 
+ **What was your main contribution to the Quality Policy documentation?:
+
+    - info
+    
+ #### Brinson Doederlein:
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
 
     - link1
@@ -140,16 +175,69 @@ Answer as a team!
 
     - info
   
+   #### Gustavo Lezama: 
+  **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
+
+    - link1
+    - link2
+
+   **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
+
+    - link1
+    - link2
+
+  **GitHub links to your Code Reviews (up to 3 links) -- Sprint 2 and 3:
+
+    - link1
+    - link2
+
+  **How did you contribute to Static Analysis -- Sprint 3:
+
+    - link1
+    - link2
+ 
+ **What was your main contribution to the Quality Policy documentation?:
+
+    - info
+    
+   #### Ben Meddeb:
+  **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
+
+    - link1
+    - link2
+
+   **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
+
+    - link1
+    - link2
+
+  **GitHub links to your Code Reviews (up to 3 links) -- Sprint 2 and 3:
+
+    - link1
+    - link2
+
+  **How did you contribute to Static Analysis -- Sprint 3:
+
+    - link1
+    - link2
+ 
+ **What was your main contribution to the Quality Policy documentation?:
+
+    - info
+    
+    
 ## 4: Checklist for you to see if you are done
-- [ ] Filled out the complete form from above, all fields are filled and written in full sentences
-- [ ] Read the kickoff again to make sure you have all the details
-- [ ] User Stories that were not completed, were left in the Sprint and a copy created
-- [ ] Your Quality Policies are accurate and up to date
+- [X] Filled out the complete form from above, all fields are filled and written in full sentences
+- [X] Read the kickoff again to make sure you have all the details
+- [X] User Stories that were not completed, were left in the Sprint and a copy created
+- [X] Your Quality Policies are accurate and up to date
 - [ ] **Individual** Survey was submitted **individually** (create checkboxes below -- see Canvas to get link)
-  - [ ] Team member 1
-  - [ ] Team member 2
-- [ ] The original of this file was copied for the next Sprint (needed for all but last Sprint where you do not need to copy it anymore)
-  - [ ] Basic information (part 1) for next Sprint was included (meaning Spring Planning is complete)
-  - [ ] All User Stories have acceptance tests
-  - [ ] User Stories in your new Sprint Backlog have initial tasks which are in New
-  - [ ] You know how to proceed
+  - [X] Ben
+  - [X] Geena
+  - [x] Brinson
+  - [X] Gustavo
+- [X] The original of this file was copied for the next Sprint (needed for all but last Sprint where you do not need to copy it anymore)
+  - [X] Basic information (part 1) for next Sprint was included (meaning Spring Planning is complete)
+  - [X] All User Stories have acceptance tests
+  - [X] User Stories in your new Sprint Backlog have initial tasks which are in New
+  - [X] You know how to proceed

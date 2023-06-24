@@ -63,7 +63,7 @@ public class JNCalendarPanel extends JPanel {
 
   boolean ignoreChange = false;
 
-  private Vector selectionListeners = new Vector();
+  private final Vector selectionListeners = new Vector();
 
   Border border1;
   Border border2;
@@ -253,8 +253,8 @@ public class JNCalendarPanel extends JPanel {
   private void refreshView() {
     ignoreChange = true;
     jnCalendar.set(_date);
-    monthsCB.setSelectedIndex(new Integer(_date.getMonth()));
-    yearSpin.setValue(new Integer(_date.getYear()));
+    monthsCB.setSelectedIndex(Integer.valueOf(_date.getMonth()));
+    yearSpin.setValue(Integer.valueOf(_date.getYear()));
     ignoreChange = false;
   }
 

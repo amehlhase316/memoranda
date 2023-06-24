@@ -12,28 +12,28 @@ import java.io.*;
 public class ExceptionDialog extends JDialog {
   JPanel panel1 = new JPanel();
   BorderLayout borderLayout1 = new BorderLayout();
-  private JPanel jPanel1 = new JPanel();
-  private JLabel jLabel1 = new JLabel();
-  private JPanel jPanel2 = new JPanel();
-  private JLabel jLabel2 = new JLabel();
-  private BorderLayout borderLayout2 = new BorderLayout();
-  private BorderLayout borderLayout3 = new BorderLayout();
-  private JLabel descLabel = new JLabel();
+  private final JPanel jPanel1 = new JPanel();
+  private final JLabel jLabel1 = new JLabel();
+  private final JPanel jPanel2 = new JPanel();
+  private final JLabel jLabel2 = new JLabel();
+  private final BorderLayout borderLayout2 = new BorderLayout();
+  private final BorderLayout borderLayout3 = new BorderLayout();
+  private final JLabel descLabel = new JLabel();
 
-  private String description;
-  private String tip;
-  private String trace;
-  private JPanel jPanel3 = new JPanel();
-  private JScrollPane jScrollPane1 = new JScrollPane();
-  private JTextArea traceTextArea = new JTextArea();
-  private JButton reportB = new JButton();
-  private JButton closeB = new JButton();
-  private FlowLayout flowLayout1 = new FlowLayout();
-  private JPanel jPanel4 = new JPanel();
-  private JButton copyB = new JButton();
-  private BorderLayout borderLayout4 = new BorderLayout();
+  private final String description;
+  private final String tip;
+  private final String trace;
+  private final JPanel jPanel3 = new JPanel();
+  private final JScrollPane jScrollPane1 = new JScrollPane();
+  private final JTextArea traceTextArea = new JTextArea();
+  private final JButton reportB = new JButton();
+  private final JButton closeB = new JButton();
+  private final FlowLayout flowLayout1 = new FlowLayout();
+  private final JPanel jPanel4 = new JPanel();
+  private final JButton copyB = new JButton();
+  private final BorderLayout borderLayout4 = new BorderLayout();
   
-  private Frame owner; 
+  private final Frame owner;
     
   public ExceptionDialog(Exception exc, String description, String tip) {
     super(App.getFrame(), "Problem", true);
