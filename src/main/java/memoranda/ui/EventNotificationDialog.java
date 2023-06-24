@@ -12,7 +12,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.File;
 import java.net.URL;
-import java.util.Objects;
+
 
 /*$Id: EventNotificationDialog.java,v 1.8 2004/10/18 19:08:56 ivanrise Exp $*/
 public class EventNotificationDialog extends JFrame {
@@ -37,8 +37,8 @@ public class EventNotificationDialog extends JFrame {
             new ExceptionDialog(ex);
         }
         timeLabel.setText(time);
-        timeLabel.setIcon(new ImageIcon(Objects.requireNonNull(TaskDialog.class.getResource(
-                "/ui/icons/event48.png"))));
+        timeLabel.setIcon(new ImageIcon(main.java.memoranda.ui.TaskDialog.class.getResource(
+                "/ui/icons/event48.png")));
         textLabel.setText(text);
         this.setSize(300, 200);
         this.setLocationRelativeTo(null);
@@ -54,7 +54,7 @@ public class EventNotificationDialog extends JFrame {
 
     void jbInit () throws Exception {
         this.setResizable(false);
-        this.setIconImage(new ImageIcon(Objects.requireNonNull(EventNotificationDialog.class.getResource("/ui/icons/jnotes16.png"))).getImage());
+        this.setIconImage(new ImageIcon(EventNotificationDialog.class.getResource("/ui/icons/jnotes16.png")).getImage());
         this.getContentPane().setBackground(new Color(251, 197, 63));
         border2 = BorderFactory.createEmptyBorder(0, 30, 0, 30);
         border3 = BorderFactory.createCompoundBorder(BorderFactory.createEtchedBorder(Color.white, new Color(142, 142, 142)), BorderFactory.createEmptyBorder(0, 30, 0, 30));
@@ -126,6 +126,5 @@ public class EventNotificationDialog extends JFrame {
         } catch (Exception ex) {
             new ExceptionDialog(ex, "Error loading audioclip from " + url, "Check the location and type of audioclip file.");
         }
-
     }
 }
