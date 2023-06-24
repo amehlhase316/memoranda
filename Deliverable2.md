@@ -81,7 +81,7 @@ Brinson Doederlein : 12 Meetings
 
 Answer as a team!
 
-**Screen Cast link**: [Link]
+**Screen Cast link**: https://youtu.be/sp20kHkPm-o
 
 > Answer the following questions as a team.
 
