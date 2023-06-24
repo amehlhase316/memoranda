@@ -7,10 +7,12 @@ compileJava.options.encoding = 'UTF-8'
 // Repositories and dependencies for code go here
 repositories {
   mavenCentral()
+  jcenter()
 }
 
 dependencies {
   implementation 'com.io7m.xom:xom:1.2.+'
   implementation 'net.sourceforge.nekohtml:nekohtml:1.9.+'
+  implementation "junit:junit:4.12"
 }
 
