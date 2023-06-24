@@ -1,4 +1,10 @@
+plugins {
+    id 'checkstyle'
+    id "com.github.spotbugs" version "4.5.1"
+}
 apply plugin: 'application'
+apply plugin: 'jacoco'
+
 
 sourceSets {
     main {
@@ -20,21 +26,49 @@ version = '1.1.0'
 ext {
     buildNumber = '001'
 }
+test {
+    useJUnitPlatform()
+}
 
 
 // Repositories and dependencies for code go here
 repositories {
-  mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-  implementation 'com.io7m.xom:xom:1.2.+'
-  implementation 'net.sourceforge.nekohtml:nekohtml:1.9.+'
-  testCompile 'junit:junit:4.12'
-  compile 'junit:junit:4.12'
+    implementation 'xom:xom:1.3.9'
+    implementation 'net.sourceforge.nekohtml:nekohtml:1.9.22'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
 
-tasks.register('fatJar', Jar) {
+///////////////////////////////////////////////////////////////////////
+// Configure Checkstyle
+/////////////////////////////////////////////////////////////////////
+apply plugin: 'checkstyle'
+
+checkstyle {
+    // Keep checkstyle a little quieter
+    ignoreFailures = true
+    showViolations = false
+}
+
+final withType = tasks.withType(Checkstyle).tap {
+    configureEach {
+        reports {
+            html.required.set(true)
+            xml.required.set(false)
+        }
+    }
+}
+
+checkstyle {
+    toolVersion = "8.8"
+}
+
+
+task fatJar(type: Jar) {
     archiveBaseName = 'memoranda'
     from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
@@ -42,7 +76,7 @@ tasks.register('fatJar', Jar) {
         attributes 'Main-Class': 'main.java.memoranda.Start'
     }
 }
-tasks.register('createVersionFile') {
+task createVersionFile {
     doLast {
         def propsFile = new File('src/main/resources/version.properties')
         def props = new Properties()
