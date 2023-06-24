@@ -30,24 +30,27 @@ public class TaskImpl implements Task, Comparable {
     /**
      * Constructor for DefaultTask.
      */
-    public TaskImpl(Element taskElement, TaskList tl) {
+    public TaskImpl (Element taskElement, TaskList tl) {
         _element = taskElement;
         _tl = tl;
     }
 
-    public Element getContent() {
+    public TaskImpl (org.jdom2.Element mockElement, TaskList mockTaskList) {
+    }
+
+    public Element getContent () {
         return _element;
     }
 
-    public CalendarDate getStartDate() {
+    public CalendarDate getStartDate () {
         return new CalendarDate(_element.getAttribute("startDate").getValue());
     }
 
-    public void setStartDate(CalendarDate date) {
+    public void setStartDate (CalendarDate date) {
         setAttr("startDate", date.toString());
     }
 
-    public CalendarDate getEndDate() {
+    public CalendarDate getEndDate () {
         String ed = _element.getAttribute("endDate").getValue();
         if (ed != "") return new CalendarDate(_element.getAttribute("endDate").getValue());
         Task parent = this.getParentTask();
@@ -58,12 +61,12 @@ public class TaskImpl implements Task, Comparable {
 
     }
 
-    public void setEndDate(CalendarDate date) {
+    public void setEndDate (CalendarDate date) {
         if (date == null) setAttr("endDate", "");
         setAttr("endDate", date.toString());
     }
 
-    public long getEffort() {
+    public long getEffort () {
         Attribute attr = _element.getAttribute("effort");
         if (attr == null) {
             return 0;
@@ -76,14 +79,14 @@ public class TaskImpl implements Task, Comparable {
         }
     }
 
-    public void setEffort(long effort) {
+    public void setEffort (long effort) {
         setAttr("effort", String.valueOf(effort));
     }
 
     /*
      * @see net.sf.memoranda.Task#getParentTask()
      */
-    public Task getParentTask() {
+    public Task getParentTask () {
         Node parentNode = _element.getParent();
         if (parentNode instanceof Element parent) {
             if (parent.getLocalName().equalsIgnoreCase("task")) return new TaskImpl(parent, _tl);
@@ -91,13 +94,13 @@ public class TaskImpl implements Task, Comparable {
         return null;
     }
 
-    public String getParentId() {
+    public String getParentId () {
         Task parent = this.getParentTask();
         if (parent != null) return parent.getID();
         return null;
     }
 
-    public String getDescription() {
+    public String getDescription () {
         Element thisElement = _element.getFirstChildElement("description");
         if (thisElement == null) {
             return null;
@@ -106,7 +109,7 @@ public class TaskImpl implements Task, Comparable {
         }
     }
 
-    public void setDescription(String s) {
+    public void setDescription (String s) {
         Element desc = _element.getFirstChildElement("description");
         if (desc == null) {
             desc = new Element("description");
@@ -123,7 +126,7 @@ public class TaskImpl implements Task, Comparable {
      *
      * @see main.java.memoranda.Task#getStatus()
      */
-    public int getStatus(CalendarDate date) {
+    public int getStatus (CalendarDate date) {
         CalendarDate start = getStartDate();
         CalendarDate end = getEndDate();
         if (isFrozen()) return Task.FROZEN;
@@ -148,58 +151,58 @@ public class TaskImpl implements Task, Comparable {
      *
      * @return boolean
      */
-    private boolean isFrozen() {
+    private boolean isFrozen () {
         return _element.getAttribute("frozen") != null;
     }
 
-    private boolean isCompleted() {
+    private boolean isCompleted () {
         return getProgress() == 100;
     }
 
     /**
      * @see main.java.memoranda.Task#getID()
      */
-    public String getID() {
+    public String getID () {
         return _element.getAttribute("id").getValue();
     }
 
     /**
      * @see main.java.memoranda.Task#getText()
      */
-    public String getText() {
+    public String getText () {
         return _element.getFirstChildElement("text").getValue();
     }
 
     /**
      * @see main.java.memoranda.Task#setText()
      */
-    public void setText(String s) {
+    public void setText (String s) {
         _element.getFirstChildElement("text").removeChildren();
         _element.getFirstChildElement("text").appendChild(s);
     }
 
-    public String toString() {
+    public String toString () {
         return getText();
     }
 
     /**
      * @see main.java.memoranda.Task#freeze()
      */
-    public void freeze() {
+    public void freeze () {
         setAttr("frozen", "yes");
     }
 
     /**
      * @see main.java.memoranda.Task#unfreeze()
      */
-    public void unfreeze() {
+    public void unfreeze () {
         if (this.isFrozen()) _element.removeAttribute(new Attribute("frozen", "yes"));
     }
 
     /**
      * @see main.java.memoranda.Task#getDependsFrom()
      */
-    public Collection getDependsFrom() {
+    public Collection getDependsFrom () {
         Vector v = new Vector();
         Elements deps = _element.getChildElements("dependsFrom");
         for (int i = 0; i < deps.size(); i++) {
@@ -213,7 +216,7 @@ public class TaskImpl implements Task, Comparable {
     /**
      * @see main.java.memoranda.Task#addDependsFrom(main.java.memoranda.Task)
      */
-    public void addDependsFrom(Task task) {
+    public void addDependsFrom (Task task) {
         Element dep = new Element("dependsFrom");
         dep.addAttribute(new Attribute("idRef", task.getID()));
         _element.appendChild(dep);
@@ -222,7 +225,7 @@ public class TaskImpl implements Task, Comparable {
     /**
      * @see main.java.memoranda.Task#removeDependsFrom(main.java.memoranda.Task)
      */
-    public void removeDependsFrom(Task task) {
+    public void removeDependsFrom (Task task) {
         Elements deps = _element.getChildElements("dependsFrom");
         for (int i = 0; i < deps.size(); i++) {
             String id = deps.get(i).getAttribute("idRef").getValue();
@@ -236,21 +239,21 @@ public class TaskImpl implements Task, Comparable {
     /**
      * @see main.java.memoranda.Task#getProgress()
      */
-    public int getProgress() {
+    public int getProgress () {
         return Integer.valueOf(_element.getAttribute("progress").getValue()).intValue();
     }
 
     /**
      * @see main.java.memoranda.Task#setProgress(int)
      */
-    public void setProgress(int p) {
+    public void setProgress (int p) {
         if ((p >= 0) && (p <= 100)) setAttr("progress", Integer.valueOf(p).toString());
     }
 
     /**
      * @see main.java.memoranda.Task#getPriority()
      */
-    public int getPriority() {
+    public int getPriority () {
         Attribute pa = _element.getAttribute("priority");
         if (pa == null) return Task.PRIORITY_NORMAL;
         return Integer.valueOf(pa.getValue()).intValue();
@@ -259,11 +262,11 @@ public class TaskImpl implements Task, Comparable {
     /**
      * @see main.java.memoranda.Task#setPriority(int)
      */
-    public void setPriority(int p) {
+    public void setPriority (int p) {
         setAttr("priority", String.valueOf(p));
     }
 
-    private void setAttr(String a, String value) {
+    private void setAttr (String a, String value) {
         Attribute attr = _element.getAttribute(a);
         if (attr == null) _element.addAttribute(new Attribute(a, value));
         else attr.setValue(value);
@@ -280,7 +283,7 @@ public class TaskImpl implements Task, Comparable {
      * @return long
      */
 
-    private long calcTaskRate(CalendarDate d) {
+    private long calcTaskRate (CalendarDate d) {
         Calendar endDateCal = getEndDate().getCalendar();
         Calendar dateCal = d.getCalendar();
         int numOfDays = (endDateCal.get(Calendar.YEAR) * 365 + endDateCal.get(Calendar.DAY_OF_YEAR)) - (dateCal.get(Calendar.YEAR) * 365 + dateCal.get(Calendar.DAY_OF_YEAR));
@@ -292,7 +295,7 @@ public class TaskImpl implements Task, Comparable {
      * @see main.java.memoranda.Task#getRate()
      */
 
-    public long getRate() {
+    public long getRate () {
 /*	   Task t = (Task)task;
 	   switch (mode) {
 		   case BY_IMP_RATE: return -1*calcTaskRate(t, date);
@@ -309,26 +312,26 @@ public class TaskImpl implements Task, Comparable {
      * Comparable interface
      */
 
-    public int compareTo(Object o) {
+    public int compareTo (Object o) {
         Task task = (Task) o;
         if (getRate() > task.getRate()) return 1;
         else if (getRate() < task.getRate()) return -1;
         else return 0;
     }
 
-    public boolean equals(Object o) {
+    public boolean equals (Object o) {
         return ((o instanceof Task) && (((Task) o).getID().equals(this.getID())));
     }
 
     /*
      * @see net.sf.memoranda.Task#getSubTasks()
      */
-    public Collection getSubTasks() {
+    public Collection getSubTasks () {
         Elements subTasks = _element.getChildElements("task");
         return convertToTaskObjects(subTasks);
     }
 
-    private Collection convertToTaskObjects(Elements tasks) {
+    private Collection convertToTaskObjects (Elements tasks) {
         Vector v = new Vector();
         for (int i = 0; i < tasks.size(); i++) {
             Task t = new TaskImpl(tasks.get(i), _tl);
@@ -340,7 +343,7 @@ public class TaskImpl implements Task, Comparable {
     /*
      * @see net.sf.memoranda.Task#getSubTask(java.lang.String)
      */
-    public Task getSubTask(String id) {
+    public Task getSubTask (String id) {
         Elements subTasks = _element.getChildElements("task");
         for (int i = 0; i < subTasks.size(); i++) {
             if (subTasks.get(i).getAttribute("id").getValue().equals(id)) return new TaskImpl(subTasks.get(i), _tl);
@@ -351,7 +354,7 @@ public class TaskImpl implements Task, Comparable {
     /*
      * @see net.sf.memoranda.Task#hasSubTasks()
      */
-    public boolean hasSubTasks(String id) {
+    public boolean hasSubTasks (String id) {
         Elements subTasks = _element.getChildElements("task");
         for (int i = 0; i < subTasks.size(); i++)
             if (subTasks.get(i).getAttribute("id").getValue().equals(id)) return true;
