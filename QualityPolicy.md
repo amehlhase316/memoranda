@@ -26,17 +26,39 @@
 
 
 **Unit Tests Blackbox** (start Sprint 2)
-  > Your Blackbox testing policy 
+  > Testing will be saved in src/test/java Both Blackbox and Whitebox testing can be in the same file. BlackBox testing will be created by the Developer who wrote the code being reviewed prior to writing or by a team member who has not worked on this code previously. The tests will preformed by a team member who has not worked on the code. Junit tests are acceptable for BlackBox testing.
 
  **Unit Tests Whitebox** (online: start Sprint 2, campus: start Sprint 3)
-  > Your Whitebox testing policy 
+  > Testing will be saved in src/test/java. Both BlackBox and Whitebox testing can be in the same file. The Developer will create WhiteBox testing as needed to attain at least 75% coverage.
 
+Edge and node coverage can be completed from BlackBox testing, only add additional WhiteBox if coverage criteria is not met.
 **Code Review** (online: due start Sprint 2, campus: start Sprint 3)
-  > Your Code Review policy   
+  > Before user story is merged into Dev, at least one code review will be preformed. 
 
-  > Include a checklist/questions list which every developer will need to fill out/answe when creating a Pull Request to the Dev branch. 
+  Coding Standards (CG):
+1. All source code files must have a file banner comment present and filled in. This banner is available in the templates file on Canvas.
+2. All public classes must have a class banner comment present and filled in. This banner is available in the templates file.
+3. All public methods including constructors, except getter/setter methods, must have a method banner comment present and filled in.
+5. All attributes must be private (class member variables, not constants).
+6. All literal values, except loop indices starting at 0 or 1 must be declared as constants.
+7. All code should be consistent stylistically. This includes:
+  a. All {} should appear with the { at the end of a line and } on its own line
+  b. Indentation should be consistent.
+  c. All complex statements (if, else, switch, loops) must use explicit {} even if the body is a single line.
+
 
   > Include a checklist/question list which every reviewer will need to fill out/anser when conducting a review, this checklist (and the answers of course) need to be put into the Pull Request review.
+
+ # Review CheckList
+  - [] Are the comments comprehensible and add something to the maintainability of the code (trivial comments do not help, rather write readable code)?
+  - [] Are the comments are neither too numerous nor verbose?
+  - [] Have types have been generalized where possible?
+  - [] Are parameterized types being used appropriately?
+  - [] Are there exceptions being used appropriately?
+  - [] Is there repetitive code that has been factored out?
+  - [] Are the frameworks being used appropriately – methods have all been defined?
+  - [] Are unit tests are present and correct?
+  - [] Have common errors been checked for?
 
 **Static Analysis**  (online: start Sprint 3, campus: start Sprint 3)
   > Your Static Analysis policy   
