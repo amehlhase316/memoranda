@@ -100,7 +100,7 @@ public class HomePanel extends JPanel {
                         stc.setLocation(
                                 (frmSize.width - stc.getSize().width) / 2 + loc.x,
                                 (frmSize.height - stc.getSize().height) / 2
-                                        + loc.y);
+                                       + loc.y);
                         stc.setVisible(true);
                         if (!stc.CANCELLED) {
                         EventsManager.removeSticker(id);

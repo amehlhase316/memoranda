@@ -36,9 +36,9 @@ public class HomeGenerator {
 	static String HEADER =
 			"<html><head><title></title>\n"
 					+ "<style>\n"
-					+ "    body, td {font: 12pt sans-serif}\n"
-					+ "    h1 {font:20pt sans-serif; background-color:#E0E0E0; margin-top:0}\n"
-					+ "    h2 {font:16pt sans-serif; margin-bottom:0}\n"
+					+ "    body, td {font: 16pt sans-serif}\n"
+					+ "    h1 {font:24pt sans-serif; background-color:#E0E0E0; margin-top:0}\n"
+					+ "    h2 {font:20pt sans-serif; margin-bottom:0}\n"
 					+ "    li {margin-bottom:5px}\n"
 					+ " a {color:black; text-decoration:none}\n"             
 					+ "</style></head>\n"
@@ -283,19 +283,27 @@ public class HomeGenerator {
 		return s + generateTasksInfo(p, date,expandedTasks);        
 	}
 
-	static String generateAllProjectsInfo(CalendarDate date, Collection expandedTasks) {
+	static String generateAllUserInfo(CalendarDate date, Collection expandedTasks) {
 		String s =
 				"<td width=\"66%\" valign=\"top\">"
 						+ "<h1>"
-						+ Local.getString("Projects and tasks")
-						+ "</h1>\n";
-		s += generateProjectInfo(CurrentProject.get(), date, expandedTasks);        
+						+ Local.getString("User Info")
+						+ "</h1>\n" + "<h2><a href=\"memoranda:project#"
+						+ "p.getID()"
+						+ "\">"
+						+ "FirstName LastName"
+						+ "</a></h2>\n"
+						+ "<table border=\"0\" width=\"100%\" cellpadding=\"2\" bgcolor=\"#EFEFEF\"><tr><td>"
+						+ "User ID"+": <i>"+"display user id here"+"</i><br>"
+						+ "User Rank"+": <i>"+"display user rank here"+"</i><br>"
+						+ "Date Joined"+": <i>"+"display date user joined"+"</i><br>";
+		//s += generateProjectInfo(CurrentProject.get(), date, expandedTasks);
 		for (Iterator i = ProjectManager.getActiveProjects().iterator();
 				i.hasNext();
 				) {
 			Project p = (Project) i.next();
-			if (!p.getID().equals(CurrentProject.get().getID()))
-				s += generateProjectInfo(p, date, expandedTasks);
+			//if (!p.getID().equals(CurrentProject.get().getID()))
+			//	s += generateProjectInfo(p, date, expandedTasks);
 		}
 		return s + "</td>";
 	}
@@ -368,7 +376,7 @@ public class HomeGenerator {
 				.getResource("/ui/agenda/removesticker.gif")
 				.toExternalForm();
 		 String s = "<hr><hr><table border=\"0\" cellpadding=\"0\" width=\"100%\"><tr><td><a href=\"memoranda:importstickers\"><b>"+Local.getString("Import stickers")+"</b></a></td><td><a href=\"memoranda:exportstickerst\"><b>"+Local.getString("Export stickers as .txt")+"</b></a><td><a href=\"memoranda:exportstickersh\"><b>"+Local.getString("Export stickers as .html")+"</b></a></td></tr></table>"
-				 +   "<table border=\"0\" cellpadding=\"0\" width=\"100%\"><tr><td><a href=\"memoranda:addsticker\"><img align=\"left\" width=\"22\" height=\"22\" src=\""				
+				 +   "<table border=\"0\" cellpadding=\"0\" width=\"100%\"><tr><td><a href=\"memoranda:addsticker\"><img align=\"left\" width=\"22\" height=\"22\" src=\""
 				 + iurl
 				+ "\" border=\"0\"  hspace=\"0\" vspace=\"0\" alt=\"New sticker\"></a></td><td width=\"100%\"><a href=\"memoranda:addsticker\"><b>&nbsp;"
 				+Local.getString("Add sticker")+"</b></a></td></tr></table>";
@@ -377,7 +385,7 @@ public class HomeGenerator {
 		Element el = pQ.extract();
 		String id = el.getAttributeValue("id");
 		String txt = el.getValue();
-            s += "\n<table border=\"0\" cellpadding=\"0\" width=\"100%\"><table width=\"100%\"><tr bgcolor=\"#E0E0E0\"><td><a href=\"memoranda:editsticker#"+id+"\">"+Local.getString("EDIT")+"</a></td><td width=\"70%\"><a href=\"memoranda:expandsticker#"+id+"\">"+Local.getString("OPEN IN A NEW WINDOW")+"</></td><td align=\"right\">" +
+		s += "\n<table border=\"0\" cellpadding=\"0\" width=\"100%\"><table width=\"100%\"><tr bgcolor=\"#E0E0E0\"><td><a href=\"memoranda:editsticker#"+id+"\">"+Local.getString("EDIT")+"</a></td><td width=\"70%\"><a href=\"memoranda:expandsticker#"+id+"\">"+Local.getString("OPEN IN A NEW WINDOW")+"</></td><td align=\"right\">" +
                     "&nbsp;" + // without this removesticker link takes klicks from whole cell
                       "<a href=\"memoranda:removesticker#"+id+"\"><img align=\"left\" width=\"14\" height=\"14\" src=\""
                     + iurl2
@@ -414,11 +422,11 @@ public class HomeGenerator {
 		int last=txt.lastIndexOf("<");
 		ret=txt.substring(0, first+1)+"<a href=\"memoranda:editsticker#"+id+"\">"+txt.substring(first+1, last)+"</a>"+txt.substring(last);
 		 return ret;
-		 }
-	
+	}
+
 	public static String getAgenda(CalendarDate date, Collection expandedTasks) {
 		String s = HEADER;
-		s += generateAllProjectsInfo(date, expandedTasks);
+		s += generateAllUserInfo(date, expandedTasks);
 		s += generateEventsInfo(date);
 		s += generateStickers(date);
 		//        /*DEBUG*/System.out.println(s+FOOTER);
