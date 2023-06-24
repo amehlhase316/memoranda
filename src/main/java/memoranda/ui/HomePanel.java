@@ -1,20 +1,18 @@
+/*
+ * HomePanel.java
+ * @auther Jonathan Blicharz
+ * @date 6/24/23
+ */
 package main.java.memoranda.ui;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Point;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
 
-import javax.swing.JButton;
-import javax.swing.JEditorPane;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JToolBar;
-import javax.swing.SwingUtilities;
+import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.TitledBorder;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
 
@@ -37,11 +35,13 @@ import main.java.memoranda.util.CurrentStorage;
 import main.java.memoranda.util.Local;
 import main.java.memoranda.util.Util;
 
-import javax.swing.JOptionPane;
-
 import nu.xom.Element;
 
-/*$Id: HomePanel.java,v 1.11 2005/02/15 16:58:02 rawsushi Exp $*/
+/**
+ Class: HomePanel
+ Description: Builds home panel GUI using Swing.
+ */
+
 public class HomePanel extends JPanel {
 	BorderLayout borderLayout1 = new BorderLayout();
 	JButton loginB = new JButton();
@@ -49,8 +49,15 @@ public class HomePanel extends JPanel {
 	JButton logoutB = new JButton();
 	JButton export = new JButton();
 	JEditorPane viewer = new JEditorPane("text/html", "");
+	JEditorPane viewer1 = new JEditorPane("text/html", "");
+	JEditorPane viewer2 = new JEditorPane("text/html", "");
 	String[] priorities = {"Very High","High","Medium","Low","Very Low"};
 	JScrollPane scrollPane = new JScrollPane();
+	JPanel panel = new JPanel();
+	JPanel addNotesPanel = new JPanel();
+
+	JScrollPane notePanel = new JScrollPane();
+	JScrollPane upcomingClassPanel = new JScrollPane();
 
 	DailyItemsPanel parentPanel = null;
 
@@ -233,10 +240,159 @@ public class HomePanel extends JPanel {
 		
 
 		this.setLayout(borderLayout1);
-		scrollPane.getViewport().setBackground(Color.white);
+		scrollPane.getViewport().setBackground(Color.red);
+		panel.setBackground(Color.darkGray);
+		panel.setSize(getWidth(),getHeight());
+		GridBagLayout layout = new GridBagLayout();
+
+		Border bevelBorder = BorderFactory.createBevelBorder(1, Color.black, Color.white);
+
+		panel.setLayout(layout);
+		GridBagConstraints gbc = new GridBagConstraints();
+
+
+		JLabel userFirstNameLabel = new JLabel("First Name", 0);
+		JPanel userFirstName = new JPanel();
+		userFirstName.add(userFirstNameLabel);
+		Border userFirstNameTitleBorder = BorderFactory.createTitledBorder(bevelBorder,"First Name", TitledBorder.CENTER, TitledBorder.TOP);
+		userFirstName.setBorder(userFirstNameTitleBorder);
+
+		JLabel userLastNameLabel = new JLabel("Last Name", 0);
+		JPanel userLastName = new JPanel();
+		userLastName.add(userLastNameLabel);
+		Border userLastNameTitleBorder = BorderFactory.createTitledBorder(bevelBorder,"Last Name", TitledBorder.CENTER, TitledBorder.TOP);
+		userLastName.setBorder(userLastNameTitleBorder);
+
+		JLabel userIDLabel = new JLabel("ID", 0);
+		JPanel userID = new JPanel();
+		userID.add(userIDLabel);
+		Border userIDTitleBorder = BorderFactory.createTitledBorder(bevelBorder,"ID", TitledBorder.CENTER, TitledBorder.TOP);
+		userID.setBorder(userIDTitleBorder);
+
+		JLabel userRankLabel = new JLabel("Belt Rank", 0);
+		JPanel userRank = new JPanel();
+		userRank.add(userRankLabel);
+		Border userRankTitleBorder = BorderFactory.createTitledBorder(bevelBorder,"Belt Rank", TitledBorder.CENTER, TitledBorder.TOP);
+		userRank.setBorder(userRankTitleBorder);
+
+		JLabel userJoinDateLabel = new JLabel("Date Joined", 0);
+		JPanel userJoinDate = new JPanel();
+		userJoinDate.add(userJoinDateLabel);
+		Border userJoinDateTitleBorder = BorderFactory.createTitledBorder(bevelBorder,"Date Joined", TitledBorder.CENTER, TitledBorder.TOP);
+		userJoinDate.setBorder(userJoinDateTitleBorder);
+
+		Border userTitleBorder = BorderFactory.createTitledBorder(bevelBorder,"User Info", TitledBorder.LEFT, TitledBorder.TOP);
+		JPanel userPanel = new JPanel();
+		userPanel.setLayout(new BoxLayout(userPanel, BoxLayout.Y_AXIS));
+		userPanel.setBackground(Color.lightGray);
+		userPanel.setBorder(userTitleBorder);
+		userPanel.add(userFirstName);
+		userPanel.add(userLastName);
+		userPanel.add(userID);
+		userPanel.add(userRank);
+		userPanel.add(userJoinDate);
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.weighty = .5;
+		gbc.weightx= .67;
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+
+		panel.add(userPanel, gbc);
+
+		Border classTitleBorder = BorderFactory.createTitledBorder(bevelBorder,"Enrolled Classes", TitledBorder.LEFT, TitledBorder.TOP);
+		upcomingClassPanel.setBackground(Color.lightGray);
+		upcomingClassPanel.setBorder(classTitleBorder);
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.weightx = 0.67;
+		gbc.weighty = .5;
+		gbc.gridx = 0;
+		gbc.gridy = 1;
+		panel.add(upcomingClassPanel, gbc);
+
+		addNotesPanel.setLayout(new GridBagLayout());
+
+		JButton importNote = new JButton();
+		importNote.setText("Import Note");
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.weighty = .0625;
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		addNotesPanel.add(importNote, gbc);
+
+		JButton exportNoteTxt = new JButton();
+		exportNoteTxt.setText("Export Notes as .txt");
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.weighty = .0625;
+		gbc.gridx = 1;
+		gbc.gridy = 0;
+		addNotesPanel.add(exportNoteTxt, gbc);
+
+		JButton exportNoteHtml = new JButton();
+		exportNoteHtml.setText("Export Notes as .html");
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.weighty = .0625;
+		gbc.gridx = 2;
+		gbc.gridy = 0;
+		addNotesPanel.add(exportNoteHtml, gbc);
+
+		JButton addNote = new JButton();
+		addNote.setText("Add Note");
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.weighty = .0625;
+		gbc.gridwidth = 3;
+		gbc.gridx = 0;
+		gbc.gridy = 1;
+		addNotesPanel.add(addNote, gbc);
+
+		JButton editNote = new JButton();
+		editNote.setText("Edit");
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.weighty = .0625;
+		gbc.gridwidth = 1;
+		gbc.gridx = 0;
+		gbc.gridy = 2;
+		addNotesPanel.add(editNote, gbc);
+
+		JButton openNote = new JButton();
+		openNote.setText("Open In a New Window");
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.weighty = .0625;
+		gbc.gridx = 1;
+		gbc.gridy = 2;
+		addNotesPanel.add(openNote, gbc);
+
+		JButton removeNote = new JButton();
+		removeNote.setText("Remove Note");
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.weighty = .0625;
+		gbc.gridwidth = 3;
+		gbc.gridx = 2;
+		gbc.gridy = 2;
+		addNotesPanel.add(removeNote, gbc);
+
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.weighty = .8125;
+		gbc.gridx = 0;
+		gbc.gridy = 3;
+		addNotesPanel.add(notePanel, gbc);
+
+		Border notesTitleBorder = BorderFactory.createTitledBorder(bevelBorder,"Notes", TitledBorder.LEFT, TitledBorder.TOP);
+		addNotesPanel.setBackground(Color.lightGray);
+		addNotesPanel.setBorder(notesTitleBorder);
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.weightx = 0.33;
+		gbc.gridheight = 2;
+		gbc.gridx = 1;
+		gbc.gridy = 0;
+		panel.add(addNotesPanel, gbc);
+		this.add(panel);
 
 		scrollPane.getViewport().add(viewer, null);
-		this.add(scrollPane, BorderLayout.CENTER);
+		notePanel.getViewport().add(viewer1, null);
+		upcomingClassPanel.getViewport().add(viewer2, null);
+		//this.add(userPanel, BorderLayout.CENTER);
+		//this.add(upcomingClassPanel, BorderLayout.EAST);
+		//this.add(addNotesPanel, BorderLayout.SOUTH);
 		toolBar.add(loginB, null);
 		toolBar.add(logoutB, null);
 		toolBar.addSeparator(new Dimension(8, 24));
@@ -295,12 +451,16 @@ public class HomePanel extends JPanel {
 	}
 
 	public void refresh(CalendarDate date) {
-		viewer.setText(HomeGenerator.getAgenda(date,expandedTasks));
+		viewer.setText(HomeGenerator.getUserInfo(date,expandedTasks));
+		viewer1.setText(HomeGenerator.getUserNotes(date));
+		viewer2.setText((HomeGenerator.getUserClasses(date)));
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				if(gotoTask != null) {
 					viewer.scrollToReference(gotoTask);
 					scrollPane.setViewportView(viewer);
+					notePanel.setViewportView(viewer1);
+					upcomingClassPanel.setViewportView(viewer2);
 					Util.debug("Set view port to " + gotoTask);
 				}
 			}
