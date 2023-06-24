@@ -1206,7 +1206,8 @@ public class HTMLEditor extends JPanel {
 					.getAttributes();
 
 		if (charattrs
-			.containsAttribute(StyleConstants.Bold, new Boolean(true))) {
+				.containsAttribute(StyleConstants.Bold, Boolean.TRUE)) {
+
 			boldActionB.setBorder(border2);
 			bold = true;
 		} else if (bold) {
@@ -1214,20 +1215,20 @@ public class HTMLEditor extends JPanel {
 			bold = false;
 		}
 		boldActionB.setBorderPainted(bold);
-		if (charattrs
-			.containsAttribute(StyleConstants.Italic, new Boolean(true))) {
+		if (charattrs.containsAttribute(StyleConstants.Italic, Boolean.TRUE)) {
 			italicActionB.setBorder(border2);
 			italic = true;
-		} else if (italic) {
+		}
+		else if (italic) {
 			italicActionB.setBorder(border1);
 			italic = false;
 		}
 		italicActionB.setBorderPainted(italic);
-		if (charattrs
-			.containsAttribute(StyleConstants.Underline, new Boolean(true))) {
+		if (charattrs.containsAttribute(StyleConstants.Underline, Boolean.TRUE)) {
 			underActionB.setBorder(border2);
 			under = true;
-		} else if (under) {
+		}
+		else if (under) {
 			underActionB.setBorder(border1);
 			under = false;
 		}

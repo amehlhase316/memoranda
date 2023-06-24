@@ -316,8 +316,8 @@ public class NotesControlPanel extends JPanel {
     void ppInvertSort_actionPerformed(ActionEvent e) {
 		Configuration.put(
 			"NOTES_SORT_ORDER",
-			new Boolean(ppInvertSort.isSelected()));
-		Configuration.saveConfig();
+                Boolean.valueOf(ppInvertSort.isSelected()));
+        Configuration.saveConfig();
         notesList.invertSortOrder();
         notesList.update();
     }
