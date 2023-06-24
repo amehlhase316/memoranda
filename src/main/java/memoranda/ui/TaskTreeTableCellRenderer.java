@@ -75,9 +75,8 @@ public class TaskTreeTableCellRenderer extends DefaultTreeCellRenderer implement
                 hasFocus);
         if (value instanceof Project)
             return empty_panel;
-        if (!(value instanceof Task))
+        if (!(value instanceof Task t))
             return empty_panel;
-        Task t = (Task) value; 
         setText(t.getText());
         setToolTipText(t.getDescription());
         setIcon(getStatusIcon(t));

@@ -63,7 +63,7 @@ public class JNCalendarPanel extends JPanel {
 
   boolean ignoreChange = false;
 
-  private Vector selectionListeners = new Vector();
+  private final Vector selectionListeners = new Vector();
 
   Border border1;
   Border border2;

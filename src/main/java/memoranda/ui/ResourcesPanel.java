@@ -432,7 +432,7 @@ public class ResourcesPanel extends JPanel {
          in.close();
        } 
 	   catch (IOException e) {
-         System.err.println(e.toString());
+         System.err.println(e);
        }
 		     
   return destStr;

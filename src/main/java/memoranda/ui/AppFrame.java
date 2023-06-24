@@ -375,7 +375,7 @@ public class AppFrame extends JFrame {
         jMenuEditRedo.setToolTipText(Local.getString("Redo"));
         jMenuEditCut.setText(Local.getString("Cut"));
         jMenuEditCut.setToolTipText(Local.getString("Cut"));
-        jMenuEditCopy.setText((String) Local.getString("Copy"));
+        jMenuEditCopy.setText(Local.getString("Copy"));
         jMenuEditCopy.setToolTipText(Local.getString("Copy"));
         jMenuEditPaste.setText(Local.getString("Paste"));
         jMenuEditPaste.setToolTipText(Local.getString("Paste"));
@@ -966,9 +966,9 @@ public class AppFrame extends JFrame {
                         Context.put(
                                 "LAST_SELECTED_EXPORT_FILE",
                                 chooser.getSelectedFile().getPath());
-                        Context.put("EXPORT_SPLIT_NOTES", new Boolean(dlg.splitChB.isSelected()).toString());
-                        Context.put("EXPORT_TITLES_AS_HEADERS", new Boolean(dlg.titlesAsHeadersChB.isSelected()).toString());
-                
+                Context.put("EXPORT_SPLIT_NOTES", Boolean.valueOf(dlg.splitChB.isSelected()).toString());
+                Context.put("EXPORT_TITLES_AS_HEADERS", Boolean.valueOf(dlg.titlesAsHeadersChB.isSelected()).toString());
+
                 int ei = dlg.encCB.getSelectedIndex();
                 enc = null;
                 if (ei == 1)
