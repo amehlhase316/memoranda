@@ -30,9 +30,11 @@ repositories {
 dependencies {
   implementation 'com.io7m.xom:xom:1.2.+'
   implementation 'net.sourceforge.nekohtml:nekohtml:1.9.+'
+  testCompile 'junit:junit:4.12'
+  compile 'junit:junit:4.12'
 }
 
-task fatJar(type: Jar) {
+tasks.register('fatJar', Jar) {
     archiveBaseName = 'memoranda'
     from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
@@ -40,7 +42,7 @@ task fatJar(type: Jar) {
         attributes 'Main-Class': 'main.java.memoranda.Start'
     }
 }
-task createVersionFile {
+tasks.register('createVersionFile') {
     doLast {
         def propsFile = new File('src/main/resources/version.properties')
         def props = new Properties()
