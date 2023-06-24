@@ -375,7 +375,7 @@ public class AppFrame extends JFrame {
         jMenuEditRedo.setToolTipText(Local.getString("Redo"));
         jMenuEditCut.setText(Local.getString("Cut"));
         jMenuEditCut.setToolTipText(Local.getString("Cut"));
-        jMenuEditCopy.setText((String) Local.getString("Copy"));
+        jMenuEditCopy.setText(Local.getString("Copy"));
         jMenuEditCopy.setToolTipText(Local.getString("Copy"));
         jMenuEditPaste.setText(Local.getString("Paste"));
         jMenuEditPaste.setToolTipText(Local.getString("Paste"));

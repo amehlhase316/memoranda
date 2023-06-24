@@ -356,7 +356,7 @@ public class HTMLEditor extends JPanel {
 		 * null); } catch (Exception e) { e.printStackTrace();
 		 */
 		Element el = document.getParagraphElement(editor.getSelectionStart());
-		if (el.getName().toUpperCase().equals("P-IMPLIED"))
+		if (el.getName().equalsIgnoreCase("P-IMPLIED"))
 			el = el.getParentElement();
 		String elName = el.getName();
 		StringWriter sw = new StringWriter();
@@ -1376,9 +1376,9 @@ public class HTMLEditor extends JPanel {
 			String elName = elem.getName().toUpperCase();
 			String parentname = elem.getParentElement().getName();
 			HTML.Tag parentTag = HTML.getTag(parentname);
-			if (parentname.toUpperCase().equals("P-IMPLIED"))
+			if (parentname.equalsIgnoreCase("P-IMPLIED"))
 				parentTag = HTML.Tag.IMPLIED;
-			if (parentname.toLowerCase().equals("li")) {
+			if (parentname.equalsIgnoreCase("li")) {
 				// HTML.Tag listTag =
 				// HTML.getTag(elem.getParentElement().getParentElement().getName());
 				if (elem.getEndOffset() - elem.getStartOffset() > 1) {
@@ -1410,7 +1410,7 @@ public class HTMLEditor extends JPanel {
 					HTML.Tag listParentTag =
 						HTML.getTag(listParentElement.getName());
 					String listParentTagName = listParentTag.toString();
-					if (listParentTagName.toLowerCase().equals("li")) {
+					if (listParentTagName.equalsIgnoreCase("li")) {
 						Element listAncEl =
 							listParentElement.getParentElement();
 						try {
@@ -1508,7 +1508,7 @@ public class HTMLEditor extends JPanel {
 			 * editor.replaceSelection("\r"); return;
 			 */
 			HTML.Tag tag = HTML.getTag(elName);
-			if (elName.toUpperCase().equals("P-IMPLIED"))
+			if (elName.equalsIgnoreCase("P-IMPLIED"))
 				tag = HTML.Tag.IMPLIED;
 
 			HTMLEditorKit.InsertHTMLTextAction hta =
@@ -1539,7 +1539,7 @@ public class HTMLEditor extends JPanel {
 					.getParentElement()
 					.getParentElement();
 			for (int i = 0; i < tr.getElementCount(); i++)
-				if (tr.getElement(i).getName().toUpperCase().equals("TD"))
+				if (tr.getElement(i).getName().equalsIgnoreCase("TD"))
 					trTag += "<td><p></p></td>";
 			trTag += "</tr>";
 
@@ -1564,8 +1564,7 @@ public class HTMLEditor extends JPanel {
 				.getParagraphElement(editor.getCaretPosition())
 				.getParentElement()
 				.getName()
-				.toUpperCase()
-				.equals("TD");
+				.equalsIgnoreCase("TD");
 		}
 
 		public void update() {
@@ -1602,8 +1601,7 @@ public class HTMLEditor extends JPanel {
 				.getParagraphElement(editor.getCaretPosition())
 				.getParentElement()
 				.getName()
-				.toUpperCase()
-				.equals("TD");
+				.equalsIgnoreCase("TD");
 		}
 
 		public void update() {
@@ -1935,7 +1933,7 @@ public class HTMLEditor extends JPanel {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		dlg.chkNewWin.setSelected(target.toUpperCase().equals("_BLANK"));
+		dlg.chkNewWin.setSelected(target.equalsIgnoreCase("_BLANK"));
 		dlg.header.setText(Local.getString("Hyperlink properties"));
 		dlg.setTitle(Local.getString("Hyperlink properties"));
 		dlg.setVisible(true);
@@ -2412,7 +2410,7 @@ public class HTMLEditor extends JPanel {
 		}
 
 		Element el = document.getParagraphElement(editor.getCaretPosition());
-		if (el.getName().toUpperCase().equals("P-IMPLIED")) {
+		if (el.getName().equalsIgnoreCase("P-IMPLIED")) {
 			Element pEl = el.getParentElement();
 			String pElName = pEl.getName();
 			String newName = tag.toString();
@@ -2543,7 +2541,7 @@ public class HTMLEditor extends JPanel {
 			System.out.println(k + " = '" + attrs.getAttribute(k) + "'");
 		}
 
-		if (pEl.getParentElement().getName().toUpperCase().equals("TD")) {
+		if (pEl.getParentElement().getName().equalsIgnoreCase("TD")) {
 			setTableProperties(pEl.getParentElement());
 			return;
 		}

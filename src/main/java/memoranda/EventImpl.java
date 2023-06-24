@@ -38,6 +38,7 @@ public class EventImpl implements Event, Comparable {
      */
     public int getHour() {
         return Integer.valueOf(_elem.getAttribute("hour").getValue()).intValue();
+       // return new Integer(_elem.getAttribute("hour").getValue()).intValue();
     }
 
     /**
@@ -137,9 +138,8 @@ public class EventImpl implements Event, Comparable {
      */
 	public boolean getWorkingDays() {
         Attribute a = _elem.getAttribute("workingDays");
-        if (a != null && a.getValue().equals("true")) return true;
-        return false;
-	}
+        return a != null && a.getValue().equals("true");
+    }
 	
 	public int compareTo(Object o) {
 		Event event = (Event) o;

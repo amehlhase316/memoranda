@@ -19,7 +19,7 @@ import nu.xom.Element;
 public class NoteImpl implements Note, Comparable {
     
     private Element _el = null; 
-    private Project _project;
+    private final Project _project;
     
     /**
      * Constructor for NoteImpl.
@@ -98,7 +98,6 @@ public class NoteImpl implements Note, Comparable {
         if (ma == null) {
             if (mark)
                 _el.addAttribute(new Attribute("bookmark", "yes"));
-            return;
         }
         else if (!mark)
             _el.removeAttribute(ma);
@@ -116,5 +115,7 @@ public class NoteImpl implements Note, Comparable {
 		else 
 			return 0;
 	}
-    
+
+    public void setProject(Project newProject) {
+    }
 }

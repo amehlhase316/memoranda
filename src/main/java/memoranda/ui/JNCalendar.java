@@ -32,7 +32,7 @@ public class JNCalendar extends JTable {
 
 	private CalendarDate _date = null;
 	private boolean ignoreChange = false;
-	private Vector selectionListeners = new Vector();
+	private final Vector selectionListeners = new Vector();
 	CalendarDate startPeriod = null;
 	CalendarDate endPeriod = null;
 	public JNCalendarCellRenderer renderer = new JNCalendarCellRenderer();
@@ -189,7 +189,7 @@ public class JNCalendar extends JTable {
 	/*$Id: JNCalendar.java,v 1.8 2004/11/05 07:38:10 pbielen Exp $*/
 public class JNCalendarModel extends AbstractTableModel {
 
-		private String[] dayNames = Local.getWeekdayNames();
+		private final String[] dayNames = Local.getWeekdayNames();
 
 		public JNCalendarModel() {
 			super();

@@ -154,8 +154,7 @@ public class JTreeTable extends JTable {
 			// Make the tree's cell renderer use the table's cell selection
 			// colors.
 			TreeCellRenderer tcr = getCellRenderer();
-			if (tcr instanceof DefaultTreeCellRenderer) {
-				DefaultTreeCellRenderer dtcr = ((DefaultTreeCellRenderer) tcr);
+			if (tcr instanceof DefaultTreeCellRenderer dtcr) {
 				// For 1.1 uncomment this, 1.2 has a bug that will cause an
 				// exception to be thrown if the border selection color is
 				// null.
