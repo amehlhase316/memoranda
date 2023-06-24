@@ -44,7 +44,7 @@ import nu.xom.Element;
 /*$Id: HomePanel.java,v 1.11 2005/02/15 16:58:02 rawsushi Exp $*/
 public class HomePanel extends JPanel {
 	BorderLayout borderLayout1 = new BorderLayout();
-	JButton historyBackB = new JButton();
+	JButton loginB = new JButton();
 	JToolBar toolBar = new JToolBar();
 	JButton logoutB = new JButton();
 	JButton export = new JButton();
@@ -210,15 +210,15 @@ public class HomePanel extends JPanel {
 				}
 			}
 		});
-		historyBackB.setAction(History.historyBackAction);
-		historyBackB.setFocusable(false);
-		historyBackB.setBorderPainted(false);
-		historyBackB.setToolTipText(Local.getString("History back"));
-		historyBackB.setRequestFocusEnabled(false);
-		historyBackB.setPreferredSize(new Dimension(24, 24));
-		historyBackB.setMinimumSize(new Dimension(24, 24));
-		historyBackB.setMaximumSize(new Dimension(24, 24));
-		historyBackB.setText("");
+		//loginB.setAction(History.historyBackAction);
+		loginB.setFocusable(false);
+		loginB.setBorderPainted(false);
+		loginB.setToolTipText(Local.getString("Login User"));
+		loginB.setRequestFocusEnabled(false);
+		loginB.setPreferredSize(new Dimension(72, 24));
+		loginB.setMinimumSize(new Dimension(72, 24));
+		loginB.setMaximumSize(new Dimension(72, 24));
+		loginB.setText("Login");
 
 		//logoutB.setAction(History.historyForwardAction);
 		logoutB.setBorderPainted(false);
@@ -237,7 +237,7 @@ public class HomePanel extends JPanel {
 
 		scrollPane.getViewport().add(viewer, null);
 		this.add(scrollPane, BorderLayout.CENTER);
-		toolBar.add(historyBackB, null);
+		toolBar.add(loginB, null);
 		toolBar.add(logoutB, null);
 		toolBar.addSeparator(new Dimension(8, 24));
 
