@@ -60,7 +60,7 @@ public class EventsManager {
 	public static void createSticker(String text, int prior) {
 		Element el = new Element("sticker");
 		el.addAttribute(new Attribute("id", Util.generateId()));
-		el.addAttribute(new Attribute("priority", prior+""));
+		el.addAttribute(new Attribute("priority", String.valueOf(prior)));
 		el.appendChild(text);
 		_root.appendChild(el);
 	}
@@ -91,9 +91,7 @@ public class EventsManager {
 		Day d = getDay(date);
 		if (d == null)
 			return false;
-		if (d.getElement().getChildElements("event").size() > 0)
-			return true;
-		return false;
+		return d.getElement().getChildElements("event").size() > 0;
 	}
 
 	public static Collection getEventsForDate(CalendarDate date) {

@@ -301,10 +301,10 @@ public class StickerDialog extends JDialog {
 		if (Context.get("TEXT_SIZE") != null) {
 			int h= (fontSize.getSelectedIndex()*5)+10;
 			if (h!=10 && h!=15 && h!=20) h=15;
-			stickerText.setFont(new Font(f.getFontName(), f.PLAIN, h));
+			stickerText.setFont(new Font(f.getFontName(), Font.PLAIN, h));
 		}
 		else{
-			stickerText.setFont(new Font(f.getFontName(), f.PLAIN, 15));
+			stickerText.setFont(new Font(f.getFontName(), Font.PLAIN, 15));
 			fontSize.setSelectedIndex(1);
 		}
 		fontSize.addActionListener(new java.awt.event.ActionListener() {
@@ -325,7 +325,7 @@ public class StickerDialog extends JDialog {
 		return stickerText.getText();
 	}
 	public String getStickerTextSize() {
-		return ""+stickerText.getFont().getSize();
+		return String.valueOf(stickerText.getFont().getSize());
 	}
 	public String getStickerTextColor(){
 		return "#"
@@ -429,7 +429,7 @@ public class StickerDialog extends JDialog {
 		int i=fontSize.getSelectedIndex();
 		if (i < fontLabels.length){
 			Font f= stickerText.getFont();
-			stickerText.setFont(new Font(f.getFontName(), f.PLAIN, (i*5)+10));
+			stickerText.setFont(new Font(f.getFontName(), Font.PLAIN, (i*5)+10));
 		}
 		fontSize.setSelectedIndex(i);
 		Context.put("TEXT_SIZE", Integer.valueOf(stickerText.getFont().getSize()));		

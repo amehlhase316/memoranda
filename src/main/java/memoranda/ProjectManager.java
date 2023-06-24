@@ -49,9 +49,9 @@ public class ProjectManager {
     public static Project getProject(String id) {
         Elements prjs = _root.getChildElements("project");
         for (int i = 0; i < prjs.size(); i++) {
-            String pid = ((Element) prjs.get(i)).getAttribute("id").getValue();
+            String pid = prjs.get(i).getAttribute("id").getValue();
             if (pid.equals(id)) {
-                return new ProjectImpl((Element) prjs.get(i));
+                return new ProjectImpl(prjs.get(i));
             }
         }
         return null;
@@ -61,14 +61,14 @@ public class ProjectManager {
         Elements prjs = _root.getChildElements("project");
         Vector v = new Vector();
         for (int i = 0; i < prjs.size(); i++)
-            v.add(new ProjectImpl((Element) prjs.get(i)));
+            v.add(new ProjectImpl(prjs.get(i)));
         return v;
     }
 
     public static int getAllProjectsNumber() {
 		int i;
         try {
-			i = ((Elements)_root.getChildElements("project")).size();
+			i = _root.getChildElements("project").size();
 		}
 		catch (NullPointerException e) {
 			i = 1;
@@ -80,7 +80,7 @@ public class ProjectManager {
         Elements prjs = _root.getChildElements("project");
         Vector v = new Vector();
         for (int i = 0; i < prjs.size(); i++) {
-            Project prj = new ProjectImpl((Element) prjs.get(i));
+            Project prj = new ProjectImpl(prjs.get(i));
             if (prj.getStatus() == Project.ACTIVE)
                 v.add(prj);
         }
@@ -91,7 +91,7 @@ public class ProjectManager {
         Elements prjs = _root.getChildElements("project");
         int count = 0;
         for (int i = 0; i < prjs.size(); i++) {
-            Project prj = new ProjectImpl((Element) prjs.get(i));
+            Project prj = new ProjectImpl(prjs.get(i));
             if (prj.getStatus() == Project.ACTIVE)
                 count++;
         }
@@ -122,7 +122,7 @@ public class ProjectManager {
         CurrentStorage.get().removeProjectStorage(prj);
         Elements prjs = _root.getChildElements("project");
         for (int i = 0; i < prjs.size(); i++) {
-            String pid = ((Element) prjs.get(i)).getAttribute("id").getValue();
+            String pid = prjs.get(i).getAttribute("id").getValue();
             if (pid.equals(id)) {
                 _root.removeChild(prjs.get(i));
                 return;

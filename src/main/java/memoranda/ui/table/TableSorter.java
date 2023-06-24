@@ -34,7 +34,7 @@ import main.java.memoranda.util.Local;
 
 /*$Id: TableSorter.java,v 1.7 2004/10/07 08:52:32 ivanrise Exp $*/
 public class TableSorter extends TableMap {
-    int             indexes[];
+    int[] indexes;
     Vector          sortingColumns = new Vector();
     boolean         ascending = true;
     int compares;
@@ -131,8 +131,8 @@ public class TableSorter extends TableMap {
 		    priority.put(Local.getString("High"), Integer.valueOf(4));
 		    priority.put(Local.getString("Highest"), Integer.valueOf(5));
 	
-		    Integer s1 = (Integer)priority.get((String)data.getValueAt(row1, column));
-		    Integer s2 = (Integer)priority.get((String)data.getValueAt(row2, column));
+		    Integer s1 = (Integer)priority.get(data.getValueAt(row1, column));
+		    Integer s2 = (Integer)priority.get(data.getValueAt(row2, column));
 		    if (s1==null || s2==null) return 0;
 		    result = s1.compareTo(s2);
 	    }
@@ -144,8 +144,8 @@ public class TableSorter extends TableMap {
 		    priority.put(Local.getString("Active"), Integer.valueOf(4));
 		    priority.put(Local.getString("Deadline"), Integer.valueOf(5));
 	
-		    Integer s1 = (Integer)priority.get((String)data.getValueAt(row1, column));
-		    Integer s2 = (Integer)priority.get((String)data.getValueAt(row2, column));
+		    Integer s1 = (Integer)priority.get(data.getValueAt(row1, column));
+		    Integer s2 = (Integer)priority.get(data.getValueAt(row2, column));
 		    if (s1==null || s2==null) return 0;
 		    result = s1.compareTo(s2);
 	    }		
@@ -238,7 +238,7 @@ public class TableSorter extends TableMap {
         compares = 0;
         // n2sort();
         // qsort(0, indexes.length-1);
-        shuttlesort((int[])indexes.clone(), indexes, 0, indexes.length);
+        shuttlesort(indexes.clone(), indexes, 0, indexes.length);
         //System.out.println("Compares: "+compares);
     }
 
@@ -259,7 +259,7 @@ public class TableSorter extends TableMap {
     // arrays. The number of compares appears to vary between N-1 and
     // NlogN depending on the initial order but the main reason for
     // using it here is that, unlike qsort, it is stable.
-    public void shuttlesort(int from[], int to[], int low, int high) {
+    public void shuttlesort(int[] from, int[] to, int low, int high) {
         if (high - low < 2) {
             return;
         }
@@ -286,9 +286,7 @@ public class TableSorter extends TableMap {
         order diminishes - it may drop very quickly.  */
 
         if (high - low >= 4 && compare(from[middle-1], from[middle]) <= 0) {
-            for (int i = low; i < high; i++) {
-                to[i] = from[i];
-            }
+            if (high - low >= 0) System.arraycopy(from, low, to, low, high - low);
             return;
         }
 
