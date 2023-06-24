@@ -1,6 +1,6 @@
 package test.java;
 /**
- File: us37BB.java
+ File: us35BB.java
  Author: Jonathan Blicharz
  Date: 6/23/23
  Description: File must test the User class.
@@ -14,12 +14,12 @@ import main.java.memoranda.User;
 
 
 /**
- Class: us37BB
+ Class: us35BB
  Description: Tests the functions of the User class
  */
-public class us37BB {
+public class us35BB {
 
-    private User user = new User();
+    private final User user = new User();
     private CalendarDate date;
 
     @Before
