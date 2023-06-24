@@ -45,7 +45,8 @@ import main.java.memoranda.util.CurrentStorage;
 import main.java.memoranda.util.Local;
 import main.java.memoranda.util.Util;
 
-public class MapPanel extends JPanel {
+public class
+MapPanel extends JPanel {
 	
 	BorderLayout borderLayout1 = new BorderLayout();
     JScrollPane scrollPane = new JScrollPane();
