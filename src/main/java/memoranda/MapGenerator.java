@@ -52,6 +52,11 @@ public class MapGenerator extends JPanel {
         return nodes;
     }
 
+    public void setNodes(List<Node> nodes) {
+        this.nodes = nodes;
+        repaint();
+    }
+
 
     public void addNode(String id, double latitude, double longitude) {
         nodes.add(new Node(id, latitude, longitude));
