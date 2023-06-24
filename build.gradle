@@ -16,7 +16,13 @@ sourceSets {
             srcDirs = ['src/main/resources']
         }
     }
+    test {
+        java {
+            srcDirs = ['src/test/java']
+        }
+    }
 }
+
 mainClassName = 'main.java.memoranda.Start'
 
 compileJava.options.encoding = 'UTF-8'
@@ -41,6 +47,9 @@ dependencies {
     implementation 'net.sourceforge.nekohtml:nekohtml:1.9.22'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    testImplementation 'org.mockito:mockito-core:5.4.0'
+    testImplementation 'org.mockito:mockito-junit-jupiter:5.4.0'
+    implementation 'org.jdom:jdom2:2.0.6.1'
 }
 
 ///////////////////////////////////////////////////////////////////////

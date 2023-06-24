@@ -26,13 +26,10 @@ public class TaskTableSorter extends TaskTableModel{
 	Comparator comparator = new Comparator(){
 		public int compare(Object o1, Object o2){
 			if(sorting_column == -1) return 0;
-			if( (o1 instanceof Task) == false) return 0;
-			if( (o2 instanceof Task) == false ) return 0;
-			
-			
-			Task task1 = (Task) o1;
-			Task task2 = (Task) o2;
-			
+			if(!(o1 instanceof Task task1)) return 0;
+			if(!(o2 instanceof Task task2)) return 0;
+
+
 			// based on TaskTableModel.columnNames
 			switch(sorting_column){
 				case 1: return task1.getText().compareTo(task2.getText());
@@ -67,7 +64,7 @@ public class TaskTableSorter extends TaskTableModel{
 			else c = t.getSubTasks();
 		}
 		
-		Object array[] = c.toArray();
+		Object[] array = c.toArray();
 		Arrays.sort(array, comparator);
 		if(opposite){
 			return array[ array.length - index - 1];

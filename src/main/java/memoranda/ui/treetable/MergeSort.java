@@ -25,11 +25,11 @@ package main.java.memoranda.ui.treetable;
  *
  * @author Scott Violet
  */
-public abstract class MergeSort extends Object {
-    protected Object           toSort[];
-    protected Object           swapSpace[];
+public abstract class MergeSort {
+    protected Object[] toSort;
+    protected Object[] swapSpace;
 
-    public void sort(Object array[]) {
+    public void sort(Object[] array) {
 	if(array != null && array.length > 1)
 	{
 	    int             maxLength;
