@@ -145,7 +145,7 @@ public class HomePanel extends JPanel {
 						refresh(CurrentDate.get());
 					} else if (d.startsWith("memoranda:expandsticker")) {
 						String id = d.split("#")[1];
-						Element pre_sticker=(Element)((Map)EventsManager.getStickers()).get(id);
+						Element pre_sticker=(Element) EventsManager.getStickers().get(id);
 						String sticker = pre_sticker.getValue();
 						int first=sticker.indexOf(">");
 						int last=sticker.lastIndexOf("<");
@@ -167,7 +167,7 @@ public class HomePanel extends JPanel {
 						dlg.setVisible(true);
 					}else if (d.startsWith("memoranda:editsticker")) {
 						String id = d.split("#")[1];
-						Element pre_sticker=(Element)((Map)EventsManager.getStickers()).get(id);
+						Element pre_sticker=(Element) EventsManager.getStickers().get(id);
 						String sticker = pre_sticker.getValue();
 						sticker=sticker.replaceAll("<br>","\n");
 						int first=sticker.indexOf(">");
