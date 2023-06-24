@@ -237,7 +237,7 @@ public class Local {
         }
         int[] time = new int[2];
         try {
-            time[0] = new Integer(h).intValue();
+            time[0] = Integer.valueOf(h).intValue();
             if ((time[0] < 0) || (time[0] > 23)) {
                 time[0] = 0;
             }
@@ -246,7 +246,7 @@ public class Local {
             return null;
         }
         try {
-            time[1] = new Integer(m).intValue();
+            time[1] = Integer.valueOf(m).intValue();
             if ((time[1] < 0) || (time[1] > 59)) {
                 time[1] = 0;
             }
