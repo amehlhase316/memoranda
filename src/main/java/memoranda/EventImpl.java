@@ -38,6 +38,7 @@ public class EventImpl implements Event, Comparable {
      */
     public int getHour() {
         return Integer.valueOf(_elem.getAttribute("hour").getValue()).intValue();
+       // return new Integer(_elem.getAttribute("hour").getValue()).intValue();
     }
 
     /**
