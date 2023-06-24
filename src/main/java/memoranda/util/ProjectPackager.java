@@ -14,6 +14,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
@@ -37,7 +38,7 @@ public class ProjectPackager {
         //.memoranda so the pack feature would work.  (jcscoobyrs) on 17-Nov-2003
         //at 14:57:06 PM
     Changed to: */
-    private static String JN_DOCPATH = Util.getEnvDir(); 
+    private static final String JN_DOCPATH = Util.getEnvDir();
     // for compatibility with previous installations (jnotes2) [alexeyA]
 
     public static void pack(Project prj, File zipfile) {
@@ -57,7 +58,7 @@ public class ProjectPackager {
             String prInfo = prj.getID() + "\n" + prj.getTitle() + "\n" + prj.getStartDate().toString() + "\n";
             if (prj.getEndDate() != null)
                 prInfo += prj.getEndDate().toString();
-            zip.write(prInfo.getBytes("UTF-8"));
+            zip.write(prInfo.getBytes(StandardCharsets.UTF_8));
             zip.closeEntry();
             
             zip.close();
@@ -71,7 +72,7 @@ public class ProjectPackager {
         try {
             ZipFile zip = new ZipFile(zipfile);
             ZipEntry info = zip.getEntry("__PROJECT_INFO__");
-            BufferedReader in = new BufferedReader(new InputStreamReader(zip.getInputStream(info), "UTF-8"));
+            BufferedReader in = new BufferedReader(new InputStreamReader(zip.getInputStream(info), StandardCharsets.UTF_8));
             String pId = in.readLine();
             String pTitle = in.readLine();
             String pStartD = in.readLine();

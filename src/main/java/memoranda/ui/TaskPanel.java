@@ -456,11 +456,8 @@ public class TaskPanel extends JPanel {
         dlg.endDate.getModel().setValue(t.getEndDate().getDate());
         dlg.priorityCB.setSelectedIndex(t.getPriority());                
         dlg.effortField.setText(Util.getHoursFromMillis(t.getEffort()));
-	if((t.getStartDate().getDate()).after(t.getEndDate().getDate()))
-		dlg.chkEndDate.setSelected(false);
-	else
-		dlg.chkEndDate.setSelected(true);
-		dlg.progress.setValue(new Integer(t.getProgress()));
+        dlg.chkEndDate.setSelected(!(t.getStartDate().getDate()).after(t.getEndDate().getDate()));
+		dlg.progress.setValue(Integer.valueOf(t.getProgress()));
  	dlg.chkEndDate_actionPerformed(null);	
         dlg.setVisible(true);
         if (dlg.CANCELLED)
@@ -702,8 +699,9 @@ public class TaskPanel extends JPanel {
 	void toggleShowActiveOnly_actionPerformed(ActionEvent e) {
 		Context.put(
 			"SHOW_ACTIVE_TASKS_ONLY",
-			new Boolean(ppShowActiveOnlyChB.isSelected()));
-		taskTable.tableChanged();
+                Boolean.valueOf(ppShowActiveOnlyChB.isSelected()));
+
+        taskTable.tableChanged();
 	}
 
     class PopupListener extends MouseAdapter {

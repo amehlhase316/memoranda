@@ -47,7 +47,7 @@ public class JNCalendarCellRenderer extends javax.swing.table.DefaultTableCellRe
         int column) {
         
 		JLabel label = (JLabel) super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-		String currentPanel = ((AppFrame)App.getFrame()).workPanel.dailyItemsPanel.getCurrentPanel();
+		String currentPanel = App.getFrame().workPanel.dailyItemsPanel.getCurrentPanel();
 
 		if (d == null) {
             label.setEnabled(false);
@@ -76,12 +76,16 @@ public class JNCalendarCellRenderer extends javax.swing.table.DefaultTableCellRe
         }
         
 		// set foreground color
+		/*
 		if (d.getCalendar().get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
             label.setForeground(new Color(255, 0, 0));
         }
 		else { 		
 			label.setForeground(Color.BLACK);
 		}
+		*/
+		//All dates black
+		label.setForeground(Color.BLACK);
 
 		// set background color
 		if (currentPanel == null)

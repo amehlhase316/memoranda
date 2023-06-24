@@ -182,7 +182,7 @@ public class FileExportDialog extends javax.swing.JDialog {
     }
     
     private javax.swing.JButton cancelB;
-    private javax.swing.JFileChooser fileChooser;
+    private final javax.swing.JFileChooser fileChooser;
     
     private javax.swing.JPanel encPanel;
     private javax.swing.JPanel filePanel;

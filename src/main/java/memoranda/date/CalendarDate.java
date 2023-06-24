@@ -21,9 +21,9 @@ import main.java.memoranda.util.Util;
 /*$Id: CalendarDate.java,v 1.3 2004/01/30 12:17:41 alexeya Exp $*/
 public class CalendarDate {
 
-    private int _year;
-    private int _month;
-    private int _day;
+    private final int _year;
+    private final int _month;
+    private final int _day;
 
     public static Calendar dateToCalendar(Date date) {
         Calendar cal = Calendar.getInstance();
