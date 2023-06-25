@@ -1,6 +1,7 @@
 /*
- * AgendaGenerator.java Package: net.sf.memoranda.util Created on 13.01.2004
- * 5:52:54 @author Alex
+ * HomeGenerator.java
+ * @auther Jonathan Blicharz
+ * @date 6/24/23
  */
 package main.java.memoranda.util;
 
@@ -21,24 +22,24 @@ import main.java.memoranda.ProjectManager;
 import main.java.memoranda.Task;
 import main.java.memoranda.TaskList;
 import main.java.memoranda.date.CalendarDate;
+import main.java.memoranda.ui.HomePanel;
 
 import java.util.Collections;
 
 import nu.xom.Element;
+
 /**
- *  
+ Class: HomeGenerator
+ Description: Currently generates all notes, tasks, and events for memoranda. Displays using HTML.
  */
-
-/*$Id: AgendaGenerator.java,v 1.12 2005/06/13 21:25:27 velhonoja Exp $*/
-
-public class AgendaGenerator {
+public class HomeGenerator {
 
 	static String HEADER =
 			"<html><head><title></title>\n"
 					+ "<style>\n"
-					+ "    body, td {font: 12pt sans-serif}\n"
-					+ "    h1 {font:20pt sans-serif; background-color:#E0E0E0; margin-top:0}\n"
-					+ "    h2 {font:16pt sans-serif; margin-bottom:0}\n"
+					+ "    body, td {font: 16pt sans-serif}\n"
+					+ "    h1 {font:24pt sans-serif; background-color:#E0E0E0; margin-top:0}\n"
+					+ "    h2 {font:20pt sans-serif; margin-bottom:0}\n"
 					+ "    li {margin-bottom:5px}\n"
 					+ " a {color:black; text-decoration:none}\n"             
 					+ "</style></head>\n"
@@ -283,13 +284,21 @@ public class AgendaGenerator {
 		return s + generateTasksInfo(p, date,expandedTasks);        
 	}
 
-	static String generateAllProjectsInfo(CalendarDate date, Collection expandedTasks) {
+	static String generateAllUserInfo(CalendarDate date, Collection expandedTasks) {
 		String s =
 				"<td width=\"66%\" valign=\"top\">"
 						+ "<h1>"
-						+ Local.getString("Projects and tasks")
-						+ "</h1>\n";
-		s += generateProjectInfo(CurrentProject.get(), date, expandedTasks);        
+						+ Local.getString("User Info")
+						+ "</h1>\n" + "<h2><a href=\"memoranda:project#"
+						+ "p.getID()"
+						+ "\">"
+						+ "FirstName LastName"
+						+ "</a></h2>\n"
+						+ "<table border=\"0\" width=\"100%\" cellpadding=\"2\" bgcolor=\"#EFEFEF\"><tr><td>"
+						+ "User ID"+": <i>"+"display user id here"+"</i><br>"
+						+ "User Rank"+": <i>"+"display user rank here"+"</i><br>"
+						+ "Date Joined"+": <i>"+"display date user joined"+"</i><br>";
+		s += generateProjectInfo(CurrentProject.get(), date, expandedTasks);
 		for (Iterator i = ProjectManager.getActiveProjects().iterator();
 				i.hasNext();
 				) {
@@ -304,7 +313,7 @@ public class AgendaGenerator {
 		String s =
 				"<td width=\"34%\" valign=\"top\">"
 						+ "<a href=\"memoranda:events\"><h1>"
-						+ Local.getString("Events")
+						//+ Local.getString("Events")
 						+ "</h1></a>\n"
 						+ "<table width=\"100%\" valign=\"top\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" bgcolor=\"#FFFFF6\">\n";
 		Vector v = (Vector) EventsManager.getEventsForDate(date);
@@ -355,6 +364,7 @@ public class AgendaGenerator {
 	}
 
 	static String generateStickers(CalendarDate date) {
+		String s = "";
 		String iurl =
 				main.java.memoranda.ui
 				.AppFrame
@@ -367,21 +377,22 @@ public class AgendaGenerator {
 				.class
 				.getResource("/ui/agenda/removesticker.gif")
 				.toExternalForm();
-		 String s = "<hr><hr><table border=\"0\" cellpadding=\"0\" width=\"100%\"><tr><td><a href=\"memoranda:importstickers\"><b>"+Local.getString("Import stickers")+"</b></a></td><td><a href=\"memoranda:exportstickerst\"><b>"+Local.getString("Export stickers as .txt")+"</b></a><td><a href=\"memoranda:exportstickersh\"><b>"+Local.getString("Export stickers as .html")+"</b></a></td></tr></table>"
-				 +   "<table border=\"0\" cellpadding=\"0\" width=\"100%\"><tr><td><a href=\"memoranda:addsticker\"><img align=\"left\" width=\"22\" height=\"22\" src=\""				
-				 + iurl
-				+ "\" border=\"0\"  hspace=\"0\" vspace=\"0\" alt=\"New sticker\"></a></td><td width=\"100%\"><a href=\"memoranda:addsticker\"><b>&nbsp;"
-				+Local.getString("Add sticker")+"</b></a></td></tr></table>";
+		// String s = "<hr><hr><table border=\"0\" cellpadding=\"0\" width=\"100%\"><tr><td><a href=\"memoranda:importstickers\"><b>"+Local.getString("Import stickers")+"</b></a></td><td><a href=\"memoranda:exportstickerst\"><b>"+Local.getString("Export stickers as .txt")+"</b></a><td><a href=\"memoranda:exportstickersh\"><b>"+Local.getString("Export stickers as .html")+"</b></a></td></tr></table>"
+		//		 +   "<table border=\"0\" cellpadding=\"0\" width=\"100%\"><tr><td><a href=\"memoranda:addsticker\"><img align=\"left\" width=\"22\" height=\"22\" src=\""
+		//		 + iurl
+		//		+ "\" border=\"0\"  hspace=\"0\" vspace=\"0\" alt=\"New sticker\"></a></td><td width=\"100%\"><a href=\"memoranda:addsticker\"><b>&nbsp;"
+		//		+Local.getString("Add sticker")+"</b></a></td></tr></table>";
 		PriorityQueue pQ = sortStickers();
 		while(!pQ.Empty()){
-		Element el = pQ.extract();
-		String id = el.getAttributeValue("id");
-		String txt = el.getValue();
-            s += "\n<table border=\"0\" cellpadding=\"0\" width=\"100%\"><table width=\"100%\"><tr bgcolor=\"#E0E0E0\"><td><a href=\"memoranda:editsticker#"+id+"\">"+Local.getString("EDIT")+"</a></td><td width=\"70%\"><a href=\"memoranda:expandsticker#"+id+"\">"+Local.getString("OPEN IN A NEW WINDOW")+"</></td><td align=\"right\">" +
-                    "&nbsp;" + // without this removesticker link takes klicks from whole cell
-                      "<a href=\"memoranda:removesticker#"+id+"\"><img align=\"left\" width=\"14\" height=\"14\" src=\""
-                    + iurl2
-                    + "\" border=\"0\"  hspace=\"0\" vspace=\"0\" alt=\"Remove sticker\"></a></td></table></tr><tr><td>"+txt+"</td></tr></table>";
+			Element el = pQ.extract();
+			String id = el.getAttributeValue("id");
+			String txt = el.getValue();
+			//s += "\n<table border=\"0\" cellpadding=\"0\" width=\"100%\"><table width=\"100%\"><tr bgcolor=\"#E0E0E0\"><td><a href=\"memoranda:editsticker#"+id+"\">"+Local.getString("EDIT")+"</a></td><td width=\"70%\"><a href=\"memoranda:expandsticker#"+id+"\">"+Local.getString("OPEN IN A NEW WINDOW")+"</></td><td align=\"right\">" +
+            //        "&nbsp;" + // without this removesticker link takes klicks from whole cell
+            //          "<a href=\"memoranda:removesticker#"+id+"\"><img align=\"left\" width=\"14\" height=\"14\" src=\""
+            //        + iurl2
+            //        + "\" border=\"0\"  hspace=\"0\" vspace=\"0\" alt=\"Remove sticker\"></a></td></table></tr><tr><td>"+txt+"</td></tr></table>";
+			s += "\n<table border=\"0\" cellpadding=\"0\" width=\"100%\"><table width=\"100%\"><tr bgcolor=\"#E0E0E0\"><td></a></td></table></tr><tr><td>"+txt+"</td></tr></table>";
         }
         s += "<hr>";
 		return s;
@@ -414,12 +425,33 @@ public class AgendaGenerator {
 		int last=txt.lastIndexOf("<");
 		ret=txt.substring(0, first+1)+"<a href=\"memoranda:editsticker#"+id+"\">"+txt.substring(first+1, last)+"</a>"+txt.substring(last);
 		 return ret;
-		 }
-	
-	public static String getAgenda(CalendarDate date, Collection expandedTasks) {
+	}
+
+	public static String getUserInfo(CalendarDate date, Collection expandedTasks) {
 		String s = HEADER;
-		s += generateAllProjectsInfo(date, expandedTasks);
+
+		s += generateAllUserInfo(date, expandedTasks);
+		//s += generateEventsInfo(date);
+		//s += generateStickers(date);
+		//        /*DEBUG*/System.out.println(s+FOOTER);
+		return s + FOOTER;
+	}
+
+	public static String getUserClasses(CalendarDate date) {
+		String s = HEADER;
+
+		//s += generateAllUserInfo(date, expandedTasks);
 		s += generateEventsInfo(date);
+		//s += generateStickers(date);
+		//        /*DEBUG*/System.out.println(s+FOOTER);
+		return s + FOOTER;
+	}
+
+	public static String getUserNotes(CalendarDate date) {
+		String s = HEADER;
+
+
+
 		s += generateStickers(date);
 		//        /*DEBUG*/System.out.println(s+FOOTER);
 		return s + FOOTER;
