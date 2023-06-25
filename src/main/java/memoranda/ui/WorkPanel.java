@@ -82,6 +82,7 @@ public class WorkPanel extends JPanel {
 		homeB.setVerticalAlignment(SwingConstants.TOP);
 		homeB.setVerticalTextPosition(SwingConstants.BOTTOM);
 		homeB.addActionListener(new java.awt.event.ActionListener() {
+
 			public void actionPerformed(ActionEvent e) {
 				homeB_actionPerformed(e);
 			}
