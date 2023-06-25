@@ -33,11 +33,13 @@ public class WorkPanel extends JPanel {
 
 	public JButton notesB = new JButton();
 	public DailyItemsPanel dailyItemsPanel = new DailyItemsPanel(this);
-	public AdminPanel adminPanel = new AdminPanel();
-	public JButton overviewB = new JButton(); //Used to be Agenda
-	public JButton enrollB = new JButton(); //Used to be Tasks
-	public JButton classesB = new JButton(); //Used to be Events
-	public JButton adminB = new JButton();
+
+	public ResourcesPanel filesPanel = new ResourcesPanel();
+	public JButton homeB = new JButton(); //Used to be Agenda
+	public JButton signUpB = new JButton(); //Used to be Tasks
+	public JButton trainerB = new JButton(); //Used to be Events
+	public JButton adminB = new JButton(); //Used to be files
+
 	JButton currentB = null;
 	Border border1;
 
@@ -68,82 +70,83 @@ public class WorkPanel extends JPanel {
 		toolBar.setFloatable(false);
 		panel.setLayout(cardLayout1);
 
-		overviewB.setBackground(Color.white);
-		overviewB.setMaximumSize(new Dimension(60, 80));
-		overviewB.setMinimumSize(new Dimension(30, 30));
+		homeB.setBackground(Color.white);
+		homeB.setMaximumSize(new Dimension(60, 80));
+		homeB.setMinimumSize(new Dimension(30, 30));
 
-		overviewB.setFont(new java.awt.Font("Dialog", 1, 10));
-		overviewB.setPreferredSize(new Dimension(50, 50));
-		overviewB.setBorderPainted(false);
-		overviewB.setContentAreaFilled(false);
-		overviewB.setFocusPainted(false);
-		overviewB.setHorizontalTextPosition(SwingConstants.CENTER);
-		overviewB.setText(Local.getString("Home"));
-		overviewB.setVerticalAlignment(SwingConstants.TOP);
-		overviewB.setVerticalTextPosition(SwingConstants.BOTTOM);
-		overviewB.addActionListener(new java.awt.event.ActionListener() {
+		homeB.setFont(new java.awt.Font("Dialog", 1, 10));
+		homeB.setPreferredSize(new Dimension(50, 50));
+		homeB.setBorderPainted(false);
+		homeB.setContentAreaFilled(false);
+		homeB.setFocusPainted(false);
+		homeB.setHorizontalTextPosition(SwingConstants.CENTER);
+		homeB.setText(Local.getString("Home"));
+		homeB.setVerticalAlignment(SwingConstants.TOP);
+		homeB.setVerticalTextPosition(SwingConstants.BOTTOM);
+		homeB.addActionListener(new java.awt.event.ActionListener() {
+
 			public void actionPerformed(ActionEvent e) {
-				overviewB_actionPerformed(e);
+				homeB_actionPerformed(e);
 			}
 		});
-		overviewB.setIcon(
+		homeB.setIcon(
 			new ImageIcon(
 				main.java.memoranda.ui.AppFrame.class.getResource(
-					"/ui/icons/agenda.png")));
-		overviewB.setOpaque(false);
-		overviewB.setMargin(new Insets(0, 0, 0, 0));
-		overviewB.setSelected(true);
+					"/ui/icons/rhrHomeIcon.png")));
+		homeB.setOpaque(false);
+		homeB.setMargin(new Insets(0, 0, 0, 0));
+		homeB.setSelected(true);
 
-		classesB.setBackground(Color.white);
-		classesB.setMaximumSize(new Dimension(60, 80));
-		classesB.setMinimumSize(new Dimension(30, 30));
+		trainerB.setBackground(Color.white);
+		trainerB.setMaximumSize(new Dimension(60, 80));
+		trainerB.setMinimumSize(new Dimension(30, 30));
 
-		classesB.setFont(new java.awt.Font("Dialog", 1, 10));
-		classesB.setPreferredSize(new Dimension(50, 50));
-		classesB.setBorderPainted(false);
-		classesB.setContentAreaFilled(false);
-		classesB.setFocusPainted(false);
-		classesB.setHorizontalTextPosition(SwingConstants.CENTER);
-		classesB.setText(Local.getString("Classes"));
-		classesB.setVerticalAlignment(SwingConstants.TOP);
-		classesB.setVerticalTextPosition(SwingConstants.BOTTOM);
-		classesB.addActionListener(new java.awt.event.ActionListener() {
+		trainerB.setFont(new java.awt.Font("Trainer", 1, 10));
+		trainerB.setPreferredSize(new Dimension(50, 50));
+		trainerB.setBorderPainted(false);
+		trainerB.setContentAreaFilled(false);
+		trainerB.setFocusPainted(false);
+		trainerB.setHorizontalTextPosition(SwingConstants.CENTER);
+		trainerB.setText(Local.getString("Trainer"));
+		trainerB.setVerticalAlignment(SwingConstants.TOP);
+		trainerB.setVerticalTextPosition(SwingConstants.BOTTOM);
+		trainerB.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				classesB_actionPerformed(e);
+				trainerB_actionPerformed(e);
 			}
 		});
-		classesB.setIcon(
+		trainerB.setIcon(
 			new ImageIcon(
 				main.java.memoranda.ui.AppFrame.class.getResource(
-					"/ui/icons/events.png")));
-		classesB.setOpaque(false);
-		classesB.setMargin(new Insets(0, 0, 0, 0));
-		//classesB.setSelected(true);
+					"/ui/icons/rhrTrainerIcon.png")));
+		trainerB.setOpaque(false);
+		trainerB.setMargin(new Insets(0, 0, 0, 0));
+		//trainerB.setSelected(true);
 
-		enrollB.setSelected(true);
-		enrollB.setFont(new java.awt.Font("Dialog", 1, 10));
-		enrollB.setMargin(new Insets(0, 0, 0, 0));
-		enrollB.setIcon(
+		signUpB.setSelected(true);
+		signUpB.setFont(new java.awt.Font("Dialog", 1, 10));
+		signUpB.setMargin(new Insets(0, 0, 0, 0));
+		signUpB.setIcon(
 			new ImageIcon(
 				main.java.memoranda.ui.AppFrame.class.getResource(
-					"/ui/icons/tasks.png")));
-		enrollB.setVerticalTextPosition(SwingConstants.BOTTOM);
-		enrollB.addActionListener(new java.awt.event.ActionListener() {
+					"/ui/icons/rhrSignupIcon.png")));
+		signUpB.setVerticalTextPosition(SwingConstants.BOTTOM);
+		signUpB.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				enrollB_actionPerformed(e);
+				signUpB_actionPerformed(e);
 			}
 		});
-		enrollB.setVerticalAlignment(SwingConstants.TOP);
-		enrollB.setText(Local.getString("Enroll"));
-		enrollB.setHorizontalTextPosition(SwingConstants.CENTER);
-		enrollB.setFocusPainted(false);
-		enrollB.setBorderPainted(false);
-		enrollB.setContentAreaFilled(false);
-		enrollB.setPreferredSize(new Dimension(50, 50));
-		enrollB.setMinimumSize(new Dimension(30, 30));
-		enrollB.setOpaque(false);
-		enrollB.setMaximumSize(new Dimension(60, 80));
-		enrollB.setBackground(Color.white);
+		signUpB.setVerticalAlignment(SwingConstants.TOP);
+		signUpB.setText(Local.getString("Sign Up"));
+		signUpB.setHorizontalTextPosition(SwingConstants.CENTER);
+		signUpB.setFocusPainted(false);
+		signUpB.setBorderPainted(false);
+		signUpB.setContentAreaFilled(false);
+		signUpB.setPreferredSize(new Dimension(50, 50));
+		signUpB.setMinimumSize(new Dimension(30, 30));
+		signUpB.setOpaque(false);
+		signUpB.setMaximumSize(new Dimension(60, 80));
+		signUpB.setBackground(Color.white);
 
 		notesB.setFont(new java.awt.Font("Dialog", 1, 10));
 		notesB.setBackground(Color.white);
@@ -167,7 +170,7 @@ public class WorkPanel extends JPanel {
 		notesB.setIcon(
 			new ImageIcon(
 				main.java.memoranda.ui.AppFrame.class.getResource(
-					"/ui/icons/notes.png")));
+					"/ui/icons/rhrNotesIcon.png")));
 		notesB.setMargin(new Insets(0, 0, 0, 0));
 		notesB.setSelected(true);
 		this.setPreferredSize(new Dimension(1073, 300));
@@ -177,7 +180,9 @@ public class WorkPanel extends JPanel {
 		adminB.setIcon(
 			new ImageIcon(
 				main.java.memoranda.ui.AppFrame.class.getResource(
-					"/ui/icons/files.png")));
+
+					"/ui/icons/rhrAdminIcon.png")));
+
 		adminB.setVerticalTextPosition(SwingConstants.BOTTOM);
 		adminB.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -186,7 +191,9 @@ public class WorkPanel extends JPanel {
 		});
 		adminB.setFont(new java.awt.Font("Dialog", 1, 10));
 		adminB.setVerticalAlignment(SwingConstants.TOP);
-		adminB.setText(Local.getString("Resources"));
+
+		adminB.setText(Local.getString("Admin"));
+
 		adminB.setHorizontalTextPosition(SwingConstants.CENTER);
 		adminB.setFocusPainted(false);
 		adminB.setBorderPainted(false);
@@ -199,13 +206,15 @@ public class WorkPanel extends JPanel {
 		this.add(toolBar, BorderLayout.WEST);
 		this.add(panel, BorderLayout.CENTER);
 		panel.add(dailyItemsPanel, "DAILYITEMS");
-		panel.add(adminPanel, "FILES");
-		toolBar.add(overviewB, null); 
-		toolBar.add(classesB, null); 
-		toolBar.add(enrollB, null); 
+
+		panel.add(filesPanel, "FILES");
+		toolBar.add(homeB, null); 
+		toolBar.add(signUpB, null); 
 		toolBar.add(notesB, null);
+	    toolBar.add(trainerB, null); 
 		toolBar.add(adminB, null);
-		currentB = overviewB;
+		currentB = homeB;
+
 		// Default blue color
 		currentB.setBackground(new Color(215, 225, 250));
 		currentB.setOpaque(true);
@@ -222,18 +231,18 @@ public class WorkPanel extends JPanel {
 			if (pan.equals("NOTES"))
 				notesB_actionPerformed(null);
 			else if (pan.equals("TASKS"))
-				enrollB_actionPerformed(null);
+				signUpB_actionPerformed(null);
 			else if (pan.equals("EVENTS"))
-				classesB_actionPerformed(null);
+				trainerB_actionPerformed(null);
 			else if (pan.equals("FILES"))
 				adminB_actionPerformed(null);
 		}
 	}
 
-	public void overviewB_actionPerformed(ActionEvent e) {
+	public void homeB_actionPerformed(ActionEvent e) {
 		cardLayout1.show(panel, "DAILYITEMS");
 		dailyItemsPanel.selectPanel("AGENDA");
-		setCurrentButton(overviewB);
+		setCurrentButton(homeB);
 		Context.put("CURRENT_PANEL", "AGENDA");
 	}
 
@@ -244,17 +253,17 @@ public class WorkPanel extends JPanel {
 		Context.put("CURRENT_PANEL", "NOTES");
 	}
 
-	public void enrollB_actionPerformed(ActionEvent e) {
+	public void signUpB_actionPerformed(ActionEvent e) {
 		cardLayout1.show(panel, "DAILYITEMS");
 		dailyItemsPanel.selectPanel("TASKS");
-		setCurrentButton(enrollB);
+		setCurrentButton(signUpB);
 		Context.put("CURRENT_PANEL", "TASKS");
 	}
 
-	public void classesB_actionPerformed(ActionEvent e) {
+	public void trainerB_actionPerformed(ActionEvent e) {
 		cardLayout1.show(panel, "DAILYITEMS");
 		dailyItemsPanel.selectPanel("EVENTS");
-		setCurrentButton(classesB);
+		setCurrentButton(trainerB);
 		Context.put("CURRENT_PANEL", "EVENTS");
 	}
 
