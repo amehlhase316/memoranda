@@ -38,9 +38,8 @@ import main.java.memoranda.util.Util;
 /*$Id: EventsPanel.java,v 1.25 2005/02/19 10:06:25 rawsushi Exp $*/
 public class EventsPanel extends JPanel {
     BorderLayout borderLayout1 = new BorderLayout();
-    JButton historyBackB = new JButton();
+    JButton availabilityB = new JButton();
     JToolBar eventsToolBar = new JToolBar();
-    JButton historyForwardB = new JButton();
     JButton newEventB = new JButton();
     JButton editEventB = new JButton();
     JButton removeEventB = new JButton();
@@ -64,32 +63,26 @@ public class EventsPanel extends JPanel {
     void jbInit() throws Exception {
         eventsToolBar.setFloatable(false);
 
-        historyBackB.setAction(History.historyBackAction);
-        historyBackB.setFocusable(false);
-        historyBackB.setBorderPainted(false);
-        historyBackB.setToolTipText(Local.getString("History back"));
-        historyBackB.setRequestFocusEnabled(false);
-        historyBackB.setPreferredSize(new Dimension(24, 24));
-        historyBackB.setMinimumSize(new Dimension(24, 24));
-        historyBackB.setMaximumSize(new Dimension(24, 24));
-        historyBackB.setText("");
-
-        historyForwardB.setAction(History.historyForwardAction);
-        historyForwardB.setBorderPainted(false);
-        historyForwardB.setFocusable(false);
-        historyForwardB.setPreferredSize(new Dimension(24, 24));
-        historyForwardB.setRequestFocusEnabled(false);
-        historyForwardB.setToolTipText(Local.getString("History forward"));
-        historyForwardB.setMinimumSize(new Dimension(24, 24));
-        historyForwardB.setMaximumSize(new Dimension(24, 24));
-        historyForwardB.setText("");
+        availabilityB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                availabilityB_actionPerformed(e);
+            }
+        });
+        availabilityB.setFocusable(false);
+        //availabilityB.setBorderPainted(false);
+        availabilityB.setToolTipText(Local.getString("Update availability"));
+        availabilityB.setRequestFocusEnabled(false);
+        availabilityB.setPreferredSize(new Dimension(100, 24));
+        availabilityB.setMinimumSize(new Dimension(100, 24));
+        availabilityB.setMaximumSize(new Dimension(100, 24));
+        availabilityB.setText("Availability");
 
         newEventB.setIcon(
             new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/event_new.png")));
         newEventB.setEnabled(true);
         newEventB.setMaximumSize(new Dimension(24, 24));
         newEventB.setMinimumSize(new Dimension(24, 24));
-        newEventB.setToolTipText(Local.getString("New event"));
+        newEventB.setToolTipText(Local.getString("New class"));
         newEventB.setRequestFocusEnabled(false);
         newEventB.setPreferredSize(new Dimension(24, 24));
         newEventB.setFocusable(false);
@@ -109,7 +102,7 @@ public class EventsPanel extends JPanel {
         });
         editEventB.setPreferredSize(new Dimension(24, 24));
         editEventB.setRequestFocusEnabled(false);
-        editEventB.setToolTipText(Local.getString("Edit event"));
+        editEventB.setToolTipText(Local.getString("Edit class"));
         editEventB.setMinimumSize(new Dimension(24, 24));
         editEventB.setMaximumSize(new Dimension(24, 24));
         editEventB.setEnabled(true);
@@ -125,7 +118,7 @@ public class EventsPanel extends JPanel {
         });
         removeEventB.setPreferredSize(new Dimension(24, 24));
         removeEventB.setRequestFocusEnabled(false);
-        removeEventB.setToolTipText(Local.getString("Remove event"));
+        removeEventB.setToolTipText(Local.getString("Remove class"));
         removeEventB.setMinimumSize(new Dimension(24, 24));
         removeEventB.setMaximumSize(new Dimension(24, 24));
         removeEventB.setIcon(
@@ -167,8 +160,7 @@ public class EventsPanel extends JPanel {
             new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/event_new.png")));
         scrollPane.getViewport().add(eventsTable, null);
         this.add(scrollPane, BorderLayout.CENTER);
-        eventsToolBar.add(historyBackB, null);
-        eventsToolBar.add(historyForwardB, null);
+        eventsToolBar.add(availabilityB, null);
         eventsToolBar.addSeparator(new Dimension(8, 24));
 
         eventsToolBar.add(newEventB, null);
@@ -313,8 +305,19 @@ public class EventsPanel extends JPanel {
     	newEventB_actionPerformed(e, null, cdate.getTime(), cdate.getTime());
     }
     
+    void availabilityB_actionPerformed(ActionEvent e) {
+        AvailabilityDialog dlg = new AvailabilityDialog(App.getFrame(), Local.getString("Set Availability"));
+        Dimension frmSize = App.getFrame().getSize();
+        Point loc = App.getFrame().getLocation();
+
+        dlg.setLocation((frmSize.width - dlg.getSize().width) / 2 + loc.x, (frmSize.height - dlg.getSize().height) / 2 + loc.y);
+        dlg.setVisible(true);
+        if (dlg.CANCELLED)
+            return;
+    }
+    
     void newEventB_actionPerformed(ActionEvent e, String tasktext, Date startDate, Date endDate) {
-    	EventDialog dlg = new EventDialog(App.getFrame(), Local.getString("New event"));
+    	EventDialog dlg = new EventDialog(App.getFrame(), Local.getString("New private class"));
     	Dimension frmSize = App.getFrame().getSize();
     	Point loc = App.getFrame().getLocation();
     	if (tasktext != null) {
