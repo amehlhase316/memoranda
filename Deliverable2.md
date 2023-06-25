@@ -1,5 +1,5 @@
 # Deliverable Information
-   > Please include your answers below in a good format so it is easy for me to see. For answers to questions please use these Blockquotes. Make sure you also check the kickoff document for more details. Also make sure this thing is well formatted and the links are links in here. 
+   > Please include your answers below in a good format so it is easy for me to see. For answers to questions please use these Blockquotes. Make sure you also check the kickoff document for more details. Also make sure this thing is well formatted and the links are links in here.
 
 ## 1: Basic Information (needed before you start with your Sprint -- Sprint Planning)
 
@@ -12,13 +12,13 @@
 **Git Master**: Robert Buice
 
 ### Sprint Planning (For Sprint 1-3)
-Document your Sprint Planning here. Also check the kickoff document for more details on what needs to be done. This is just the documentation. 
+Document your Sprint Planning here. Also check the kickoff document for more details on what needs to be done. This is just the documentation.
 
 **Sprint Goal:** For this sprint we plan to get the basic foundations of our topic implemented then progress from there.
 
 **How many User Stories did you add to the Product Backlog:**  7
 
-**How many User Stories did you add to this Sprint:** 
+**How many User Stories did you add to this Sprint:**
 > 9
 
 **Why did you add these US, why do you think you can get them done in the next Sprint?**
@@ -36,15 +36,15 @@ Document your Sprint Planning here. Also check the kickoff document for more det
 
 
 ## 2: During the Sprint
-> Fill out the Meeting minutes during your Sprint and keep track of things. Update your Quality policies when needed, as explained in the lectures and in the Quality Policy documents on Canvas. 
+> Fill out the Meeting minutes during your Sprint and keep track of things. Update your Quality policies when needed, as explained in the lectures and in the Quality Policy documents on Canvas.
 I would also advise you to already fill out the Contributions section (End of sprint) as you go, to create less work at the end.
 
 ### Meeting minutes of your Daily Scrums (3 per week, should not take longer than 10 minutes):
-> Add as many rows as needed and fill out the table. (Burndown starts with Sprint 2 and Travis CI starts with Sprint 3, not needed before that). 
+> Add as many rows as needed and fill out the table. (Burndown starts with Sprint 2 and Travis CI starts with Sprint 3, not needed before that).
 
 | Date  | Who did not attend  |Meeting notes (very brief)   | Burndown Info (on track, ahead behind is enough) | TravisCI info (does the master pass) | Additional Info  |
 |---|---|---|---|--|--|
-|   |   |   |   |  |  |
+| 6/19  |   | Sprint planning for sprint 2, Robert and Chase added US during the meeting and Andrea is addng US offline  | on track  |  |  |
 |   |   |   |   |  |  |
 |   |   |   |   |  |  |
 
@@ -52,9 +52,11 @@ I would also advise you to already fill out the Contributions section (End of sp
 
 > Add rows as needed and add the number how many meetings for each team member:
 
-   Name1 : Num Meetings
+   Robert : 1/1
 
-   Name2 : Num Meetings
+   Chase : 1/1
+
+   Andrea : 0/1
 
 
 ## 3: After the Sprint
@@ -64,7 +66,7 @@ Answer as a team!
 
 **Screen Cast link**: Your link
 
-> Answer the following questions as a team. 
+> Answer the following questions as a team.
 
 **What do you think is the value you created this Sprint?**
 
@@ -135,11 +137,11 @@ Answer as a team!
 
     - link1
     - link2
- 
+
  **What was your main contribution to the Quality Policy documentation?:
 
     - info
-  
+
 ## 4: Checklist for you to see if you are done
 - [ ] Filled out the complete form from above, all fields are filled and written in full sentences
 - [ ] Read the kickoff again to make sure you have all the details
