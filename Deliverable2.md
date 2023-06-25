@@ -140,8 +140,8 @@ Even though we didn't get as much done as planned this sprint, we still feel con
 #### Jonathan Blicharz:
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
 
-    - link1
-    - link2
+    - [link1](https://github.com/sjgarc20/TheFloorIsJava-Memoranda/tree/us37)
+    - [link2](https://github.com/sjgarc20/TheFloorIsJava-Memoranda/tree/us35)
 
    **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
 
@@ -150,12 +150,12 @@ Even though we didn't get as much done as planned this sprint, we still feel con
 
   **GitHub links to your Code Reviews (up to 3 links) -- Sprint 2 and 3:
 
-    - link1
-    - link2
+    - [link1](https://github.com/sjgarc20/TheFloorIsJava-Memoranda/pull/19)
+    - [link2](https://github.com/sjgarc20/TheFloorIsJava-Memoranda/pull/17)
  
  **What was your main contribution to the Quality Policy documentation?:
 
-    - info
+    - The quality policy was done as a group. I was able to find a code review checklist for the team to use.
     
 #### Henry Buck:
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
