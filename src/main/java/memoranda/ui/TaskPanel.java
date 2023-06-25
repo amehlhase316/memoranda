@@ -52,6 +52,11 @@ public class TaskPanel extends JPanel {
     JButton removeTaskB = new JButton();
     JButton completeTaskB = new JButton();
     
+    JToolBar signUpBar = new JToolBar();
+    JButton enrollButton = new JButton();
+    JButton infoButton = new JButton();
+    JButton joinWaitlistButton = new JButton();
+    
 	JCheckBoxMenuItem ppShowActiveOnlyChB = new JCheckBoxMenuItem();
 		
     JScrollPane scrollPane = new JScrollPane();
@@ -176,28 +181,6 @@ public class TaskPanel extends JPanel {
         completeTaskB.setMaximumSize(new Dimension(24, 24));
         completeTaskB.setIcon(
             new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/todo_complete.png")));
-
-		// added by rawsushi
-//		showActiveOnly.setBorderPainted(false);
-//		showActiveOnly.setFocusable(false);
-//		showActiveOnly.addActionListener(new java.awt.event.ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				toggleShowActiveOnly_actionPerformed(e);
-//			}
-//		});
-//		showActiveOnly.setPreferredSize(new Dimension(24, 24));
-//		showActiveOnly.setRequestFocusEnabled(false);
-//		if (taskTable.isShowActiveOnly()) {
-//			showActiveOnly.setToolTipText(Local.getString("Show All"));			
-//		}
-//		else {
-//			showActiveOnly.setToolTipText(Local.getString("Show Active Only"));			
-//		}
-//		showActiveOnly.setMinimumSize(new Dimension(24, 24));
-//		showActiveOnly.setMaximumSize(new Dimension(24, 24));
-//		showActiveOnly.setIcon(
-//			new ImageIcon(net.sf.memoranda.ui.AppFrame.class.getResource("/ui/icons/todo_remove.png")));
-		// added by rawsushi
 		
 		ppShowActiveOnlyChB.setFont(new java.awt.Font("Dialog", 1, 11));
 		ppShowActiveOnlyChB.setText(
@@ -228,6 +211,34 @@ public class TaskPanel extends JPanel {
 			new ImageIcon(net.sf.memoranda.ui.AppFrame.class.getResource("/ui/icons/todo_active.png")));*/
 		// added by rawsushi
 
+		signUpBar.setFloatable(false);
+
+        enrollButton.setFocusable(false);
+        enrollButton.setBorderPainted(true);
+        enrollButton.setToolTipText(Local.getString("Sign up to selected class"));
+        enrollButton.setRequestFocusEnabled(false);
+        enrollButton.setPreferredSize(new Dimension(196, 96));
+        enrollButton.setMinimumSize(new Dimension(196, 96));
+        enrollButton.setMaximumSize(new Dimension(196, 96));
+        enrollButton.setText("Sign Up");
+        
+        infoButton.setFocusable(false);
+        infoButton.setBorderPainted(true);
+        infoButton.setToolTipText(Local.getString("Get info on selected class"));
+        infoButton.setRequestFocusEnabled(false);
+        infoButton.setPreferredSize(new Dimension(196, 96));
+        infoButton.setMinimumSize(new Dimension(196, 96));
+        infoButton.setMaximumSize(new Dimension(196, 96));
+        infoButton.setText("Info");
+        
+        joinWaitlistButton.setFocusable(false);
+        joinWaitlistButton.setBorderPainted(true);
+        joinWaitlistButton.setToolTipText(Local.getString("Join waitlist for selected class"));
+        joinWaitlistButton.setRequestFocusEnabled(false);
+        joinWaitlistButton.setPreferredSize(new Dimension(196, 96));
+        joinWaitlistButton.setMinimumSize(new Dimension(196, 96));
+        joinWaitlistButton.setMaximumSize(new Dimension(196, 96));
+        joinWaitlistButton.setText("Join Waitlist");
 
         this.setLayout(borderLayout1);
         scrollPane.getViewport().setBackground(Color.white);
@@ -322,11 +333,20 @@ public class TaskPanel extends JPanel {
         tasksToolBar.addSeparator(new Dimension(8, 24));
         tasksToolBar.add(editTaskB, null);
         tasksToolBar.add(completeTaskB, null);
+        
 
 		//tasksToolBar.add(showActiveOnly, null);
         
-
         this.add(tasksToolBar, BorderLayout.NORTH);
+        
+        signUpBar.add(enrollButton, null);
+        tasksToolBar.addSeparator(new Dimension(12, 72));
+        signUpBar.add(infoButton, null);
+        tasksToolBar.addSeparator(new Dimension(12, 72));
+        signUpBar.add(joinWaitlistButton, null);
+        
+        this.add(signUpBar, BorderLayout.NORTH);
+        
 
         PopupListener ppListener = new PopupListener();
         scrollPane.addMouseListener(ppListener);
