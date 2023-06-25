@@ -134,7 +134,7 @@ public class WorkPanel extends JPanel {
 			}
 		});
 		enrollB.setVerticalAlignment(SwingConstants.TOP);
-		enrollB.setText(Local.getString("Enroll"));
+		enrollB.setText(Local.getString("Sign Up"));
 		enrollB.setHorizontalTextPosition(SwingConstants.CENTER);
 		enrollB.setFocusPainted(false);
 		enrollB.setBorderPainted(false);
