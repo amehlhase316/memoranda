@@ -168,6 +168,35 @@ Answer as a team!
  **What was your main contribution to the Quality Policy documentation?:
 
     - none
+
+
+#### Joshua Benn:
+**Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
+
+- https://github.com/TheNerdyBunch23/memoranda/commit/b03ec77a9f57d5d1f1d6cff8eb09a1479340c32d
+- https://github.com/TheNerdyBunch23/memoranda/commit/16015bf854e168a7e12150267c72a277926f2c00
+- https://github.com/TheNerdyBunch23/memoranda/commit/cf56e112377e1e266303046c019db4b346ca3982
+- https://github.com/TheNerdyBunch23/memoranda/commit/41fbfec8cdc44ca6d39316af2da343cfeb9527ed
+- https://github.com/TheNerdyBunch23/memoranda/commit/d9d9bc7fe244817d7abab7ab5afdb629c9361467
+
+**GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
+
+- link1
+- link2
+
+**GitHub links to your Code Reviews (up to 3 links) -- Sprint 2 and 3:
+
+- https://github.com/TheNerdyBunch23/memoranda/pull/12
+- https://github.com/TheNerdyBunch23/memoranda/pull/11#pullrequestreview-1489628637
+
+**How did you contribute to Static Analysis -- Sprint 3:
+
+- I performed code reviews and was active in meetings for program updates and direction ensuring the code changes reflected the intent
+- While performing code reviews, I added comments to describe what was being done within the code and also javadoc for more concise documentation
+
+**What was your main contribution to the Quality Policy documentation?:
+
+- none
   
 ## 4: Checklist for you to see if you are done
 - [x] Filled out the complete form from above, all fields are filled and written in full sentences
@@ -178,7 +207,7 @@ Answer as a team!
   - [x] Andres Morales
   - [x] William Jedynak
   - [x] Elias Garcia
-  - [ ] Josh Benn
+  - [x] Josh Benn
   - [ ] Frank Lin
 - [x] The original of this file was copied for the next Sprint (needed for all but last Sprint where you do not need to copy it anymore)
   - [x] Basic information (part 1) for next Sprint was included (meaning Spring Planning is complete)
