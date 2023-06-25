@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter
 apply plugin: 'application'
 apply plugin: 'java'
 
-mainClassName = 'main/java/memoranda/Start'
+mainClassName = 'memoranda/Start'
 
 compileJava.options.encoding = 'UTF-8'
 
