@@ -26,6 +26,7 @@ public class BusAndDriverPanel extends JPanel {
     DriverList driverList;
     BusList busList;
     Font font = new Font(Font.MONOSPACED, Font.BOLD, 14);
+    String fileName = "memoranda/nodes1.json";
 
 
     /**
@@ -45,7 +46,6 @@ public class BusAndDriverPanel extends JPanel {
      */
     private void panelInitialization() {
         //Import the drivers from the json file and populate driverList
-        String fileName = "nodes1.json";
     	jsonHandler.readDriversFromJSON(fileName);
         driverList = new DriverList(jsonHandler.driverList);
         jsonHandler.readBusesFromJSON(fileName);
@@ -248,7 +248,7 @@ public class BusAndDriverPanel extends JPanel {
             return; //temp solution so no duplicate IDs are made
         busList.addBus(dialogBox.tempBus);
         
-    	jsonHandler.writeBusesToJSON("nodes1.json");
+    	jsonHandler.writeBusesToJSON(fileName);
 
         updateList();
     }
@@ -271,7 +271,7 @@ public class BusAndDriverPanel extends JPanel {
             return; //temp solution so no duplicate IDs are made
         driverList.addDriver(dialogBox.tempDriver);
         
-        jsonHandler.writeDriversToJSON("nodes1.json");
+        jsonHandler.writeDriversToJSON(fileName);
 
         updateList();
     }
