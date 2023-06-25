@@ -45,18 +45,22 @@ I would also advise you to already fill out the Contributions section (End of sp
 | Date  | Who did not attend  |Meeting notes (very brief)   | Burndown Info (on track, ahead behind is enough) | TravisCI info (does the master pass) | Additional Info  |
 |-------|---|---|---|--|--|
 |23-06-11 |   | Sprint 2 Planning  |   |  |  |
-|   |   |   |   |  |  |
-|   |   |   |   |  |  |
+|23-06-24 | Frankie, Andres | Sprint2 debrief |   |  |  |
 
 ### Meeting Summary:
 
 > Add rows as needed and add the number how many meetings for each team member:
 
-   Name1 : Num Meetings
+   Eli : 4
 
-   Name2 : Num Meetings
+   Josh : 5
+   
+   Will : 3
 
+   Andres : 2
 
+   Frankie : 1
+   
 ## 3: After the Sprint
 
 ### Sprint Review
@@ -68,15 +72,15 @@ Answer as a team!
 
 **What do you think is the value you created this Sprint?**
 
-> Your Answer
+> JSON handler works and saves and loads data lots of UI elements created.
 
 **Do you think you worked enough and that you did what was expected of you?**
 
-> Your Answer
+> As a whole, we accomplished most tasks for this sprint, so yes.
 
 **Would you say you met the customers’ expectations? Why, why not?**
 
-> Your Answer
+> Yes, functionality that we wanted created is clear, and concise. This would make the customer satisfied.
 
 
 ### Sprint Retrospective
@@ -85,31 +89,31 @@ Answer as a team!
 
 **Did you meet your sprint goal?**
 
-> Your Answer
+> Very close, we are missing functionality to add buses to routes, and routes to tours.
 
 **Did you complete all stories on your Spring Backlog?**
 
-> Your Answer
+> No
 
 **If not, what went wrong?**
 
-> Your Answer
+> Backend functionality longer to implement for the first couple of steps, but now development speed should now increase.
 
 **Did you work at a consistent rate of speed, or velocity? (Meaning did you work during the whole Sprint or did you start working when the deadline approached.)**
 
-> Your Answer
+> No, the beginning of the Sprint was the most active.
 
 **Did you deliver business value?**
 
-> Your Answer
+> Yes
 
 **Are there things the team thinks it can do better in the next Sprint?**
 
-> Your Answer
+> Need more commits and one more group meeting in the middle of the sprint
 
 **How do you feel at this point? Get a pulse on the optimism of the team.**
 
-> Your Answer
+> We're doing very well.
 
 ### Contributions:
 
@@ -165,15 +169,18 @@ Answer as a team!
     - info
   
 ## 4: Checklist for you to see if you are done
-- [ ] Filled out the complete form from above, all fields are filled and written in full sentences
-- [ ] Read the kickoff again to make sure you have all the details
-- [ ] User Stories that were not completed, were left in the Sprint and a copy created
-- [ ] Your Quality Policies are accurate and up to date
-- [ ] **Individual** Survey was submitted **individually** (create checkboxes below -- see Canvas to get link)
+- [x] Filled out the complete form from above, all fields are filled and written in full sentences
+- [x] Read the kickoff again to make sure you have all the details
+- [x] User Stories that were not completed, were left in the Sprint and a copy created
+- [x] Your Quality Policies are accurate and up to date
+- [x] **Individual** Survey was submitted **individually** (create checkboxes below -- see Canvas to get link)
   - [x] Andres Morales
-  - [ ] Team member 2
-- [ ] The original of this file was copied for the next Sprint (needed for all but last Sprint where you do not need to copy it anymore)
-  - [ ] Basic information (part 1) for next Sprint was included (meaning Spring Planning is complete)
-  - [ ] All User Stories have acceptance tests
-  - [ ] User Stories in your new Sprint Backlog have initial tasks which are in New
-  - [ ] You know how to proceed
+  - [x] William Jedynak
+  - [x] Elias Garcia
+  - [ ] Josh Benn
+  - [ ] Frank Lin
+- [x] The original of this file was copied for the next Sprint (needed for all but last Sprint where you do not need to copy it anymore)
+  - [x] Basic information (part 1) for next Sprint was included (meaning Spring Planning is complete)
+  - [x] All User Stories have acceptance tests
+  - [x] User Stories in your new Sprint Backlog have initial tasks which are in New
+  - [x] You know how to proceed
