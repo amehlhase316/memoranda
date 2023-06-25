@@ -33,11 +33,13 @@ public class WorkPanel extends JPanel {
 
 	public JButton notesB = new JButton();
 	public DailyItemsPanel dailyItemsPanel = new DailyItemsPanel(this);
+
 	public ResourcesPanel filesPanel = new ResourcesPanel();
 	public JButton homeB = new JButton(); //Used to be Agenda
 	public JButton signUpB = new JButton(); //Used to be Tasks
 	public JButton trainerB = new JButton(); //Used to be Events
 	public JButton adminB = new JButton(); //Used to be files
+
 	JButton currentB = null;
 	Border border1;
 
@@ -178,7 +180,9 @@ public class WorkPanel extends JPanel {
 		adminB.setIcon(
 			new ImageIcon(
 				main.java.memoranda.ui.AppFrame.class.getResource(
+
 					"/ui/icons/rhrAdminIcon.png")));
+
 		adminB.setVerticalTextPosition(SwingConstants.BOTTOM);
 		adminB.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -187,7 +191,9 @@ public class WorkPanel extends JPanel {
 		});
 		adminB.setFont(new java.awt.Font("Dialog", 1, 10));
 		adminB.setVerticalAlignment(SwingConstants.TOP);
+
 		adminB.setText(Local.getString("Admin"));
+
 		adminB.setHorizontalTextPosition(SwingConstants.CENTER);
 		adminB.setFocusPainted(false);
 		adminB.setBorderPainted(false);
@@ -200,6 +206,7 @@ public class WorkPanel extends JPanel {
 		this.add(toolBar, BorderLayout.WEST);
 		this.add(panel, BorderLayout.CENTER);
 		panel.add(dailyItemsPanel, "DAILYITEMS");
+
 		panel.add(filesPanel, "FILES");
 		toolBar.add(homeB, null); 
 		toolBar.add(signUpB, null); 
@@ -207,6 +214,7 @@ public class WorkPanel extends JPanel {
 	    toolBar.add(trainerB, null); 
 		toolBar.add(adminB, null);
 		currentB = homeB;
+
 		// Default blue color
 		currentB.setBackground(new Color(215, 225, 250));
 		currentB.setOpaque(true);
@@ -214,7 +222,7 @@ public class WorkPanel extends JPanel {
 		toolBar.setBorder(null);
 		panel.setBorder(null);
 		dailyItemsPanel.setBorder(null);
-		filesPanel.setBorder(null);
+		adminPanel.setBorder(null);
 
 	}
 
