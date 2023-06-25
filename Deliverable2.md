@@ -143,11 +143,12 @@ Answer as a team!
 
     - 
     
-   #### Team member A -- replace this with your name:
+   #### William Jedynak:
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
 
-    - link1
-    - link2
+    - https://github.com/TheNerdyBunch23/memoranda/commit/35693c63f2e378f661ec3e28452f4c9434ebc6eb
+    - https://github.com/TheNerdyBunch23/memoranda/commit/1083d489747ed4f69449ebc98b226d6057545662
+    - https://github.com/TheNerdyBunch23/memoranda/commit/b836a926d716c8e3e56d593fa4c066c03cf4c14b
 
    **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
 
@@ -166,7 +167,7 @@ Answer as a team!
  
  **What was your main contribution to the Quality Policy documentation?:
 
-    - info
+    - none
   
 ## 4: Checklist for you to see if you are done
 - [x] Filled out the complete form from above, all fields are filled and written in full sentences
