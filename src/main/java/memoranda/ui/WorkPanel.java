@@ -33,6 +33,7 @@ public class WorkPanel extends JPanel {
 
 	public JButton notesB = new JButton();
 	public DailyItemsPanel dailyItemsPanel = new DailyItemsPanel(this);
+	public AdminPanel adminPanel = new AdminPanel();
 
 	public JButton homeB = new JButton(); //Used to be Agenda
 	public JButton signUpB = new JButton(); //Used to be Tasks
@@ -206,6 +207,7 @@ public class WorkPanel extends JPanel {
 		this.add(panel, BorderLayout.CENTER);
 		panel.add(dailyItemsPanel, "DAILYITEMS");
 
+		panel.add(adminPanel, "FILES");
 		toolBar.add(homeB, null); 
 		toolBar.add(signUpB, null); 
 		toolBar.add(notesB, null);
@@ -220,7 +222,7 @@ public class WorkPanel extends JPanel {
 		toolBar.setBorder(null);
 		panel.setBorder(null);
 		dailyItemsPanel.setBorder(null);
-
+		adminPanel.setBorder(null);
 	}
 
 	public void selectPanel(String pan) {
