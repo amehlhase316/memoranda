@@ -90,7 +90,7 @@ public class WorkPanel extends JPanel {
 		homeB.setIcon(
 			new ImageIcon(
 				main.java.memoranda.ui.AppFrame.class.getResource(
-					"/ui/icons/agenda.png")));
+					"/ui/icons/rhrHomeIcon.png")));
 		homeB.setOpaque(false);
 		homeB.setMargin(new Insets(0, 0, 0, 0));
 		homeB.setSelected(true);
@@ -116,7 +116,7 @@ public class WorkPanel extends JPanel {
 		trainerB.setIcon(
 			new ImageIcon(
 				main.java.memoranda.ui.AppFrame.class.getResource(
-					"/ui/icons/events.png")));
+					"/ui/icons/rhrTrainerIcon.png")));
 		trainerB.setOpaque(false);
 		trainerB.setMargin(new Insets(0, 0, 0, 0));
 		//trainerB.setSelected(true);
@@ -127,7 +127,7 @@ public class WorkPanel extends JPanel {
 		signUpB.setIcon(
 			new ImageIcon(
 				main.java.memoranda.ui.AppFrame.class.getResource(
-					"/ui/icons/tasks.png")));
+					"/ui/icons/rhrSignupIcon.png")));
 		signUpB.setVerticalTextPosition(SwingConstants.BOTTOM);
 		signUpB.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -168,7 +168,7 @@ public class WorkPanel extends JPanel {
 		notesB.setIcon(
 			new ImageIcon(
 				main.java.memoranda.ui.AppFrame.class.getResource(
-					"/ui/icons/notes.png")));
+					"/ui/icons/rhrNotesIcon.png")));
 		notesB.setMargin(new Insets(0, 0, 0, 0));
 		notesB.setSelected(true);
 		this.setPreferredSize(new Dimension(1073, 300));
@@ -178,7 +178,7 @@ public class WorkPanel extends JPanel {
 		adminB.setIcon(
 			new ImageIcon(
 				main.java.memoranda.ui.AppFrame.class.getResource(
-					"/ui/icons/files.png")));
+					"/ui/icons/rhrAdminIcon.png")));
 		adminB.setVerticalTextPosition(SwingConstants.BOTTOM);
 		adminB.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -202,9 +202,9 @@ public class WorkPanel extends JPanel {
 		panel.add(dailyItemsPanel, "DAILYITEMS");
 		panel.add(filesPanel, "FILES");
 		toolBar.add(homeB, null); 
-		toolBar.add(trainerB, null); 
 		toolBar.add(signUpB, null); 
 		toolBar.add(notesB, null);
+	    toolBar.add(trainerB, null); 
 		toolBar.add(adminB, null);
 		currentB = homeB;
 		// Default blue color
