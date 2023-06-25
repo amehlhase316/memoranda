@@ -78,7 +78,7 @@ public class WorkPanel extends JPanel {
 		overviewB.setContentAreaFilled(false);
 		overviewB.setFocusPainted(false);
 		overviewB.setHorizontalTextPosition(SwingConstants.CENTER);
-		overviewB.setText(Local.getString("Overview"));
+		overviewB.setText(Local.getString("Home"));
 		overviewB.setVerticalAlignment(SwingConstants.TOP);
 		overviewB.setVerticalTextPosition(SwingConstants.BOTTOM);
 		overviewB.addActionListener(new java.awt.event.ActionListener() {
