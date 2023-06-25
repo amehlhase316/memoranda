@@ -115,7 +115,31 @@ Answer as a team!
 
 > In this section I want you to point me to your main contributions (each of you individually). Some of the topcs are not needed for the first deliverables (you should know which things you should have done in this Sprint, if you don't then you have probably missed something):
 
-#### Team member A -- replace this with your name:
+#### Andres Morales De Jesus:
+  **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
+
+    - https://github.com/TheNerdyBunch23/memoranda/commit/8ed6134c1de2450e96acffec3ce48a20a69e0e86
+    - https://github.com/TheNerdyBunch23/memoranda/commits/US%2340/src/main/java/memoranda/ui/CreateRoutePanel.java
+    - https://github.com/TheNerdyBunch23/memoranda/commit/f5d961f5a0e2154adca31f820085263a034b61ac
+
+   **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
+
+    - No test created on this sprint
+
+  **GitHub links to your Code Reviews (up to 3 links) -- Sprint 2 and 3:
+
+    - No code reviews on this sprint
+
+  **How did you contribute to Static Analysis -- Sprint 3:
+
+    - link1
+    - link2
+ 
+ **What was your main contribution to the Quality Policy documentation?:
+
+    - 
+    
+   #### Team member A -- replace this with your name:
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
 
     - link1
@@ -146,7 +170,7 @@ Answer as a team!
 - [ ] User Stories that were not completed, were left in the Sprint and a copy created
 - [ ] Your Quality Policies are accurate and up to date
 - [ ] **Individual** Survey was submitted **individually** (create checkboxes below -- see Canvas to get link)
-  - [ ] Team member 1
+  - [x] Andres Morales
   - [ ] Team member 2
 - [ ] The original of this file was copied for the next Sprint (needed for all but last Sprint where you do not need to copy it anymore)
   - [ ] Basic information (part 1) for next Sprint was included (meaning Spring Planning is complete)

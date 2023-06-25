@@ -35,7 +35,7 @@ import main.java.memoranda.*;
 import main.java.memoranda.EventsManager;
 import main.java.memoranda.EventsScheduler;
 import main.java.memoranda.History;
-import main.java.memoranda.MapGraph;
+import main.java.memoranda.MapGenerator;
 import main.java.memoranda.date.CalendarDate;
 import main.java.memoranda.date.CurrentDate;
 import main.java.memoranda.date.DateListener;
@@ -45,11 +45,13 @@ import main.java.memoranda.util.CurrentStorage;
 import main.java.memoranda.util.Local;
 import main.java.memoranda.util.Util;
 
-public class MapPanel extends JPanel {
+public class
+MapPanel extends JPanel {
 	
 	BorderLayout borderLayout1 = new BorderLayout();
     JScrollPane scrollPane = new JScrollPane();
-    MapGraph mapGraph;
+    JsonHandler jsonHandler = new JsonHandler();
+    MapGenerator mapGen;
     Route route;
     DailyItemsPanel parentPanel = null;
 
@@ -63,14 +65,14 @@ public class MapPanel extends JPanel {
     }
     void jbInit() throws Exception {
         
-    	mapGraph = new MapGraph();
-        mapGraph.readNodesFromJSON("nodes1.json");
+        jsonHandler.readNodesFromJSON("nodes1.json");
+        mapGen = new MapGenerator(jsonHandler.nodes);
         route = new Route(5.0);
 
         this.setLayout(borderLayout1);
         scrollPane.getViewport().setBackground(Color.white);
-        scrollPane.getViewport().add(mapGraph);
-        mapGraph.repaint();
+        scrollPane.getViewport().add(mapGen);
+        mapGen.repaint();
         JScrollBar vertScrollBar = scrollPane.getVerticalScrollBar();
         vertScrollBar.setUnitIncrement(25);
         vertScrollBar.setBlockIncrement(50);

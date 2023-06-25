@@ -14,6 +14,7 @@ Route {
     private Driver driver;
     private Bus bus;
 
+
     /**
      * Constructor for Route, uses an existing ArrayList of Node objects
      * @param n ArrayList of Nodes
@@ -77,6 +78,7 @@ Route {
     public void setBus(Bus bus) {
         this.bus = bus;
     }
+
 
     /**
      * Getter function for the length of the Route
@@ -210,6 +212,8 @@ Route {
         minutes += (stopDuration * nodes.size());
         return minutes;
     }
+
+
 
 
     /**

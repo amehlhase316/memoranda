@@ -9,41 +9,31 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.geom.Point2D;
 import java.awt.image.BufferedImage;
 import java.awt.Stroke;
 import java.awt.BasicStroke;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.*;
-
-public class MapGraph extends JPanel {
+public class MapGenerator extends JPanel {
     private List<Node> nodes;
-    private List<WeightedEdge> edges;
     private List<Node> route;
-    
-    private double longitudeMin;	// left
-    private double longitudeMax;	// right
-    private double latitudeMin;		// bottom
-    private double latitudeMax;		// top
     
     private BufferedImage image;
 
-    public MapGraph() {
+    public MapGenerator() {
         nodes = new ArrayList<>();
-        edges = new ArrayList<>();
 
     	getImage("/map1.png");
     	
         setPreferredSize(new Dimension(image.getWidth(), image.getHeight()));
-//        this.longitudeMin = longitudeMin;
-//        this.longitudeMax = longitudeMax;
-//        this.latitudeMin = latitudeMin;
-//        this.latitudeMax = latitudeMax;
+    }
+    
+    public MapGenerator(List<Node> nodes) {
+        this.nodes = nodes;
+
+    	getImage("/map1.png");
+    	
+        setPreferredSize(new Dimension(image.getWidth(), image.getHeight()));
     }
     
     public void getImage(String fileName) {
@@ -62,44 +52,26 @@ public class MapGraph extends JPanel {
         return nodes;
     }
 
+    public void setNodes(List<Node> nodes) {
+        this.nodes = nodes;
+        repaint();
+    }
+
 
     public void addNode(String id, double latitude, double longitude) {
         nodes.add(new Node(id, latitude, longitude));
-    }
-
-    public void addEdge(WeightedEdge edge) {
-        edges.add(edge);
     }
     
     public void addRoutePoint(Node n) {
         route.add(n);
     }
     
+    // TODO: Algorithm for finding the shortest path between 2 specified nodes needs to be implemented
     public List<Node> getShortestRoute(String sourceId, String destinationId) {
         List<Node> shortestPath = new ArrayList<>();
 
         // Return the sequence of nodes representing the shortest path
         return shortestPath;
-    }
-    
-    public void readNodesFromJSON(String filename) {
-        try {
-        	JSONParser parser = new JSONParser();
-            JSONObject jsonObject = (JSONObject) parser.parse(new FileReader(filename));
-
-            JSONArray nodesArray = (JSONArray) jsonObject.get("nodes");
-
-            for (Object obj : nodesArray) {
-                JSONObject nodeObj = (JSONObject) obj;
-                String id = (String) nodeObj.get("id");
-                double latitude = Double.parseDouble((String) nodeObj.get("lat"));
-                double longitude = Double.parseDouble((String) nodeObj.get("lon"));
-
-                addNode(id, latitude, longitude);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
     
     protected void paintComponent(Graphics g) {
