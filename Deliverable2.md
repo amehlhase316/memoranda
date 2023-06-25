@@ -9,29 +9,29 @@
 
 **Scrum Master**: David Berry
 
-**Git Master**: 
+**Git Master**: Jonathan Blicharz
 
 ### Sprint Planning (For Sprint 1-3)
 Document your Sprint Planning here. Also check the kickoff document for more details on what needs to be done. This is just the documentation. 
 
-**Sprint Goal:** Sprint goal
+**Sprint Goal:** Implement UI and begin implementing functionality of the different panels in the program
 
-**How many User Stories did you add to the Product Backlog:**  Number
+**How many User Stories did you add to the Product Backlog:**  4
 
-**How many User Stories did you add to this Sprint:** 
+**How many User Stories did you add to this Sprint:** 9
 > Answer the questions below about your Sprint Planning?
 
 **Why did you add these US, why do you think you can get them done in the next Sprint?**
 
-> Your Answer
+We added user stories involving implementing the UI of all the panels in our program and begining to implement the functionality of them. We added these because we believe that they are the most important tasks at hand for the program. We believe we can accomplish them this sprint because the UI is less intensive than the functionality, the bulk of which we plan to tackle next sprint.
 
 **Why do you think these fit well with your Sprint goal? (details)**
 
-> Your Answer
+This fits without sprint goal because the bulk of our user stories this sprint involve the UI.
 
 **Do you have a rough idea what you need to do? (if the answer is no then please let me know on Slack)**
 
-> Your Answer
+Yes.
 
 
 
@@ -44,19 +44,19 @@ I would also advise you to already fill out the Contributions section (End of sp
 
 | Date  | Who did not attend  |Meeting notes (very brief)   | Burndown Info (on track, ahead behind is enough) | TravisCI info (does the master pass) | Additional Info  |
 |---|---|---|---|--|--|
-|   |   |   |   |  |  |
-|   |   |   |   |  |  |
-|   |   |   |   |  |  |
+|  6/12 |   | Went over architecture of program  | on track  | |  |
+|  6/14 |   | Went over architecture more and ideas for UI | on track  | |  |
+| 6/19 |  |  Touched base | behind | | |
 
 ### Meeting Summary:
 
 > Add rows as needed and add the number how many meetings for each team member:
 
-    -David Berry:         
-    -Jonathan Blicharz:   
-    -Henry Buck:          
-    -Sam Garcia:          
-    -Abdullah Younes:     
+    -David Berry:  3      
+    -Jonathan Blicharz: 3  
+    -Henry Buck:         3
+    -Sam Garcia:          3
+    -Abdullah Younes:     3
 
 
 ## 3: After the Sprint
@@ -64,21 +64,21 @@ I would also advise you to already fill out the Contributions section (End of sp
 ### Sprint Review
 Answer as a team!
 
-**Screen Cast link**: Your link
+**Screen Cast link**: https://drive.google.com/file/d/1J2PQYfcGubmS2biB1v_TZduBEqcwlH-8/view?usp=sharing
 
 > Answer the following questions as a team. 
 
 **What do you think is the value you created this Sprint?**
 
-> Your Answer
+The value we created this sprint has to do with developing and implementing the UI of our program. This fulfills some of the customer's requirements, but also allows us to tackle the functionality next sprint.
 
 **Do you think you worked enough and that you did what was expected of you?**
 
-> Your Answer
+We had issues with time crunch and having other obligations to attent to this sprint and so did not get as much done as we had planned. We were able to get most of the UI done along with changing icons and implementing some classes in the background.
 
 **Would you say you met the customers’ expectations? Why, why not?**
 
-> Your Answer
+We did on the most part, but there was still room to improve in order to get more of the customer's requirements done in a more timely manner. The work we did get done paves the way for more progress next sprint, so this sprint was not a waste, but there is more work we have to get done to meet the customer's expectations.
 
 
 ### Sprint Retrospective
@@ -87,31 +87,31 @@ Answer as a team!
 
 **Did you meet your sprint goal?**
 
-> Your Answer
+No, not fully. We were able to implement most of the UI, but not the entirety of it and weren't able to get to most of user stories involving functionality.
 
 **Did you complete all stories on your Spring Backlog?**
 
-> Your Answer
+No, some of them had to do with aspects of the program that we were planning on implementing in the next sprint.
 
 **If not, what went wrong?**
 
-> Your Answer
+Some of the stories on the backlog, we felt, had to do with aspects of the program we were going to tackle next sprint, as they'd require othe portions we were still working on to be done already.
 
 **Did you work at a consistent rate of speed, or velocity? (Meaning did you work during the whole Sprint or did you start working when the deadline approached.)**
 
-> Your Answer
+We had some hickups around the middle of the sprint as we all had other things occupying our time, but when we did work on the sprint, we worked consistently.
 
 **Did you deliver business value?**
 
-> Your Answer
+Yes, but not as much as we'd hoped. The work we were able to get done this sprint allows us to tackle bigger obstacles next sprint, but we did not get to as many user stories as we had hoped.
 
 **Are there things the team thinks it can do better in the next Sprint?**
 
-> Your Answer
+Making sure we have more time to work on the sprint is the biggest area we can do better.
 
 **How do you feel at this point? Get a pulse on the optimism of the team.**
 
-> Your Answer
+Even though we didn't get as much done as planned this sprint, we still feel confident moving forward because we have a good idea where we're going and what needs to get done.
 
 ### Contributions:
 
@@ -140,8 +140,8 @@ Answer as a team!
 #### Jonathan Blicharz:
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
 
-    - link1
-    - link2
+    - [link1](https://github.com/sjgarc20/TheFloorIsJava-Memoranda/tree/us37)
+    - [link2](https://github.com/sjgarc20/TheFloorIsJava-Memoranda/tree/us35)
 
    **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
 
@@ -150,18 +150,18 @@ Answer as a team!
 
   **GitHub links to your Code Reviews (up to 3 links) -- Sprint 2 and 3:
 
-    - link1
-    - link2
+    - [link1](https://github.com/sjgarc20/TheFloorIsJava-Memoranda/pull/19)
+    - [link2](https://github.com/sjgarc20/TheFloorIsJava-Memoranda/pull/17)
  
  **What was your main contribution to the Quality Policy documentation?:
 
-    - info
+    - The quality policy was done as a group. I was able to find a code review checklist for the team to use.
     
 #### Henry Buck:
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
 
-    - link1
-    - link2
+    - [link1](https://github.com/sjgarc20/TheFloorIsJava-Memoranda/pull/18)
+    - [link2](https://github.com/sjgarc20/TheFloorIsJava-Memoranda/pull/15)
 
    **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
 
@@ -170,18 +170,19 @@ Answer as a team!
 
   **GitHub links to your Code Reviews (up to 3 links) -- Sprint 2 and 3:
 
-    - link1
+    - [link1](https://github.com/sjgarc20/TheFloorIsJava-Memoranda/pull/11)
     - link2
  
  **What was your main contribution to the Quality Policy documentation?:
 
-    - info
+    - We completed the quality policy together
     
 #### Sam Garcia:
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
 
-    - link1
-    - link2
+   - [link1](https://github.com/sjgarc20/TheFloorIsJava-Memoranda/tree/us3task11)
+   - [link2](https://github.com/sjgarc20/TheFloorIsJava-Memoranda/tree/us10task29)
+   - [link3](https://github.com/sjgarc20/TheFloorIsJava-Memoranda/pull/19)
 
    **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
 
@@ -190,18 +191,17 @@ Answer as a team!
 
   **GitHub links to your Code Reviews (up to 3 links) -- Sprint 2 and 3:
 
-    - link1
-    - link2
+    -[link1](https://github.com/sjgarc20/TheFloorIsJava-Memoranda/pull/14)
+    -[link2](https://github.com/sjgarc20/TheFloorIsJava-Memoranda/pull/13)
  
  **What was your main contribution to the Quality Policy documentation?:
 
-    - info
+    - We all did this as a communal effort
     
  #### Abdullah Younes:
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
 
-    - link1
-    - link2
+    - https://github.com/sjgarc20/TheFloorIsJava-Memoranda/tree/us40
 
    **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
 
