@@ -51,7 +51,7 @@ I would also advise you to already fill out the Contributions section (End of sp
 
 > Add rows as needed and add the number how many meetings for each team member:
 
-   Eli : 4
+   Eli : 5
 
    Josh : 5
    
@@ -197,6 +197,34 @@ Answer as a team!
 **What was your main contribution to the Quality Policy documentation?:
 
 - none
+
+#### Elias Garcia
+  **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
+
+    - https://github.com/TheNerdyBunch23/memoranda/commit/818d3406f6ba3b1ed871b98694883789208e0b89
+    - https://github.com/TheNerdyBunch23/memoranda/commit/2e2bb12e69d18abc9d1f43cbd1f1c6034c34dc60
+    - https://github.com/TheNerdyBunch23/memoranda/commit/0666fa9b3bfe7b3ed85b36e9213fdbb8f4c97438
+    - https://github.com/TheNerdyBunch23/memoranda/commit/8daa7d31deb28569cf325aaca67323a1d854879f
+    - https://github.com/TheNerdyBunch23/memoranda/commit/a95ed23bf464e72c50ca8f9eea4ce2ccba6cbc33
+
+   **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
+
+    - link1
+    - link2
+
+  **GitHub links to your Code Reviews (up to 3 links) -- Sprint 2 and 3:
+
+    - link1
+    - link2
+
+  **How did you contribute to Static Analysis -- Sprint 3:
+
+    - link1
+    - link2
+ 
+ **What was your main contribution to the Quality Policy documentation?:
+
+    - went over it with team
   
 ## 4: Checklist for you to see if you are done
 - [x] Filled out the complete form from above, all fields are filled and written in full sentences
