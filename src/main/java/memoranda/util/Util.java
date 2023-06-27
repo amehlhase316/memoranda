@@ -18,6 +18,7 @@ import java.util.Iterator;
 
 import javax.swing.JFileChooser;
 
+import main.java.memoranda.Node;
 import main.java.memoranda.date.CalendarDate;
 import main.java.memoranda.ui.App;
 import main.java.memoranda.ui.AppFrame;
