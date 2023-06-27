@@ -226,6 +226,31 @@ Answer as a team!
 
     - went over it with team
   
+#### Frank Lin
+  **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
+
+    - link1
+    - link2
+
+   **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
+
+    - link1
+    - link2
+
+  **GitHub links to your Code Reviews (up to 3 links) -- Sprint 2 and 3:
+
+    - link1
+    - link2
+
+  **How did you contribute to Static Analysis -- Sprint 3:
+
+    - link1
+    - link2
+ 
+ **What was your main contribution to the Quality Policy documentation?:
+
+    - info
+  
 ## 4: Checklist for you to see if you are done
 - [x] Filled out the complete form from above, all fields are filled and written in full sentences
 - [x] Read the kickoff again to make sure you have all the details
@@ -236,7 +261,7 @@ Answer as a team!
   - [x] William Jedynak
   - [x] Elias Garcia
   - [x] Josh Benn
-  - [ ] Frank Lin
+  - [x] Frank Lin
 - [x] The original of this file was copied for the next Sprint (needed for all but last Sprint where you do not need to copy it anymore)
   - [x] Basic information (part 1) for next Sprint was included (meaning Spring Planning is complete)
   - [x] All User Stories have acceptance tests
