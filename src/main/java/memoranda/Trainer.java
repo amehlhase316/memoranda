@@ -1,10 +1,14 @@
-package main.java.memoranda.util;
+package main.java.memoranda;
 
 public class Trainer {
     private String name;
     private String trainingRank;
     private String belt;
-
+    /*
+    The belt ranks are as follows:
+    white, yellow, orange, purple, blue, blue stripe, green, green stripe, brown1, brown2,
+    brown3, black1, black2, black3
+    */
     public Trainer(String name, String trainingRank, String belt) {
         this.name = name;
         this.trainingRank = trainingRank;
