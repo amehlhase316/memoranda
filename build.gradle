@@ -5,6 +5,7 @@ import java.time.format.DateTimeFormatter
 plugins {
   id "com.github.spotbugs" version "5.0.12"
   id "checkstyle"
+  id("org.openrewrite.rewrite") version("6.1.9")
 }
 
 apply plugin: 'application'
@@ -23,6 +24,7 @@ dependencies {
   implementation 'net.sourceforge.nekohtml:nekohtml:1.9.22'
   implementation 'junit:junit:4.13.2'
   implementation files('src/test/java/')
+  rewrite("org.openrewrite.recipe:rewrite-static-analysis:1.0.2")
 }
 
 // Get the current date and time as a string
@@ -78,4 +80,15 @@ spotbugs {
   ignoreFailures = true
   showProgress = true
   effort = 'max'
+}
+
+rewrite {
+  activeRecipe("org.openrewrite.staticanalysis.CodeCleanup")
+  checkstyleConfigFile = file("checkstyle.xml")
+}
+def rewriteRunTask = tasks.named("rewriteRun")
+
+// In a kotlin build script, use tasks.withType<Checkstyle>()
+tasks.withType(Checkstyle) {
+  dependsOn(rewriteRunTask)
 }
