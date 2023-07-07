@@ -1,7 +1,8 @@
 package main.java.memoranda;
 
 public class Trainer {
-    private String name;
+    private Student studentProfile;
+    private final String name;
     private String trainingRank;
     private String belt;
     /*
@@ -13,6 +14,7 @@ public class Trainer {
         this.name = name;
         this.trainingRank = trainingRank;
         this.belt = belt;
+        this.studentProfile = new Student(name, belt);
     }
 
     public void setTrainingRank(String trainingRank) {
@@ -33,5 +35,13 @@ public class Trainer {
 
     public String getTrainingRank() {
         return trainingRank;
+    }
+
+    public Student getStudentProfile() {
+        return studentProfile;
+    }
+
+    public void setStudentProfile(Student studentProfile) {
+        this.studentProfile = studentProfile;
     }
 }
