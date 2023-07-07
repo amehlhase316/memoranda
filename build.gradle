@@ -2,10 +2,15 @@ import org.apache.tools.ant.filters.ReplaceTokens
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
+plugins {
+  id "com.github.spotbugs" version "5.0.12"
+  id "checkstyle"
+}
+
 apply plugin: 'application'
 apply plugin: 'java'
 
-mainClassName = 'main/java/memoranda/Start'
+mainClassName = 'memoranda/Start'
 
 compileJava.options.encoding = 'UTF-8'
 
@@ -14,9 +19,9 @@ repositories {
 }
 
 dependencies {
-  implementation 'com.io7m.xom:xom:1.2.+'
-  implementation 'net.sourceforge.nekohtml:nekohtml:1.9.+'
-  implementation 'junit:junit:4.12'
+  implementation 'com.io7m.xom:xom:1.2.10'
+  implementation 'net.sourceforge.nekohtml:nekohtml:1.9.22'
+  implementation 'junit:junit:4.13.2'
   implementation files('src/test/java/')
 }
 
@@ -34,4 +39,43 @@ processResources {
   filesMatching('version.properties') {
     filter ReplaceTokens, tokens: ['VERSION': project.ext.version, 'BUILD': project.ext.build]
   }
+}
+
+///////////////////////////////////////////////////////////////////////
+// Configure Checkstyle
+/////////////////////////////////////////////////////////////////////
+
+apply plugin: 'checkstyle'
+checkstyle {
+  // Keep checkstyle a little quieter
+  ignoreFailures = true
+  showViolations = false
+}
+
+tasks.withType(Checkstyle) {
+  reports {
+    html.enabled = true
+    xml.enabled = false
+  }
+}
+checkstyle {
+  toolVersion = "8.8"
+}
+
+
+///////////////////////////////////////////////////////////////////////
+// Configure SpotBugs
+///////////////////////////////////////////////////////////////////////
+// To generate an HTML report instead of XML
+
+spotbugsMain {
+  reports {
+    xml.enabled = false
+    html.enabled = true
+  }
+}
+spotbugs {
+  ignoreFailures = true
+  showProgress = true
+  effort = 'max'
 }

@@ -1,5 +1,6 @@
-import main.java.memoranda.util.Local;
-import main.java.memoranda.util.Util;
+
+import memoranda.util.Local;
+import memoranda.util.Util;
 import org.junit.*;
 
 import java.util.Calendar;
