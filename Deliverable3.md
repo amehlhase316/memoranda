@@ -7,7 +7,7 @@
 
 **Sprint Number:** 3
 
-**Scrum Master**: Aman Sharma
+**Scrum Master**: Paul Carmichael
 
 **Git Master**: Ryan Dinaro
 
