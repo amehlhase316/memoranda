@@ -5,7 +5,7 @@
 
 **Topic you chose:** Gym Scheduling
 
-**Sprint Number:** 2
+**Sprint Number:** 3
 
 **Scrum Master**: Aman Sharma
 
@@ -19,15 +19,15 @@ Document your Sprint Planning here. Also check the kickoff document for more det
 **How many User Stories did you add to the Product Backlog:**  12
 
 **How many User Stories did you add to this Sprint:** 
-> We have added total 9 user stories to sprint 2.
+> We have added a total of 9 user stories to sprint 3.
 
 **Why did you add these US, why do you think you can get them done in the next Sprint?**
 
-> These user stories transform memoranda to look more like a gym scheduling software. Each user story has better assignment of points.
+> These user stories transform memoranda to look more like gym scheduling software. Each user story has the better assignment of points.
 
 **Why do you think these fit well with your Sprint goal? (details)**
 
-> The user stories add functionality of the gym scheduling software.
+> The user stories add functionality to the gym scheduling software.
 
 **Do you have a rough idea what you need to do? (if the answer is no then please let me know on Slack)**
 
@@ -77,12 +77,12 @@ Answer as a team!
 
 **Would you say you met the customers’ expectations? Why, why not?**
 
->  We did our best meet the customer's expectations fully, but some expectations were not fulfilled.
+>  We did our best to meet the customer's expectations fully, but some expectations were not fulfilled.
 
 
 ### Sprint Retrospective
 
-> Include your Sprint retrospective here and answer the following questions in an evidence based manner as a team (I do not want each of your individuals opinion here but the team perspective). By evidence-based manner it means I want a Yes or No on each of these questions, and for you to provide evidence for your answer. That is, don’t just say "Yes we did work at a consistent rate because we tried hard"; say "we worked at a consistent rate because here are the following tasks we completed per team member and the rate of commits in our Git logs."
+> Include your Sprint retrospective here and answer the following questions in an evidence-based manner as a team (I do not want each of your individuals opinion here but the team perspective). By evidence-based manner it means I want a Yes or No on each of these questions, and for you to provide evidence for your answer. That is, don’t just say "Yes we did work at a consistent rate because we tried hard"; say "we worked at a consistent rate because here are the following tasks we completed per team member and the rate of commits in our Git logs."
 
 **Did you meet your sprint goal?**
 
@@ -152,20 +152,21 @@ Answer as a team!
    **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
 
  - [link1] (https://github.com/amansharma96/Professional_Cowboys-Summer23C/pull/18/commits)
-
+ - [link2] (https://github.com/amansharma96/Professional_Cowboys-Summer23C/pull/21/commits)
+ - 
   **GitHub links to your Code Reviews (up to 3 links) -- Sprint 2 and 3:
 
-    - link1
+ - [link1] (https://github.com/amansharma96/Professional_Cowboys-Summer23C/pull/22/commits)
     - link2
 
   **How did you contribute to Static Analysis -- Sprint 3:
 
-    - link1
+ - [link1] (https://github.com/amansharma96/Professional_Cowboys-Summer23C/pull/22/commits)
     - link2
  
  **What was your main contribution to the Quality Policy documentation?:
 
-    - I completed whole Quality Policy documentation
+    - I completed the whole Quality Policy documentation
     
 #### Team member C -- Paul Carmichael:
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
