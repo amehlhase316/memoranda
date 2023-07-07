@@ -26,8 +26,7 @@ public class us35BB {
     public void createUser() {
         user.setFirstName("Bob");
         user.setLastName("Smith");
-        user.setUserID();
-        user.setJoinDate(date);
+        user.setUsername("hello");
         user.setPermissions(1);
         user.setRank(2);
     }
@@ -44,7 +43,7 @@ public class us35BB {
 
     @Test
     public void getUserID() {
-        assertNotEquals(0, user.getUserID());
+        assertEquals("hello", user.getUsername());
     }
 
     @Test
