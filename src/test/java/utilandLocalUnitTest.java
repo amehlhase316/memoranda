@@ -59,6 +59,18 @@ public class utilandLocalUnitTest {
     }
 
     @Test
+    public void testGetFutureDateStamp() {
+        Util util = new Util();
+        Calendar cal = Calendar.getInstance();
+        cal.set(2023, Calendar.DECEMBER, 16);
+
+        String expectedDateStamp = "16/11/2023";
+        String actualDateStamp = util.getDateStamp(cal);
+
+        assertEquals(expectedDateStamp, actualDateStamp);
+    }
+
+    @Test
     public void testGetDateStampWithDifferentDate() {
         Util util = new Util();
         Calendar cal = Calendar.getInstance();
