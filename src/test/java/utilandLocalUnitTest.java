@@ -97,6 +97,18 @@ public class utilandLocalUnitTest {
     }
 
     @Test
+    public void testGetPastDateStamp() {
+        Util util = new Util();
+        Calendar cal = Calendar.getInstance();
+        cal.set(2023, Calendar.APRIL, 16);
+
+        String expectedDateStamp = "16/4/2022";
+        String actualDateStamp = util.getDateStamp(cal);
+
+        assertEquals(expectedDateStamp, actualDateStamp);
+    }
+
+    @Test
     public void testGetDateStringWithDifferentFormat() {
         Local loc = new Local();
         int month = Calendar.MAY;
