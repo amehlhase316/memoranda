@@ -11,6 +11,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
+import java.util.Collections;
 import java.util.Vector;
 
 import javax.swing.BorderFactory;
@@ -74,14 +75,13 @@ public class FontDialog extends JDialog {
 	this.setResizable(false);
         GraphicsEnvironment gEnv = 
         	GraphicsEnvironment.getLocalGraphicsEnvironment();
-        String envfonts[] = gEnv.getAvailableFontFamilyNames();
+        String[] envfonts = gEnv.getAvailableFontFamilyNames();
         Vector fonts = new Vector();
         fonts.add("");
         fonts.add("serif");
         fonts.add("sans-serif");
         fonts.add("monospaced");
-        for (int i = 0; i < envfonts.length; i++)
-            fonts.add(envfonts[i]);
+		Collections.addAll(fonts, envfonts);
         fontFamilyCB = new JComboBox(fonts);
         
 		headerPanel.setBackground(Color.WHITE);

@@ -15,6 +15,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 
 import javax.swing.text.html.HTMLDocument;
 import javax.swing.text.html.HTMLEditorKit;
@@ -44,7 +45,7 @@ import nu.xom.Document;
 public class FileStorage implements Storage {
 
     public static String JN_DOCPATH = Util.getEnvDir();
-    private HTMLEditorKit editorKit = new HTMLEditorKit();
+    private final HTMLEditorKit editorKit = new HTMLEditorKit();
 
     public FileStorage() {
         /*The 'MEMORANDA_HOME' key is an undocumented feature for 
@@ -70,7 +71,7 @@ public class FileStorage implements Storage {
             //serializer.write(doc);
         	
             OutputStreamWriter fw =
-                new OutputStreamWriter(new FileOutputStream(filePath), "UTF-8");
+                new OutputStreamWriter(new FileOutputStream(filePath), StandardCharsets.UTF_8);
             fw.write(doc.toXML());
             fw.flush();
             fw.close();
@@ -85,7 +86,7 @@ public class FileStorage implements Storage {
 
     public static Document openDocument(InputStream in) throws Exception {
         Builder builder = new Builder();
-        return builder.build(new InputStreamReader(in, "UTF-8"));
+        return builder.build(new InputStreamReader(in, StandardCharsets.UTF_8));
     }
 
     public static Document openDocument(String filePath) {
@@ -121,7 +122,7 @@ public class FileStorage implements Storage {
 
         try {
             OutputStreamWriter fw =
-                new OutputStreamWriter(new FileOutputStream(filename), "UTF-8");
+                new OutputStreamWriter(new FileOutputStream(filename), StandardCharsets.UTF_8);
             AltHTMLWriter writer = new AltHTMLWriter(fw, (HTMLDocument) doc);
             writer.write();
             fw.flush();
@@ -178,7 +179,7 @@ public class FileStorage implements Storage {
 //        	Util.debug("Note Title: " + note.getTitle());
         	doc.setBase(new URL(getNoteURL(note)));
         	editorKit.read(
-                new InputStreamReader(new FileInputStream(filename), "UTF-8"),
+                new InputStreamReader(new FileInputStream(filename), StandardCharsets.UTF_8),
                 doc,
                 0);
         }

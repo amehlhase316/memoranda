@@ -84,7 +84,7 @@ public class ProjectExporter {
         generateToc(fw, notes);
         generateChunks(fw, notes);
         write(fw, "\n<hr></hr><a href=\"http://memoranda.sf.net\">Memoranda</a> "
-                + App.VERSION_INFO + "\n<br></br>\n" + new Date().toString()
+                + App.VERSION_INFO + "\n<br></br>\n" + new Date()
                 + "\n</body>\n</html>");
         try {
             fw.flush();
