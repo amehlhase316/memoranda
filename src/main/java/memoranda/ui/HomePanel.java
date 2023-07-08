@@ -39,7 +39,6 @@ public class HomePanel extends JPanel {
 	JButton loginB = new JButton();
 	JToolBar toolBar = new JToolBar();
 	JButton logoutB = new JButton();
-	JButton export = new JButton();
 	JEditorPane viewer = new JEditorPane("text/html", "");
 	JEditorPane viewer1 = new JEditorPane("text/html", "");
 	JEditorPane viewer2 = new JEditorPane("text/html", "");
@@ -80,9 +79,31 @@ public class HomePanel extends JPanel {
 
 	GridBagLayout layout = new GridBagLayout();
 
-	GridBagConstraints gbc = new GridBagConstraints();
+	String[][] data = {};
+	String[] column ={"Class ID","Class Time","Class Date"};
+	JTable jt = new JTable(data,column);
 
+	JLabel lessons = new JLabel("", 0);
 
+	JLabel loggedOut = new JLabel("<html>Please login to view<br/>Username: login<br/>Password: password</html>", SwingConstants.CENTER);
+
+	JButton importNote = new JButton("Import Note");
+
+	JButton exportNoteTxt = new JButton("Export Notes as .txt");
+
+	JButton exportNoteHtml = new JButton("Export Notes as .html");
+
+	JButton addNote = new JButton("Add Note");
+
+	JButton editNote = new JButton("Edit");
+
+	JButton openNote = new JButton("Open In a New Window");
+
+	JButton removeNote = new JButton("Remove Note");
+
+	JFrame frameLoginPopUp = new JFrame();
+
+	JFrame frameLogoutPopUp = new JFrame();
 
 
 	//	JPopupMenu agendaPPMenu = new JPopupMenu();
@@ -298,172 +319,21 @@ public class HomePanel extends JPanel {
 
 		this.setLayout(borderLayout1);
 		scrollPane.getViewport().setBackground(Color.red);
-		panel.setBackground(Color.darkGray);
+		panel.setBackground(Color.WHITE);
 		panel.setSize(getWidth(), getHeight());
 
-		Border bevelBorder = BorderFactory.createBevelBorder(1, Color.black, Color.white);
-
 		panel.setLayout(layout);
-
-		//Create user info panels
-		//Create first name panel
-		userFirstNameLabel.setText("Login to view");
-		userFirstName.add(userFirstNameLabel);
-		Border userFirstNameTitleBorder = BorderFactory.createTitledBorder(bevelBorder, "First Name", TitledBorder.CENTER, TitledBorder.TOP);
-		userFirstName.setBorder(userFirstNameTitleBorder);
-
-		//Create last name panel
-		userLastNameLabel.setText("Login to view");
-		userLastName.add(userLastNameLabel);
-		Border userLastNameTitleBorder = BorderFactory.createTitledBorder(bevelBorder, "Last Name", TitledBorder.CENTER, TitledBorder.TOP);
-		userLastName.setBorder(userLastNameTitleBorder);
-
-		//Create user id panel
-		userIDLabel.setText("Login to view");
-		userID.add(userIDLabel);
-		Border userIDTitleBorder = BorderFactory.createTitledBorder(bevelBorder, "Username", TitledBorder.CENTER, TitledBorder.TOP);
-		userID.setBorder(userIDTitleBorder);
-
-		//Create user rank panel
-		userRankLabel.setText("Login to view");
-		userRank.add(userRankLabel);
-		Border userRankTitleBorder = BorderFactory.createTitledBorder(bevelBorder, "Belt Rank", TitledBorder.CENTER, TitledBorder.TOP);
-		userRank.setBorder(userRankTitleBorder);
-
-		//Create join date panel
-		userJoinDateLabel.setText("Login to view");
-		userJoinDate.add(userJoinDateLabel);
-		Border userJoinDateTitleBorder = BorderFactory.createTitledBorder(bevelBorder, "Date Joined", TitledBorder.CENTER, TitledBorder.TOP);
-		userJoinDate.setBorder(userJoinDateTitleBorder);
-
-		//Add user info panel to main panel
-		Border userTitleBorder = BorderFactory.createTitledBorder(bevelBorder, "User Info", TitledBorder.LEFT, TitledBorder.TOP);
-		userPanel.setLayout(new BoxLayout(userPanel, BoxLayout.Y_AXIS));
-		userPanel.setBackground(Color.lightGray);
-		userPanel.setBorder(userTitleBorder);
-		userPanel.add(userFirstName);
-		userPanel.add(userLastName);
-		userPanel.add(userID);
-		userPanel.add(userRank);
-		userPanel.add(userJoinDate);
-		gbc.fill = GridBagConstraints.BOTH;
-		gbc.weighty = .5;
-		gbc.weightx = .67;
-		gbc.gridx = 0;
-		gbc.gridy = 0;
-		panel.add(userPanel, gbc);
-
-
-		//Create panel to show enrolled classes
-		Border classTitleBorder = BorderFactory.createTitledBorder(bevelBorder, "Enrolled Classes", TitledBorder.LEFT, TitledBorder.TOP);
-		upcomingClassPanel.setBackground(Color.lightGray);
-		upcomingClassPanel.setBorder(classTitleBorder);
-		gbc.fill = GridBagConstraints.BOTH;
-		gbc.weightx = 0.67;
-		gbc.weighty = .5;
-		gbc.gridx = 0;
-		gbc.gridy = 1;
-		panel.add(upcomingClassPanel, gbc);
-
-		addNotesPanel.setLayout(new GridBagLayout());
-
-		//Create buttons for notes
-		//Create and add import button to note panel
-		JButton importNote = new JButton();
-		importNote.setText("Import Note");
-		gbc.fill = GridBagConstraints.BOTH;
-		gbc.weighty = .0625;
-		gbc.gridx = 0;
-		gbc.gridy = 0;
-		addNotesPanel.add(importNote, gbc);
-
-		//Create and add export button txt to note panel
-		JButton exportNoteTxt = new JButton();
-		exportNoteTxt.setText("Export Notes as .txt");
-		gbc.fill = GridBagConstraints.BOTH;
-		gbc.weighty = .0625;
-		gbc.gridx = 1;
-		gbc.gridy = 0;
-		addNotesPanel.add(exportNoteTxt, gbc);
-
-		//Create and add export button html to note panel
-		JButton exportNoteHtml = new JButton();
-		exportNoteHtml.setText("Export Notes as .html");
-		gbc.fill = GridBagConstraints.BOTH;
-		gbc.weighty = .0625;
-		gbc.gridx = 2;
-		gbc.gridy = 0;
-		addNotesPanel.add(exportNoteHtml, gbc);
-
-		//Create and add the add note button to note panel
-		JButton addNote = new JButton();
-		addNote.setText("Add Note");
-		gbc.fill = GridBagConstraints.BOTH;
-		gbc.weighty = .0625;
-		gbc.gridwidth = 3;
-		gbc.gridx = 0;
-		gbc.gridy = 1;
-		addNotesPanel.add(addNote, gbc);
-
-		//Create and add edit note button to note panel
-		JButton editNote = new JButton();
-		editNote.setText("Edit");
-		gbc.fill = GridBagConstraints.BOTH;
-		gbc.weighty = .0625;
-		gbc.gridwidth = 1;
-		gbc.gridx = 0;
-		gbc.gridy = 2;
-		addNotesPanel.add(editNote, gbc);
-
-		//Create and add open note button to note panel
-		JButton openNote = new JButton();
-		openNote.setText("Open In a New Window");
-		gbc.fill = GridBagConstraints.BOTH;
-		gbc.weighty = .0625;
-		gbc.gridx = 1;
-		gbc.gridy = 2;
-		addNotesPanel.add(openNote, gbc);
-
-		//Create and add remove note button to note panel
-		JButton removeNote = new JButton();
-		removeNote.setText("Remove Note");
-		gbc.fill = GridBagConstraints.BOTH;
-		gbc.weighty = .0625;
-		gbc.gridwidth = 3;
-		gbc.gridx = 2;
-		gbc.gridy = 2;
-		addNotesPanel.add(removeNote, gbc);
-
-		gbc.fill = GridBagConstraints.BOTH;
-		gbc.weighty = .8125;
-		gbc.gridx = 0;
-		gbc.gridy = 3;
-		addNotesPanel.add(notePanel, gbc);
-
-
-		//Add note panel to main panel
-		Border notesTitleBorder = BorderFactory.createTitledBorder(bevelBorder,"Notes", TitledBorder.LEFT, TitledBorder.TOP);
-		addNotesPanel.setBackground(Color.lightGray);
-		addNotesPanel.setBorder(notesTitleBorder);
-		gbc.fill = GridBagConstraints.BOTH;
-		gbc.weightx = 0.33;
-		gbc.gridheight = 2;
-		gbc.gridx = 1;
-		gbc.gridy = 0;
-		panel.add(addNotesPanel, gbc);
+		panel.add(loggedOut);
 		this.add(panel);
 
 		scrollPane.getViewport().add(viewer, null);
 		notePanel.getViewport().add(viewer1, null);
-		upcomingClassPanel.getViewport().add(viewer2, null);
-		//this.add(userPanel, BorderLayout.CENTER);
-		//this.add(upcomingClassPanel, BorderLayout.EAST);
-		//this.add(addNotesPanel, BorderLayout.SOUTH);
 		toolBar.add(loginB, null);
 		toolBar.add(logoutB, null);
 		toolBar.addSeparator(new Dimension(8, 24));
 
 		this.add(toolBar, BorderLayout.NORTH);
+		panel.revalidate();
 
 
 		CurrentDate.addDateListener(new DateListener() {
@@ -520,7 +390,7 @@ public class HomePanel extends JPanel {
 	public void refresh(CalendarDate date) {
 		//viewer.setText(HomeGenerator.getUserInfo(date,expandedTasks));
 		viewer1.setText(HomeGenerator.getUserNotes(date));
-		viewer2.setText((HomeGenerator.getUserClasses(date)));
+		//viewer2.setText((HomeGenerator.getUserClasses(date)));
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				if(gotoTask != null) {
@@ -531,7 +401,7 @@ public class HomePanel extends JPanel {
 					notePanel.setViewportView(viewer1);
 					//Show events in enrolled class panel
 					//Uses html, possibly change in future
-					upcomingClassPanel.setViewportView(viewer2);
+					//upcomingClassPanel.setViewportView(viewer2);
 					Util.debug("Set view port to " + gotoTask);
 				}
 			}
@@ -597,27 +467,26 @@ public class HomePanel extends JPanel {
 	 Confirms user login validity. If valid, displays user info.
 	 */
 	public  JFrame loginFrame() {
-		JPanel panel = new JPanel();
-		panel.setLayout(null);
+		JPanel panelLogin = new JPanel();
+		panelLogin.setLayout(null);
 
-		JFrame frame = new JFrame();
-		frame.setTitle("Login Page");
-		frame.pack();
-		frame.setLocationRelativeTo(null);
-		frame.add(panel);
-		frame.setSize(new Dimension(400, 200));
+		frameLoginPopUp.setTitle("Login Page");
+		frameLoginPopUp.pack();
+		frameLoginPopUp.setLocationRelativeTo(null);
+		frameLoginPopUp.add(panelLogin);
+		frameLoginPopUp.setSize(new Dimension(400, 200));
 
 		JLabel label = new JLabel();
 		label.setBounds(100, 8, 70, 20);
-		panel.add(label);
+		panelLogin.add(label);
 
 		JTextField username = new JTextField("Username");
 		username.setBounds(100, 27, 200, 30);
-		panel.add(username);
+		panelLogin.add(username);
 
 		JTextField password = new JTextField("Password");
 		password.setBounds(100, 55, 200, 30);
-		panel.add(password);
+		panelLogin.add(password);
 
 		JButton button = new JButton("Login");
 		button.setBounds(100, 110, 200, 30);
@@ -634,15 +503,13 @@ public class HomePanel extends JPanel {
 					if (user.getPassword().equals(userPassword)) {
 						user.login();
 						loggedIn = true;
-						userFirstNameLabel.setText(user.getFirstName());
-						userLastNameLabel.setText(user.getLastName());
-						userIDLabel.setText(user.getUsername());
-						String rank = "" + user.getRank();
-						userRankLabel.setText(rank);
-						String date = "" + user.getJoinDate();
-						userJoinDateLabel.setText(date);
+
+						panel.remove(loggedOut);
+
+						loginHomePanel();
+
 						JOptionPane.showMessageDialog(null, "Login Successful!");
-						frame.setVisible(false);
+						frameLogin.setVisible(false);
 					}
 					else {
 						JOptionPane.showMessageDialog(null, "Password Incorrect");
@@ -654,9 +521,9 @@ public class HomePanel extends JPanel {
 
 			}
 		});
-		panel.add(button);
+		panelLogin.add(button);
 
-		return frame;
+		return frameLoginPopUp;
 	}
 
 	/**
@@ -667,19 +534,18 @@ public class HomePanel extends JPanel {
 	 Confirms user logout. If confirmed, changes info displayed..
 	 */
 	public JFrame logoutFrame() {
-		JPanel panel = new JPanel();
-		panel.setLayout(null);
+		JPanel panelLogout = new JPanel();
+		panelLogout.setLayout(null);
 
-		JFrame frame = new JFrame();
-		frame.setTitle("Logout Page");
-		frame.pack();
-		frame.setLocationRelativeTo(null);
-		frame.add(panel);
-		frame.setSize(new Dimension(400, 200));
+		frameLogoutPopUp.setTitle("Logout Page");
+		frameLogoutPopUp.pack();
+		frameLogoutPopUp.setLocationRelativeTo(null);
+		frameLogoutPopUp.add(panelLogout);
+		frameLogoutPopUp.setSize(new Dimension(400, 200));
 
 		JLabel label = new JLabel("Are you sure you want to logout?");
-		label.setBounds(100, 0, 200, 20);
-		panel.add(label);
+		label.setBounds(100, 60, 200, 20);
+		panelLogout.add(label);
 
 		JButton button = new JButton("Confirm");
 		button.setBounds(100, 110, 200, 30);
@@ -692,18 +558,181 @@ public class HomePanel extends JPanel {
 				user = null;
 				loggedIn = false;
 
-				userFirstNameLabel.setText("Login to view");
-				userLastNameLabel.setText("Login to view");
-				userIDLabel.setText("Login to view");
-				userRankLabel.setText("Login to view");
-				userJoinDateLabel.setText("Login to view");
+				panel.remove(userPanel);
+				panel.remove(upcomingClassPanel);
+				panel.remove(addNotesPanel);
+
+				launchHomePanel();
 
 				JOptionPane.showMessageDialog(null, "Logout Successful!");
-				frame.setVisible(false);
+				frameLogoutPopUp.setVisible(false);
 			}
 		});
-		panel.add(button);
+		panelLogout.add(button);
 
-		return frame;
+		return frameLogoutPopUp;
+	}
+
+	/**
+	 Method: loginHomePanel
+	 Inputs:
+	 Returns:
+	 Description: Recreates home panel after user login.
+	 */
+	public void loginHomePanel() {
+		this.setLayout(borderLayout1);
+		panel.setBackground(Color.darkGray);
+		panel.setSize(getWidth(), getHeight());
+
+		Border bevelBorder = BorderFactory.createBevelBorder(1, Color.black, Color.white);
+
+		panel.setLayout(layout);
+
+		//Create user info panels
+		//Create first name panel
+		userFirstNameLabel.setText(user.getFirstName());
+		userFirstName.add(userFirstNameLabel);
+		Border userFirstNameTitleBorder = BorderFactory.createTitledBorder(bevelBorder, "First Name", TitledBorder.CENTER, TitledBorder.TOP);
+		userFirstName.setBorder(userFirstNameTitleBorder);
+
+		//Create last name panel
+		userLastNameLabel.setText(user.getLastName());
+		userLastName.add(userLastNameLabel);
+		Border userLastNameTitleBorder = BorderFactory.createTitledBorder(bevelBorder, "Last Name", TitledBorder.CENTER, TitledBorder.TOP);
+		userLastName.setBorder(userLastNameTitleBorder);
+
+		//Create user id panel
+		userIDLabel.setText(user.getUsername());
+		userID.add(userIDLabel);
+		Border userIDTitleBorder = BorderFactory.createTitledBorder(bevelBorder, "Username", TitledBorder.CENTER, TitledBorder.TOP);
+		userID.setBorder(userIDTitleBorder);
+
+		//Create user rank panel
+		userRankLabel.setText("" + user.getRank());
+		userRank.add(userRankLabel);
+		Border userRankTitleBorder = BorderFactory.createTitledBorder(bevelBorder, "Belt Rank", TitledBorder.CENTER, TitledBorder.TOP);
+		userRank.setBorder(userRankTitleBorder);
+
+		//Create join date panel
+		userJoinDateLabel.setText("" + user.getJoinDate());
+		userJoinDate.add(userJoinDateLabel);
+		Border userJoinDateTitleBorder = BorderFactory.createTitledBorder(bevelBorder, "Date Joined", TitledBorder.CENTER, TitledBorder.TOP);
+		userJoinDate.setBorder(userJoinDateTitleBorder);
+
+		GridBagConstraints gbc = new GridBagConstraints();
+
+		//Add user info panel to main panel
+		Border userTitleBorder = BorderFactory.createTitledBorder(bevelBorder, "User Info", TitledBorder.LEFT, TitledBorder.TOP);
+		userPanel.setLayout(new BoxLayout(userPanel, BoxLayout.Y_AXIS));
+		userPanel.setBackground(Color.lightGray);
+		userPanel.setBorder(userTitleBorder);
+		userPanel.add(userFirstName);
+		userPanel.add(userLastName);
+		userPanel.add(userID);
+		userPanel.add(userRank);
+		userPanel.add(userJoinDate);
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.weighty = .5;
+		gbc.weightx = .67;
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		panel.add(userPanel, gbc);
+
+
+		if (user.getLessons() == null) {
+			lessons.setText("No upcoming classes");
+			upcomingClassPanel = new JScrollPane(lessons);
+		} else {
+			while (user.getLessons() != null) {
+				//lessonList = user.getLessons();
+			}
+			upcomingClassPanel = new JScrollPane(jt);
+		}
+		//Create panel to show enrolled classes
+		Border classTitleBorder = BorderFactory.createTitledBorder(bevelBorder, "Enrolled Classes", TitledBorder.LEFT, TitledBorder.TOP);
+		upcomingClassPanel.setBackground(Color.lightGray);
+		upcomingClassPanel.setBorder(classTitleBorder);
+
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.weightx = 0.67;
+		gbc.weighty = .5;
+		gbc.gridx = 0;
+		gbc.gridy = 1;
+		panel.add(upcomingClassPanel, gbc);
+
+		addNotesPanel.setLayout(new GridBagLayout());
+
+		//Create buttons for notes
+		//Create and add import button to note panel
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.weighty = .0625;
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		addNotesPanel.add(importNote, gbc);
+
+		//Create and add export button txt to note panel
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.weighty = .0625;
+		gbc.gridx = 1;
+		gbc.gridy = 0;
+		addNotesPanel.add(exportNoteTxt, gbc);
+
+		//Create and add export button html to note panel
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.weighty = .0625;
+		gbc.gridx = 2;
+		gbc.gridy = 0;
+		addNotesPanel.add(exportNoteHtml, gbc);
+
+		//Create and add the add note button to note panel
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.weighty = .0625;
+		gbc.gridwidth = 3;
+		gbc.gridx = 0;
+		gbc.gridy = 1;
+		addNotesPanel.add(addNote, gbc);
+
+		//Create and add edit note button to note panel
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.weighty = .0625;
+		gbc.gridwidth = 1;
+		gbc.gridx = 0;
+		gbc.gridy = 2;
+		addNotesPanel.add(editNote, gbc);
+
+		//Create and add open note button to note panel
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.weighty = .0625;
+		gbc.gridx = 1;
+		gbc.gridy = 2;
+		addNotesPanel.add(openNote, gbc);
+
+		//Create and add remove note button to note panel
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.weighty = .0625;
+		gbc.gridwidth = 3;
+		gbc.gridx = 2;
+		gbc.gridy = 2;
+		addNotesPanel.add(removeNote, gbc);
+
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.weighty = .8125;
+		gbc.gridx = 0;
+		gbc.gridy = 3;
+		addNotesPanel.add(notePanel, gbc);
+
+
+		//Add note panel to main panel
+		Border notesTitleBorder = BorderFactory.createTitledBorder(bevelBorder,"Notes", TitledBorder.LEFT, TitledBorder.TOP);
+		addNotesPanel.setBackground(Color.lightGray);
+		addNotesPanel.setBorder(notesTitleBorder);
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.weightx = 0.33;
+		gbc.gridheight = 2;
+		gbc.gridx = 1;
+		gbc.gridy = 0;
+		panel.add(addNotesPanel, gbc);
+
+		panel.revalidate();
 	}
 }
