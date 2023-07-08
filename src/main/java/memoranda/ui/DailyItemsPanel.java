@@ -202,9 +202,9 @@ public class DailyItemsPanel extends JPanel {
 
         mainPanel.add(editorsPanel, BorderLayout.CENTER);
         
-        editorsPanel.add(agendaPanel, "AGENDA");
-        editorsPanel.add(eventsPanel, "EVENTS");
-        editorsPanel.add(tasksPanel, "TASKS");
+        editorsPanel.add(agendaPanel, "SCHEDULE");
+        editorsPanel.add(eventsPanel, "CLASSES");
+        editorsPanel.add(tasksPanel, "WORKOUTS");
         editorsPanel.add(editorPanel, "NOTES");
         
         splitPane.add(mainPanel, JSplitPane.RIGHT);
