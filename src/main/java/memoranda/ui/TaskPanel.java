@@ -140,7 +140,7 @@ public class TaskPanel extends JPanel {
         });
         editTaskB.setPreferredSize(new Dimension(24, 24));
         editTaskB.setRequestFocusEnabled(false);
-        editTaskB.setToolTipText(Local.getString("Edit task"));
+        editTaskB.setToolTipText(Local.getString("Edit Class"));
         editTaskB.setMinimumSize(new Dimension(24, 24));
         editTaskB.setMaximumSize(new Dimension(24, 24));
 //        editTaskB.setEnabled(true);
@@ -234,7 +234,7 @@ public class TaskPanel extends JPanel {
         /*taskTable.setMaximumSize(new Dimension(32767, 32767));
         taskTable.setRowHeight(24);*/
         ppEditTask.setFont(new java.awt.Font("Dialog", 1, 11));
-    ppEditTask.setText(Local.getString("Edit task")+"...");
+    ppEditTask.setText(Local.getString("Edit Class")+"...");
     ppEditTask.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ppEditTask_actionPerformed(e);
@@ -446,7 +446,7 @@ public class TaskPanel extends JPanel {
         Task t =
             CurrentProject.getTaskList().getTask(
                 taskTable.getModel().getValueAt(taskTable.getSelectedRow(), TaskTable.TASK_ID).toString());
-        TaskDialog dlg = new TaskDialog(App.getFrame(), Local.getString("Edit task"));
+        TaskDialog dlg = new TaskDialog(App.getFrame(), Local.getString("Edit Class"));
         Dimension frmSize = App.getFrame().getSize();
         Point loc = App.getFrame().getLocation();
         dlg.setLocation((frmSize.width - dlg.getSize().width) / 2 + loc.x, (frmSize.height - dlg.getSize().height) / 2 + loc.y);
