@@ -97,12 +97,12 @@ public class utilandLocalUnitTest {
     }
 
     @Test
-    public void testGetPastDateStamp() {
+    public void testGetInvalidDateStamp() {
         Util util = new Util();
         Calendar cal = Calendar.getInstance();
-        cal.set(2023, Calendar.APRIL, 16);
+        cal.set(2023, Calendar.JUNE, 31);
 
-        String expectedDateStamp = "16/4/2022";
+        String expectedDateStamp = "30/6/2022";
         String actualDateStamp = util.getDateStamp(cal);
 
         assertEquals(expectedDateStamp, actualDateStamp);
