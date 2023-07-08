@@ -112,8 +112,6 @@ Copy the section for each team member and then everyone adds their individual co
 
   **Do you think you individually worked consistently and put in enough work into the project (give a short answer). 
 
-
-
  Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
 
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
@@ -122,16 +120,6 @@ Copy the section for each team member and then everyone adds their individual co
     - link2
 
   **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
-    - link1
-    - link2
-
-  **GitHub links to your Code Reviews (up to 3 links) -- Sprint 2 and 3:
-    - link1
-    - link2
-
-  
-  **How did you contribute to Static Analysis -- Sprint 3:
-
     - link1
     - link2
 
@@ -144,8 +132,7 @@ Copy the section for each team member and then everyone adds their individual co
 #### Team member <Geena Rustia>:
 
   **Do you think you individually worked consistently and put in enough work into the project (give a short answer). 
-
-
+  - I believe I have worked a decent amount of time with my groupmates for this group project throughout the course.
 
  Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
 
@@ -155,16 +142,6 @@ Copy the section for each team member and then everyone adds their individual co
     - link2
 
   **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
-    - link1
-    - link2
-
-  **GitHub links to your Code Reviews (up to 3 links) -- Sprint 2 and 3:
-    - link1
-    - link2
-
-  
-  **How did you contribute to Static Analysis -- Sprint 3:
-
     - link1
     - link2
 
@@ -177,8 +154,6 @@ Copy the section for each team member and then everyone adds their individual co
 
   **Do you think you individually worked consistently and put in enough work into the project (give a short answer). 
 
-
-
  Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
 
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
@@ -190,16 +165,6 @@ Copy the section for each team member and then everyone adds their individual co
     - link1
     - link2
 
-  **GitHub links to your Code Reviews (up to 3 links) -- Sprint 2 and 3:
-    - link1
-    - link2
-
-  
-  **How did you contribute to Static Analysis -- Sprint 3:
-
-    - link1
-    - link2
-
   **What was your main contribution to the Quality Policy documentation?:
 
     - link1
@@ -208,19 +173,18 @@ Copy the section for each team member and then everyone adds their individual co
     
 ## Below is just for you as a little reminder on what needs to be done
 ### Checklist for you to see if you are done with the current Sprint
-- [ ] Filled out the complete form from above, all fields are filled and written in full sentences
-- [ ] Read the kickoff again to make sure you have all the details
-- [ ] User Stories that were not completed, were left in the Sprint and a copy created
-- [ ] Your Quality Policies are accurate and up to date
-- [ ] User Stories that were not completed, were left in the Sprint and a copy created to move to the next Sprint
-- [ ] Your Quality Policies are accurate and up to date
-- [ ] **Individual** Survey was submitted **individually** (create checkboxes below -- see Canvas to get link)
-  - [ ] Geena Rustia
+- [x] Filled out the complete form from above, all fields are filled and written in full sentences
+- [x] Read the kickoff again to make sure you have all the details
+- [x] User Stories that were not completed, were left in the Sprint and a copy created
+- [x] Your Quality Policies are accurate and up to date
+- [x] User Stories that were not completed, were left in the Sprint and a copy created to move to the next Sprint
+- [] **Individual** Survey was submitted **individually** (create checkboxes below -- see Canvas to get link)
+  - [x] Geena Rustia
   - [ ] Ben Meddeb
   - [ ] Brinson Doederlin
 - The original of this file was copied for the next Sprint (needed for all but last Sprint where you do not need to copy it anymore)
- - [ ] Basic information (part 1) for next Sprint was included (meaning Spring Planning is complete)
- - [ ] All User Stories have acceptance tests
- - [ ] User Stories in your new Sprint Backlog have initial tasks which are in New
- - [ ] You know how to proceed
+ - [x] Basic information (part 1) for next Sprint was included (meaning Spring Planning is complete)
+ - [x] All User Stories have acceptance tests
+ - [x] User Stories in your new Sprint Backlog have initial tasks which are in New
+ - [x] You know how to proceed
 
