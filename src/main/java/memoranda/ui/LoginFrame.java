@@ -70,19 +70,19 @@ public class LoginFrame extends JFrame {
         });
         createNewAccount.addActionListener(e -> {
             if(userNameField.getText().length()<6) {
-                notice.setText("Username too short.");
+                notice.setText("Username too short. :(");
                 notice2.setText("Must be 6-32 characters");
             }
             else if(userNameField.getText().length()>32) {
-                notice.setText("Username too long.");
+                notice.setText("Username too long. :(");
                 notice2.setText("Must be 6-32 characters");
             }
             else if(passwordField.getText().length()<8){
-                notice.setText("Password too short.");
+                notice.setText("Password too short. :(");
                 notice2.setText("Must be 8-64 characters");
             }
             else if(passwordField.getText().length()>64){
-                notice.setText("Password too long.");
+                notice.setText("Password too long. :(");
                 notice2.setText("Must be 8-64 characters");
             }
             else {
@@ -96,15 +96,15 @@ public class LoginFrame extends JFrame {
                 m=p.matcher(passwordField.getText());
                 boolean hasNumber = m.find();
                 if(!hasUppercase) {
-                    notice.setText("Must contain an upper case character.");
+                    notice.setText("Must contain an upper case character. :(");
                     notice2.setText("                                        ");
                 }
                 else if(!hasSpecialChar) {
-                    notice.setText("Must contain a special character.");
+                    notice.setText("Must contain a special character. :(");
                     notice2.setText("                                        ");
                 }
                 else if(!hasNumber) {
-                    notice.setText("Must contain a number.");
+                    notice.setText("Must contain a number. :(");
                     notice2.setText("                                        ");
                 }
                 else {
