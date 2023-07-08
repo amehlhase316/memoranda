@@ -282,7 +282,7 @@ public class AppFrame extends JFrame {
             }
         });
         
-        jMenuHelpWeb.setText(Local.getString("Memoranda web site"));
+        jMenuHelpWeb.setText(Local.getString("Gym Master web site"));
         jMenuHelpWeb.setIcon(new ImageIcon(AppFrame.class.getResource(
                 "/ui/icons/web.png")));
         jMenuHelpWeb.addActionListener(new ActionListener() {
