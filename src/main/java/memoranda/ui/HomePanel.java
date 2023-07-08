@@ -79,8 +79,6 @@ public class HomePanel extends JPanel {
 
 	GridBagLayout layout = new GridBagLayout();
 
-	GridBagConstraints gbc = new GridBagConstraints();
-
 	String[][] data = {};
 	String[] column ={"Class ID","Class Time","Class Date"};
 	JTable jt = new JTable(data,column);
@@ -88,6 +86,24 @@ public class HomePanel extends JPanel {
 	JLabel lessons = new JLabel("", 0);
 
 	JLabel loggedOut = new JLabel("<html>Please login to view<br/>Username: login<br/>Password: password</html>", SwingConstants.CENTER);
+
+	JButton importNote = new JButton("Import Note");
+
+	JButton exportNoteTxt = new JButton("Export Notes as .txt");
+
+	JButton exportNoteHtml = new JButton("Export Notes as .html");
+
+	JButton addNote = new JButton("Add Note");
+
+	JButton editNote = new JButton("Edit");
+
+	JButton openNote = new JButton("Open In a New Window");
+
+	JButton removeNote = new JButton("Remove Note");
+
+	JFrame frameLoginPopUp = new JFrame();
+
+	JFrame frameLogoutPopUp = new JFrame();
 
 
 	//	JPopupMenu agendaPPMenu = new JPopupMenu();
@@ -317,6 +333,7 @@ public class HomePanel extends JPanel {
 		toolBar.addSeparator(new Dimension(8, 24));
 
 		this.add(toolBar, BorderLayout.NORTH);
+		panel.revalidate();
 
 
 		CurrentDate.addDateListener(new DateListener() {
@@ -453,12 +470,11 @@ public class HomePanel extends JPanel {
 		JPanel panelLogin = new JPanel();
 		panelLogin.setLayout(null);
 
-		JFrame frame = new JFrame();
-		frame.setTitle("Login Page");
-		frame.pack();
-		frame.setLocationRelativeTo(null);
-		frame.add(panelLogin);
-		frame.setSize(new Dimension(400, 200));
+		frameLoginPopUp.setTitle("Login Page");
+		frameLoginPopUp.pack();
+		frameLoginPopUp.setLocationRelativeTo(null);
+		frameLoginPopUp.add(panelLogin);
+		frameLoginPopUp.setSize(new Dimension(400, 200));
 
 		JLabel label = new JLabel();
 		label.setBounds(100, 8, 70, 20);
@@ -493,7 +509,7 @@ public class HomePanel extends JPanel {
 						loginHomePanel();
 
 						JOptionPane.showMessageDialog(null, "Login Successful!");
-						frame.setVisible(false);
+						frameLogin.setVisible(false);
 					}
 					else {
 						JOptionPane.showMessageDialog(null, "Password Incorrect");
@@ -507,7 +523,7 @@ public class HomePanel extends JPanel {
 		});
 		panelLogin.add(button);
 
-		return frame;
+		return frameLoginPopUp;
 	}
 
 	/**
@@ -521,12 +537,11 @@ public class HomePanel extends JPanel {
 		JPanel panelLogout = new JPanel();
 		panelLogout.setLayout(null);
 
-		JFrame frame = new JFrame();
-		frame.setTitle("Logout Page");
-		frame.pack();
-		frame.setLocationRelativeTo(null);
-		frame.add(panelLogout);
-		frame.setSize(new Dimension(400, 200));
+		frameLogoutPopUp.setTitle("Logout Page");
+		frameLogoutPopUp.pack();
+		frameLogoutPopUp.setLocationRelativeTo(null);
+		frameLogoutPopUp.add(panelLogout);
+		frameLogoutPopUp.setSize(new Dimension(400, 200));
 
 		JLabel label = new JLabel("Are you sure you want to logout?");
 		label.setBounds(100, 60, 200, 20);
@@ -550,12 +565,12 @@ public class HomePanel extends JPanel {
 				launchHomePanel();
 
 				JOptionPane.showMessageDialog(null, "Logout Successful!");
-				frame.setVisible(false);
+				frameLogoutPopUp.setVisible(false);
 			}
 		});
 		panelLogout.add(button);
 
-		return frame;
+		return frameLogoutPopUp;
 	}
 
 	/**
@@ -604,6 +619,8 @@ public class HomePanel extends JPanel {
 		Border userJoinDateTitleBorder = BorderFactory.createTitledBorder(bevelBorder, "Date Joined", TitledBorder.CENTER, TitledBorder.TOP);
 		userJoinDate.setBorder(userJoinDateTitleBorder);
 
+		GridBagConstraints gbc = new GridBagConstraints();
+
 		//Add user info panel to main panel
 		Border userTitleBorder = BorderFactory.createTitledBorder(bevelBorder, "User Info", TitledBorder.LEFT, TitledBorder.TOP);
 		userPanel.setLayout(new BoxLayout(userPanel, BoxLayout.Y_AXIS));
@@ -647,8 +664,6 @@ public class HomePanel extends JPanel {
 
 		//Create buttons for notes
 		//Create and add import button to note panel
-		JButton importNote = new JButton();
-		importNote.setText("Import Note");
 		gbc.fill = GridBagConstraints.BOTH;
 		gbc.weighty = .0625;
 		gbc.gridx = 0;
@@ -656,8 +671,6 @@ public class HomePanel extends JPanel {
 		addNotesPanel.add(importNote, gbc);
 
 		//Create and add export button txt to note panel
-		JButton exportNoteTxt = new JButton();
-		exportNoteTxt.setText("Export Notes as .txt");
 		gbc.fill = GridBagConstraints.BOTH;
 		gbc.weighty = .0625;
 		gbc.gridx = 1;
@@ -665,8 +678,6 @@ public class HomePanel extends JPanel {
 		addNotesPanel.add(exportNoteTxt, gbc);
 
 		//Create and add export button html to note panel
-		JButton exportNoteHtml = new JButton();
-		exportNoteHtml.setText("Export Notes as .html");
 		gbc.fill = GridBagConstraints.BOTH;
 		gbc.weighty = .0625;
 		gbc.gridx = 2;
@@ -674,8 +685,6 @@ public class HomePanel extends JPanel {
 		addNotesPanel.add(exportNoteHtml, gbc);
 
 		//Create and add the add note button to note panel
-		JButton addNote = new JButton();
-		addNote.setText("Add Note");
 		gbc.fill = GridBagConstraints.BOTH;
 		gbc.weighty = .0625;
 		gbc.gridwidth = 3;
@@ -684,8 +693,6 @@ public class HomePanel extends JPanel {
 		addNotesPanel.add(addNote, gbc);
 
 		//Create and add edit note button to note panel
-		JButton editNote = new JButton();
-		editNote.setText("Edit");
 		gbc.fill = GridBagConstraints.BOTH;
 		gbc.weighty = .0625;
 		gbc.gridwidth = 1;
@@ -694,8 +701,6 @@ public class HomePanel extends JPanel {
 		addNotesPanel.add(editNote, gbc);
 
 		//Create and add open note button to note panel
-		JButton openNote = new JButton();
-		openNote.setText("Open In a New Window");
 		gbc.fill = GridBagConstraints.BOTH;
 		gbc.weighty = .0625;
 		gbc.gridx = 1;
@@ -703,8 +708,6 @@ public class HomePanel extends JPanel {
 		addNotesPanel.add(openNote, gbc);
 
 		//Create and add remove note button to note panel
-		JButton removeNote = new JButton();
-		removeNote.setText("Remove Note");
 		gbc.fill = GridBagConstraints.BOTH;
 		gbc.weighty = .0625;
 		gbc.gridwidth = 3;
