@@ -54,7 +54,11 @@ Document your Sprint Planning here. Also check the kickoff document for more det
 ### Sprint Review
 Answer as a team!
 
-**Screen Cast link**: [Sprint 3 Screencast] 
+**Screen Cast link**:
+[Screencast](https://youtu.be/B7KI1Sw-LYE)
+
+<iframe width="560" height="315" src="https://youtu.be/B7KI1Sw-LYE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 > Answer the following questions as a team. 
 
@@ -116,17 +120,19 @@ Copy the section for each team member and then everyone adds their individual co
 
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
 
-    - link1
-    - link2
+[Sprint 3](https://github.com/bmeddeb/memoranda/tree/task99) <br>
+[Sprint 3](https://github.com/bmeddeb/memoranda/tree/task97) <br>
+[Sprint 3](https://github.com/bmeddeb/memoranda/tree/task96) <br>
 
-  **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
-    - link1
-    - link2
+
+  **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3: <br>
+    [Sprint 3](https://github.com/bmeddeb/memoranda/tree/task66) <br>
+    [Sprint 2](https://github.com/bmeddeb/memoranda/tree/US73) <br>
 
   **What was your main contribution to the Quality Policy documentation?:
 
-    - link1
-    - link2
+[Sprint 2 Quality Policy ](https://github.com/amehlhase316/memoranda/commit/a13a14f13ab5163211e0fca435b5cc5e0bc5fe50)
+    
 
 
 #### Team member <Geena Rustia>:
@@ -180,7 +186,7 @@ Copy the section for each team member and then everyone adds their individual co
 - [x] User Stories that were not completed, were left in the Sprint and a copy created to move to the next Sprint
 - [] **Individual** Survey was submitted **individually** (create checkboxes below -- see Canvas to get link)
   - [x] Geena Rustia
-  - [ ] Ben Meddeb
+  - [x] Ben Meddeb
   - [ ] Brinson Doederlin
 - The original of this file was copied for the next Sprint (needed for all but last Sprint where you do not need to copy it anymore)
  - [x] Basic information (part 1) for next Sprint was included (meaning Spring Planning is complete)
