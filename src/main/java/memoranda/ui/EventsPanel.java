@@ -353,6 +353,7 @@ public class EventsPanel extends JPanel {
 //    		updateEvents(dlg,hh,mm,text);
 //    	}
 //    	saveEvents();
+        int room = dlg.room;
         int hh = dlg.hh;
         int mm = 0;
         int month = dlg.month;
@@ -360,7 +361,7 @@ public class EventsPanel extends JPanel {
         int year = CalendarDate.today().getYear();
         String name = dlg.textField.getText();
 
-        EventsManager.createEvent(hh, mm, month, date, year, name);
+        EventsManager.createEvent(room, hh, mm, month, date, year, name);
         saveEvents();
     }
 
