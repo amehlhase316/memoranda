@@ -257,6 +257,15 @@ public class EventsManager {
 			d.getElement().removeChild(getEvent(date, hh, mm).getContent());
 	}
 
+	public static void removeEvent(Element el) {
+		CalendarDate date = new CalendarDate(Integer.parseInt(el.getAttributeValue("date")), Integer.parseInt(el.getAttributeValue("month")) - 1, Integer.parseInt(el.getAttributeValue("year")) );
+		int hh = Integer.parseInt(el.getAttributeValue("hour"));
+		int mm = Integer.parseInt(el.getAttributeValue("min"));
+		Day d = getDay(date);
+		if (d == null)
+			d.getElement().removeChild(getEvent(date, hh, mm).getContent());
+	}
+
 	public static void removeEvent(Event ev) {
 		ParentNode parent = ev.getContent().getParent();
 		parent.removeChild(ev.getContent());
