@@ -18,6 +18,11 @@ import java.util.List;
  Object contains firstname, lastname, userID, permissions, rank and joinDate.
  */
 public class User implements UserInterface {
+    //Permission variables
+    static final int USER = 0;
+    static final int TRAINER = 1;
+    static final int ADMIN = 2;
+    
     private String firstName = "";
     private String lastName = "";
     private String username;
@@ -27,7 +32,14 @@ public class User implements UserInterface {
     private LessonPlanner lessons;
     private boolean login;
     private String password;
+
+    
+    //Availability is saved as integers for each day of the week.
+    // Stored in a 7x2 matrix so each day has a start and end time.
+    private int[][] availability = new int [7][2]; 
+
     private List<String> notes;
+
 
 
     /**
@@ -47,6 +59,10 @@ public class User implements UserInterface {
         this.login = false;
         this.password = null;
         this.joinDate =  CalendarDate.today();
+        for(int i = 0; i < 7; i++) {
+            availability[i][0] = 0;
+            availability[i][1] = 0;
+        }
     }
 
     @Override
@@ -119,6 +135,11 @@ public class User implements UserInterface {
     }
 
     @Override
+    public void logout() {
+        this.login = false;
+    }
+
+    @Override
     public boolean loginStatus() {
         return this.login;
     }
@@ -132,6 +153,21 @@ public class User implements UserInterface {
     public String getPassword() {
         return this.password;
     }
+    
+    public void setAvailability(int[][] times) {
+        for(int i = 0; i < 7; i++) {
+            availability[i][0] = times[i][0];
+            availability[i][1] = times[i][1];
+        }
+    }
+    
+    public int getStart(int day) {
+        return availability[day][0];
+    }
+    
+    public int getEnd(int day) {
+        return availability[day][1];
+    }
 
     @Override
     public void setNotes(String txt) {
@@ -142,6 +178,4 @@ public class User implements UserInterface {
     public List<String> getNotes() {
         return this.notes;
     }
-
-
 }
