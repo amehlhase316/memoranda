@@ -57,9 +57,6 @@ Answer as a team!
 **Screen Cast link**:
 [Screencast](https://youtu.be/B7KI1Sw-LYE)
 
-<iframe width="560" height="315" src="https://youtu.be/B7KI1Sw-LYE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
 > Answer the following questions as a team. 
 
 **What do you think is the value you created this Sprint?**
