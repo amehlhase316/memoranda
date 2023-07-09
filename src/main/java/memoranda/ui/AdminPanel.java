@@ -9,7 +9,7 @@ import java.util.Map;
 import javax.swing.*;
 import javax.swing.event.*;
 
-import main.java.memoranda.CurrentProject;
+
 import main.java.memoranda.Resource;
 import main.java.memoranda.util.AppList;
 import main.java.memoranda.util.CurrentStorage;
@@ -20,17 +20,22 @@ import main.java.memoranda.util.Util;
 import main.java.memoranda.EventsManager;
 import main.java.memoranda.ui.EventsTable;
 import main.java.memoranda.ui.DailyItemsPanel;
+import memoranda.LessonList;
 
 public class AdminPanel extends JPanel {
     JComboBox monthBox;
     JComboBox roomsList;
     JComboBox dateBox;
     JComboBox timeBox;
+
+    JComboBox classes;
     JTextField trainerUserName;
 
     EventsTable eventsTable = new EventsTable();
 
     DailyItemsPanel parentPanel = null;
+
+    LessonList lessonList = new LessonList();
 
     JTextField classType;
     public AdminPanel(DailyItemsPanel panel) {
@@ -203,12 +208,10 @@ public class AdminPanel extends JPanel {
         //Creating third section of Admin Panel UI that allows user to create, delete or add a trainer to a class
 
                 //JLabel with instructions on how to create, delete or add trainer to a class
-                JLabel createClassInstructions = new JLabel("To create a new class, enter in the class type, room and date and select either private or public, then press the 'Create new class' button.");
-                JLabel deleteClassInstructions = new JLabel("To delete a class, enter the class type and date, then press the 'Delete Class' button.");
-                JLabel addTeacherInstructions = new JLabel("To add a trainer to a class, enter the class details and the username of the trainer, then press the 'Add trainer' button.");
+                JLabel createClassInstructions = new JLabel("To create a new class, enter in the class details then press the 'Create new class' button.");
+                JLabel deleteClassInstructions = new JLabel("To delete a class, select the class in the box below, then press the 'Delete Class' button.");
                 add(createClassInstructions);
                 add(deleteClassInstructions);
-                add(addTeacherInstructions);
 
 
                 JPanel classPanel = new JPanel(new FlowLayout());
@@ -330,20 +333,43 @@ public class AdminPanel extends JPanel {
         });
                 classPanel.add(createClass);
 
-                //Button to delete class
-                JButton deleteClass = new JButton("Delete class");
-                classPanel.add(deleteClass);
-
-                JButton addTrainer = new JButton("Add trainer");
-                classPanel.add(addTrainer);
-
         add(classPanel);
+
+        JPanel deleteClassPanel = new JPanel(new FlowLayout());
+
+
+        classes = new JComboBox(LessonList.listedLessons.toArray());
+        deleteClassPanel.add(classes);
+        //Button to delete class
+        JButton deleteClass = new JButton("Delete class");
+        deleteClass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                deleteClass_actionPerformed(e);
+            }
+        });
+
+        deleteClassPanel.add(deleteClass);
+        add(deleteClassPanel);
     }
 
     void createClass_actionPerformed(ActionEvent e) {
         int year = main.java.memoranda.date.CalendarDate.today().getYear();
         EventsManager.createEvent(roomsList.getSelectedIndex() + 1, timeBox.getSelectedIndex(), 0, monthBox.getSelectedIndex() + 1, dateBox.getSelectedIndex() + 1, year, classType.getText());
         saveEvents();
+        classes.addItem(LessonList.listedLessons.get(LessonList.listedLessons.size() - 1));
+    }
+
+    void deleteClass_actionPerformed(ActionEvent e) {
+        EventsManager.removeEvent(LessonList.getLesson(classes.getSelectedIndex()));
+        String item = (String) classes.getSelectedItem();
+        LessonList.removeLesson(classes.getSelectedIndex());
+        classes.removeItem(item);
+        saveEvents();
+//        public static void removeEvent(main.java.memoranda.date.CalendarDate date, int hh, int mm) {
+//            EventsManager.Day d = getDay(date);
+//            if (d == null)
+//                d.getElement().removeChild(getEvent(date, hh, mm).getContent());
+//        }
     }
 
     private void saveEvents() {
