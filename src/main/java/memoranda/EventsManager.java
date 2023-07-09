@@ -28,8 +28,6 @@ import nu.xom.Element;
 import nu.xom.Elements;
 import nu.xom.ParentNode;
 
-import main.java.memoranda.LessonList;
-
 /**
  *  
  */
@@ -115,6 +113,7 @@ public class EventsManager {
 
 	public static Event createEvent(
 		//CalendarDate date,
+		int room,
 		int hh,
 		int mm,
 		int month,
@@ -123,6 +122,7 @@ public class EventsManager {
 		String text) {
 		Element el = new Element("event");
 		el.addAttribute(new Attribute("id", Util.generateId()));
+		el.addAttribute(new Attribute("room", String.valueOf(room)));
 		el.addAttribute(new Attribute("hour", String.valueOf(hh)));
 		el.addAttribute(new Attribute("min", String.valueOf(mm)));
 		el.addAttribute(new Attribute("month", String.valueOf(month)));
