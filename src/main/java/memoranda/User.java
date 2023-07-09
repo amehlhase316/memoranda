@@ -166,16 +166,6 @@ public class User implements UserInterface {
         return availability[day][1];
     }
 
-    public String toString() {
-        return "First Name: " + getFirstName() + "\n" +
-                "Last Name: " + getLastName() + "\n" +
-                "Username: " + getUsername() + "\n" +
-                "Permissions: " + getPermissions() + "\n" +
-                "Rank: " + getRank() + "\n" +
-                "Password: " + getPassword() + "\n" +
-                "Join Date: " + getJoinDateAsString() + "\n";
-    }
-
     @Override
     public void setNotes(String txt) {
         this.notes.add(txt);
@@ -184,5 +174,15 @@ public class User implements UserInterface {
     @Override
     public List<String> getNotes() {
         return this.notes;
+    }
+
+    public String toString() {
+        return "First Name: " + getFirstName() + "\n" +
+                "Last Name: " + getLastName() + "\n" +
+                "Username: " + getUsername() + "\n" +
+                "Permissions: " + getPermissions() + "\n" +
+                "Rank: " + getRank() + "\n" +
+                "Password: " + getPassword() + "\n" +
+                "Join Date: " + getJoinDateAsString() + "\n";
     }
 }
