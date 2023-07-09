@@ -20,12 +20,15 @@ import main.java.memoranda.util.Util;
 import java.util.Map;
 import java.util.Collections;
 
+import memoranda.LessonList;
 import nu.xom.Attribute;
 //import nu.xom.Comment;
 import nu.xom.Document;
 import nu.xom.Element;
 import nu.xom.Elements;
 import nu.xom.ParentNode;
+
+import main.java.memoranda.LessonList;
 
 /**
  *  
@@ -119,6 +122,7 @@ public class EventsManager {
 		int year,
 		String text) {
 		Element el = new Element("event");
+		el.addAttribute(new Attribute("id", Util.generateId()));
 		el.addAttribute(new Attribute("hour", String.valueOf(hh)));
 		el.addAttribute(new Attribute("min", String.valueOf(mm)));
 		el.addAttribute(new Attribute("month", String.valueOf(month)));
@@ -132,6 +136,7 @@ public class EventsManager {
 		if (d == null)
 			d = createDay(date);
 		d.getElement().appendChild(el);
+		LessonList.addLesson(el);
 		return new EventImpl(el);
 	}
 
