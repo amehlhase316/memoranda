@@ -39,6 +39,7 @@ public class EventDialog extends JDialog implements WindowListener {
     JPanel eventPanel = new JPanel(new GridBagLayout());
     GridBagConstraints gbc;
 
+    public int room;
     public int month;
     public int date;
     public int hh;
@@ -48,6 +49,7 @@ public class EventDialog extends JDialog implements WindowListener {
     JLabel lblMonth = new JLabel();
     JLabel lblDate = new JLabel();
     JLabel lblError = new JLabel();
+    JLabel lblRoom = new JLabel();
     String[] months = new String[]{"January", "February", "March", "April", "May", "June", "July",
             "August", "September", "October", "November", "December"};
     JComboBox monthBox = new JComboBox<>(months);
@@ -55,6 +57,10 @@ public class EventDialog extends JDialog implements WindowListener {
     String[] hours = new String[]{"00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00"};
     JComboBox timeBox = new JComboBox<>(hours);
     JComboBox dateBox = new JComboBox<>();
+
+    String[] rooms = new String[]{"1","2","3","4"};
+    JComboBox roomBox = new JComboBox<>(rooms);
+
 
     Map<String, Integer> monthDays = new HashMap<>();
     public JSpinner timeSpin = new JSpinner(new SpinnerDateModel(new Date(), null, null, Calendar.MINUTE));
@@ -184,10 +190,24 @@ public class EventDialog extends JDialog implements WindowListener {
         gbc.anchor = GridBagConstraints.WEST;
         eventPanel.add(dateBox, gbc);
 
+        lblRoom.setText(Local.getString("Time"));
+        lblRoom.setMinimumSize(new Dimension(60, 24));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0; gbc.gridy = 3;
+        gbc.insets = new Insets(10, 10, 5, 10);
+        gbc.anchor = GridBagConstraints.WEST;
+        eventPanel.add(lblRoom, gbc);
+        roomBox.setPreferredSize(new Dimension(60, 24));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1; gbc.gridy = 2;
+        gbc.insets = new Insets(10, 0, 5, 0);
+        gbc.anchor = GridBagConstraints.WEST;
+        eventPanel.add(roomBox, gbc);
+
         lblText.setText(Local.getString("Class Name"));
         lblText.setMinimumSize(new Dimension(120, 24));
         gbc = new GridBagConstraints();
-        gbc.gridx = 0; gbc.gridy = 3;
+        gbc.gridx = 0; gbc.gridy = 4;
         gbc.gridwidth = 3;
         gbc.insets = new Insets(5, 10, 5, 10);
         gbc.anchor = GridBagConstraints.WEST;
@@ -195,7 +215,7 @@ public class EventDialog extends JDialog implements WindowListener {
         textField.setMinimumSize(new Dimension(375, 24));
         textField.setPreferredSize(new Dimension(375, 24));
         gbc = new GridBagConstraints();
-        gbc.gridx = 0; gbc.gridy = 4;
+        gbc.gridx = 0; gbc.gridy = 5;
         gbc.gridwidth = 6;
         gbc.insets = new Insets(5, 10, 10, 10);
         gbc.anchor = GridBagConstraints.WEST;
@@ -551,6 +571,7 @@ public class EventDialog extends JDialog implements WindowListener {
         hh = Integer.parseInt(((String) timeBox.getSelectedItem()).substring(0, 2));
         date = (int) dateBox.getSelectedItem();
         month = monthBox.getSelectedIndex() + 1;
+        room = roomBox.getSelectedIndex() + 1;
 
         this.dispose();
     }
