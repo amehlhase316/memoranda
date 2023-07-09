@@ -4,12 +4,10 @@ import main.java.memoranda.date.CalendarDate;
 import main.java.memoranda.util.Util;
 
 import java.io.*;
+import java.nio.Buffer;
 
 public class UserLoader {
 
-    static {
-
-    }
     public static void init() {
         try {
             File f = new File(Util.getEnvDir() + "users.txt");
@@ -28,7 +26,27 @@ public class UserLoader {
     }
 
     public static void save() {
-
+        try {
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(Util.getEnvDir() + "users.txt", false));
+            UserList userList = UserList.getInstance();
+            for (var temp:
+                    UserList.getUserList().entrySet()) {
+                bufferedWriter.append(temp.getValue().getFirstName()).append("\n");
+                bufferedWriter.append(temp.getValue().getLastName()).append("\n");
+                bufferedWriter.append(temp.getValue().getUsername()).append("\n");
+                bufferedWriter.append(String.valueOf(temp.getValue().getPermissions())).append("\n");
+                bufferedWriter.append(String.valueOf(temp.getValue().getRank())).append("\n");
+                bufferedWriter.append(temp.getValue().getPassword()).append("\n");
+                bufferedWriter.append(String.valueOf(temp.getValue().getJoinDate().getDay())).append("\n");
+                bufferedWriter.append(String.valueOf(temp.getValue().getJoinDate().getMonth())).append("\n");
+                bufferedWriter.append(String.valueOf(temp.getValue().getJoinDate().getYear())).append("\n");
+            }
+            bufferedWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Failed to save user data. If new users were added, they may have been lost");
+            throw new RuntimeException(e);
+        }
     }
 
     private static void loadUsersFromFile() throws IOException {
