@@ -187,7 +187,7 @@ Copy the section for each team member and then everyone adds their individual co
 - [] **Individual** Survey was submitted **individually** (create checkboxes below -- see Canvas to get link)
   - [x] Geena Rustia
   - [x] Ben Meddeb
-  - [ ] Brinson Doederlin
+  - [x] Brinson Doederlin
 - The original of this file was copied for the next Sprint (needed for all but last Sprint where you do not need to copy it anymore)
  - [x] Basic information (part 1) for next Sprint was included (meaning Spring Planning is complete)
  - [x] All User Stories have acceptance tests
