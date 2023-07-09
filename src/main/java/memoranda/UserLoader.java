@@ -1,11 +1,9 @@
 package main.java.memoranda;
 
 import main.java.memoranda.date.CalendarDate;
+import main.java.memoranda.util.Util;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class UserLoader {
 
@@ -30,8 +28,7 @@ public class UserLoader {
     }
 
     private static void loadUsersFromFile() throws IOException {
-
-        BufferedReader br = new BufferedReader(new FileReader("/src/main/resources/users.txt"));
+        BufferedReader br = new BufferedReader(new FileReader(Util.getEnvDir() + "users.txt"));
         UserList userList = UserList.getInstance();
         String line = "";
         Boolean isEndOfFile = false;
