@@ -19,6 +19,7 @@ public interface UserInterface {
     public void setLessons(LessonPlanner lessons);
     public LessonPlanner getLessons();
     public void login();
+    public void logout();
     public boolean loginStatus();
     public void setPassword(String password);
     public String getPassword();

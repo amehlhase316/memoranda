@@ -129,6 +129,11 @@ public class User implements UserInterface {
     }
 
     @Override
+    public void logout() {
+        this.login = false;
+    }
+
+    @Override
     public boolean loginStatus() {
         return this.login;
     }

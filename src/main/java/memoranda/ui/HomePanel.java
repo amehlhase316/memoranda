@@ -554,7 +554,7 @@ public class HomePanel extends JPanel {
 		button.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				user.login();
+				user.logout();
 				user = null;
 				loggedIn = false;
 
