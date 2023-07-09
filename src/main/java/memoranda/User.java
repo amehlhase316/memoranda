@@ -1,15 +1,16 @@
+/*
+ File: User.java
+ Author: Jonathan Blicharz
+ Date: 6/23/23
+ Description: File contains User class which is used to create new User objects.
+ */
 package main.java.memoranda;
-/**
-File: User.java
-Author: Jonathan Blicharz
-Date: 6/23/23
-Description: File contains User class which is used to create new User objects.
-*/
-
 
 import main.java.memoranda.date.CalendarDate;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 /**
  Class: User
@@ -26,7 +27,7 @@ public class User implements UserInterface {
     private LessonPlanner lessons;
     private boolean login;
     private String password;
-    //private Lesson lessons; Implement after Lesson class is created
+    private List<String> notes;
 
 
     /**
@@ -36,6 +37,7 @@ public class User implements UserInterface {
      Description: Default constructor for new user object.
      */
     public User(){
+        notes = new ArrayList<>();
         this.firstName = "null";
         this.lastName = "null";
         this.username = "null";
@@ -129,6 +131,16 @@ public class User implements UserInterface {
     @Override
     public String getPassword() {
         return this.password;
+    }
+
+    @Override
+    public void setNotes(String txt) {
+        this.notes.add(txt);
+    }
+
+    @Override
+    public List<String> getNotes() {
+        return this.notes;
     }
 
 

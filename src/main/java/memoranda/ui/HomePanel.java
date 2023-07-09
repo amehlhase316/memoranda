@@ -22,7 +22,6 @@ import main.java.memoranda.*;
 import main.java.memoranda.date.CalendarDate;
 import main.java.memoranda.date.CurrentDate;
 import main.java.memoranda.date.DateListener;
-import main.java.memoranda.util.HomeGenerator;
 import main.java.memoranda.util.CurrentStorage;
 import main.java.memoranda.util.Local;
 import main.java.memoranda.util.Util;
@@ -40,8 +39,6 @@ public class HomePanel extends JPanel {
 	JToolBar toolBar = new JToolBar();
 	JButton logoutB = new JButton();
 	JEditorPane viewer = new JEditorPane("text/html", "");
-	JEditorPane viewer1 = new JEditorPane("text/html", "");
-	JEditorPane viewer2 = new JEditorPane("text/html", "");
 	String[] priorities = {"Very High","High","Medium","Low","Very Low"};
 	JScrollPane scrollPane = new JScrollPane();
 	JPanel panel = new JPanel();
@@ -49,6 +46,7 @@ public class HomePanel extends JPanel {
 
 	JPanel userFirstName = new JPanel();
 
+	UserList userList = new UserList();
 	JScrollPane notePanel = new JScrollPane();
 	JScrollPane upcomingClassPanel = new JScrollPane();
 
@@ -58,19 +56,16 @@ public class HomePanel extends JPanel {
 	User user;
 	boolean loggedIn = false;
 
-	static UserList u = new UserList();
+	JLabel userFirstNameLabel = new JLabel("", SwingConstants.CENTER);
 
-	JLabel userFirstNameLabel = new JLabel("", 0);
+	JLabel userLastNameLabel = new JLabel("", SwingConstants.CENTER);
 
-	JLabel userLastNameLabel = new JLabel("", 0);
-
-	JLabel userIDLabel = new JLabel("", 0);
+	JLabel userIDLabel = new JLabel("", SwingConstants.CENTER);
 	JPanel userID = new JPanel();
-	JLabel userRankLabel = new JLabel("", 0);
+	JLabel userRankLabel = new JLabel("", SwingConstants.CENTER);
 	JPanel userRank = new JPanel();
 	JPanel userLastName = new JPanel();
-
-	JLabel userJoinDateLabel = new JLabel("Date Joined", 0);
+	JLabel userJoinDateLabel = new JLabel("Date Joined", SwingConstants.CENTER);
 	JPanel userJoinDate = new JPanel();
 
 	HashMap<String, User> users = UserList.users;
@@ -83,31 +78,32 @@ public class HomePanel extends JPanel {
 	String[] column ={"Class ID","Class Time","Class Date"};
 	JTable jt = new JTable(data,column);
 
-	JLabel lessons = new JLabel("", 0);
+	JLabel lessons = new JLabel("", SwingConstants.CENTER);
+
+	JLabel notesLabel = new JLabel("", SwingConstants.CENTER);
 
 	JLabel loggedOut = new JLabel("<html>Please login to view<br/>Username: login<br/>Password: password</html>", SwingConstants.CENTER);
 
-	JButton importNote = new JButton("Import Note");
-
-	JButton exportNoteTxt = new JButton("Export Notes as .txt");
-
-	JButton exportNoteHtml = new JButton("Export Notes as .html");
-
 	JButton addNote = new JButton("Add Note");
-
-	JButton editNote = new JButton("Edit");
-
-	JButton openNote = new JButton("Open In a New Window");
-
-	JButton removeNote = new JButton("Remove Note");
 
 	JFrame frameLoginPopUp = new JFrame();
 
 	JFrame frameLogoutPopUp = new JFrame();
+	JFrame frameNewNote = new JFrame();
+
+	JFrame frameAddNote = new JFrame();
+
+	JPanel innerNotes = new JPanel();
+
+	JButton noteButton = new JButton();
+
+	JFrame frameNote = new JFrame();
+	JFrame frameEditNote = new JFrame();
 
 
-	//	JPopupMenu agendaPPMenu = new JPopupMenu();
-	//	JCheckBoxMenuItem ppShowActiveOnlyChB = new JCheckBoxMenuItem();
+
+
+
 
 	Collection expandedTasks;
 	String gotoTask = null;
@@ -327,7 +323,6 @@ public class HomePanel extends JPanel {
 		this.add(panel);
 
 		scrollPane.getViewport().add(viewer, null);
-		notePanel.getViewport().add(viewer1, null);
 		toolBar.add(loginB, null);
 		toolBar.add(logoutB, null);
 		toolBar.addSeparator(new Dimension(8, 24));
@@ -389,7 +384,7 @@ public class HomePanel extends JPanel {
 
 	public void refresh(CalendarDate date) {
 		//viewer.setText(HomeGenerator.getUserInfo(date,expandedTasks));
-		viewer1.setText(HomeGenerator.getUserNotes(date));
+		//viewer1.setText(HomeGenerator.getUserNotes(date));
 		//viewer2.setText((HomeGenerator.getUserClasses(date)));
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
@@ -398,7 +393,7 @@ public class HomePanel extends JPanel {
 					scrollPane.setViewportView(viewer);
 					//Show notes in note panel
 					//Uses html, possibly change in future
-					notePanel.setViewportView(viewer1);
+					//notePanel.setViewportView(viewer1);
 					//Show events in enrolled class panel
 					//Uses html, possibly change in future
 					//upcomingClassPanel.setViewportView(viewer2);
@@ -558,9 +553,8 @@ public class HomePanel extends JPanel {
 				user = null;
 				loggedIn = false;
 
-				panel.remove(userPanel);
-				panel.remove(upcomingClassPanel);
-				panel.remove(addNotesPanel);
+				panel.removeAll();
+				innerNotes.removeAll();
 
 				launchHomePanel();
 
@@ -580,6 +574,7 @@ public class HomePanel extends JPanel {
 	 Description: Recreates home panel after user login.
 	 */
 	public void loginHomePanel() {
+
 		this.setLayout(borderLayout1);
 		panel.setBackground(Color.darkGray);
 		panel.setSize(getWidth(), getHeight());
@@ -662,65 +657,49 @@ public class HomePanel extends JPanel {
 
 		addNotesPanel.setLayout(new GridBagLayout());
 
-		//Create buttons for notes
-		//Create and add import button to note panel
-		gbc.fill = GridBagConstraints.BOTH;
-		gbc.weighty = .0625;
-		gbc.gridx = 0;
-		gbc.gridy = 0;
-		addNotesPanel.add(importNote, gbc);
-
-		//Create and add export button txt to note panel
-		gbc.fill = GridBagConstraints.BOTH;
-		gbc.weighty = .0625;
-		gbc.gridx = 1;
-		gbc.gridy = 0;
-		addNotesPanel.add(exportNoteTxt, gbc);
-
-		//Create and add export button html to note panel
-		gbc.fill = GridBagConstraints.BOTH;
-		gbc.weighty = .0625;
-		gbc.gridx = 2;
-		gbc.gridy = 0;
-		addNotesPanel.add(exportNoteHtml, gbc);
-
 		//Create and add the add note button to note panel
-		gbc.fill = GridBagConstraints.BOTH;
-		gbc.weighty = .0625;
-		gbc.gridwidth = 3;
-		gbc.gridx = 0;
-		gbc.gridy = 1;
-		addNotesPanel.add(addNote, gbc);
-
-		//Create and add edit note button to note panel
 		gbc.fill = GridBagConstraints.BOTH;
 		gbc.weighty = .0625;
 		gbc.gridwidth = 1;
 		gbc.gridx = 0;
-		gbc.gridy = 2;
-		addNotesPanel.add(editNote, gbc);
+		gbc.gridy = 0;
+		addNotesPanel.add(addNote, gbc);
 
-		//Create and add open note button to note panel
-		gbc.fill = GridBagConstraints.BOTH;
-		gbc.weighty = .0625;
-		gbc.gridx = 1;
-		gbc.gridy = 2;
-		addNotesPanel.add(openNote, gbc);
+		//Add functionality to add note button
+		addNote.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				frameAddNote = addNewNote();
+				frameAddNote.setVisible(true);
+			}
+		});
 
-		//Create and add remove note button to note panel
-		gbc.fill = GridBagConstraints.BOTH;
-		gbc.weighty = .0625;
-		gbc.gridwidth = 3;
-		gbc.gridx = 2;
-		gbc.gridy = 2;
-		addNotesPanel.add(removeNote, gbc);
+		//Create inner notes panel. Notes will be displayed here.
+		innerNotes.setLayout(new GridLayout());
+		innerNotes.setSize(getWidth(), getHeight());
+
+		//If user has no notes, show label. If user has notes, display notes as buttons.
+		if (user.getNotes().isEmpty()) {
+			innerNotes.setLayout(new GridLayout());
+			notesLabel = new JLabel("Notes will display here.", SwingConstants.CENTER);
+			innerNotes.add(notesLabel);
+		} else {
+			innerNotes.setLayout(new GridLayout(0, 3));
+			innerNotes.remove(notesLabel);
+			for (String note : user.getNotes()) {
+				System.out.println(note);
+				addNoteButton(note);
+			}
+		}
+
+		notePanel = new JScrollPane(innerNotes);
 
 		gbc.fill = GridBagConstraints.BOTH;
 		gbc.weighty = .8125;
+		gbc.gridwidth = 3;
 		gbc.gridx = 0;
-		gbc.gridy = 3;
+		gbc.gridy = 1;
 		addNotesPanel.add(notePanel, gbc);
-
 
 		//Add note panel to main panel
 		Border notesTitleBorder = BorderFactory.createTitledBorder(bevelBorder,"Notes", TitledBorder.LEFT, TitledBorder.TOP);
@@ -734,5 +713,146 @@ public class HomePanel extends JPanel {
 		panel.add(addNotesPanel, gbc);
 
 		panel.revalidate();
+	}
+
+	/**
+	 Method: addNewNote
+	 Inputs:
+	 Returns: JFrame
+	 Description: Create pop up to allow user to input a new note. Note will be saved to user file.
+	 */
+	public JFrame addNewNote() {
+		JPanel panelNote = new JPanel();
+		panelNote.setLayout(null);
+
+		frameNewNote.setTitle("Add Note");
+		frameNewNote.pack();
+		frameNewNote.setLocationRelativeTo(null);
+		frameNewNote.add(panelNote);
+		frameNewNote.setSize(new Dimension(400, 200));
+
+		JTextField note = new JTextField("Type note here.");
+		note.setBounds(100, 27, 200, 30);
+		panelNote.add(note);
+
+		JButton button = new JButton("Add");
+		button.setBounds(100, 110, 200, 30);
+		button.setForeground(Color.WHITE);
+		button.setBackground(Color.BLACK);
+		button.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String noteAdded = note.getText();
+
+				innerNotes.removeAll();
+				addNotesPanel.removeAll();
+				panel.removeAll();
+
+				user.setNotes(noteAdded);
+
+				loginHomePanel();
+
+				JOptionPane.showMessageDialog(null, "Note Added.");
+				frameNewNote.setVisible(false);
+			}
+		});
+		panelNote.add(button);
+
+		return frameNewNote;
+	}
+
+	/**
+	 Method: addNoteButton
+	 Inputs: String
+	 Returns:
+	 Description: Create new note as a button.
+	 */
+	private void addNoteButton(String note) {
+		noteButton = new JButton(note);
+		noteButton.setForeground(Color.BLUE);
+		noteButton.setBackground(Color.ORANGE);
+		innerNotes.add(noteButton);
+		noteButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				frameNote = editNote(note);
+				frameNote.setVisible(true);
+			}
+		});
+		innerNotes.revalidate();
+	}
+
+	/**
+	 Method: editNote
+	 Inputs: String
+	 Returns: JFrame
+	 Description: Create pop up of selected note. Allow user to edit or delete the active note.
+	 Edit or delete will be saved to user.
+	 */
+	public JFrame editNote(String notes) {
+		JPanel panelNote = new JPanel();
+		panelNote.setLayout(null);
+
+		frameEditNote.setTitle("Edit Note");
+		frameEditNote.pack();
+		frameEditNote.setLocationRelativeTo(null);
+		frameEditNote.add(panelNote);
+		frameEditNote.setSize(new Dimension(400, 200));
+
+		JTextField note = new JTextField(notes);
+		note.setBounds(40, 27, 300, 50);
+		panelNote.add(note);
+
+		JButton buttonSave = new JButton("Save");
+		buttonSave.setBounds(100, 110, 100, 30);
+		buttonSave.setForeground(Color.WHITE);
+		buttonSave.setBackground(Color.BLACK);
+		buttonSave.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String noteEdited = note.getText();
+
+				innerNotes.removeAll();
+				addNotesPanel.removeAll();
+				panel.removeAll();
+
+				user.getNotes().remove(notes);
+				user.setNotes(noteEdited);
+				innerNotes.removeAll();
+
+				loginHomePanel();
+
+				JOptionPane.showMessageDialog(null, "Note Saved.");
+				frameEditNote.setVisible(false);
+			}
+		});
+
+		JButton buttonDelete = new JButton("Delete");
+		buttonDelete.setBounds(200, 110, 100, 30);
+		buttonDelete.setForeground(Color.WHITE);
+		buttonDelete.setBackground(Color.BLACK);
+		buttonDelete.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				panel.removeAll();
+				innerNotes.removeAll();
+
+				user.getNotes().remove(notes);
+				innerNotes.removeAll();
+				addNotesPanel.removeAll();
+				panel.removeAll();
+
+				loginHomePanel();
+
+				JOptionPane.showMessageDialog(null, "Note Removed.");
+				frameEditNote.setVisible(false);
+			}
+		});
+
+		panelNote.add(buttonSave);
+		panelNote.add(buttonDelete);
+
+		return frameEditNote;
 	}
 }
