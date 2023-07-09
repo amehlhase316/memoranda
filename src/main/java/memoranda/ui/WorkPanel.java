@@ -6,16 +6,20 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
+import java.util.HashMap;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 
+import main.java.memoranda.User;
+import main.java.memoranda.UserList;
 import main.java.memoranda.util.Context;
 import main.java.memoranda.util.Local;
 
@@ -26,6 +30,8 @@ import main.java.memoranda.util.Local;
 
 /*$Id: WorkPanel.java,v 1.9 2004/04/05 10:05:44 alexeya Exp $*/
 public class WorkPanel extends JPanel {
+    HashMap<String, User> users = UserList.users;
+    User user;
 	BorderLayout borderLayout1 = new BorderLayout();
 	JToolBar toolBar = new JToolBar();
 	JPanel panel = new JPanel();
@@ -97,6 +103,7 @@ public class WorkPanel extends JPanel {
 		homeB.setMargin(new Insets(0, 0, 0, 0));
 		homeB.setSelected(true);
 
+		trainerB.setSelected(true);
 		trainerB.setBackground(Color.white);
 		trainerB.setMaximumSize(new Dimension(60, 80));
 		trainerB.setMinimumSize(new Dimension(30, 30));
@@ -121,7 +128,6 @@ public class WorkPanel extends JPanel {
 					"/ui/icons/rhrTrainerIcon.png")));
 		trainerB.setOpaque(false);
 		trainerB.setMargin(new Insets(0, 0, 0, 0));
-		//trainerB.setSelected(true);
 
 		signUpB.setSelected(true);
 		signUpB.setFont(new java.awt.Font("Dialog", 1, 10));
@@ -260,16 +266,34 @@ public class WorkPanel extends JPanel {
 	}
 
 	public void trainerB_actionPerformed(ActionEvent e) {
-		cardLayout1.show(panel, "DAILYITEMS");
-		dailyItemsPanel.selectPanel("EVENTS");
-		setCurrentButton(trainerB);
-		Context.put("CURRENT_PANEL", "EVENTS");
+	    for (User u : users.values()) {
+            if (u.loginStatus()) {
+               user = u;
+            }
+         }
+	    if(user == null || user.getPermissions() < 1) {
+	        JOptionPane.showMessageDialog(null, "Unable to use tab");
+	    } else {
+    		cardLayout1.show(panel, "DAILYITEMS");
+    		dailyItemsPanel.selectPanel("EVENTS");
+    		setCurrentButton(trainerB);
+    		Context.put("CURRENT_PANEL", "EVENTS");
+	    }
 	}
 
 	public void adminB_actionPerformed(ActionEvent e) {
-		cardLayout1.show(panel, "FILES");
-		setCurrentButton(adminB);
-		Context.put("CURRENT_PANEL", "FILES");
+	    for (User u : users.values()) {
+            if (u.loginStatus()) {
+               user = u;
+            }
+         }
+        if(user == null || user.getPermissions() < 2) {
+            JOptionPane.showMessageDialog(null, "Unable to use tab");
+        } else {
+    		cardLayout1.show(panel, "FILES");
+    		setCurrentButton(adminB);
+    		Context.put("CURRENT_PANEL", "FILES");
+        }
 	}
 
 	void setCurrentButton(JButton cb) {

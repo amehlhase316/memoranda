@@ -10,7 +10,6 @@ import java.util.HashMap;
  */
 public class UserList {
     public static HashMap<String, User> users = new HashMap<>();
-
     private static UserList INSTANCE;
 
     public static UserList getInstance() {
