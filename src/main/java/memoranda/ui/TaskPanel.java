@@ -104,7 +104,7 @@ public class TaskPanel extends JPanel {
         newTaskB.setEnabled(true);
         newTaskB.setMaximumSize(new Dimension(24, 24));
         newTaskB.setMinimumSize(new Dimension(24, 24));
-        newTaskB.setToolTipText(Local.getString("Create new task"));
+        newTaskB.setToolTipText(Local.getString("Create new Class"));
         newTaskB.setRequestFocusEnabled(false);
         newTaskB.setPreferredSize(new Dimension(24, 24));
         newTaskB.setFocusable(false);
@@ -120,7 +120,7 @@ public class TaskPanel extends JPanel {
         subTaskB.setEnabled(true);
         subTaskB.setMaximumSize(new Dimension(24, 24));
         subTaskB.setMinimumSize(new Dimension(24, 24));
-        subTaskB.setToolTipText(Local.getString("Add subtask"));
+        subTaskB.setToolTipText(Local.getString("Create a Trainer Class"));
         subTaskB.setRequestFocusEnabled(false);
         subTaskB.setPreferredSize(new Dimension(24, 24));
         subTaskB.setFocusable(false);
@@ -140,7 +140,7 @@ public class TaskPanel extends JPanel {
         });
         editTaskB.setPreferredSize(new Dimension(24, 24));
         editTaskB.setRequestFocusEnabled(false);
-        editTaskB.setToolTipText(Local.getString("Edit task"));
+        editTaskB.setToolTipText(Local.getString("Edit Class"));
         editTaskB.setMinimumSize(new Dimension(24, 24));
         editTaskB.setMaximumSize(new Dimension(24, 24));
 //        editTaskB.setEnabled(true);
@@ -156,7 +156,7 @@ public class TaskPanel extends JPanel {
         });
         removeTaskB.setPreferredSize(new Dimension(24, 24));
         removeTaskB.setRequestFocusEnabled(false);
-        removeTaskB.setToolTipText(Local.getString("Remove task"));
+        removeTaskB.setToolTipText(Local.getString("Remove Class"));
         removeTaskB.setMinimumSize(new Dimension(24, 24));
         removeTaskB.setMaximumSize(new Dimension(24, 24));
         removeTaskB.setIcon(
@@ -171,7 +171,7 @@ public class TaskPanel extends JPanel {
         });
         completeTaskB.setPreferredSize(new Dimension(24, 24));
         completeTaskB.setRequestFocusEnabled(false);
-        completeTaskB.setToolTipText(Local.getString("Complete task"));
+        completeTaskB.setToolTipText(Local.getString("Complete Class"));
         completeTaskB.setMinimumSize(new Dimension(24, 24));
         completeTaskB.setMaximumSize(new Dimension(24, 24));
         completeTaskB.setIcon(
@@ -234,7 +234,7 @@ public class TaskPanel extends JPanel {
         /*taskTable.setMaximumSize(new Dimension(32767, 32767));
         taskTable.setRowHeight(24);*/
         ppEditTask.setFont(new java.awt.Font("Dialog", 1, 11));
-    ppEditTask.setText(Local.getString("Edit task")+"...");
+    ppEditTask.setText(Local.getString("Edit Class")+"...");
     ppEditTask.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ppEditTask_actionPerformed(e);
@@ -244,7 +244,7 @@ public class TaskPanel extends JPanel {
     ppEditTask.setIcon(new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/todo_edit.png")));
     taskPPMenu.setFont(new java.awt.Font("Dialog", 1, 10));
     ppRemoveTask.setFont(new java.awt.Font("Dialog", 1, 11));
-    ppRemoveTask.setText(Local.getString("Remove task"));
+    ppRemoveTask.setText(Local.getString("Remove Class"));
     ppRemoveTask.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ppRemoveTask_actionPerformed(e);
@@ -291,7 +291,7 @@ public class TaskPanel extends JPanel {
     */
 
 	ppCompleteTask.setFont(new java.awt.Font("Dialog", 1, 11));
-	ppCompleteTask.setText(Local.getString("Complete task"));
+	ppCompleteTask.setText(Local.getString("Close Class"));
 	ppCompleteTask.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ppCompleteTask_actionPerformed(e);
@@ -446,7 +446,7 @@ public class TaskPanel extends JPanel {
         Task t =
             CurrentProject.getTaskList().getTask(
                 taskTable.getModel().getValueAt(taskTable.getSelectedRow(), TaskTable.TASK_ID).toString());
-        TaskDialog dlg = new TaskDialog(App.getFrame(), Local.getString("Edit task"));
+        TaskDialog dlg = new TaskDialog(App.getFrame(), Local.getString("Edit Class"));
         Dimension frmSize = App.getFrame().getSize();
         Point loc = App.getFrame().getLocation();
         dlg.setLocation((frmSize.width - dlg.getSize().width) / 2 + loc.x, (frmSize.height - dlg.getSize().height) / 2 + loc.y);
@@ -456,11 +456,8 @@ public class TaskPanel extends JPanel {
         dlg.endDate.getModel().setValue(t.getEndDate().getDate());
         dlg.priorityCB.setSelectedIndex(t.getPriority());                
         dlg.effortField.setText(Util.getHoursFromMillis(t.getEffort()));
-	if((t.getStartDate().getDate()).after(t.getEndDate().getDate()))
-		dlg.chkEndDate.setSelected(false);
-	else
-		dlg.chkEndDate.setSelected(true);
-		dlg.progress.setValue(new Integer(t.getProgress()));
+        dlg.chkEndDate.setSelected(!(t.getStartDate().getDate()).after(t.getEndDate().getDate()));
+		dlg.progress.setValue(Integer.valueOf(t.getProgress()));
  	dlg.chkEndDate_actionPerformed(null);	
         dlg.setVisible(true);
         if (dlg.CANCELLED)
@@ -646,17 +643,17 @@ public class TaskPanel extends JPanel {
         	Task t = CurrentProject.getTaskList().getTask(thisTaskId);
         	// check if there are subtasks
 			if(CurrentProject.getTaskList().hasSubTasks(thisTaskId)) {
-				msg = Local.getString("Remove task")+"\n'" + t.getText() + Local.getString("' and all subtasks") +"\n"+Local.getString("Are you sure?");
+				msg = Local.getString("Remove class")+"\n'" + t.getText() + Local.getString("' and all subtasks") +"\n"+Local.getString("Are you sure?");
 			}
 			else {		            
-				msg = Local.getString("Remove task")+"\n'" + t.getText() + "'\n"+Local.getString("Are you sure?");
+				msg = Local.getString("Remove class")+"\n'" + t.getText() + "'\n"+Local.getString("Are you sure?");
 			}
         }
         int n =
             JOptionPane.showConfirmDialog(
                 App.getFrame(),
                 msg,
-                Local.getString("Remove task"),
+                Local.getString("Remove class"),
                 JOptionPane.YES_NO_OPTION);
         if (n != JOptionPane.YES_OPTION)
             return;
@@ -702,8 +699,9 @@ public class TaskPanel extends JPanel {
 	void toggleShowActiveOnly_actionPerformed(ActionEvent e) {
 		Context.put(
 			"SHOW_ACTIVE_TASKS_ONLY",
-			new Boolean(ppShowActiveOnlyChB.isSelected()));
-		taskTable.tableChanged();
+                Boolean.valueOf(ppShowActiveOnlyChB.isSelected()));
+
+        taskTable.tableChanged();
 	}
 
     class PopupListener extends MouseAdapter {
