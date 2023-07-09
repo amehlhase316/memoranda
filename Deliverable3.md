@@ -56,6 +56,11 @@ I would also advise you to already fill out the Contributions section (End of sp
 |06/21/2023   | Everyone attended  | Almost done with all US  |  on track |  |  |
 |06/23/2023   | Everyone attended  | Final communication prior to submission  |  on track |  |  |
 |06/24/2023   | Everyone attended  | Sprint 2 complete  |  on track |  |  |
+|06/26/2023   | Everyone attended  | Sprint 3 started  |  on track |  |  |
+|06/29/2023   | Everyone attended  | Sprint 3 task selected  |  on track |  |  |
+|07/01/2023   | Everyone attended  | Members working on US  |  on track |  |  |
+|07/04/2023   | Everyone attended  | Most team members finished a their stories  |  on track |  |  |
+|07/08/2023   | Everyone attended  | Sprint 3 complete  |  on track |  |  |
 
 
 ## 3: After the Sprint
