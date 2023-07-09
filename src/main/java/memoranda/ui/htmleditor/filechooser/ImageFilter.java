@@ -14,14 +14,10 @@ public class ImageFilter extends FileFilter {
 
         String extension = Utils.getExtension(f);
 	if (extension != null) {
-            if (extension.equals(Utils.png) ||
+        return extension.equals(Utils.png) ||
                 extension.equals(Utils.gif) ||
                 extension.equals(Utils.jpeg) ||
-                extension.equals(Utils.jpg)) {
-                    return true;
-            } else {
-                return false;
-            }
+                extension.equals(Utils.jpg);
     	}
 
         return false;

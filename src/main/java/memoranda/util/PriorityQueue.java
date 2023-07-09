@@ -8,7 +8,7 @@ public class PriorityQueue {
          * para ordenar las anotaciones por prioridad 
          */
         
-        private Pair[] a;
+        private final Pair[] a;
         private int n;
         
         public PriorityQueue(int size){

@@ -52,7 +52,7 @@ public class MimeTypesList {
             Element el = els.get(i);
             Elements exts = el.getChildElements("ext");
             for (int j = 0; j < exts.size(); j++)
-                if (exts.get(j).getValue().toLowerCase().equals(ext.toLowerCase()))
+                if (exts.get(j).getValue().equalsIgnoreCase(ext))
                     return new MimeType(el);
         }
         return new MimeType();
