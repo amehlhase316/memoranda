@@ -346,6 +346,23 @@ public class TaskPanel extends JPanel {
         signUpBar.add(joinWaitlistButton, null);
         
         this.add(signUpBar, BorderLayout.NORTH);
+
+
+
+
+
+        EventsTable eventsTable = new EventsTable();
+
+        scrollPane.getViewport().setBackground(Color.white);
+        eventsTable.setMaximumSize(new Dimension(32767, 32767));
+        eventsTable.setRowHeight(24);
+
+        scrollPane.getViewport().add(eventsTable, null);
+        this.add(scrollPane, BorderLayout.CENTER);
+
+
+
+
         
 
         PopupListener ppListener = new PopupListener();
