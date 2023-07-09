@@ -204,16 +204,18 @@ Copy the section for each team member and then everyone adds their individual co
 #### Team member Brinson Doederlin:
 
   **Do you think you individually worked consistently and put in enough work into the project (give a short answer). 
+  Yes I do. Every member was instrumental to not just the creation of all of the code but adhearing to the process to do it correctly.
 
  Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
 
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
 
-    - link1
-    - link2
+    - link1 https://github.com/bmeddeb/memoranda/tree/US20
+    - link2 https://github.com/bmeddeb/memoranda/tree/US85
+    - link3 https://github.com/bmeddeb/memoranda/tree/US%236
 
   **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
-    - link1
+    - https://github.com/bmeddeb/memoranda/tree/bdoederl-patch-1
     - link2
 
   **What was your main contribution to the Quality Policy documentation?:
