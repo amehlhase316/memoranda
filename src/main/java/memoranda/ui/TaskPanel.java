@@ -171,7 +171,7 @@ public class TaskPanel extends JPanel {
         });
         completeTaskB.setPreferredSize(new Dimension(24, 24));
         completeTaskB.setRequestFocusEnabled(false);
-        completeTaskB.setToolTipText(Local.getString("Complete task"));
+        completeTaskB.setToolTipText(Local.getString("Complete Class"));
         completeTaskB.setMinimumSize(new Dimension(24, 24));
         completeTaskB.setMaximumSize(new Dimension(24, 24));
         completeTaskB.setIcon(
@@ -291,7 +291,7 @@ public class TaskPanel extends JPanel {
     */
 
 	ppCompleteTask.setFont(new java.awt.Font("Dialog", 1, 11));
-	ppCompleteTask.setText(Local.getString("Complete task"));
+	ppCompleteTask.setText(Local.getString("Close Class"));
 	ppCompleteTask.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ppCompleteTask_actionPerformed(e);
