@@ -111,14 +111,22 @@ public class EventsManager {
 	}
 
 	public static Event createEvent(
-		CalendarDate date,
+		//CalendarDate date,
 		int hh,
 		int mm,
+		int month,
+		int day,
+		int year,
 		String text) {
 		Element el = new Element("event");
-		el.addAttribute(new Attribute("id", Util.generateId()));
 		el.addAttribute(new Attribute("hour", String.valueOf(hh)));
 		el.addAttribute(new Attribute("min", String.valueOf(mm)));
+		el.addAttribute(new Attribute("month", String.valueOf(month)));
+		el.addAttribute(new Attribute("date", String.valueOf(day)));
+		el.addAttribute(new Attribute("year", String.valueOf(year)));
+		el.addAttribute(new Attribute("name", text));
+
+		CalendarDate date = new CalendarDate(day, month - 1, year);
 		el.appendChild(text);
 		Day d = getDay(date);
 		if (d == null)
