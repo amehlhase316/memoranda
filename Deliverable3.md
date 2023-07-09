@@ -12,6 +12,55 @@
 **Git Master**: Ben Meddeb
 
 ### Sprint Planning (For Sprint 1-3)
+
+SPRINT 1:
+
+**Sprint Goal:** Our goal for Sprint 1 is to familiarize ourselves with the system/program itself. Another goal is to fix bugs in the user interface. The team will mostly work on front-end stuff and hope to get a deep understanding about how the program works.
+
+**How many User Stories did you add to the Product Backlog:** : 3
+
+**How many User Stories did you add to this Sprint:**  10 total
+> Answer the questions below about your Sprint Planning?
+
+**Why did you add these US, why do you think you can get them done in the next Sprint?**
+
+> We added the the necessary tasks to our Sprint 1 so the team could easily navigate into the code. We are planning to fix some issue with warnings and front-end errors/bugs. 
+
+**Why do you think these fit well with your Sprint goal? (details)**
+
+These fit well with our Sprint 1 goal because the team needs to get a good understanding and knowledge of the software without being overwhelmed. The program also needs to be cleaned up before making any major changes and moving deeper into the project.
+
+**Do you have a rough idea what you need to do? (if the answer is no then please let me know on Slack)**
+
+> Yes, we need to implement and create a gym class scheduling software from the memoranda software.
+
+SPRINT 2:
+
+**Sprint Goal:** The team goal for Sprint 2 is to implement major features of Gym Class Scheduling software such as
+refactoring relevant data to the classes, storing relevant information the most efficient way so the client receives the
+perfectly working software.
+
+**How many User Stories did you add to the Product Backlog:** : 3
+
+**How many User Stories did you add to this Sprint:**  5 total
+> Answer the questions below about your Sprint Planning?
+
+**Why did you add these US, why do you think you can get them done in the next Sprint?**
+
+> We decided to add these US because they all meet the requirements for Sprint 2 the best. We tried to keep the tasks
+> for our US short and relatively simple so they can be completed the most efficient way to deliver the working
+> software.
+**Why do you think these fit well with your Sprint goal? (details)**
+
+> These user stories fit well with our Sprint goal since we are trying to focus on the back-end developing of our
+> software to make sure the program performs the correct way. The team decided to keep UI implementation simple during
+> this Sprint.
+**Do you have a rough idea what you need to do? (if the answer is no then please let me know on Slack)**
+
+> Yes, we do.
+
+SPRINT 3:
+
 Document your Sprint Planning here. Also check the kickoff document for more details on what needs to be done. This is just the documentation. 
 
 **Sprint Goal:**  Our goal is going to be to display a Gym schedule as well as finish adapting the UI to represent the needs of the client. Lastly, we plan to clean up any remaining bugs we find. 
@@ -45,7 +94,7 @@ Document your Sprint Planning here. Also check the kickoff document for more det
 | Date       | Who did NOT attend | Meeting notes (very brief)                                                    | Burndown Info | GitHub Actions info  | Additional Info                            |
 |------------|--------------------|-------------------------------------------------------------------------------|---------------|----------------------|--------------------------------------------|
 | 07/05/2023 |             | Brainstormed and added scrum tasks| On track      | Master branch passes | n/a                                        |
-|  |             |       |  |                                         |
+| 07/08/2023 |             | Final meeting for deliverable 3 submission  | Completed |                                         |
 
 
 
@@ -109,7 +158,7 @@ Answer as a team!
 
 Copy the section for each team member and then everyone adds their individual contributions. 
 
-#### Team member <Ben Meddeb>:
+#### Team member Ben Meddeb:
 
   **Do you think you individually worked consistently and put in enough work into the project (give a short answer). 
 
@@ -132,7 +181,7 @@ Copy the section for each team member and then everyone adds their individual co
     
 
 
-#### Team member <Geena Rustia>:
+#### Team member Geena Rustia:
 
   **Do you think you individually worked consistently and put in enough work into the project (give a short answer). 
   - I believe I have worked a decent amount of time with my groupmates for this group project throughout the course.
@@ -141,19 +190,18 @@ Copy the section for each team member and then everyone adds their individual co
 
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
 
-    - link1
-    - link2
+    - SPRINT 1: https://github.com/bmeddeb/memoranda/commit/a1253b629c69f7764c4b7780a35fb84b0f0ed774
+    - SPRINT 2: https://github.com/bmeddeb/memoranda/commit/bee504528a30762cb8bc73bef63b9d5045512307
+    - SPRINT 3: https://github.com/bmeddeb/memoranda/commit/13a39bd2ec979b2eb97dc376a32cfc7054a9711c
 
   **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
-    - link1
-    - link2
+    - UNIT TEST: [link1](https://github.com/bmeddeb/memoranda/commit/cdc5af8ddf85e25a2322fa88a2f6ed5e8e9d5653)
 
   **What was your main contribution to the Quality Policy documentation?:
 
-    - link1
-    - link2
+    - QUALITY POLICY COMMIT: https://github.com/bmeddeb/memoranda/commit/417f5111889baf464d5ba36f4f6ff5879d9aaf85
 
-#### Team member <Brinson Doederlin>:
+#### Team member Brinson Doederlin:
 
   **Do you think you individually worked consistently and put in enough work into the project (give a short answer). 
 
