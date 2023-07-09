@@ -1,4 +1,4 @@
-package main.java.memoranda.ui;
+package memoranda.ui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -19,8 +19,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-import main.java.memoranda.util.Configuration;
-import main.java.memoranda.util.Local;
+import memoranda.util.Configuration;
+import memoranda.util.Local;
 
 public class ExitConfirmationDialog extends JDialog implements WindowListener {
     
@@ -58,16 +58,16 @@ public class ExitConfirmationDialog extends JDialog implements WindowListener {
         header.setFont(new java.awt.Font("Dialog", 0, 20));
         header.setForeground(new Color(0, 0, 124));
         header.setText(Local.getString("Exit"));
-        header.setIcon(new ImageIcon(main.java.memoranda.ui.EventDialog.class.getResource(
-            "/ui/icons/exit.png")));
+        header.setIcon(new ImageIcon(memoranda.ui.EventDialog.class.getResource(
+                "/ui/icons/exit.png")));
         headerPanel.add(header);
 		
 		// Build mainPanel
 		JLabel confirm = new JLabel();
-		confirm.setText("<HTML>"+Local.getString("This action will cause Memoranda to exit") + 
-										"<p>" + Local.getString("Do you want to continue?"));
+		confirm.setText("<HTML>"+Local.getString("This action will exit Memoranda") +
+										"<p>" + Local.getString("Are you sure you want to continue?"));
 										
-		donotaskCB.setText(Local.getString("do not ask again"));
+		donotaskCB.setText(Local.getString("Do not ask again"));
 		donotaskCB.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		mainPanel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));

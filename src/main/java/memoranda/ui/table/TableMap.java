@@ -1,4 +1,4 @@
-package main.java.memoranda.ui.table;
+package memoranda.ui.table;
 
 /** 
  * In a chain of data manipulators some behaviour is common. TableMap

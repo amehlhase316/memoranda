@@ -1,19 +1,15 @@
-package main.java.memoranda.ui;
+package memoranda.ui;
 
 import java.io.*;
-import java.nio.*;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
 import javax.swing.JOptionPane;
 
-import main.java.memoranda.EventsManager;
-import main.java.memoranda.util.CurrentStorage;
-import main.java.memoranda.util.Local;
-import nu.xom.Document;
+import memoranda.EventsManager;
+import memoranda.util.CurrentStorage;
+import memoranda.util.Local;
 import nu.xom.Element;
-import nu.xom.Elements;
 
 public class ExportSticker {
 
@@ -69,12 +65,12 @@ public class ExportSticker {
                         fwrite.write(contents);
                         
                         fwrite.close();
-                        JOptionPane.showMessageDialog(null,Local.getString("Documento creado con exito en su carpeta Memoranda =D"));
+                        JOptionPane.showMessageDialog(null,Local.getString("Document created successfully in your Memoranda folder =D"));
             
             
         } catch (IOException e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null,Local.getString("NO Logramos crear su documento =(..."));
+            JOptionPane.showMessageDialog(null,Local.getString("We were NOT able to create your document =(..."));
         }
                 
                 

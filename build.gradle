@@ -1,16 +1,94 @@
-apply plugin: 'application'
+import org.apache.tools.ant.filters.ReplaceTokens
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
-mainClassName = 'main/java/memoranda/Start'
+plugins {
+  id "com.github.spotbugs" version "5.0.12"
+  id "checkstyle"
+  id("org.openrewrite.rewrite") version("6.1.9")
+}
+
+apply plugin: 'application'
+apply plugin: 'java'
+
+mainClassName = 'memoranda/Start'
 
 compileJava.options.encoding = 'UTF-8'
 
-// Repositories and dependencies for code go here
 repositories {
   mavenCentral()
 }
 
 dependencies {
-  implementation 'com.io7m.xom:xom:1.2.+'
-  implementation 'net.sourceforge.nekohtml:nekohtml:1.9.+'
+  implementation 'com.io7m.xom:xom:1.2.10'
+  implementation 'net.sourceforge.nekohtml:nekohtml:1.9.22'
+  implementation 'junit:junit:4.13.2'
+  implementation files('src/test/java/')
+  rewrite("org.openrewrite.recipe:rewrite-static-analysis:1.0.2")
 }
 
+// Get the current date and time as a string
+def now = LocalDateTime.now()
+def formatter = DateTimeFormatter.ofPattern("MM/dd/yy-HH:mm:ss")
+def timestamp = now.format(formatter)
+
+ext {
+  version = '1.2.0'
+  build = timestamp
+}
+
+processResources {
+  filesMatching('version.properties') {
+    filter ReplaceTokens, tokens: ['VERSION': project.ext.version, 'BUILD': project.ext.build]
+  }
+}
+
+///////////////////////////////////////////////////////////////////////
+// Configure Checkstyle
+/////////////////////////////////////////////////////////////////////
+
+apply plugin: 'checkstyle'
+checkstyle {
+  // Keep checkstyle a little quieter
+  ignoreFailures = true
+  showViolations = false
+}
+
+tasks.withType(Checkstyle) {
+  reports {
+    html.enabled = true
+    xml.enabled = false
+  }
+}
+checkstyle {
+  toolVersion = "8.8"
+}
+
+
+///////////////////////////////////////////////////////////////////////
+// Configure SpotBugs
+///////////////////////////////////////////////////////////////////////
+// To generate an HTML report instead of XML
+
+spotbugsMain {
+  reports {
+    xml.enabled = false
+    html.enabled = true
+  }
+}
+spotbugs {
+  ignoreFailures = true
+  showProgress = true
+  effort = 'max'
+}
+
+rewrite {
+  activeRecipe("org.openrewrite.staticanalysis.CodeCleanup")
+  checkstyleConfigFile = file("checkstyle.xml")
+}
+def rewriteRunTask = tasks.named("rewriteRun")
+
+// In a kotlin build script, use tasks.withType<Checkstyle>()
+tasks.withType(Checkstyle) {
+  dependsOn(rewriteRunTask)
+}

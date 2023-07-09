@@ -1,4 +1,4 @@
-package main.java.memoranda.ui;
+package memoranda.ui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -36,8 +36,8 @@ import javax.swing.border.TitledBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import main.java.memoranda.date.CalendarDate;
-import main.java.memoranda.util.Local;
+import memoranda.date.CalendarDate;
+import memoranda.util.Local;
 
 /*$Id: EventDialog.java,v 1.28 2005/02/19 10:06:25 rawsushi Exp $*/
 public class EventDialog extends JDialog implements WindowListener {	
@@ -101,8 +101,8 @@ public class EventDialog extends JDialog implements WindowListener {
         header.setFont(new java.awt.Font("Dialog", 0, 20));
         header.setForeground(new Color(0, 0, 124));
         header.setText(Local.getString("Event"));
-        header.setIcon(new ImageIcon(main.java.memoranda.ui.EventDialog.class.getResource(
-            "/ui/icons/event48.png")));
+        header.setIcon(new ImageIcon(memoranda.ui.EventDialog.class.getResource(
+                "/ui/icons/event48.png")));
         headerPanel.add(header);
         
         // Build eventPanel
@@ -224,7 +224,7 @@ public class EventDialog extends JDialog implements WindowListener {
             }
         });
         setStartDateB.setIcon(
-            new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/calendar.png")));
+            new ImageIcon(memoranda.ui.AppFrame.class.getResource("/ui/icons/calendar.png")));
         setStartDateB.setText("");
         setStartDateB.setPreferredSize(new Dimension(24, 24));
 
@@ -303,7 +303,7 @@ public class EventDialog extends JDialog implements WindowListener {
         setEndDateB.setPreferredSize(new Dimension(24, 24));
         setEndDateB.setText("");
         setEndDateB.setIcon(
-            new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/calendar.png")));
+            new ImageIcon(memoranda.ui.AppFrame.class.getResource("/ui/icons/calendar.png")));
         setEndDateB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 setEndDateB_actionPerformed(e);

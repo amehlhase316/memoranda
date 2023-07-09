@@ -1,4 +1,4 @@
-package main.java.memoranda.ui.htmleditor;
+package memoranda.ui.htmleditor;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;

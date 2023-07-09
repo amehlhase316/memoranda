@@ -1,4 +1,4 @@
-package main.java.memoranda.ui.htmleditor;
+package memoranda.ui.htmleditor;
 
 import java.awt.BorderLayout;
 import java.awt.Frame;

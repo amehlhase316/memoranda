@@ -18,19 +18,16 @@
  * @LICENSE@ 
  */
 
-package main.java.memoranda.ui;
+package memoranda.ui;
 
 import javax.swing.event.*;
-import javax.swing.tree.TreePath;
 
-import main.java.memoranda.*;
-import main.java.memoranda.date.CurrentDate;
-import main.java.memoranda.ui.treetable.AbstractTreeTableModel;
-import main.java.memoranda.ui.treetable.TreeTableModel;
-import main.java.memoranda.util.Context;
-import main.java.memoranda.util.Local;
-
-import java.util.Hashtable;
+import memoranda.*;
+import memoranda.date.CurrentDate;
+import memoranda.ui.treetable.AbstractTreeTableModel;
+import memoranda.ui.treetable.TreeTableModel;
+import memoranda.util.Context;
+import memoranda.util.Local;
 
 /**
  * JAVADOC:
@@ -60,21 +57,21 @@ public class TaskTableModel extends AbstractTreeTableModel implements TreeTableM
     }
 
     /**
-     * @see main.java.memoranda.ui.treetable.TreeTableModel#getColumnCount()
+     * @see memoranda.ui.treetable.TreeTableModel#getColumnCount()
      */
     public int getColumnCount() {
         return columnNames.length;
     }
 
     /**
-     * @see main.java.memoranda.ui.treetable.TreeTableModel#getColumnName(int)
+     * @see memoranda.ui.treetable.TreeTableModel#getColumnName(int)
      */
     public String getColumnName(int column) {
         return columnNames[column];
     }
 
     /**
-     * @see main.java.memoranda.ui.treetable.TreeTableModel#getValueAt(java.lang.Object,
+     * @see memoranda.ui.treetable.TreeTableModel#getValueAt(java.lang.Object,
      *      int)
      */
     public Object getValueAt(Object node, int column) {
@@ -172,7 +169,7 @@ public class TaskTableModel extends AbstractTreeTableModel implements TreeTableM
     }
 
     /**
-     * @see main.java.memoranda.ui.treetable.TreeTableModel#getColumnClass(int)
+     * @see memoranda.ui.treetable.TreeTableModel#getColumnClass(int)
      */
     public Class getColumnClass(int column) {
         try {

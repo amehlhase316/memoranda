@@ -6,7 +6,7 @@
  * @author Alex V. Alishevskikh, alex@openmechanics.net
  * Copyright (c) 2003 Memoranda Team. http://memoranda.sf.net
  */
-package main.java.memoranda.ui;
+package memoranda.ui;
 import java.awt.Color;
 import java.awt.Component;
 import java.util.Calendar;
@@ -16,10 +16,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 
-import main.java.memoranda.CurrentProject;
-import main.java.memoranda.EventsManager;
-import main.java.memoranda.Task;
-import main.java.memoranda.date.CalendarDate;
+import memoranda.CurrentProject;
+import memoranda.EventsManager;
+import memoranda.Task;
+import memoranda.date.CalendarDate;
 /**
  *
  */
@@ -27,7 +27,7 @@ import main.java.memoranda.date.CalendarDate;
 public class JNCalendarCellRenderer extends javax.swing.table.DefaultTableCellRenderer {
     private CalendarDate d = null;
     boolean disabled = false;
-    ImageIcon evIcon = new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/en.png"));
+    ImageIcon evIcon = new ImageIcon(memoranda.ui.AppFrame.class.getResource("/ui/icons/en.png"));
     Task t = null;
     
     public void setTask(Task _t) {

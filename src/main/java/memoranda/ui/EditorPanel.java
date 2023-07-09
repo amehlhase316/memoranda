@@ -1,4 +1,4 @@
-package main.java.memoranda.ui;
+package memoranda.ui;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -11,7 +11,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.StringReader;
-import java.net.URL;
 import java.text.DateFormat;
 
 import javax.swing.AbstractAction;
@@ -26,18 +25,18 @@ import javax.swing.JToolBar;
 import javax.swing.UIManager;
 import javax.swing.text.html.HTMLDocument;
 
-import main.java.memoranda.CurrentNote;
-import main.java.memoranda.History;
-import main.java.memoranda.Note;
-import main.java.memoranda.date.CurrentDate;
-import main.java.memoranda.ui.htmleditor.HTMLEditor;
-import main.java.memoranda.util.Configuration;
-import main.java.memoranda.util.Context;
-import main.java.memoranda.util.CurrentStorage;
-import main.java.memoranda.util.HTMLFileExport;
-import main.java.memoranda.util.HTMLFileImport;
-import main.java.memoranda.util.Local;
-import main.java.memoranda.util.Util;
+import memoranda.CurrentNote;
+import memoranda.History;
+import memoranda.Note;
+import memoranda.date.CurrentDate;
+import memoranda.ui.htmleditor.HTMLEditor;
+import memoranda.util.Configuration;
+import memoranda.util.Context;
+import memoranda.util.CurrentStorage;
+import memoranda.util.HTMLFileExport;
+import memoranda.util.HTMLFileImport;
+import memoranda.util.Local;
+import memoranda.util.Util;
 
 /*$Id: EditorPanel.java,v 1.21 2006/06/28 22:58:31 alexeya Exp $*/
 public class EditorPanel extends JPanel {
@@ -97,7 +96,7 @@ public class EditorPanel extends JPanel {
 
 	public Action insertTimeAction = new AbstractAction(Local
 			.getString("Insert current time"), new ImageIcon(
-			main.java.memoranda.ui.AppFrame.class
+			memoranda.ui.AppFrame.class
 					.getResource("/ui/icons/time.png"))) {
 		public void actionPerformed(ActionEvent e) {
 			insTimeB_actionPerformed(e);
@@ -106,7 +105,7 @@ public class EditorPanel extends JPanel {
 
 	public Action insertDateAction = new AbstractAction(Local
 			.getString("Insert current date"), new ImageIcon(
-			main.java.memoranda.ui.AppFrame.class
+			memoranda.ui.AppFrame.class
 					.getResource("/ui/icons/date.png"))) {
 		public void actionPerformed(ActionEvent e) {
 			insDateB_actionPerformed(e);
@@ -120,7 +119,7 @@ public class EditorPanel extends JPanel {
 	 */
 
 	public Action newAction = new AbstractAction(Local.getString("New note"),
-			new ImageIcon(main.java.memoranda.ui.AppFrame.class
+			new ImageIcon(memoranda.ui.AppFrame.class
 					.getResource("/ui/icons/filenew.png"))) {
 		public void actionPerformed(ActionEvent e) {
 			newB_actionPerformed(e);
@@ -129,7 +128,7 @@ public class EditorPanel extends JPanel {
 
 	public Action exportAction = new AbstractAction(Local
 			.getString("Export note to file"), new ImageIcon(
-			main.java.memoranda.ui.AppFrame.class
+			memoranda.ui.AppFrame.class
 					.getResource("/ui/icons/export.png"))) {
 		public void actionPerformed(ActionEvent e) {
 			exportB_actionPerformed(e);
@@ -138,7 +137,7 @@ public class EditorPanel extends JPanel {
 
 	public Action importAction = new AbstractAction(Local
 			.getString("Insert file"), new ImageIcon(
-			main.java.memoranda.ui.AppFrame.class
+			memoranda.ui.AppFrame.class
 					.getResource("/ui/icons/import.png"))) {
 		public void actionPerformed(ActionEvent e) {
 			importB_actionPerformed(e);
@@ -147,7 +146,7 @@ public class EditorPanel extends JPanel {
 
 	public Action previewAction = new AbstractAction(Local
 			.getString("Preview note in browser"), new ImageIcon(
-			main.java.memoranda.ui.AppFrame.class
+			memoranda.ui.AppFrame.class
 					.getResource("/ui/icons/preview.png"))) {
 		public void actionPerformed(ActionEvent e) {
 			previewB_actionPerformed(e);
@@ -157,7 +156,7 @@ public class EditorPanel extends JPanel {
 	void jbInit() throws Exception {
 
 		if (!Configuration.get("DISABLE_L10N").equals("yes"))
-			main.java.memoranda.ui.htmleditor.util.Local.setMessages(Local
+			memoranda.ui.htmleditor.util.Local.setMessages(Local
 					.getMessages());
 
 		editor = new HTMLEditor();
@@ -358,7 +357,7 @@ public class EditorPanel extends JPanel {
 
 	public void initCSS() {
 		BufferedReader br = new BufferedReader(new InputStreamReader(
-				main.java.memoranda.ui.EditorPanel.class
+				memoranda.ui.EditorPanel.class
 						.getResourceAsStream("/ui/css/default.css")));
 		String css = "";
 		try {

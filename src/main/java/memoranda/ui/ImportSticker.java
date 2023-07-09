@@ -1,8 +1,8 @@
-package main.java.memoranda.ui;
+package memoranda.ui;
 
 import javax.swing.JOptionPane;
 
-import main.java.memoranda.util.Local;
+import memoranda.util.Local;
 
 public class ImportSticker {
 
@@ -18,8 +18,7 @@ String name;
                   
                   
                   */
-                
-                JOptionPane.showMessageDialog(null,Local.getString("Aun no podemos importar su documento"));
+                JOptionPane.showMessageDialog(null,Local.getString("We still can't import your document"));
                 return true;
         }
         

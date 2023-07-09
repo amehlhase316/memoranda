@@ -6,7 +6,7 @@
  * @author Alex V. Alishevskikh, alex@openmechanics.net
  * Copyright (c) 2003 Memoranda team: http://memoranda.sf.net
  */
-package main.java.memoranda.util;
+package memoranda.util;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -18,10 +18,10 @@ import java.util.Iterator;
 
 import javax.swing.JFileChooser;
 
-import main.java.memoranda.date.CalendarDate;
-import main.java.memoranda.ui.App;
-import main.java.memoranda.ui.AppFrame;
-import main.java.memoranda.ui.ExceptionDialog;
+import memoranda.date.CalendarDate;
+import memoranda.ui.App;
+import memoranda.ui.AppFrame;
+import memoranda.ui.ExceptionDialog;
 
 import java.util.Random;
 
@@ -32,6 +32,7 @@ import java.util.Random;
 public class Util {
 
 	static long seed = 0;
+    public static String currentUser = "";
 	
     public static String generateId() {
         long seed1 = System.currentTimeMillis();
@@ -51,7 +52,7 @@ public class Util {
             + "/"
             + (cal.get(Calendar.MONTH))
             + "/"
-            + new Integer(cal.get(Calendar.YEAR)).toString();
+            + String.valueOf(cal.get(Calendar.YEAR));
 
     }
 
@@ -64,9 +65,9 @@ public class Util {
         int i1 = s.indexOf("/");
         int i2 = s.indexOf("/", i1 + 1);
         int[] date = new int[3];
-        date[0] = new Integer(s.substring(0, i1)).intValue();
-        date[1] = new Integer(s.substring(i1 + 1, i2)).intValue();
-        date[2] = new Integer(s.substring(i2 + 1)).intValue();
+        date[0] = Integer.valueOf(s.substring(0, i1));
+        date[1] = Integer.valueOf(s.substring(i1 + 1, i2));
+        date[2] = Integer.valueOf(s.substring(i2 + 1));
         return date;
         /*DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.SHORT, currentLocale);
         Date d = null;
@@ -83,11 +84,11 @@ public class Util {
     public static String getEnvDir() {
     	// Changed static building of getEnvDir
     	// Now system-related path-separator is used
-		String p = System.getProperty("user.home") + File.separator 
-			+ ".jnotes2" + File.separator;
+		String p = System.getProperty("user.home") + File.separator + "Memoranda" + File.separator
+                + currentUser + File.separator + ".jnotes2" + File.separator;
         if (new File(p).isDirectory()) return p;
-        return System.getProperty("user.home") + File.separator 
-        	+ ".memoranda" + File.separator;
+        return System.getProperty("user.home") + File.separator + "Memoranda" + File.separator
+                + currentUser + File.separator;
     }
 
     public static String getCDATA(String s) {

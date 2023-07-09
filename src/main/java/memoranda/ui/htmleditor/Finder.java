@@ -6,7 +6,7 @@
  * @author Alex V. Alishevskikh, alex@openmechanics.net
  * Copyright (c) 2003 OpenMechanics.org
  */
-package main.java.memoranda.ui.htmleditor;
+package memoranda.ui.htmleditor;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.util.regex.Matcher;
@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 
 import javax.swing.JOptionPane;
 
-import main.java.memoranda.ui.htmleditor.util.Local;
+import memoranda.ui.htmleditor.util.Local;
 /**
  *
  */
@@ -61,6 +61,7 @@ public class Finder extends Thread {
         this(theEditor, find, wholeWord, matchCase, regexp, null);
     }
 
+    //@SuppressWarnings("unchecked")
     public void findAll() {
         if (pattern == null)
             return;
@@ -123,8 +124,20 @@ public class Finder extends Thread {
                     editor.showToolsPanel();
                     editor.toolsPanel.addTab(Local.getString("Find"), cdlg);
                     showCdlg = true;
-                }                
-                this.suspend();
+                }
+                                
+                //this.suspend();
+                synchronized(this) {
+	                try {
+	                	while(!cdlg.cont) {
+	                		this.wait();
+	                	}
+	                }
+	                catch (InterruptedException e) {
+	                	JOptionPane.showMessageDialog(null, Local.getString("Error during search")+".");
+	                }
+                }
+                ////////////////////////////////////////////////////////////////////////////
 
                 if (cdlg.cancel) {
                     editor.toolsPanel.remove(cdlg);

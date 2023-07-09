@@ -5,7 +5,7 @@
  * @author Alex V. Alishevskikh, alex@openmechanics.net Copyright (c) 2003
  *         Memoranda Team. http://memoranda.sf.net
  */
-package main.java.memoranda.ui;
+package memoranda.ui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,10 +19,10 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableCellRenderer;
 
-import main.java.memoranda.date.CalendarDate;
-import main.java.memoranda.date.CurrentDate;
-import main.java.memoranda.util.Configuration;
-import main.java.memoranda.util.Local;
+import memoranda.date.CalendarDate;
+import memoranda.date.CurrentDate;
+import memoranda.util.Configuration;
+import memoranda.util.Local;
 
 /**
  *  
@@ -68,11 +68,11 @@ public class JNCalendar extends JTable {
 				if (val != null) {
 					if (val
 						.toString()
-						.equals(new Integer(_date.getDay()).toString()))
+						.equals(String.valueOf(_date.getDay())))
 						return;
 					_date =
 						new CalendarDate(
-							new Integer(val.toString()).intValue(),
+							Integer.valueOf(val.toString()),
 							_date.getMonth(),
 							_date.getYear());
 					notifyListeners();
@@ -139,7 +139,7 @@ public class JNCalendar extends JTable {
 		if (d != null)
 			renderer.setDate(
 				new CalendarDate(
-					new Integer(d.toString()).intValue(),
+					Integer.valueOf(d.toString()),
 					_date.getMonth(),
 					_date.getYear()));
 		else
@@ -203,7 +203,7 @@ public class JNCalendarModel extends AbstractTableModel {
 			//int pos = (row * 7 + col) - firstDay + 1;
 			int pos = (row * 7 + (col + 1)) - firstDay;
 			if ((pos > 0) && (pos <= daysInMonth))
-				return new Integer(pos);
+				return pos;
 			else
 				return null;
 

@@ -1,4 +1,4 @@
-package main.java.memoranda.util;
+package memoranda.util;
 
 import java.text.DateFormat;
 import java.util.Calendar;
@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.Hashtable;
 import java.util.Locale;
 
-import main.java.memoranda.date.CalendarDate;
+import memoranda.date.CalendarDate;
 
 import java.io.*;
 
@@ -237,7 +237,7 @@ public class Local {
         }
         int[] time = new int[2];
         try {
-            time[0] = new Integer(h).intValue();
+            time[0] = Integer.valueOf(h);
             if ((time[0] < 0) || (time[0] > 23)) {
                 time[0] = 0;
             }
@@ -246,7 +246,7 @@ public class Local {
             return null;
         }
         try {
-            time[1] = new Integer(m).intValue();
+            time[1] = Integer.valueOf(m);
             if ((time[1] < 0) || (time[1] > 59)) {
                 time[1] = 0;
             }

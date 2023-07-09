@@ -7,7 +7,7 @@
  * @author Alex V. Alishevskikh, alex@openmechanics.net
  * Copyright (c) 2003 OpenMechanics.org
  */
-package main.java.memoranda.ui.htmleditor;
+package memoranda.ui.htmleditor;
 
 import java.awt.Polygon;
 import java.io.IOException;
@@ -1071,7 +1071,7 @@ public class AltHTMLWriter extends AbstractWriter {
                     if (weightValue != null) {
                         int fweight;
                         try {
-                            fweight = new Integer(weightValue).intValue();
+                            fweight = Integer.valueOf(weightValue);
                         }
                         catch (Exception ex) {
                             fweight = -1;

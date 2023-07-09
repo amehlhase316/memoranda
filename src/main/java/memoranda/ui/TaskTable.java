@@ -18,7 +18,7 @@
  * @LICENSE@ 
  */
 
-package main.java.memoranda.ui;
+package memoranda.ui;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -47,12 +47,12 @@ import javax.swing.event.*;
 import javax.swing.table.*;
 import javax.swing.tree.*;
 
-import main.java.memoranda.*;
-import main.java.memoranda.date.CalendarDate;
-import main.java.memoranda.date.CurrentDate;
-import main.java.memoranda.date.DateListener;
-import main.java.memoranda.ui.treetable.*;
-import main.java.memoranda.util.*;
+import memoranda.*;
+import memoranda.date.CalendarDate;
+import memoranda.date.CurrentDate;
+import memoranda.date.DateListener;
+import memoranda.ui.treetable.*;
+import memoranda.util.*;
 
 /**
  * JAVADOC:
@@ -74,7 +74,7 @@ import main.java.memoranda.util.*;
  *
  * <p>Article about <a href="http://java.sun.com/products/jfc/tsc/articles/treetable1/">treetables</a>.</p>
  * 
- * @see	main.java.memoranda.ui.TaskTreeTableCellRenderer
+ * @see	memoranda.ui.TaskTreeTableCellRenderer
  * @version $Id: TaskTable.java,v 1.26 2007/01/05 10:33:26 alexeya Exp $
  * @author $Author: alexeya $
  */

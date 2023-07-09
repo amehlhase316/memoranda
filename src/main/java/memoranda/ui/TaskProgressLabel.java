@@ -24,13 +24,13 @@
  */
 
 
-package main.java.memoranda.ui;
+package memoranda.ui;
 
 import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JLabel;
 
-import main.java.memoranda.Task;
+import memoranda.Task;
 
 /**
  * <h1>TaskProgressLabel</h1>

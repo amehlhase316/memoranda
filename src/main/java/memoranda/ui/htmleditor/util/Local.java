@@ -6,7 +6,7 @@
  * @author Alex V. Alishevskikh, alex@openmechanics.net
  * Copyright (c) 2003 OpenMechanics.org
  */
-package main.java.memoranda.ui.htmleditor.util;
+package memoranda.ui.htmleditor.util;
 import java.util.Hashtable;
 
 /**

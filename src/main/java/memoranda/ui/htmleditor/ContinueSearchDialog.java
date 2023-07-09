@@ -1,4 +1,4 @@
-package main.java.memoranda.ui.htmleditor;
+package memoranda.ui.htmleditor;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import main.java.memoranda.ui.htmleditor.util.Local;
+import memoranda.ui.htmleditor.util.Local;
 
 public class ContinueSearchDialog extends JPanel {
   JPanel panel1 = new JPanel();
@@ -70,22 +70,27 @@ public class ContinueSearchDialog extends JPanel {
     buttonsPanel.setLayout(flowLayout1);
     
     jLabel1.setText(" "+Local.getString("Search for")+":  ");
-    jLabel1.setIcon(new ImageIcon(main.java.memoranda.ui.htmleditor.HTMLEditor.class.getResource("/htmleditor/icons/findbig.png"))) ;   
+    jLabel1.setIcon(new ImageIcon(memoranda.ui.htmleditor.HTMLEditor.class.getResource("/htmleditor/icons/findbig.png"))) ;   
     this.add(jLabel1, BorderLayout.WEST);
     this.add(textF,BorderLayout.CENTER);    
     buttonsPanel.add(continueB, null);
     buttonsPanel.add(cancelB, null);
     this.add(buttonsPanel,  BorderLayout.EAST);
   }
-
+  
   void cancelB_actionPerformed(ActionEvent e) {
     cont = true;
     cancel = true;    
-    thread.resume();
+     
+    synchronized(thread) {
+    	thread.notify();
+    }
   }
 
-  void continueB_actionPerformed(ActionEvent e) {
-     cont = true;     
-     thread.resume();
+  synchronized void continueB_actionPerformed(ActionEvent e) {
+     cont = true; 
+     synchronized(thread) {
+    	 thread.notify();
+     }
   }
 }

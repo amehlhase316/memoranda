@@ -1,4 +1,4 @@
-package main.java.memoranda.ui;
+package memoranda.ui;
 
 import java.awt.BorderLayout;
 import java.awt.Cursor;
@@ -21,15 +21,15 @@ import javax.swing.border.TitledBorder;
 import javax.swing.event.CaretEvent;
 import javax.swing.text.Document;
 
-import main.java.memoranda.CurrentProject;
-import main.java.memoranda.Note;
-import main.java.memoranda.NoteList;
-import main.java.memoranda.Project;
-import main.java.memoranda.ProjectListener;
-import main.java.memoranda.ResourcesList;
-import main.java.memoranda.TaskList;
-import main.java.memoranda.util.CurrentStorage;
-import main.java.memoranda.util.Local;
+import memoranda.CurrentProject;
+import memoranda.Note;
+import memoranda.NoteList;
+import memoranda.Project;
+import memoranda.ProjectListener;
+import memoranda.ResourcesList;
+import memoranda.TaskList;
+import memoranda.util.CurrentStorage;
+import memoranda.util.Local;
 
 /*$Id: SearchPanel.java,v 1.5 2004/04/05 10:05:44 alexeya Exp $*/
 public class SearchPanel extends JPanel {

@@ -6,7 +6,7 @@
  * @author Alex V. Alishevskikh, alex@openmechanics.net
  * Copyright (c) 2003 Memoranda Team. http://memoranda.sf.net
  */
-package main.java.memoranda.date;
+package memoranda.date;
 import java.util.Collection;
 import java.util.Vector;
 

@@ -1,4 +1,4 @@
-package main.java.memoranda.ui.htmleditor;
+package memoranda.ui.htmleditor;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -23,7 +23,7 @@ import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.UIManager;
 
-import main.java.memoranda.ui.htmleditor.util.Local;
+import memoranda.ui.htmleditor.util.Local;
 
 /**
  * <p>Title: </p>
@@ -90,7 +90,7 @@ public class TableDialog extends JDialog {
 		header.setForeground(new Color(0, 0, 124));
 		header.setText(Local.getString("Table"));
 		header.setIcon(new ImageIcon(
-				main.java.memoranda.ui.htmleditor.ImageDialog.class.getResource(
+				memoranda.ui.htmleditor.ImageDialog.class.getResource(
 				"/htmleditor/icons/tablebig.png")));
 		headerPanel.add(header);
 		this.getContentPane().add(headerPanel, BorderLayout.NORTH);
@@ -191,7 +191,7 @@ public class TableDialog extends JDialog {
 			}
 		});
 		bgColorB.setIcon(new ImageIcon(
-			main.java.memoranda.ui.htmleditor.ImageDialog.class.getResource(
+			memoranda.ui.htmleditor.ImageDialog.class.getResource(
 			"/htmleditor/icons/color.png")));
 		bgColorB.setPreferredSize(new Dimension(25, 25));
 		gbc.gridx = 5; gbc.gridy = 3;

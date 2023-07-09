@@ -2,7 +2,7 @@
  * AgendaGenerator.java Package: net.sf.memoranda.util Created on 13.01.2004
  * 5:52:54 @author Alex
  */
-package main.java.memoranda.util;
+package memoranda.util;
 
 import java.util.Calendar;
 import java.util.Collection;
@@ -12,15 +12,15 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Vector;
 
-import main.java.memoranda.CurrentProject;
-import main.java.memoranda.Event;
-import main.java.memoranda.EventsManager;
-import main.java.memoranda.EventsScheduler;
-import main.java.memoranda.Project;
-import main.java.memoranda.ProjectManager;
-import main.java.memoranda.Task;
-import main.java.memoranda.TaskList;
-import main.java.memoranda.date.CalendarDate;
+import memoranda.CurrentProject;
+import memoranda.Event;
+import memoranda.EventsManager;
+import memoranda.EventsScheduler;
+import memoranda.Project;
+import memoranda.ProjectManager;
+import memoranda.Task;
+import memoranda.TaskList;
+import memoranda.date.CalendarDate;
 
 import java.util.Collections;
 
@@ -313,7 +313,7 @@ public class AgendaGenerator {
 			Event e = (Event) i.next();
 			String txt = e.getText();
 			String iurl =
-					main.java.memoranda.ui
+					memoranda.ui
 					.AppFrame
 					.class
 					.getResource("/ui/agenda/spacer.gif")
@@ -327,7 +327,7 @@ public class AgendaGenerator {
 								.getTime()
 								.equals(e.getTime()))) {
 					iurl =
-							main.java.memoranda.ui
+							memoranda.ui
 							.AppFrame
 							.class
 							.getResource("/ui/agenda/arrow.gif")
@@ -356,18 +356,18 @@ public class AgendaGenerator {
 
 	static String generateStickers(CalendarDate date) {
 		String iurl =
-				main.java.memoranda.ui
+				memoranda.ui
 				.AppFrame
 				.class
 				.getResource("/ui/agenda/addsticker.gif")
 				.toExternalForm();
 		String iurl2 =
-				main.java.memoranda.ui
+				memoranda.ui
 				.AppFrame
 				.class
 				.getResource("/ui/agenda/removesticker.gif")
 				.toExternalForm();
-		 String s = "<hr><hr><table border=\"0\" cellpadding=\"0\" width=\"100%\"><tr><td><a href=\"memoranda:importstickers\"><b>"+Local.getString("Importar anotaci�n")+"</b></a></td><td><a href=\"memoranda:exportstickerst\"><b>"+Local.getString("Exportar anotaci�n como .txt")+"</b></a><td><a href=\"memoranda:exportstickersh\"><b>"+Local.getString("Exportar anotaci�n como .html")+"</b></a></td></tr></table>"
+		 String s = "<hr><hr><table border=\"0\" cellpadding=\"0\" width=\"100%\"><tr><td><a href=\"memoranda:importstickers\"><b>"+Local.getString("Import Annotation")+"</b></a></td><td><a href=\"memoranda:exportstickerst\"><b>"+Local.getString("Export Annotation as .txt")+"</b></a><td><a href=\"memoranda:exportstickersh\"><b>"+Local.getString("Export Annotation as .html")+"</b></a></td></tr></table>"
 				 +   "<table border=\"0\" cellpadding=\"0\" width=\"100%\"><tr><td><a href=\"memoranda:addsticker\"><img align=\"left\" width=\"22\" height=\"22\" src=\""				
 				 + iurl
 				+ "\" border=\"0\"  hspace=\"0\" vspace=\"0\" alt=\"New sticker\"></a></td><td width=\"100%\"><a href=\"memoranda:addsticker\"><b>&nbsp;"

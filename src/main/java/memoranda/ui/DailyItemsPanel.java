@@ -1,4 +1,4 @@
-package main.java.memoranda.ui;
+package memoranda.ui;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -22,27 +22,27 @@ import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 
-import main.java.memoranda.CurrentNote;
-import main.java.memoranda.CurrentProject;
-import main.java.memoranda.EventNotificationListener;
-import main.java.memoranda.EventsScheduler;
-import main.java.memoranda.History;
-import main.java.memoranda.HistoryItem;
-import main.java.memoranda.HistoryListener;
-import main.java.memoranda.Note;
-import main.java.memoranda.NoteList;
-import main.java.memoranda.NoteListener;
-import main.java.memoranda.Project;
-import main.java.memoranda.ProjectListener;
-import main.java.memoranda.ResourcesList;
-import main.java.memoranda.Task;
-import main.java.memoranda.TaskList;
-import main.java.memoranda.date.CalendarDate;
-import main.java.memoranda.date.CurrentDate;
-import main.java.memoranda.date.DateListener;
-import main.java.memoranda.util.CurrentStorage;
-import main.java.memoranda.util.Local;
-import main.java.memoranda.util.Util;
+import memoranda.CurrentNote;
+import memoranda.CurrentProject;
+import memoranda.EventNotificationListener;
+import memoranda.EventsScheduler;
+import memoranda.History;
+import memoranda.HistoryItem;
+import memoranda.HistoryListener;
+import memoranda.Note;
+import memoranda.NoteList;
+import memoranda.NoteListener;
+import memoranda.Project;
+import memoranda.ProjectListener;
+import memoranda.ResourcesList;
+import memoranda.Task;
+import memoranda.TaskList;
+import memoranda.date.CalendarDate;
+import memoranda.date.CurrentDate;
+import memoranda.date.DateListener;
+import memoranda.util.CurrentStorage;
+import memoranda.util.Local;
+import memoranda.util.Util;
 /**
  * 
  * Copyright (c) 2003 Memoranda Team. http://memoranda.sf.net
@@ -65,9 +65,9 @@ public class DailyItemsPanel extends JPanel {
     TaskPanel tasksPanel = new TaskPanel(this);
     EventsPanel eventsPanel = new EventsPanel(this);
     AgendaPanel agendaPanel = new AgendaPanel(this);
-    ImageIcon expIcon = new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/exp_right.png"));
-    ImageIcon collIcon = new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/exp_left.png"));
-    ImageIcon bookmarkIcon = new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/star8.png"));
+    ImageIcon expIcon = new ImageIcon(memoranda.ui.AppFrame.class.getResource("/ui/icons/exp_right.png"));
+    ImageIcon collIcon = new ImageIcon(memoranda.ui.AppFrame.class.getResource("/ui/icons/exp_left.png"));
+    ImageIcon bookmarkIcon = new ImageIcon(memoranda.ui.AppFrame.class.getResource("/ui/icons/star8.png"));
     boolean expanded = true;
 
     Note currentNote;
@@ -173,7 +173,7 @@ public class DailyItemsPanel extends JPanel {
                 alarmB_actionPerformed(e);
             }
         });
-        alarmB.setIcon(new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/alarm.png")));
+        alarmB.setIcon(new ImageIcon(memoranda.ui.AppFrame.class.getResource("/ui/icons/alarm.png")));
         flowLayout1.setAlignment(FlowLayout.RIGHT);
         flowLayout1.setVgap(0);
         taskB.setMargin(new Insets(0, 0, 0, 0));
@@ -187,7 +187,7 @@ public class DailyItemsPanel extends JPanel {
         taskB.setBorderPainted(false);
         taskB.setMaximumSize(new Dimension(24, 24));
         taskB.setOpaque(false);
-        taskB.setIcon(new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/task.png")));
+        taskB.setIcon(new ImageIcon(memoranda.ui.AppFrame.class.getResource("/ui/icons/task.png")));
 
         notesControlPane.setFont(new java.awt.Font("Dialog", 1, 10));
         mainTabsPanel.setLayout(cardLayout2);
@@ -202,9 +202,9 @@ public class DailyItemsPanel extends JPanel {
 
         mainPanel.add(editorsPanel, BorderLayout.CENTER);
         
-        editorsPanel.add(agendaPanel, "AGENDA");
-        editorsPanel.add(eventsPanel, "EVENTS");
-        editorsPanel.add(tasksPanel, "TASKS");
+        editorsPanel.add(agendaPanel, "SCHEDULE");
+        editorsPanel.add(eventsPanel, "CLASSES");
+        editorsPanel.add(tasksPanel, "WORKOUTS");
         editorsPanel.add(editorPanel, "NOTES");
         
         splitPane.add(mainPanel, JSplitPane.RIGHT);
@@ -280,7 +280,7 @@ public class DailyItemsPanel extends JPanel {
         });
 
         EventsScheduler.addListener(new EventNotificationListener() {
-            public void eventIsOccured(main.java.memoranda.Event ev) {
+            public void eventIsOccured(memoranda.Event ev) {
                 /*DEBUG*/
                 System.out.println(ev.getTimeString() + " " + ev.getText());
                 updateIndicators();
@@ -432,7 +432,7 @@ public class DailyItemsPanel extends JPanel {
                     net.sf.memoranda.Event ev = (net.sf.memoranda.Event)it.next();   
                     evlist += ev.getTimeString()+" - "+ev.getText()+"\n";
                 } */
-                main.java.memoranda.Event ev = EventsScheduler.getFirstScheduledEvent();
+                memoranda.Event ev = EventsScheduler.getFirstScheduledEvent();
                 alarmB.setToolTipText(ev.getTimeString() + " - " + ev.getText());
                 indicatorsPanel.add(alarmB, null);
             }

@@ -1,4 +1,4 @@
-package main.java.memoranda.util;
+package memoranda.util;
  
  import nu.xom.Element;
  

@@ -1,4 +1,4 @@
-package main.java.memoranda.ui.htmleditor;
+package memoranda.ui.htmleditor;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -24,7 +24,7 @@ import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.border.Border;
 
-import main.java.memoranda.ui.htmleditor.util.Local;
+import memoranda.ui.htmleditor.util.Local;
 
 /**
  * <p>Title: </p>
@@ -193,7 +193,7 @@ public class TdDialog extends JDialog {
     header.setFont(new java.awt.Font("Dialog", 0, 20));
     header.setForeground(new Color(0, 0, 124));
     header.setText(Local.getString("Table properties"));
-    header.setIcon(new ImageIcon(main.java.memoranda.ui.htmleditor.ImageDialog.class.getResource("/htmleditor/icons/tablebig.png")));
+    header.setIcon(new ImageIcon(memoranda.ui.htmleditor.ImageDialog.class.getResource("/htmleditor/icons/tablebig.png")));
     flowLayout7.setAlignment(FlowLayout.LEFT);
     flowLayout7.setHgap(2);
     flowLayout7.setVgap(2);
@@ -255,7 +255,7 @@ public class TdDialog extends JDialog {
     jLabel21.setMaximumSize(new Dimension(70, 16));
     tdBgcolorB.setMinimumSize(new Dimension(25, 25));
     tdBgcolorB.setPreferredSize(new Dimension(25, 25));
-    tdBgcolorB.setIcon(new ImageIcon(main.java.memoranda.ui.htmleditor.ImageDialog.class.getResource("/htmleditor/icons/color.png")));
+    tdBgcolorB.setIcon(new ImageIcon(memoranda.ui.htmleditor.ImageDialog.class.getResource("/htmleditor/icons/color.png")));
     tdBgcolorB.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(ActionEvent e) {
         tdBgcolorB_actionPerformed(e);
@@ -288,7 +288,7 @@ public class TdDialog extends JDialog {
     flowLayout13.setAlignment(FlowLayout.LEFT);
     trBgcolorB.setMinimumSize(new Dimension(25, 25));
     trBgcolorB.setPreferredSize(new Dimension(25, 25));
-    trBgcolorB.setIcon(new ImageIcon(main.java.memoranda.ui.htmleditor.ImageDialog.class.getResource("/htmleditor/icons/color.png")));
+    trBgcolorB.setIcon(new ImageIcon(memoranda.ui.htmleditor.ImageDialog.class.getResource("/htmleditor/icons/color.png")));
     trBgcolorB.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(ActionEvent e) {
         trBgcolorB_actionPerformed(e);
@@ -348,7 +348,7 @@ public class TdDialog extends JDialog {
         bgColorB_actionPerformed(e);
       }
     });
-    bgColorB.setIcon(new ImageIcon(main.java.memoranda.ui.htmleditor.ImageDialog.class.getResource("/htmleditor/icons/color.png")));
+    bgColorB.setIcon(new ImageIcon(memoranda.ui.htmleditor.ImageDialog.class.getResource("/htmleditor/icons/color.png")));
     bgColorB.setPreferredSize(new Dimension(25, 25));
     bgColorB.setMinimumSize(new Dimension(25, 25));
     widthField.setPreferredSize(new Dimension(50, 25));

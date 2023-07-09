@@ -6,11 +6,11 @@
  * @author Alex V. Alishevskikh, alex@openmechanics.net
  * Copyright (c) 2003 Memoranda Team. http://memoranda.sf.net
  */
-package main.java.memoranda;
+package memoranda;
 
 import java.util.Vector;
 
-import main.java.memoranda.util.Util;
+import memoranda.util.Util;
 
 import java.io.File;
 
@@ -53,7 +53,7 @@ public class ResourcesListImpl implements ResourcesList {
     }
 
     /**
-     * @see main.java.memoranda.ResourcesList#getResource(java.lang.String)
+     * @see memoranda.ResourcesList#getResource(java.lang.String)
      */
     public Resource getResource(String path) {
         Elements rs = _root.getChildElements("resource");
@@ -75,7 +75,7 @@ public class ResourcesListImpl implements ResourcesList {
     }*/
     
     /**
-     * @see main.java.memoranda.ResourcesList#addResource(java.lang.String, boolean)
+     * @see memoranda.ResourcesList#addResource(java.lang.String, boolean)
      */
     public void addResource(String path, boolean isInternetShortcut, boolean isProjectFile) {
         Element el = new Element("resource");
@@ -93,7 +93,7 @@ public class ResourcesListImpl implements ResourcesList {
     }
 
     /**
-     * @see main.java.memoranda.ResourcesList#removeResource(java.lang.String)
+     * @see memoranda.ResourcesList#removeResource(java.lang.String)
      */
     public void removeResource(String path) {
         Elements rs = _root.getChildElements("resource");
@@ -110,13 +110,13 @@ public class ResourcesListImpl implements ResourcesList {
         
 
     /**
-     * @see main.java.memoranda.ResourcesList#getAllResourcesCount()
+     * @see memoranda.ResourcesList#getAllResourcesCount()
      */
     public int getAllResourcesCount() {
         return _root.getChildElements("resource").size();
     }
     /**
-     * @see main.java.memoranda.ResourcesList#getXMLContent()
+     * @see memoranda.ResourcesList#getXMLContent()
      */
     public Document getXMLContent() {
         return _doc;

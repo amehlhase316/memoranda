@@ -1,4 +1,4 @@
-package main.java.memoranda.ui;
+package memoranda.ui;
 
 import java.awt.AWTEvent;
 import java.awt.Color;
@@ -14,7 +14,7 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 
-import main.java.memoranda.util.Local;
+import memoranda.util.Local;
 
 /**
  * 
@@ -82,7 +82,7 @@ public class AppFrame_AboutBox extends JDialog implements ActionListener {
     text += "</html>";
     
     image = new ImageIcon(AppFrame_AboutBox.class.getResource("/ui/memoranda.png"));
-    this.setTitle(Local.getString("About Memoranda"));
+    this.setTitle(Local.getString("About Gym Master"));
     setResizable(false);
     // Initialize Objects
     lblText.setFont(new java.awt.Font("Dialog", 0, 11));
@@ -100,9 +100,9 @@ public class AppFrame_AboutBox extends JDialog implements ActionListener {
     //layeredPane.setPreferredSize(new Dimension(300, 300));
     imgLabel = new JLabel(image);
     imgLabel.setBounds(0, 0, image.getIconWidth(), image.getIconHeight());
-    layeredPane.add(imgLabel, new Integer(1));
-    layeredPane.add(lblText, new Integer(2));    
-    layeredPane.add(button1, new Integer(2));
+    layeredPane.add(imgLabel, 1);
+    layeredPane.add(lblText, 2);    
+    layeredPane.add(button1, 2);
     this.getContentPane().setBackground(new Color(251, 197, 63));
   }
   //Overridden so we can exit when window is closed

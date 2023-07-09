@@ -1,4 +1,4 @@
-package main.java.memoranda.ui.htmleditor;
+package memoranda.ui.htmleditor;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -19,7 +19,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import main.java.memoranda.ui.htmleditor.util.Local;
+import memoranda.ui.htmleditor.util.Local;
 
 /**
  * <p>Title: </p>
@@ -73,7 +73,7 @@ public class LinkDialog extends JDialog {
         header.setForeground(new Color(0, 0, 124));
         header.setText(Local.getString("Insert hyperlink"));
         header.setIcon(new ImageIcon(
-            main.java.memoranda.ui.htmleditor.ImageDialog.class.getResource(
+            memoranda.ui.htmleditor.ImageDialog.class.getResource(
             "/htmleditor/icons/linkbig.png")));
         topPanel.setBackground(Color.WHITE);
         //topPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));

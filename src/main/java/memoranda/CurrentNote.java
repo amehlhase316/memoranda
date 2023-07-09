@@ -1,4 +1,4 @@
-package main.java.memoranda;
+package memoranda;
 
 import java.util.Collection;
 import java.util.Vector;
