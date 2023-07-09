@@ -12,6 +12,10 @@ public class UserLoader {
     }
     public static void init() {
         try {
+            File f = new File(Util.getEnvDir() + "users.txt");
+            if (!f.isFile()) {
+                f.createNewFile();
+            }
             loadUsersFromFile();
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
