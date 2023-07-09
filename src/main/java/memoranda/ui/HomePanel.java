@@ -638,16 +638,20 @@ public class HomePanel extends JPanel {
 		gbc.gridy = 0;
 		panel.add(userPanel, gbc);
 
+        // TODO: replace this with code from branch working on lessons
+        lessons.setText("TODO: replace lessonPlanner code with new lesson code");
 
-		if (user.getLessons() == null) {
-			lessons.setText("No upcoming classes");
-			upcomingClassPanel = new JScrollPane(lessons);
-		} else {
-			while (user.getLessons() != null) {
-				//lessonList = user.getLessons();
-			}
-			upcomingClassPanel = new JScrollPane(jt);
-		}
+//		if (user.getLessons() == null) {
+//			lessons.setText("No upcoming classes");
+//			upcomingClassPanel = new JScrollPane(lessons);
+//		} else {
+//			while (user.getLessons() != null) {
+//				//lessonList = user.getLessons();
+//			}
+//			upcomingClassPanel = new JScrollPane(jt);
+//		}
+
+
 		//Create panel to show enrolled classes
 		Border classTitleBorder = BorderFactory.createTitledBorder(bevelBorder, "Enrolled Classes", TitledBorder.LEFT, TitledBorder.TOP);
 		upcomingClassPanel.setBackground(Color.lightGray);

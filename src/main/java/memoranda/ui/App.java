@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.UIManager;
 
 import main.java.memoranda.EventsScheduler;
+import main.java.memoranda.UserLoader;
 import main.java.memoranda.util.Configuration;
 
 /**
@@ -91,6 +92,7 @@ public class App {
 		}
 
 		EventsScheduler.init();
+        UserLoader.init();
 		frame = new AppFrame();
 		if (fullmode) {
 			init();
