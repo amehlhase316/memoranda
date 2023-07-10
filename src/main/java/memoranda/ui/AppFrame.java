@@ -34,14 +34,7 @@ import javax.swing.KeyStroke;
 import javax.swing.UIManager;
 import javax.swing.text.html.HTMLDocument;
 
-import main.java.memoranda.CurrentProject;
-import main.java.memoranda.History;
-import main.java.memoranda.Note;
-import main.java.memoranda.NoteList;
-import main.java.memoranda.Project;
-import main.java.memoranda.ProjectListener;
-import main.java.memoranda.ResourcesList;
-import main.java.memoranda.TaskList;
+import main.java.memoranda.*;
 import main.java.memoranda.date.CurrentDate;
 import main.java.memoranda.ui.htmleditor.HTMLEditor;
 import main.java.memoranda.util.Configuration;
@@ -661,6 +654,7 @@ public class AppFrame extends JFrame {
         Context.put("FRAME_XPOS", this.getLocation().x);
         Context.put("FRAME_YPOS", this.getLocation().y);
         exitNotify();
+        UserLoader.save();
         App.exitProgram();
     }
 

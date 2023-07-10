@@ -13,12 +13,11 @@ public interface UserInterface {
     public void setUsername(String username);
     public String getUsername();
     public CalendarDate getJoinDate();
+    public void setJoinDate(CalendarDate joinDate);
     public void setPermissions(int permissions);
     public int getPermissions();
     public void setRank(int rank);
     public int getRank();
-    public void setLessons(LessonPlanner lessons);
-    public LessonPlanner getLessons();
     public void login();
     public void logout();
     public boolean loginStatus();
