@@ -115,8 +115,7 @@ Answer as a team!
 #### David Berry:
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
 
-    - link1
-    - link2
+    - [link1](https://github.com/sjgarc20/TheFloorIsJava-Memoranda/tree/us43task78)
 
   **GitHub links to your Code Reviews (up to 3 links) -- Sprint 2 and 3:
 
