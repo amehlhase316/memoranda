@@ -146,18 +146,21 @@ Answer as a team!
     
 #### Henry Buck:
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
-
-    - 
-    - 
+  
+    -https://github.com/sjgarc20/TheFloorIsJava-Memoranda/pull/38 
+    -https://github.com/sjgarc20/TheFloorIsJava-Memoranda/pull/31
+    -https://github.com/sjgarc20/TheFloorIsJava-Memoranda/pull/30
 
   **GitHub links to your Code Reviews (up to 3 links) -- Sprint 2 and 3:
 
-    - 
-    - 
+    - https://github.com/sjgarc20/TheFloorIsJava-Memoranda/pull/39
+    - https://github.com/sjgarc20/TheFloorIsJava-Memoranda/pull/37
+    - https://github.com/sjgarc20/TheFloorIsJava-Memoranda/pull/33
  
  **What was your main contribution to the Quality Policy documentation?:
 
     - We completed the quality policy together
+    
     
 #### Sam Garcia:
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
