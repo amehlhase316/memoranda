@@ -30,7 +30,6 @@ public class User implements UserInterface {
     private CalendarDate joinDate;
     private boolean login;
     private String password;
-
     
     //Availability is saved as integers for each day of the week.
     // Stored in a 7x2 matrix so each day has a start and end time.
@@ -39,7 +38,22 @@ public class User implements UserInterface {
     private List<String> notes;
 
 
-
+    public User(String username, String password) {
+        notes = new ArrayList<>();
+        this.firstName = "null";
+        this.lastName = "null";
+        this.username = username;
+        this.permissions = 0;
+        this.rank = 0;
+        this.login = false;
+        this.password = password;
+        this.joinDate =  CalendarDate.today();
+        for(int i = 0; i < 7; i++) {
+            availability[i][0] = 0;
+            availability[i][1] = 0;
+        }
+    }
+    
     /**
      Method: User
      Inputs:

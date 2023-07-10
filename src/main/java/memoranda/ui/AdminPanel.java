@@ -11,6 +11,8 @@ import javax.swing.event.*;
 
 
 import main.java.memoranda.Resource;
+import main.java.memoranda.User;
+import main.java.memoranda.UserList;
 import main.java.memoranda.util.AppList;
 import main.java.memoranda.util.CurrentStorage;
 import main.java.memoranda.util.Local;
@@ -23,6 +25,8 @@ import main.java.memoranda.ui.DailyItemsPanel;
 import main.java.memoranda.LessonList;
 
 public class AdminPanel extends JPanel {
+    HashMap<String, User> users = UserList.users;
+    User user;
     JComboBox monthBox;
     JComboBox roomsList;
     JComboBox dateBox;
@@ -30,6 +34,9 @@ public class AdminPanel extends JPanel {
 
     JComboBox classes;
     JTextField trainerUserName;
+    
+    JTextField userNameField;
+    JTextField userPasswordField;
 
     EventsTable eventsTable = new EventsTable();
 
@@ -71,17 +78,17 @@ public class AdminPanel extends JPanel {
                 JLabel userNameLabel = new JLabel("Username: ");
                 createUserPanel.add(userNameLabel);
                 //Textbox to enter username for new user with space for 15 characters
-                JTextField userName = new JTextField(15);
-                userName.setMaximumSize(userName.getPreferredSize());
-                createUserPanel.add(userName);
+                userNameField = new JTextField(15);
+                userNameField.setMaximumSize(userNameField.getPreferredSize());
+                createUserPanel.add(userNameField);
                 //Label for password textbox
                 JLabel userPasswordLabel = new JLabel("Password: ");
                 createUserPanel.add(userPasswordLabel);
                 //Textbox to enter user password with space for 15 characters
-                JTextField userPassword = new JTextField(15);
-                userPassword.setMaximumSize(userPassword.getPreferredSize());
+                userPasswordField = new JTextField(15);
+                userPasswordField.setMaximumSize(userPasswordField.getPreferredSize());
 
-                createUserPanel.add(userPassword);
+                createUserPanel.add(userPasswordField);
                 //Creating a list of user types that can be selected from
                 JLabel typeLabel = new JLabel("User type: ");
                 createUserPanel.add(typeLabel);
@@ -109,9 +116,15 @@ public class AdminPanel extends JPanel {
         createUserPanel.add(userTypeList);
 
                 //Button to create user with the inputted information
-                JButton createUser = new JButton("Create new user");
-                createUserPanel.add(createUser);
+                JButton createUserB = new JButton("Create new user");
+                createUserPanel.add(createUserB);
                 add(createUserPanel);
+                
+                createUserB.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        createUserB_actionPerformed(e);
+                    }
+                });
 
                 //Creating UI for second section of Admin Panel used to edit a user's info
 
@@ -352,6 +365,14 @@ public class AdminPanel extends JPanel {
         add(deleteClassPanel);
     }
 
+    void createUserB_actionPerformed(ActionEvent e) {
+        String username = userNameField.getText();
+        String password = userPasswordField.getText();
+        
+        User user = new User(username, password);
+        users.put(username, user);
+    }
+    
     void createClass_actionPerformed(ActionEvent e) {
         int year = main.java.memoranda.date.CalendarDate.today().getYear();
         EventsManager.createEvent(roomsList.getSelectedIndex() + 1, timeBox.getSelectedIndex(), 0, monthBox.getSelectedIndex() + 1, dateBox.getSelectedIndex() + 1, year, classType.getText());
