@@ -20,7 +20,7 @@ import main.java.memoranda.util.Util;
 import main.java.memoranda.EventsManager;
 import main.java.memoranda.ui.EventsTable;
 import main.java.memoranda.ui.DailyItemsPanel;
-import memoranda.LessonList;
+import main.java.memoranda.LessonList;
 
 public class AdminPanel extends JPanel {
     JComboBox monthBox;
