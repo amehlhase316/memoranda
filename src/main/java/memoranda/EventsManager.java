@@ -20,6 +20,7 @@ import main.java.memoranda.util.Util;
 import java.util.Map;
 import java.util.Collections;
 
+import main.java.memoranda.LessonList;
 import nu.xom.Attribute;
 //import nu.xom.Comment;
 import nu.xom.Document;
@@ -111,19 +112,31 @@ public class EventsManager {
 	}
 
 	public static Event createEvent(
-		CalendarDate date,
+		//CalendarDate date,
+		int room,
 		int hh,
 		int mm,
+		int month,
+		int day,
+		int year,
 		String text) {
 		Element el = new Element("event");
 		el.addAttribute(new Attribute("id", Util.generateId()));
+		el.addAttribute(new Attribute("room", String.valueOf(room)));
 		el.addAttribute(new Attribute("hour", String.valueOf(hh)));
 		el.addAttribute(new Attribute("min", String.valueOf(mm)));
+		el.addAttribute(new Attribute("month", String.valueOf(month)));
+		el.addAttribute(new Attribute("date", String.valueOf(day)));
+		el.addAttribute(new Attribute("year", String.valueOf(year)));
+		el.addAttribute(new Attribute("name", text));
+
+		CalendarDate date = new CalendarDate(day, month - 1, year);
 		el.appendChild(text);
 		Day d = getDay(date);
 		if (d == null)
 			d = createDay(date);
 		d.getElement().appendChild(el);
+		LessonList.addLesson(el);
 		return new EventImpl(el);
 	}
 
@@ -239,6 +252,15 @@ public class EventsManager {
 	}
 
 	public static void removeEvent(CalendarDate date, int hh, int mm) {
+		Day d = getDay(date);
+		if (d == null)
+			d.getElement().removeChild(getEvent(date, hh, mm).getContent());
+	}
+
+	public static void removeEvent(Element el) {
+		CalendarDate date = new CalendarDate(Integer.parseInt(el.getAttributeValue("date")), Integer.parseInt(el.getAttributeValue("month")) - 1, Integer.parseInt(el.getAttributeValue("year")) );
+		int hh = Integer.parseInt(el.getAttributeValue("hour"));
+		int mm = Integer.parseInt(el.getAttributeValue("min"));
 		Day d = getDay(date);
 		if (d == null)
 			d.getElement().removeChild(getEvent(date, hh, mm).getContent());

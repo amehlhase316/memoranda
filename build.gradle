@@ -13,13 +13,22 @@ compileJava.options.encoding = 'UTF-8'
 // Repositories and dependencies for code go here
 repositories {
   mavenCentral()
+  maven {
+    url "https://mvnrepository.com/artifact/commons-io/commons-io"
+    }
   jcenter()
+  maven { url "https://mvnrepository.com/artifact/com.google.code.gson/gson" }
+  maven { url "https://mvnrepository.com/artifact/org.json/json" }
 }
 
 dependencies {
   implementation 'com.io7m.xom:xom:1.2.+'
   implementation 'net.sourceforge.nekohtml:nekohtml:1.9.+'
   implementation "junit:junit:4.12"
+  implementation group: 'org.json', name: 'json', version: '20200518'
+  // https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple
+  implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+  implementation 'com.google.code.gson:gson:2.9.1'
   compile files('cls/')
 }
 
