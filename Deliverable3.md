@@ -48,11 +48,11 @@ I would also advise you to already fill out the Contributions section (End of sp
 
 > Add rows as needed and add the number how many meetings for each team member:
 
--David Berry:  3      
--Jonathan Blicharz: 3  
--Henry Buck:         3
--Sam Garcia:          3
--Abdullah Younes:     3
+>-David Berry:  3      
+>-Jonathan Blicharz: 3  
+>-Henry Buck:         3
+>-Sam Garcia:          3
+>-Abdullah Younes:     3
 
 ## 3: After the Sprint
 
