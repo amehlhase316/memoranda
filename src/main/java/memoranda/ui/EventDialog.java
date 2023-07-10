@@ -16,22 +16,10 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
-import javax.swing.BorderFactory;
-import javax.swing.ButtonGroup;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.JSpinner;
-import javax.swing.JTextField;
-import javax.swing.SpinnerDateModel;
-import javax.swing.SpinnerNumberModel;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -50,7 +38,31 @@ public class EventDialog extends JDialog implements WindowListener {
     public JLabel header = new JLabel();
     JPanel eventPanel = new JPanel(new GridBagLayout());
     GridBagConstraints gbc;
+
+    public int room;
+    public int month;
+    public int date;
+    public int hh;
+    public int mm;
     JLabel lblTime = new JLabel();
+    JLabel lblHour = new JLabel();
+    JLabel lblMonth = new JLabel();
+    JLabel lblDate = new JLabel();
+    JLabel lblError = new JLabel();
+    JLabel lblRoom = new JLabel();
+    String[] months = new String[]{"January", "February", "March", "April", "May", "June", "July",
+            "August", "September", "October", "November", "December"};
+    JComboBox monthBox = new JComboBox<>(months);
+
+    String[] hours = new String[]{"00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00"};
+    JComboBox timeBox = new JComboBox<>(hours);
+    JComboBox dateBox = new JComboBox<>();
+
+    String[] rooms = new String[]{"1","2","3","4"};
+    JComboBox roomBox = new JComboBox<>(rooms);
+
+
+    Map<String, Integer> monthDays = new HashMap<>();
     public JSpinner timeSpin = new JSpinner(new SpinnerDateModel(new Date(), null, null, Calendar.MINUTE));
     JLabel lblText = new JLabel();
     public JTextField textField = new JTextField();
@@ -113,16 +125,89 @@ public class EventDialog extends JDialog implements WindowListener {
         gbc.insets = new Insets(10, 10, 5, 10);
         gbc.anchor = GridBagConstraints.WEST;
         eventPanel.add(lblTime, gbc);
-        timeSpin.setPreferredSize(new Dimension(60, 24));
+
+        timeBox.setPreferredSize(new Dimension(60, 24));
         gbc = new GridBagConstraints();
         gbc.gridx = 1; gbc.gridy = 0;
         gbc.insets = new Insets(10, 0, 5, 0);
         gbc.anchor = GridBagConstraints.WEST;
-        eventPanel.add(timeSpin, gbc);
+        eventPanel.add(timeBox, gbc);
+
+        monthDays.put("January", 31);
+        monthDays.put("February", 28);
+        monthDays.put("March", 31);
+        monthDays.put("April", 30);
+        monthDays.put("May", 31);
+        monthDays.put("June", 30);
+        monthDays.put("July", 31);
+        monthDays.put("August", 31);
+        monthDays.put("September", 30);
+        monthDays.put("October", 31);
+        monthDays.put("November", 30);
+        monthDays.put("December", 31);
+
+        lblMonth.setText(Local.getString("Month"));
+        lblMonth.setMinimumSize(new Dimension(60, 24));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0; gbc.gridy = 1;
+        gbc.insets = new Insets(10, 10, 5, 10);
+        gbc.anchor = GridBagConstraints.WEST;
+        eventPanel.add(lblMonth, gbc);
+        monthBox.setPreferredSize(new Dimension(80, 24));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1; gbc.gridy = 1;
+        gbc.insets = new Insets(10, 0, 5, 0);
+        gbc.anchor = GridBagConstraints.WEST;
+        eventPanel.add(monthBox, gbc);
+
+        monthBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String selectedMonth = (String) monthBox.getSelectedItem();
+                Integer days = monthDays.get(selectedMonth);
+
+                // Clear the dayComboBox
+                dateBox.removeAllItems();
+
+                // Add the appropriate number of days to the dayComboBox
+                for (int i = 1; i <= days; i++) {
+                    dateBox.addItem(i);
+                }
+            }
+        });
+
+        lblDate.setText(Local.getString("Date"));
+        lblDate.setMinimumSize(new Dimension(60, 24));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0; gbc.gridy = 2;
+        gbc.insets = new Insets(10, 10, 5, 10);
+        gbc.anchor = GridBagConstraints.WEST;
+        eventPanel.add(lblDate, gbc);
+        dateBox.setPreferredSize(new Dimension(60, 24));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1; gbc.gridy = 2;
+        gbc.insets = new Insets(10, 0, 5, 0);
+        gbc.anchor = GridBagConstraints.WEST;
+        eventPanel.add(dateBox, gbc);
+
+        lblRoom.setText(Local.getString("Time"));
+        lblRoom.setMinimumSize(new Dimension(60, 24));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0; gbc.gridy = 3;
+        gbc.insets = new Insets(10, 10, 5, 10);
+        gbc.anchor = GridBagConstraints.WEST;
+        eventPanel.add(lblRoom, gbc);
+        roomBox.setPreferredSize(new Dimension(60, 24));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1; gbc.gridy = 2;
+        gbc.insets = new Insets(10, 0, 5, 0);
+        gbc.anchor = GridBagConstraints.WEST;
+        eventPanel.add(roomBox, gbc);
+
         lblText.setText(Local.getString("Class Name"));
         lblText.setMinimumSize(new Dimension(120, 24));
         gbc = new GridBagConstraints();
-        gbc.gridx = 0; gbc.gridy = 1;
+        gbc.gridx = 0; gbc.gridy = 4;
         gbc.gridwidth = 3;
         gbc.insets = new Insets(5, 10, 5, 10);
         gbc.anchor = GridBagConstraints.WEST;
@@ -130,233 +215,241 @@ public class EventDialog extends JDialog implements WindowListener {
         textField.setMinimumSize(new Dimension(375, 24));
         textField.setPreferredSize(new Dimension(375, 24));
         gbc = new GridBagConstraints();
-        gbc.gridx = 0; gbc.gridy = 2;
+        gbc.gridx = 0; gbc.gridy = 5;
         gbc.gridwidth = 6;
         gbc.insets = new Insets(5, 10, 10, 10);
         gbc.anchor = GridBagConstraints.WEST;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         eventPanel.add(textField, gbc);
-        
-        // Build RepeatPanel
-        repeatBorder = new TitledBorder(BorderFactory.createLineBorder(
-        Color.gray, 1), Local.getString("Repeat"));
-        repeatPanel.setBorder(repeatBorder);
-        noRepeatRB.setMaximumSize(new Dimension(80, 35));
-        noRepeatRB.setSelected(true);
-        noRepeatRB.setText(Local.getString("No repeat"));
-        noRepeatRB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                noRepeatRB_actionPerformed(e);
-            }
-        });
-        gbc = new GridBagConstraints();
-        gbc.gridx = 0; gbc.gridy = 0;
-        gbc.gridwidth = 4;
-        gbc.insets = new Insets(5, 5, 5, 0);
-        gbc.anchor = GridBagConstraints.WEST;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        repeatPanel.add(noRepeatRB, gbc);
-        dailyRepeatRB.setActionCommand("daily");
-        dailyRepeatRB.setText(Local.getString("Every"));
-        dailyRepeatRB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                dailyRepeatRB_actionPerformed(e);
-            }
-        });
-        gbc = new GridBagConstraints();
-        gbc.gridx = 0; gbc.gridy = 1;
-        gbc.insets = new Insets(5, 5, 5, 0);
-        gbc.anchor = GridBagConstraints.WEST;
-        repeatPanel.add(dailyRepeatRB, gbc);
-        daySpin.setPreferredSize(new Dimension(50, 24));
-        gbc = new GridBagConstraints();
-        gbc.gridx = 1; gbc.gridy = 1;
-        gbc.insets = new Insets(5, 5, 5, 0);
-        gbc.anchor = GridBagConstraints.WEST;
-        repeatPanel.add(daySpin, gbc);
-        lblDays.setText(Local.getString("day(s)"));
-        gbc = new GridBagConstraints();
-        gbc.gridx = 2; gbc.gridy = 1;
-        gbc.gridwidth = 2;
-        gbc.insets = new Insets(5, 5, 5, 40);
-        gbc.anchor = GridBagConstraints.WEST;
-        repeatPanel.add(lblDays, gbc);
-        lblSince.setText(Local.getString("Since"));
-        lblSince.setMinimumSize(new Dimension(70, 16));
-        gbc = new GridBagConstraints();
-        gbc.gridx = 4; gbc.gridy = 1;
-        gbc.insets = new Insets(5, 0, 5, 5);
-        gbc.anchor = GridBagConstraints.EAST;
-        repeatPanel.add(lblSince, gbc);
-        startDate.addChangeListener(new ChangeListener() {
-            public void stateChanged(ChangeEvent e) {
-                if (ignoreStartChanged)
-                    return;
-                ignoreStartChanged = true;
-                Date sd = (Date) startDate.getModel().getValue();
-                Date ed = (Date) endDate.getModel().getValue();
-                // Commented out, value was resetted to endDate !!!
-                if (sd.after(ed)) {
-                  endDate.getModel().setValue(sd);
-                  ed = sd;
-                }
-                startCalFrame.cal.set(new CalendarDate(sd));
-                ignoreStartChanged = false;
-            }
-        });
-        startDate.setPreferredSize(new Dimension(80, 24));
-        
-        //Added by (jcscoobyrs) on 12-Nov-2003 at 15:34:27 PM
-		//---------------------------------------------------
-		SimpleDateFormat sdf = new SimpleDateFormat();
-		sdf = (SimpleDateFormat)DateFormat.getDateInstance(DateFormat.SHORT);
-        startDate.setEditor(new JSpinner.DateEditor(startDate, 
-        	sdf.toPattern()));
-        //---------------------------------------------------
-        gbc = new GridBagConstraints();
-        gbc.gridx = 5; gbc.gridy = 1;
-        gbc.insets = new Insets(5, 0, 5, 5);
-        gbc.anchor = GridBagConstraints.WEST;
-        repeatPanel.add(startDate, gbc);
-        setStartDateB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                setStartDateB_actionPerformed(e);
-            }
-        });
-        setStartDateB.setIcon(
-            new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/calendar.png")));
-        setStartDateB.setText("");
-        setStartDateB.setPreferredSize(new Dimension(24, 24));
 
+        lblError.setMinimumSize(new Dimension(1000, 24));
         gbc = new GridBagConstraints();
-        gbc.gridx = 6; gbc.gridy = 1;
-        gbc.insets = new Insets(5, 0, 5, 5);
+        gbc.gridx = 0; gbc.gridy = 7;
+        gbc.gridwidth = 3;
+        gbc.insets = new Insets(5, 10, 5, 10);
         gbc.anchor = GridBagConstraints.WEST;
-        repeatPanel.add(setStartDateB, gbc);
-        weeklyRepeatRB.setActionCommand("weekly");
-        weeklyRepeatRB.setText(Local.getString("Every"));
-        weeklyRepeatRB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                weeklyRepeatRB_actionPerformed(e);
-            }
-        });
-        gbc = new GridBagConstraints();
-        gbc.gridx = 0; gbc.gridy = 2;
-        gbc.insets = new Insets(5, 5, 5, 5);
-        gbc.anchor = GridBagConstraints.WEST;
-        repeatPanel.add(weeklyRepeatRB, gbc);
-        weekdaysCB.setPreferredSize(new Dimension(100, 25));
-        gbc = new GridBagConstraints();
-        gbc.gridx = 1; gbc.gridy = 2;
-        gbc.gridwidth = 2;
-        gbc.insets = new Insets(5, 0, 5, 40);
-        gbc.anchor = GridBagConstraints.WEST;
-        repeatPanel.add(weekdaysCB, gbc);
-        enableEndDateCB.setHorizontalAlignment(SwingConstants.RIGHT);
-        enableEndDateCB.setText(Local.getString("Till"));
-        enableEndDateCB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                enableEndDateCB_actionPerformed(e);
-            }
-        });
-        gbc = new GridBagConstraints();
-        gbc.gridx = 4; gbc.gridy = 2;
-        gbc.insets = new Insets(5, 0, 5, 5);
-        gbc.anchor = GridBagConstraints.EAST;
-        repeatPanel.add(enableEndDateCB, gbc);
-        endDate.setPreferredSize(new Dimension(80, 24));
-		//Added by (jcscoobyrs) on 12-Nov-2003 at 15:34:27 PM
-		//---------------------------------------------------
-		endDate.setEditor(new JSpinner.DateEditor(endDate, sdf.toPattern()));
-		//---------------------------------------------------
-        endDate.addChangeListener(new ChangeListener() {
-            public void stateChanged(ChangeEvent e) {
-                if (ignoreEndChanged)
-                    return;
-                ignoreEndChanged = true;
-                Date sd = (Date) startDate.getModel().getValue();
-                Date ed = (Date) endDate.getModel().getValue();
-                if (sd.after(ed)) {
-                    endDate.getModel().setValue(sd);
-                    ed = sd;
-                }
-                endCalFrame.cal.set(new CalendarDate(ed));
-                ignoreEndChanged = false;
-            }
-        });
-		// working days
-		workingDaysOnlyCB.setText(Local.getString("Working days only"));
-		workingDaysOnlyCB.setHorizontalAlignment(SwingConstants.RIGHT);
-		gbc = new GridBagConstraints();
-        gbc.gridx = 4; gbc.gridy = 3;
-		gbc.gridwidth = 2;
-        gbc.insets = new Insets(5, 0, 5, 5);
-        gbc.anchor = GridBagConstraints.EAST;
-		repeatPanel.add(workingDaysOnlyCB, gbc);
-		// -------------------------------------
-        gbc = new GridBagConstraints();
-        gbc.gridx = 5; gbc.gridy = 2;
-        gbc.insets = new Insets(5, 0, 5, 5);
-        gbc.anchor = GridBagConstraints.WEST;
-        repeatPanel.add(endDate, gbc);
-        setEndDateB.setMinimumSize(new Dimension(24, 24));
-        setEndDateB.setPreferredSize(new Dimension(24, 24));
-        setEndDateB.setText("");
-        setEndDateB.setIcon(
-            new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/calendar.png")));
-        setEndDateB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                setEndDateB_actionPerformed(e);
-            }
-        });
-        gbc = new GridBagConstraints();
-        gbc.gridx = 6; gbc.gridy = 2;
-        gbc.insets = new Insets(5, 0, 5, 5);
-        gbc.anchor = GridBagConstraints.WEST;
-        repeatPanel.add(setEndDateB, gbc);
-        monthlyRepeatRB.setActionCommand("daily");
-        monthlyRepeatRB.setText(Local.getString("Every"));
-        monthlyRepeatRB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                monthlyRepeatRB_actionPerformed(e);
-            }
-        });
-        gbc = new GridBagConstraints();
-        gbc.gridx = 0; gbc.gridy = 3;
-        gbc.insets = new Insets(5, 5, 5, 5);
-        gbc.anchor = GridBagConstraints.WEST;
-        repeatPanel.add(monthlyRepeatRB, gbc);
-        dayOfMonthSpin.setPreferredSize(new Dimension(50, 24));
-        gbc = new GridBagConstraints();
-        gbc.gridx = 1; gbc.gridy = 3;
-        gbc.insets = new Insets(5, 5, 5, 5);
-        gbc.anchor = GridBagConstraints.WEST;
-        repeatPanel.add(dayOfMonthSpin, gbc);
-        lblDoM.setText(Local.getString("day of month"));
-        gbc = new GridBagConstraints();
-        gbc.gridx = 2; gbc.gridy = 3;
-        gbc.insets = new Insets(5, 5, 5, 5);
-        gbc.anchor = GridBagConstraints.WEST;
-        repeatPanel.add(lblDoM, gbc);
-		yearlyRepeatRB.setActionCommand("yearly");
-		yearlyRepeatRB.setText(Local.getString("Yearly"));
-		yearlyRepeatRB.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				yearlyRepeatRB_actionPerformed(e);
-			}
-		});
-		gbc = new GridBagConstraints();
-		gbc.gridx = 0; gbc.gridy = 4;
-		gbc.gridwidth = 5;
-		gbc.insets = new Insets(5, 5, 5, 10);
-		gbc.anchor = GridBagConstraints.WEST;
-		repeatPanel.add(yearlyRepeatRB, gbc);
+        eventPanel.add(lblError, gbc);
         
-        repeatRBGroup.add(noRepeatRB);
-        repeatRBGroup.add(dailyRepeatRB);
-        repeatRBGroup.add(weeklyRepeatRB);
-        repeatRBGroup.add(monthlyRepeatRB);
-        repeatRBGroup.add(yearlyRepeatRB);
+//        // Build RepeatPanel
+//        repeatBorder = new TitledBorder(BorderFactory.createLineBorder(
+//        Color.gray, 1), Local.getString("Repeat"));
+//        repeatPanel.setBorder(repeatBorder);
+//        noRepeatRB.setMaximumSize(new Dimension(80, 35));
+//        noRepeatRB.setSelected(true);
+//        noRepeatRB.setText(Local.getString("No repeat"));
+//        noRepeatRB.addActionListener(new java.awt.event.ActionListener() {
+//            public void actionPerformed(ActionEvent e) {
+//                noRepeatRB_actionPerformed(e);
+//            }
+//        });
+//        gbc = new GridBagConstraints();
+//        gbc.gridx = 0; gbc.gridy = 0;
+//        gbc.gridwidth = 4;
+//        gbc.insets = new Insets(5, 5, 5, 0);
+//        gbc.anchor = GridBagConstraints.WEST;
+//        gbc.fill = GridBagConstraints.HORIZONTAL;
+//        repeatPanel.add(noRepeatRB, gbc);
+//        dailyRepeatRB.setActionCommand("daily");
+//        dailyRepeatRB.setText(Local.getString("Every"));
+//        dailyRepeatRB.addActionListener(new java.awt.event.ActionListener() {
+//            public void actionPerformed(ActionEvent e) {
+//                dailyRepeatRB_actionPerformed(e);
+//            }
+//        });
+//        gbc = new GridBagConstraints();
+//        gbc.gridx = 0; gbc.gridy = 1;
+//        gbc.insets = new Insets(5, 5, 5, 0);
+//        gbc.anchor = GridBagConstraints.WEST;
+//        repeatPanel.add(dailyRepeatRB, gbc);
+//        daySpin.setPreferredSize(new Dimension(50, 24));
+//        gbc = new GridBagConstraints();
+//        gbc.gridx = 1; gbc.gridy = 1;
+//        gbc.insets = new Insets(5, 5, 5, 0);
+//        gbc.anchor = GridBagConstraints.WEST;
+//        repeatPanel.add(daySpin, gbc);
+//        lblDays.setText(Local.getString("day(s)"));
+//        gbc = new GridBagConstraints();
+//        gbc.gridx = 2; gbc.gridy = 1;
+//        gbc.gridwidth = 2;
+//        gbc.insets = new Insets(5, 5, 5, 40);
+//        gbc.anchor = GridBagConstraints.WEST;
+//        repeatPanel.add(lblDays, gbc);
+//        lblSince.setText(Local.getString("Since"));
+//        lblSince.setMinimumSize(new Dimension(70, 16));
+//        gbc = new GridBagConstraints();
+//        gbc.gridx = 4; gbc.gridy = 1;
+//        gbc.insets = new Insets(5, 0, 5, 5);
+//        gbc.anchor = GridBagConstraints.EAST;
+//        repeatPanel.add(lblSince, gbc);
+//        startDate.addChangeListener(new ChangeListener() {
+//            public void stateChanged(ChangeEvent e) {
+//                if (ignoreStartChanged)
+//                    return;
+//                ignoreStartChanged = true;
+//                Date sd = (Date) startDate.getModel().getValue();
+//                Date ed = (Date) endDate.getModel().getValue();
+//                // Commented out, value was resetted to endDate !!!
+//                if (sd.after(ed)) {
+//                  endDate.getModel().setValue(sd);
+//                  ed = sd;
+//                }
+//                startCalFrame.cal.set(new CalendarDate(sd));
+//                ignoreStartChanged = false;
+//            }
+//        });
+//        startDate.setPreferredSize(new Dimension(80, 24));
+//
+//        //Added by (jcscoobyrs) on 12-Nov-2003 at 15:34:27 PM
+//		//---------------------------------------------------
+//		SimpleDateFormat sdf = new SimpleDateFormat();
+//		sdf = (SimpleDateFormat)DateFormat.getDateInstance(DateFormat.SHORT);
+//        startDate.setEditor(new JSpinner.DateEditor(startDate,
+//        	sdf.toPattern()));
+//        //---------------------------------------------------
+//        gbc = new GridBagConstraints();
+//        gbc.gridx = 5; gbc.gridy = 1;
+//        gbc.insets = new Insets(5, 0, 5, 5);
+//        gbc.anchor = GridBagConstraints.WEST;
+//        repeatPanel.add(startDate, gbc);
+//        setStartDateB.addActionListener(new java.awt.event.ActionListener() {
+//            public void actionPerformed(ActionEvent e) {
+//                setStartDateB_actionPerformed(e);
+//            }
+//        });
+//        setStartDateB.setIcon(
+//            new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/calendar.png")));
+//        setStartDateB.setText("");
+//        setStartDateB.setPreferredSize(new Dimension(24, 24));
+//
+//        gbc = new GridBagConstraints();
+//        gbc.gridx = 6; gbc.gridy = 1;
+//        gbc.insets = new Insets(5, 0, 5, 5);
+//        gbc.anchor = GridBagConstraints.WEST;
+//        repeatPanel.add(setStartDateB, gbc);
+//        weeklyRepeatRB.setActionCommand("weekly");
+//        weeklyRepeatRB.setText(Local.getString("Every"));
+//        weeklyRepeatRB.addActionListener(new java.awt.event.ActionListener() {
+//            public void actionPerformed(ActionEvent e) {
+//                weeklyRepeatRB_actionPerformed(e);
+//            }
+//        });
+//        gbc = new GridBagConstraints();
+//        gbc.gridx = 0; gbc.gridy = 2;
+//        gbc.insets = new Insets(5, 5, 5, 5);
+//        gbc.anchor = GridBagConstraints.WEST;
+//        repeatPanel.add(weeklyRepeatRB, gbc);
+//        weekdaysCB.setPreferredSize(new Dimension(100, 25));
+//        gbc = new GridBagConstraints();
+//        gbc.gridx = 1; gbc.gridy = 2;
+//        gbc.gridwidth = 2;
+//        gbc.insets = new Insets(5, 0, 5, 40);
+//        gbc.anchor = GridBagConstraints.WEST;
+//        repeatPanel.add(weekdaysCB, gbc);
+//        enableEndDateCB.setHorizontalAlignment(SwingConstants.RIGHT);
+//        enableEndDateCB.setText(Local.getString("Till"));
+//        enableEndDateCB.addActionListener(new java.awt.event.ActionListener() {
+//            public void actionPerformed(ActionEvent e) {
+//                enableEndDateCB_actionPerformed(e);
+//            }
+//        });
+//        gbc = new GridBagConstraints();
+//        gbc.gridx = 4; gbc.gridy = 2;
+//        gbc.insets = new Insets(5, 0, 5, 5);
+//        gbc.anchor = GridBagConstraints.EAST;
+//        repeatPanel.add(enableEndDateCB, gbc);
+//        endDate.setPreferredSize(new Dimension(80, 24));
+//		//Added by (jcscoobyrs) on 12-Nov-2003 at 15:34:27 PM
+//		//---------------------------------------------------
+//		endDate.setEditor(new JSpinner.DateEditor(endDate, sdf.toPattern()));
+//		//---------------------------------------------------
+//        endDate.addChangeListener(new ChangeListener() {
+//            public void stateChanged(ChangeEvent e) {
+//                if (ignoreEndChanged)
+//                    return;
+//                ignoreEndChanged = true;
+//                Date sd = (Date) startDate.getModel().getValue();
+//                Date ed = (Date) endDate.getModel().getValue();
+//                if (sd.after(ed)) {
+//                    endDate.getModel().setValue(sd);
+//                    ed = sd;
+//                }
+//                endCalFrame.cal.set(new CalendarDate(ed));
+//                ignoreEndChanged = false;
+//            }
+//        });
+//		// working days
+//		workingDaysOnlyCB.setText(Local.getString("Working days only"));
+//		workingDaysOnlyCB.setHorizontalAlignment(SwingConstants.RIGHT);
+//		gbc = new GridBagConstraints();
+//        gbc.gridx = 4; gbc.gridy = 3;
+//		gbc.gridwidth = 2;
+//        gbc.insets = new Insets(5, 0, 5, 5);
+//        gbc.anchor = GridBagConstraints.EAST;
+//		repeatPanel.add(workingDaysOnlyCB, gbc);
+//		// -------------------------------------
+//        gbc = new GridBagConstraints();
+//        gbc.gridx = 5; gbc.gridy = 2;
+//        gbc.insets = new Insets(5, 0, 5, 5);
+//        gbc.anchor = GridBagConstraints.WEST;
+//        repeatPanel.add(endDate, gbc);
+//        setEndDateB.setMinimumSize(new Dimension(24, 24));
+//        setEndDateB.setPreferredSize(new Dimension(24, 24));
+//        setEndDateB.setText("");
+//        setEndDateB.setIcon(
+//            new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/calendar.png")));
+//        setEndDateB.addActionListener(new java.awt.event.ActionListener() {
+//            public void actionPerformed(ActionEvent e) {
+//                setEndDateB_actionPerformed(e);
+//            }
+//        });
+//        gbc = new GridBagConstraints();
+//        gbc.gridx = 6; gbc.gridy = 2;
+//        gbc.insets = new Insets(5, 0, 5, 5);
+//        gbc.anchor = GridBagConstraints.WEST;
+//        repeatPanel.add(setEndDateB, gbc);
+//        monthlyRepeatRB.setActionCommand("daily");
+//        monthlyRepeatRB.setText(Local.getString("Every"));
+//        monthlyRepeatRB.addActionListener(new java.awt.event.ActionListener() {
+//            public void actionPerformed(ActionEvent e) {
+//                monthlyRepeatRB_actionPerformed(e);
+//            }
+//        });
+//        gbc = new GridBagConstraints();
+//        gbc.gridx = 0; gbc.gridy = 3;
+//        gbc.insets = new Insets(5, 5, 5, 5);
+//        gbc.anchor = GridBagConstraints.WEST;
+//        repeatPanel.add(monthlyRepeatRB, gbc);
+//        dayOfMonthSpin.setPreferredSize(new Dimension(50, 24));
+//        gbc = new GridBagConstraints();
+//        gbc.gridx = 1; gbc.gridy = 3;
+//        gbc.insets = new Insets(5, 5, 5, 5);
+//        gbc.anchor = GridBagConstraints.WEST;
+//        repeatPanel.add(dayOfMonthSpin, gbc);
+//        lblDoM.setText(Local.getString("day of month"));
+//        gbc = new GridBagConstraints();
+//        gbc.gridx = 2; gbc.gridy = 3;
+//        gbc.insets = new Insets(5, 5, 5, 5);
+//        gbc.anchor = GridBagConstraints.WEST;
+//        repeatPanel.add(lblDoM, gbc);
+//		yearlyRepeatRB.setActionCommand("yearly");
+//		yearlyRepeatRB.setText(Local.getString("Yearly"));
+//		yearlyRepeatRB.addActionListener(new java.awt.event.ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				yearlyRepeatRB_actionPerformed(e);
+//			}
+//		});
+//		gbc = new GridBagConstraints();
+//		gbc.gridx = 0; gbc.gridy = 4;
+//		gbc.gridwidth = 5;
+//		gbc.insets = new Insets(5, 5, 5, 10);
+//		gbc.anchor = GridBagConstraints.WEST;
+//		repeatPanel.add(yearlyRepeatRB, gbc);
+//
+//        repeatRBGroup.add(noRepeatRB);
+//        repeatRBGroup.add(dailyRepeatRB);
+//        repeatRBGroup.add(weeklyRepeatRB);
+//        repeatRBGroup.add(monthlyRepeatRB);
+//        repeatRBGroup.add(yearlyRepeatRB);
         
         // Build ButtonsPanel
         okB.setMaximumSize(new Dimension(100, 26));
@@ -405,7 +498,7 @@ public class EventDialog extends JDialog implements WindowListener {
         });
         disableElements();
         ((JSpinner.DateEditor) timeSpin.getEditor()).getFormat().applyPattern("HH:mm");
-        enableEndDateCB_actionPerformed(null);
+        //enableEndDateCB_actionPerformed(null);
         
     }
 
@@ -475,6 +568,11 @@ public class EventDialog extends JDialog implements WindowListener {
     }
 
     void okB_actionPerformed(ActionEvent e) {
+        hh = Integer.parseInt(((String) timeBox.getSelectedItem()).substring(0, 2));
+        date = (int) dateBox.getSelectedItem();
+        month = monthBox.getSelectedIndex() + 1;
+        room = roomBox.getSelectedIndex() + 1;
+
         this.dispose();
     }
 

@@ -8,6 +8,7 @@
  */
 package main.java.memoranda;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -32,6 +33,32 @@ public class EventImpl implements Event, Comparable {
         _elem = elem;
     }
 
+//    public EventImpl(String lessonIDnum, String name, String startTime, String endTime, String month, String date, ArrayList<Integer> instructorIDs, ArrayList<Integer> studentIDs, String privateFlag) {
+//        Element _elem = null;
+//
+//        _elem.addAttribute(new Attribute("id", lessonIDnum));
+//        _elem.addAttribute(new Attribute("startTime", startTime));
+//        _elem.addAttribute(new Attribute("endTime", endtime));
+//        _elem.addAttribute(new Attribute("month", month));
+//        _elem.addAttribute(new Attribute("date", date));
+//        _elem.addAttribute(new Attribute("name", name));
+//        _elem.addAttribute(new Attribute("name", name));
+//        _elem.addAttribute(new Attribute("name", name));
+//        _elem.addAttribute(new Attribute("name", name));
+//
+//    }
+
+//    public Lesson(int newLessonIDnum, String name, int lessonStartTime, int lessonEndTime, int month, int date, ArrayList<Integer> instructorIDs, ArrayList<Integer> studentIDs, int privateFlag) {
+//        this.lessonIDnum = newLessonIDnum;
+//        this.name = name;
+//        this.lessonStartTime = lessonStartTime;
+//        this.lessonEndTime = lessonEndTime;
+//        this.month = month;
+//        this.date = date;
+//        this.instructorIDs = instructorIDs;
+//        this.studentIDs = studentIDs;
+//        this.privateFlag = privateFlag;
+//    }
    
     /**
      * @see main.java.memoranda.Event#getHour()

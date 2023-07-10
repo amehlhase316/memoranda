@@ -39,7 +39,7 @@ public class WorkPanel extends JPanel {
 
 	public JButton notesB = new JButton();
 	public DailyItemsPanel dailyItemsPanel = new DailyItemsPanel(this);
-	public AdminPanel adminPanel = new AdminPanel();
+	public AdminPanel adminPanel = new AdminPanel(dailyItemsPanel);
 
 	public JButton homeB = new JButton(); //Used to be Agenda
 	public JButton signUpB = new JButton(); //Used to be Tasks
