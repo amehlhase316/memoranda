@@ -36,8 +36,6 @@ public class WorkPanel extends JPanel {
 	JToolBar toolBar = new JToolBar();
 	JPanel panel = new JPanel();
 	CardLayout cardLayout1 = new CardLayout();
-
-	public JButton notesB = new JButton();
 	public DailyItemsPanel dailyItemsPanel = new DailyItemsPanel(this);
 	public AdminPanel adminPanel = new AdminPanel(dailyItemsPanel);
 
@@ -154,33 +152,6 @@ public class WorkPanel extends JPanel {
 		signUpB.setMaximumSize(new Dimension(60, 80));
 		signUpB.setBackground(Color.white);
 
-		notesB.setFont(new java.awt.Font("Dialog", 1, 10));
-		notesB.setBackground(Color.white);
-		notesB.setBorder(null);
-		notesB.setMaximumSize(new Dimension(60, 80));
-		notesB.setMinimumSize(new Dimension(30, 30));
-		notesB.setOpaque(false);
-		notesB.setPreferredSize(new Dimension(60, 50));
-		notesB.setBorderPainted(false);
-		notesB.setContentAreaFilled(false);
-		notesB.setFocusPainted(false);
-		notesB.setHorizontalTextPosition(SwingConstants.CENTER);
-		notesB.setText(Local.getString("Notes"));
-		notesB.setVerticalAlignment(SwingConstants.TOP);
-		notesB.setVerticalTextPosition(SwingConstants.BOTTOM);
-		notesB.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				notesB_actionPerformed(e);
-			}
-		});
-		notesB.setIcon(
-			new ImageIcon(
-				main.java.memoranda.ui.AppFrame.class.getResource(
-					"/ui/icons/rhrNotesIcon.png")));
-		notesB.setMargin(new Insets(0, 0, 0, 0));
-		notesB.setSelected(true);
-		this.setPreferredSize(new Dimension(1073, 300));
-
 		adminB.setSelected(true);
 		adminB.setMargin(new Insets(0, 0, 0, 0));
 		adminB.setIcon(
@@ -215,8 +186,7 @@ public class WorkPanel extends JPanel {
 
 		panel.add(adminPanel, "FILES");
 		toolBar.add(homeB, null); 
-		toolBar.add(signUpB, null); 
-		toolBar.add(notesB, null);
+		toolBar.add(signUpB, null);
 	    toolBar.add(trainerB, null); 
 		toolBar.add(adminB, null);
 		currentB = homeB;
@@ -233,9 +203,7 @@ public class WorkPanel extends JPanel {
 
 	public void selectPanel(String pan) {
 		if (pan != null) {
-			if (pan.equals("NOTES"))
-				notesB_actionPerformed(null);
-			else if (pan.equals("TASKS"))
+			if (pan.equals("TASKS"))
 				signUpB_actionPerformed(null);
 			else if (pan.equals("EVENTS"))
 				trainerB_actionPerformed(null);
@@ -250,14 +218,6 @@ public class WorkPanel extends JPanel {
 		setCurrentButton(homeB);
 		Context.put("CURRENT_PANEL", "AGENDA");
 	}
-
-	public void notesB_actionPerformed(ActionEvent e) {
-		cardLayout1.show(panel, "DAILYITEMS");
-		dailyItemsPanel.selectPanel("NOTES");
-		setCurrentButton(notesB);
-		Context.put("CURRENT_PANEL", "NOTES");
-	}
-
 	public void signUpB_actionPerformed(ActionEvent e) {
 		cardLayout1.show(panel, "DAILYITEMS");
 		dailyItemsPanel.selectPanel("TASKS");
