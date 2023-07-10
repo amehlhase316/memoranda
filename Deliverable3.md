@@ -175,7 +175,8 @@ Answer as a team!
  #### Abdullah Younes:
   **Links to GitHub commits with main code contribution (up to 5 links) - all Sprints:
 
-    - 
+    - https://github.com/sjgarc20/TheFloorIsJava-Memoranda/tree/us44task77
+    - https://github.com/sjgarc20/TheFloorIsJava-Memoranda/tree/us43task63
 
    **GitHub links to your Unit Tests (up to 3 links) -- Sprint 2 and 3:
 
