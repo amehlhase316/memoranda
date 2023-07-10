@@ -1,4 +1,10 @@
+plugins {
+     id "com.github.spotbugs" version "4.5.1"
+     id "checkstyle"
+}
+
 apply plugin: 'application'
+apply plugin: 'jacoco'
 
 mainClassName = 'main/java/memoranda/Start'
 
@@ -23,5 +29,39 @@ dependencies {
   // https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple
   implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
   implementation 'com.google.code.gson:gson:2.9.1'
+  compile files('cls/')
 }
 
+test {
+
+}
+
+apply plugin: 'checkstyle'
+checkstyle {
+// Keep checkstyle a little quieter
+ignoreFailures = true
+showViolations = false
+}
+
+tasks.withType(Checkstyle) {
+reports {
+ html.enabled = true
+ xml.enabled = false
+}
+}
+checkstyle {
+ toolVersion = "8.8"
+}
+
+spotbugsMain {
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
+}
+spotbugs {
+    toolVersion = '4.0.0-beta4'
+    ignoreFailures = true
+    showProgress = true
+    effort = 'max'
+}
