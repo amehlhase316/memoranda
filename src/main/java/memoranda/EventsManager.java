@@ -20,7 +20,7 @@ import main.java.memoranda.util.Util;
 import java.util.Map;
 import java.util.Collections;
 
-import memoranda.LessonList;
+import main.java.memoranda.LessonList;
 import nu.xom.Attribute;
 //import nu.xom.Comment;
 import nu.xom.Document;

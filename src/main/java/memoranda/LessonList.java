@@ -1,4 +1,4 @@
-package memoranda;
+package main.java.memoranda;
 
 import nu.xom.Attribute;
 import nu.xom.Element;
