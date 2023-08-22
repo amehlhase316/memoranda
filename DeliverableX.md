@@ -140,7 +140,7 @@ Answer as a team!
 
     - info
   
-## 4: Checklist for you to see if you are done
+## 4: Checklist for you to see if you are done (optional just a reminder)
 - [ ] Filled out the complete form from above, all fields are filled and written in full sentences
 - [ ] Read the kickoff again to make sure you have all the details
 - [ ] User Stories that were not completed, were left in the Sprint and a copy created
