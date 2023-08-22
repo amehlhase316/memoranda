@@ -11,10 +11,10 @@
 **Unit Tests Blackbox** (start in Sprint 2)
   > Your Blackbox testing policy 
 
- **Unit Tests Whitebox** (online: start in Sprint 2 once the topic was covered, campus: start in Sprint 3)
+ **Unit Tests Whitebox** (online: start in Sprint 2, campus: start in Sprint 3)
   > Your Whitebox testing policy 
 
-**Code Review** (online: start in Sprint 2 once the topic was covered, campus: start Sprint 3)
+**Code Review** (online: start in Sprint 2, campus: start Sprint 3)
   > Your Code Review policy   
 
   > Include a checklist/questions list which every developer will need to fill out/answe when creating a Pull Request to the Dev branch. 
