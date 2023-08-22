@@ -5,6 +5,9 @@
 **GitHub Workflow** (start in Sprint 1)
   > Your Workflow
 
+**Simple Code Review** (start in Sprint 1)
+  > A simple policy what you will review in a PullRequest, this can still be a simple review since we did not cover Code Reviews in detail yet. 
+
 **Unit Tests Blackbox** (start in Sprint 2)
   > Your Blackbox testing policy 
 
