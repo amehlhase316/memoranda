@@ -14,3 +14,13 @@ dependencies {
   implementation 'net.sourceforge.nekohtml:nekohtml:1.9.+'
 }
 
+// Adding a task
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'main/java/memoranda/Start'
+    }
+    archiveBaseName = 'jagoodin_memoranda'
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
