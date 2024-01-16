@@ -30,6 +30,8 @@ import main.java.memoranda.util.Local;
 /*$Id: JNCalendar.java,v 1.8 2004/11/05 07:38:10 pbielen Exp $*/
 public class JNCalendar extends JTable {
 
+	private static final int FIRST_DAY_OFFSET_FOR_SUNDAY = 1;
+        private static final int FIRST_DAY_OFFSET_FOR_MONDAY = 2;
 	private CalendarDate _date = null;
 	private boolean ignoreChange = false;
 	private Vector selectionListeners = new Vector();
@@ -168,13 +170,13 @@ public class JNCalendar extends JTable {
 	int daysInMonth;
 
 	void setCalendarParameters() {
-		int d = 1;
+		int d = FIRST_DAY_OFFSET_FOR_SUNDAY;
 
 		Calendar cal = _date.getCalendar();
 
 		if (Configuration.get("FIRST_DAY_OF_WEEK").equals("mon")) {
 			cal.setFirstDayOfWeek(Calendar.MONDAY);
-			d = 2;
+			d = FIRST_DAY_OFFSET_FOR_MONDAY;
 		} else
 			cal.setFirstDayOfWeek(Calendar.SUNDAY);
 
