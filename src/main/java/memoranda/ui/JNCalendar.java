@@ -214,7 +214,7 @@ public class JNCalendarModel extends AbstractTableModel {
 		}
 
 		public String getColumnName(int col) {
-			return dayNames[col];
+			return Local.getDayName(col + 1);
 		}
 
 	}
