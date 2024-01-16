@@ -36,7 +36,7 @@ public class JNCalendar extends JTable {
 	CalendarDate startPeriod = null;
 	CalendarDate endPeriod = null;
 	public JNCalendarCellRenderer renderer = new JNCalendarCellRenderer();
-
+	private Map<Integer, CalendarDate> dateCache = new HashMap<>();
 	public JNCalendar() {
 		this(CurrentDate.get());
 	}
@@ -131,20 +131,18 @@ public class JNCalendar extends JTable {
 
 	public TableCellRenderer getCellRenderer(int row, int column) {
 		Object d = this.getModel().getValueAt(row, column);
+		CalendarDate date = null;
 		/*
 		 * if (d != null) return new JNCalendarCellRenderer( new
 		 * CalendarDate(new Integer(d.toString()).intValue(), _date.getMonth(),
 		 * _date.getYear()));
 		 */
 		if (d != null)
-			renderer.setDate(
-				new CalendarDate(
-					new Integer(d.toString()).intValue(),
-					_date.getMonth(),
-					_date.getYear()));
-		else
-			renderer.setDate(null);
-		return renderer;
+			Integer day = new Integer(d.toString());
+			date = dateCache.computeIfAbsent(day, k -> new CalendarDate(day, _date.getMonth(), _date.getYear()));
+	}
+		renderer.setDate(date);
+                return renderer;
 	}
 
 	void doSelection() {
